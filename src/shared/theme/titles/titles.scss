@@ -1,0 +1,75 @@
+@import '../constants';
+.title1{
+  font-family: $fontB;
+  text-align: center;
+  color: $blue;
+  font-size: 25px;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid $gold;
+}
+.title2{
+  font-family: $fontB;
+  color: $gold;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 25px;
+  &::after{
+    content: " ";
+    background-color: $gold;
+    height: 1px;
+    width: 330px;
+    display: block;
+    margin: 25px auto 0;
+  }
+}
+.title4{
+  color: $gold;
+  letter-spacing: 8px;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: $fontB;
+}
+.title5{
+  font-family: $fontB;
+  color: $blue;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 25px;
+  letter-spacing: 12px;
+  &::after{
+    content: " ";
+    background-color: $gold;
+    height: 1px;
+    width: 330px;
+    display: block;
+    margin: 25px auto 0;
+  }
+}
+.title6{
+  font-family: $fontB;
+  color: $gold;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+.title3{
+  color: $white;
+  font-size: 40px;
+  font-family: $fontB;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+.title7{
+  color: $darkGray;
+  font-size: 25px;
+  font-family: $fontA;
+  font-weight: 700;
+}
+.title8{
+  color: $gold;
+  font-size: 15px;
+  text-align: center;
+  font-family: $fontB;
+  letter-spacing: 4px;
+}

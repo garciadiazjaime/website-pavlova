@@ -1,0 +1,43 @@
+@import '../../../../theme/constants';
+@import '../../../../theme/buttons/buttons';
+@import '../../../../theme/titles/titles';
+
+.item{
+	background-size: cover;
+}
+.logo{
+	width: 65px;
+	height: 71px;
+	display: block;
+	margin: 0 auto 50px;
+}
+
+.mainTitle{
+	@extend .title3;
+	text-align: center;
+}
+.vCenter{
+	width: 100%;
+}
+.title3{
+	margin-bottom: 50px;
+}
+.button2{
+	margin: 0 auto;
+}
+
+.base{
+	background: none;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+ .heightFix{
+ 	min-height: 619px;
+ }
+
+// --- Responsive
+@media #{$isPhone}{
+  .title{
+    font-size: 25px;
+  }
+}

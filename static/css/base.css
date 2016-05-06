@@ -1,0 +1,21 @@
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+*:focus {outline:0px none transparent;}
+
+.container-fluid{
+	max-width: 1024px;
+}
+
+img{
+  max-width: 100%;
+}
+
+#app{
+	overflow: hidden;
+}

@@ -1,0 +1,31 @@
+@import '../../../../../theme/constants.scss';
+@import '../../../../../theme/images/images';
+@import '../../../../../theme/paragraphs/paragraphs';
+@import '../../../../../theme/buttons/buttons';
+@import '../../../../../theme/titles/titles';
+
+.submit{
+  @extend .button1;
+  margin: 25px 0 100px;
+}
+.form{
+  margin-left: 0;
+  margin-right: 0;
+}
+.formGroup{
+  margin-left: 0!important;
+  margin-right: 0!important;
+  color: #bbbdbf;
+  border-bottom: 1px solid #bbbdbf;
+  input, label {
+    border: none;
+    color: inherit;
+    display: inline-block;
+    text-align: left!important;
+    font-style: italic;
+    font-family: $fontA!important;
+    font-weight: 400;
+    padding-left: 0;
+
+  }
+}

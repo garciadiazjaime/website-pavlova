@@ -1,0 +1,35 @@
+@import '../../../../theme/constants.scss';
+@import '../../../../theme/images/images';
+@import '../../../../theme/paragraphs/paragraphs';
+@import '../../../../theme/buttons/buttons';
+@import '../../../../theme/titles/titles';
+
+.title{
+  @extend .title6;
+  text-align: left;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  position: relative;
+  letter-spacing: 5px;
+}
+.paragraph{
+  @extend .paragraph5;
+  position: relative;
+  padding-left: 45px;
+}
+.gmap{
+  @extend .button3;
+  margin-bottom: 25px;
+  display: block;
+  padding-left: 45px;
+}
+.svg{
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+}
+@media #{$isPhone}{
+  .title{
+		font-size: 30px;
+	}
+}

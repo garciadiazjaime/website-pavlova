@@ -1,0 +1,74 @@
+@import '../constants';
+.sideSwipe{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  transition:         0.08s ease-in;
+  -o-transition:      0.08s ease-in;
+  -ms-transition:     0.08s ease-in;
+  -moz-transition:    0.08s ease-in;
+  -webkit-transition: 0.08s ease-in;
+  &:hover{
+    &::before{
+      right: 0;
+    }
+  }
+  &::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    top: 0;
+    z-index: -1;
+    -webkit-transition: right 0.2s ease-in;
+  }
+}
+
+.button1{
+  @extend .sideSwipe;
+  background-color: $blue;
+  font-family: $fontB;
+  color: $white;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 15px 0;
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  &:hover{
+    color: $white;
+  }
+  &::before{
+    background: $gold;
+  }
+}
+
+.button2{
+  @extend .sideSwipe;
+  border: 1px solid $white;
+  color: $white;
+  font-family: $fontB;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 15px 0;
+  width: 166px;
+  text-align: center;
+  display: block;
+  &:hover{
+    color: $blue;
+  }
+  &::before{
+    background: $white;
+  }
+}
+.button3{
+  color: $gold;
+  font-size: 15px;
+  font-family: $fontA;
+  line-height: 30px;
+  font-weight: 600;
+  &:hover{
+    color: $blue;
+  }
+}

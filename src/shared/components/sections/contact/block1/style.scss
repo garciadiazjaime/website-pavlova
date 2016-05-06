@@ -1,0 +1,14 @@
+@import '../../../../theme/constants.scss';
+@import '../../../../theme/images/images';
+@import '../../../../theme/paragraphs/paragraphs';
+@import '../../../../theme/buttons/buttons';
+@import '../../../../theme/titles/titles';
+
+.image {
+  width: 100%;
+}
+.button {
+  @extend .button1;
+  width: 100%;
+  letter-spacing: 3px;
+}

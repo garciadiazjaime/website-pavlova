@@ -1,0 +1,21 @@
+@import './helpers';
+@import './mixins';
+@import './sprite';
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,600,700');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
+$white: #fff;
+$black: #000;
+$darkGray: #414042;
+$gray: #bbbdbf;
+$blue: #021A2D;
+$gold: #CBA764;
+$salmon: #FFB69F;
+
+$fontA: 'Open Sans', sans-serif;
+$fontB: 'Questrial', sans-serif;
+
+$isLaptop: "only screen and (min-width: 1024px)";
+$isTablet: "only screen and (min-width: 768px) and (max-width: 1023px)";
+$isPhone: "only screen and (max-width: 767px)";

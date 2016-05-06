@@ -1,0 +1,38 @@
+@import '../constants';
+.paragraph1{
+  font-size: 25px;
+  font-family: $fontA;
+  color: $darkGray;
+  font-weight: 300;
+  margin-bottom: 100px;
+  text-align: center;
+}
+.paragraph2{
+  font-family: $fontA;
+  font-weight: 300;
+  font-size: 15px;
+  color: $darkGray;
+  line-height: 30px;
+}
+.paragraph3{
+  font-size: 15px;
+  color: $white;
+  line-height: 30px;
+  font-family: $fontA;
+  font-weight: 300;
+}
+.paragraph4{
+  color: $darkGray;
+  font-size: 15px;
+  font-family: $fontB;
+  line-height: 25px;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+.paragraph5{
+  color: $darkGray;
+  font-size: 15px;
+  font-family: $fontA;
+  line-height: 30px;
+  font-weight: 600;
+}

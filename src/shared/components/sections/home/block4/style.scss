@@ -1,15 +1,10 @@
-@import '../../../../theme/wrappers/wrappers';
-@import '../../../../theme/titles/titles';
-@import '../../../../theme/buttons/buttons';
 @import '../../../../theme/constants.scss';
-.mainTitle{
-  @extend .title3;
-  margin-top: 375px;
-  letter-spacing: 8px;
-}
+@import '../../../../theme/wrappers/wrappers';
+@import '../../../../theme/buttons/buttons';
+@import '../../../../theme/titles/titles';
+@import '../../../../theme/images/images';
+@import '../../../../theme/paragraphs/paragraphs';
 
-@media #{$isPhone}{
-  .mainTitle{
-		margin-top: 300px;
-	}
+.image{
+  @extend .image1;
 }

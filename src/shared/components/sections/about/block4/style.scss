@@ -1,26 +1,30 @@
-@import '../../../../theme/constants.scss';
-@import '../../../../theme/images/images';
-@import '../../../../theme/wrappers/wrappers';
-@import '../../../../theme/paragraphs/paragraphs';
+@import '../../../../theme/constants';
 @import '../../../../theme/buttons/buttons';
 @import '../../../../theme/titles/titles';
+@import '../../../../theme/paragraphs/paragraphs';
+
+// ---- main slider
+.mainbanner{
+	height: 619px;
+	padding-top: 220px;
+	background-size: cover;
+}
+.title3{
+	text-align: center;
+	margin-bottom: 50px;
+	letter-spacing: 11px;
+}
+.paragraph3{
+	text-align: center;
+	margin-bottom: 50px;
+}
 .svg{
-  display: block;
-  margin: 0 auto 50px;
+	display: block;
+	margin: 0 auto;
 }
-.title4{
-  text-align: center;
-  margin-bottom: 25px;
-}
-.paragraph2{
-  text-align: center;
-  margin-bottom: 100px;
-}
+// --- Responsive
 @media #{$isPhone}{
-  .title5{
+  .title3{
 		font-size: 30px;
-    &::after{
-      width: 100%;
-    }
 	}
 }

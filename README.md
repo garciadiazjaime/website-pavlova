@@ -25,7 +25,7 @@ Deploy project
 `npm run deploy`
 
 Login rch
-setup -l setup email
+rhc -l setup email
 
 Remove Cartridge
 http://stackoverflow.com/questions/31323791/how-do-you-delete-a-database-cartridge-on-an-openshift-app
@@ -36,6 +36,8 @@ rhc env set DB_USER=value -a app
 rhc env set DB_PASSWORD=value -a app
 rhc env set DJANGO_SETTINGS_MODULE=settings.prod -a app
 rhc env set SENDGRID_API_KEY=value -a app
+rhc env set NPM_CONFIG_PRODUCTION=true -a app
+rhc env set API_URL=value -a app
 
 Checking Envs
 rhc env list -a app

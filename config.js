@@ -28,7 +28,7 @@ var config = convict({
     doc: 'API URL',
     format: String,
     default: '',
-    env: 'API_PAVLOVA'
+    env: 'API_URL'
   },
 });
 

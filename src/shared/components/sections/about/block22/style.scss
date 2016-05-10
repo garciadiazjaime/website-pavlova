@@ -5,6 +5,22 @@
 @import '../../../../theme/images/images';
 @import '../../../../theme/paragraphs/paragraphs';
 
+.commitment{
+  margin: 100px 0;
+}
+.svg{
+  margin-bottom: 50px;
+}
+.title7{
+  line-height: 30px;
+  font-size:15px;
+}
+.paragraph2{
+  margin-bottom: 50px;
+}
+.button1{
+  margin-left: 0;
+}
 .image{
-  @extend .image1;
+  @extend .image1;  
 }

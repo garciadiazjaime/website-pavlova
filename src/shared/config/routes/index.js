@@ -15,6 +15,7 @@ export default(
     <Route path="/" component={items.component}>
       <IndexRoute component={items.default} />
       {routes}
+      <Route path="escuela/:showListItem" component={items.showListItem} />
     </Route>
   </Router>
 );

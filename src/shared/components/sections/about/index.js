@@ -1,37 +1,45 @@
-/* eslint max-len: [2, 500, 4] */
 import React from 'react';
 import _ from 'lodash';
 
 import Block1 from './block1';
 import Block2 from './block2';
-import Block3 from '../home/block3';
+import Block3 from './block3';
 import Block4 from './block4';
-const style = require('./style.scss');
+import Block5 from './block3';
+import Block6 from './block6';
+import Block7 from './block7';
+import Block8 from './block8';
+import dataStaff from './data';
+// const style = require('./style.scss');
 
 
 export default class AboutSection extends React.Component {
 
   render() {
-    const { block1, block2, block3, block4 } = this.props.data;
-    const block3Styles = {
-      title1: style.title5,
-      paragraph1: style.paragraph4,
+    const { params, data } = this.props;
+    const { block1, block2, block3, block4, block5, block7, block8 } = data;
+    const { showListItem } = params;
+    const block3Variations = {
+      variation1: 'class1',
     };
-    const block2classes = 'col-xs-12 col-sm-6 col-sm-offset-3';
-    const classes = {
-      svg: style.svg,
-      col1: 'col-xs-12 col-sm-6',
-      col2: 'col-xs-12 col-sm-6',
+    const block5Variations = {
+      variation1: 'class1',
     };
+
     return !_.isEmpty(this.props.data) ? (<div>
-      <Block1 data={block1} classes={block2classes} />
-      <Block2 data={block2} classes={classes}/>
-      <Block3 data={block3} style={block3Styles} />
+      <Block1 data={block1} />
+      <Block2 data={block2} />
+      <Block3 data={block3} variations={block3Variations} />
       <Block4 data={block4} />
+      <Block5 data={block5} variations={block5Variations} />
+      <Block6 data={dataStaff} showListItem={showListItem} />
+      <Block7 data={block7} />
+      <Block8 data={block8} />
     </div>) : null;
   }
 }
 
 AboutSection.propTypes = {
   data: React.PropTypes.object,
+  params: React.PropTypes.any,
 };

@@ -1,22 +1,25 @@
 /* eslint max-len: [2, 500, 4] */
 
 import React from 'react';
+import { Link } from 'react-router';
 import _ from 'lodash';
+import { getImageBackground } from '../../../../utils/imageUtil';
 
-import sanitizeUtil from '../../../../utils/sanitize';
+// const style = require('./style.scss');
 
 
 export default class Block3 extends React.Component {
 
   render() {
-    const { data, style } = this.props;
-    const { titles, paragraphs } = data;
-    return !_.isEmpty(this.props.data) ? (<div>
+    const { titles, buttons, images, paragraphs } = this.props.data;
+    const divStyle = getImageBackground(images.image1);
+    return !_.isEmpty(this.props.data) ? (<div style={divStyle}>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-xs-12 col-sm-10 col-sm-offset-1">
-            <h2 className={style.title1}>{titles.title1}</h2>
-            <p className={style.paragraph1} dangerouslySetInnerHTML={sanitizeUtil(paragraphs.paragraph1)} />
+          <div className="col-sm-10 col-xs-12">
+            <h2>{titles.title1}</h2>
+            <p>{paragraphs.paragraph1}</p>
+            <Link to={buttons.button1.href}>{buttons.button1.title}</Link>
           </div>
         </div>
       </div>
@@ -26,5 +29,4 @@ export default class Block3 extends React.Component {
 
 Block3.propTypes = {
   data: React.PropTypes.object,
-  style: React.PropTypes.object,
 };

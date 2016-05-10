@@ -1,27 +1,50 @@
 /* eslint max-len: [2, 500, 4] */
 import React from 'react';
-import { Link } from 'react-router';
 import _ from 'lodash';
-import SVG from '../../../svg';
+import { Link } from 'react-router';
+import { getImageBackground } from '../../../../utils/imageUtil';
 import sanitizeUtil from '../../../../utils/sanitize';
 const style = require('./style.scss');
+import Carousel from '../../../elements/carousel';
+
 
 export default class Block2 extends React.Component {
 
+  renderItems(data) {
+    if (_.isArray(data) && data.length) {
+      return data.map((item, index) => {
+        const className = index === 0 ? 'active' : '';
+        return (<div className={'item ' + className} key={index}>
+          <h3>{item.title}</h3>
+          <div dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
+        </div>);
+      });
+    }
+    return null;
+  }
+
   render() {
-    const { titles, images, paragraphs, buttons } = this.props.data;
-    const classes = this.props.classes;
-    return !_.isEmpty(this.props.data) ? (<div className={style.commitment}>
-      <div className={'container-fluid ' + style.wrapper}>
+    const { titles, images, buttons, slides } = this.props.data;
+    const divStyle = getImageBackground(images.image1);
+    const carouselClasses = {
+      inner: style.inner,
+      controls: {
+        base: style.controls,
+        prev: style.prev,
+        next: style.next,
+      },
+    };
+    return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.mainbanner}>
+      <div className="container-fluid">
         <div className="row">
-          <div className={classes.col1}>
-            <SVG network="circled_brand" className={style.svg + ' ' + classes.svg}/>
-            <h2 className={style.title7}>{titles.title1}</h2>
-            <p className={style.paragraph2} dangerouslySetInnerHTML={sanitizeUtil(paragraphs.paragraph1)} />
-            <Link className={style.button1} to={buttons.button1.href}>{buttons.button1.title}</Link>
+          <div className="col-sm-6 col-xs-12">
+            <Carousel id="carousel-about-block-2" interval={8000} controls={false} classes={carouselClasses}>
+              {this.renderItems(slides)}
+            </Carousel>
+            <Link to={buttons.button1.href}>{buttons.button1.title}</Link>
           </div>
-          <div className={classes.col2}>
-            <img className={style.image} src={images.image1.src} alt={images.image1.alt} />
+          <div className="col-sm-6 col-xs-12">
+            <h2 className={style.title3}>{titles.title1}</h2>
           </div>
         </div>
       </div>
@@ -31,5 +54,5 @@ export default class Block2 extends React.Component {
 
 Block2.propTypes = {
   data: React.PropTypes.object,
-  classes: React.PropTypes.object,
+  style: React.PropTypes.object,
 };

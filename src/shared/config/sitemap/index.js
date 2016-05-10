@@ -9,6 +9,7 @@ export default {
   items: {
     component: AppHandler,
     default: HomeSection,
+    showListItem: AboutSection,
     children: [{
       id: 1,
       title: 'Inicio',

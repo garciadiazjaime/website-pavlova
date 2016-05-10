@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import _ from 'lodash';
-import setImageAsBackground from '../../../../utils/setImageAsBackground';
+import { getImageBackground } from '../../../../utils/imageUtil';
 
 // const style = require('./style.scss');
 
@@ -12,7 +12,7 @@ export default class Block1 extends React.Component {
 
   render() {
     const { buttons, images } = this.props.data;
-    const divStyle = setImageAsBackground(images.image1);
+    const divStyle = getImageBackground(images.image1);
     return !_.isEmpty(this.props.data) ? (<div style={divStyle}>
       <div className="container-fluid">
         <div className="row">

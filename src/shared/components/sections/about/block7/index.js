@@ -1,19 +1,17 @@
 /* eslint max-len: [2, 500, 4] */
 import React from 'react';
 import _ from 'lodash';
+import Carousel from '../../../elements/carousel';
 import sanitizeUtil from '../../../../utils/sanitize';
 const style = require('./style.scss');
-import Carousel from '../../../elements/carousel';
 
-
-export default class Block4 extends React.Component {
+export default class Block7 extends React.Component {
 
   renderItems(data) {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
         return (<div className={'item ' + className} key={index}>
-          <h3>{item.title}</h3>
           <div dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
         </div>);
       });
@@ -22,7 +20,7 @@ export default class Block4 extends React.Component {
   }
 
   render() {
-    const { images, slides } = this.props.data;
+    const { titles, slides } = this.props.data;
     const carouselClasses = {
       inner: style.inner,
       controls: {
@@ -31,23 +29,15 @@ export default class Block4 extends React.Component {
         next: style.next,
       },
     };
-    const imgUrl = images.image1.src ? images.image1.src.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : images.image1.src;
     return !_.isEmpty(this.props.data) ? (<div className="container-fluid">
-      <div className="row">
-        <div className="col-sm-6 col-xs-12">
-          <img className={style.image} src={imgUrl} alt={images.image1.alt} />
-        </div>
-        <div className="col-sm-6 col-xs-12">
-          <Carousel id="carousel-about-block-4" interval={8000} controls={false} classes={carouselClasses}>
-            {this.renderItems(slides)}
-          </Carousel>
-        </div>
-      </div>
+      <h2>{titles.title1}</h2>
+      <Carousel id="carousel-about-block-7" interval={8000} controls={false} indicators={false} classes={carouselClasses}>
+        {this.renderItems(slides)}
+      </Carousel>
     </div>) : null;
   }
 }
 
-Block4.propTypes = {
-  data: React.PropTypes.object,
-  style: React.PropTypes.object,
+Block7.propTypes = {
+  data: React.PropTypes.object.isRequired,
 };

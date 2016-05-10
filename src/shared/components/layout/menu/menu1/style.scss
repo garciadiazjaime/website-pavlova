@@ -1,33 +1,37 @@
 @import '../../../../theme/constants';
 // ********** Control variables *********************
 // - General -
-$height: 75px;
-$background-color: $white;
+$height: 80px;
+$background-color: $black;
 // - links -
-$link-color: $gray;
-$hover-color: $darkGray!important;
-$active: $black;
+$link-color: $white;
+$hover-color: $white!important;
+$active: $white;
 // - social media
 $sm-background: $gray;
 $sm-background-hover: $darkGray;
 $sm-color: $white;
 $sm-color-hover: $white;
 // - responsive
-$bar-color: $black;
+$bar-color: $white;
 $collapse-border-color: $black;
-$hamburger-background: darken($white, 10%)!important;
+$hamburger-background: lighten($black, 15%)!important;
 
 
 .navbarWrapper {
-  height: $height;
+  height: 165px;
+  @include transform(skew(0deg, -2.69deg));
+  background-color: $background-color!important;
+  margin-top: -25px;
 }
 // ********** The full navbar *********************
 .navbarDefault {
   @include border-radius(0);
   height: $height;
-  background-color: $background-color!important;
   border: none!important;
   margin-bottom: 0;
+  @include transform(skew(0deg, 2.69deg));
+  margin-top: 30px;
 }
 // ********** Navbar Header consists in mobile button and brand image *********************
 .navbarHeader {
@@ -65,6 +69,10 @@ $hamburger-background: darken($white, 10%)!important;
 .navbarNav {
   >li{
     height: $height;
+    margin-right: 66px;
+  }
+  >li:last-child{
+    margin-right: 200px;
   }
 }
 .navbarNavAnchor {
@@ -72,12 +80,13 @@ $hamburger-background: darken($white, 10%)!important;
   font-weight: 300;
   padding-top: 0!important;
   padding-bottom: 0!important;
-  font-size: 14px;
+  font-size: 13px;
   color: $link-color;
   text-transform: uppercase;
   @extend .vCenter;
   &:hover, &:focus {
     color: $hover-color;
+    font-weight: 700;
     background-color: transparent!important;
   }
 }
@@ -96,52 +105,28 @@ $hamburger-background: darken($white, 10%)!important;
     .sm_icon {
       padding: 0 0 0 10px;
       display: block;
+      cursor: pointer;
       @extend .vCenterRel;
       svg {
         position: relative;
+        cursor: pointer;
         circle{
-          fill: $sm-background;
+          fill: #0074c8;
+          cursor: pointer;
         }
         path{
           fill: $sm-color;
+          cursor: pointer;
         }
       }
       .facebook{
         &:hover{
+          cursor: pointer;
           circle {
-            fill: #3b5998;
+            fill: #0584d3;
           }
           path {
-            fill: #fff;
-          }
-        }
-      }
-      .twitter{
-        &:hover{
-          circle {
-            fill: #55acee;
-          }
-          path {
-            fill: #fff;
-          }
-        }
-      }
-      .pinterest{
-        &:hover{
-          circle {
-            fill: #cb2027;
-          }
-          path {
-            fill: #fff;
-          }
-        }
-      }
-      .instagram{
-        &:hover{
-          circle {
-            fill: #125688;
-          }
-          path {
+            cursor: pointer;
             fill: #fff;
           }
         }
@@ -155,6 +140,12 @@ $hamburger-background: darken($white, 10%)!important;
   }
   .navbarNav {
     margin-right: 10px!important;
+    >li{
+      margin-right: 30px;
+    }
+    >li:last-child{
+      margin-right: 60px;
+    }
   }
   .navbarBrand {
     left: 15px;
@@ -185,12 +176,17 @@ $hamburger-background: darken($white, 10%)!important;
     float: none!important;
     margin: 0;
     position: relative;
-    li{
-      padding: 10px 0;
+    >li{
+      padding: 20px 0;
+      margin-right: 0;
+    }
+    >li:last-child{
+      margin-right: 0;
     }
     .navbarNavAnchor{
       position: relative;
       @include transform(translateY(0));
+      text-align: center;
       top: 0;
     }
   }

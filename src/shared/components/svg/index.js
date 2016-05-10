@@ -6,9 +6,9 @@ export default class SVG extends React.Component {
     switch (network) {
       case 'facebook':
         /*eslint-disable */
-        return (<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" className={className}>
+        return (<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 30 30" className={className}>
           <circle cx="15" cy="15" r="15"/>
-          <path d="M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z"/>
+          <path transform="scale(.8) translate(4, 4)" d="M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z"/>
         </svg>);
         break;
       case 'twitter':

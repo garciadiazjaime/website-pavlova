@@ -3,8 +3,8 @@ import React from 'react';
 import _ from 'lodash';
 
 import sitemap from '../config/sitemap';
-import MainMenu from './layout/menu/menu2';
-import Footer from './layout/footer/footer2';
+import MainMenu from './layout/menu/menu1';
+import Footer from './layout/footer/footer3';
 import scrollUtil from '../utils/scroll';
 import menuUtil from '../utils/menu';
 import restClient from '../../server/helpers/rest-client';

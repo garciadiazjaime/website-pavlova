@@ -582,15 +582,15 @@
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _about = __webpack_require__(38);
+	var _about = __webpack_require__(41);
 
 	var _about2 = _interopRequireDefault(_about);
 
-	var _products = __webpack_require__(57);
+	var _products = __webpack_require__(60);
 
 	var _products2 = _interopRequireDefault(_products);
 
-	var _contact = __webpack_require__(63);
+	var _contact = __webpack_require__(66);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -1085,159 +1085,34 @@
 	            _react2.default.createElement('path', { transform: 'scale(.8) translate(4, 4)', d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z' })
 	          );
 	          break;
-	        case 'twitter':
+	        case 'square_arrow':
 	          return _react2.default.createElement(
 	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { d: 'M23.5 9.7c-0.6 0.3-1.3 0.5-2 0.5 0.7-0.4 1.3-1.1 1.5-1.9 -0.7 0.4-1.4 0.7-2.2 0.8 -0.6-0.7-1.5-1.1-2.5-1.1 -1.9 0-3.5 1.6-3.5 3.5 0 0.3 0 0.5 0.1 0.8 -2.9-0.1-5.5-1.5-7.2-3.6 -0.3 0.5-0.5 1.1-0.5 1.8 0 1.2 0.6 2.3 1.6 2.9 -0.6 0-1.1-0.2-1.6-0.4 0 0 0 0 0 0 0 1.7 1.2 3.1 2.8 3.4 -0.3 0.1-0.6 0.1-0.9 0.1 -0.2 0-0.4 0-0.7-0.1 0.4 1.4 1.7 2.4 3.3 2.4 -1.2 0.9-2.7 1.5-4.3 1.5 -0.3 0-0.6 0-0.8 0 1.5 1 3.4 1.6 5.3 1.6 6.4 0 9.9-5.3 9.9-9.9 0-0.1 0-0.3 0-0.4C22.4 11 23 10.4 23.5 9.7z' })
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '31', height: '31', viewBox: '0 0 31.4 31.3', className: className },
+	            _react2.default.createElement('path', { d: 'M1 30.9c-0.3 0-0.5-0.2-0.5-0.5V1c0-0.3 0.2-0.5 0.5-0.5h29.4c0.3 0 0.5 0.2 0.5 0.5v29.4c0 0.3-0.2 0.5-0.5 0.5H1z', fill: '#221f1f' }),
+	            _react2.default.createElement('path', { d: 'M30.4 1v29.4H1V1H30.4M30.4 0H1c-0.6 0-1 0.4-1 1v29.4c0 0.6 0.4 1 1 1h29.4c0.6 0 1-0.4 1-1V1C31.4 0.4 31 0 30.4 0L30.4 0z', fill: '#FFF' }),
+	            _react2.default.createElement('polyline', { points: ' 13.2 9.1 19.7 15.6 13.1 22.2 ', fill: 'none', stroke: '#fff' })
 	          );
 	          break;
-	        case 'pinterest':
+	        case 'arrow_down':
 	          return _react2.default.createElement(
 	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { className: this.props.background, cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { d: 'M14.4 18.1c-0.5 2.6-1.1 5.1-2.9 6.4 -0.6-4 0.8-6.9 1.5-10.1 -1.1-1.8 0.1-5.5 2.4-4.6 2.8 1.1-2.4 6.8 1.1 7.5 3.7 0.8 5.2-6.4 2.9-8.8 -3.3-3.4-9.7-0.1-8.9 4.8 0.2 1.2 1.4 1.5 0.5 3.2 -2.1-0.5-2.8-2.1-2.7-4.4 0.1-3.7 3.3-6.2 6.5-6.6 4-0.4 7.8 1.5 8.3 5.2 0.6 4.2-1.8 8.8-6.1 8.5C15.8 19.2 15.4 18.6 14.4 18.1' })
-	          );
-	          break;
-	        case 'instagram':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { d: 'M20.6 7H9.4c-1.3 0-2.4 0.9-2.4 2.1v11.8c0 1.2 1.1 2.1 2.4 2.1h11.3c1.3 0 2.4-0.9 2.4-2.1V9.1C23 7.9 22 7 20.6 7zM18.6 9.2c0-0.3 0.2-0.5 0.5-0.5h1.7c0.3 0 0.5 0.2 0.5 0.5v1.7c0 0.3-0.2 0.5-0.5 0.5h-1.7c-0.3 0-0.5-0.2-0.5-0.5V9.2zM17.7 11.7v0c0 0 0 0 0 0H17.7zM14.9 12c2 0 3.5 1.6 3.5 3.5 0 2-1.6 3.5-3.5 3.5 -2 0-3.5-1.6-3.5-3.5C11.4 13.6 13 12 14.9 12zM22 20.7c0 0.8-0.6 1.4-1.4 1.4H9.3c-0.8 0-1.4-0.6-1.4-1.4V13.3h2.9c-0.3 0.7-0.5 1.4-0.5 2.2 0 2.6 2.1 4.7 4.7 4.7 2.6 0 4.7-2.1 4.7-4.7 0-0.7-0.2-1.4-0.5-2h2.8V20.7z' })
-	          );
-	          break;
-	        case 'brand':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '27', height: '29', viewBox: '0 0 26.8 29.1', className: className },
-	            _react2.default.createElement('path', { d: 'M10.7 0v12L0 5.3v13.7l1.4 0.9v-2.3l0 0V7.8l9.3 5.9v0l3.9 2.5v10.4 0l0 1.7 1.4 0.9v-12.1l10.7 6.8v-13.8L10.7 0zM25.4 21.3l-9.3-5.9 -3.9-2.5V2.5l13.2 8.3V21.3z', fill: '#c59f67' })
-	          );
-	          break;
-	        case 'double_arrow_down':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '15', height: '20', viewBox: '0 0 14.6 19.9', className: className },
-	            _react2.default.createElement('polygon', { points: '7.3 8.7 0 1.4 1.4 0 7.3 5.9 13.2 0 14.6 1.4 ', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '7.3 19.9 0 12.6 1.4 11.2 7.3 17.1 13.2 11.2 14.6 12.6 ', fill: '#FFF' })
-	          );
-	          break;
-	        case 'circled_brand':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '94', height: '94', viewBox: '0 0 94.5 94.5', className: className },
-	            _react2.default.createElement('circle', { cx: '47.2', cy: '47.2', r: '47.2', fill: '#CBA764' }),
-	            _react2.default.createElement('path', { d: 'M44 27.7v15.7l-14-8.8v17.9l1.8 1.1v-2.9l0 0V37.9l12.1 7.6v0l5.1 3.2V62.3v-0.1l0 2.2 1.8 1.1V49.9l14 8.8V40.8L44 27.7zM63 55.4l-12.1-7.7L45.8 44.5V31l17.2 10.8V55.4z', fill: '#FFF' })
-	          );
-	          break;
-	        case 'circled_diseno':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '125', height: '122', viewBox: '0 0 125 121.8', className: className },
-	            _react2.default.createElement('circle', { cx: '63', cy: '59.7', r: '59.3', fill: '#CBA764' }),
-	            _react2.default.createElement('path', { d: 'M50 69.9c-2.3-2.9-3.5-6.4-3.5-10.2 0-9.1 7.4-16.5 16.5-16.5 9.1 0 16.5 7.4 16.5 16.5 0 3.6-1.2 7.1-3.3 10l-2-1.5c1.9-2.4 2.8-5.4 2.8-8.4 0-7.7-6.3-14-14-14 -7.7 0-14 6.3-14 14 0 3.2 1 6.1 3 8.6L50 69.9z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M50.6 82c-8.1-4.5-13.1-13.1-13.1-22.3 0-10.3 6.1-19.5 15.6-23.5l1 2.3c-8.5 3.6-14.1 11.9-14.1 21.2 0 8.3 4.5 16.1 11.8 20.1L50.6 82z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M63 85.2v-2.5c12.7 0 23-10.3 23-23s-10.3-23-23-23v-2.5c14.1 0 25.5 11.5 25.5 25.5C88.5 73.8 77.1 85.2 63 85.2z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M63 94.6c-8.9 0-17.3-3.3-23.8-9.4 -6.8-6.4-10.7-15-11-24.3 -0.6-19.2 14.5-35.4 33.8-36l0.1 2.5c-17.9 0.6-31.9 15.6-31.3 33.4 0.3 8.6 3.9 16.7 10.2 22.6 6.3 5.9 14.5 9 23.2 8.7 17.9-0.6 31.9-15.6 31.3-33.4l2.5-0.1c0.6 19.2-14.5 35.4-33.8 36C63.7 94.6 63.3 94.6 63 94.6z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M94.3 51.3C91.1 39.5 81.3 30.3 69.3 27.9l0.5-2.5c12.9 2.6 23.5 12.5 26.9 25.2L94.3 51.3z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M63 67.5c-4.3 0-7.8-3.5-7.8-7.8 0-4.3 3.5-7.8 7.8-7.8 4.3 0 7.8 3.5 7.8 7.8C70.8 64 67.3 67.5 63 67.5zM63 54.4c-2.9 0-5.3 2.4-5.3 5.3 0 2.9 2.4 5.3 5.3 5.3 2.9 0 5.3-2.4 5.3-5.3C68.3 56.8 65.9 54.4 63 54.4z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M63 76.2c-3.6 0-6.9-1.1-9.8-3.2l1.5-2c2.6 1.9 5.6 2.8 8.8 2.7 2.8-0.1 5.5-1 7.7-2.6l1.5 2c-2.7 1.9-5.8 3-9.1 3.1C63.3 76.2 63.2 76.2 63 76.2z', fill: '#fff' })
-	          );
-	          break;
-	        case 'circled_coordinacion':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '125', height: '122', viewBox: '0 0 125 121.8', className: className },
-	            _react2.default.createElement('circle', { cx: '62.5', cy: '60.9', r: '59.3', fill: '#CBA764' }),
-	            _react2.default.createElement('path', { d: 'M62.5 68.2c-1.9 0-3.8-0.8-5.2-2.1 -2.8-2.8-2.8-7.5 0-10.3 1.4-1.4 3.2-2.1 5.2-2.1 1.9 0 3.8 0.8 5.2 2.1 2.8 2.8 2.8 7.5 0 10.3C66.3 67.5 64.4 68.2 62.5 68.2zM62.5 56.1c-1.3 0-2.5 0.5-3.4 1.4 -1.9 1.9-1.9 4.9 0 6.8 0.9 0.9 2.1 1.4 3.4 1.4 1.3 0 2.5-0.5 3.4-1.4 1.9-1.9 1.9-4.9 0-6.8C65 56.6 63.8 56.1 62.5 56.1z', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '83.9 48.5 82.1 50.3 91.6 59.7 76 59.7 76 62.2 91.5 62.2 82.1 71.7 83.9 73.4 96.3 61 ', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '74.9 39.6 62.5 27.1 50 39.6 51.8 41.3 61.2 31.9 61.2 47.4 63.7 47.4 63.7 31.9 73.2 41.3 ', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '49 59.6 33.5 59.6 42.9 50.2 41.1 48.4 28.7 60.9 41.1 73.3 42.9 71.6 33.4 62.1 49 62.1 ', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '73.3 80.5 63.8 90 63.8 74.4 61.3 74.4 61.3 90 51.8 80.5 50.1 82.3 62.5 94.8 75 82.3 ', fill: '#FFF' })
-	          );
-	          break;
-	        case 'circled_calidad':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '125', height: '122', viewBox: '0 0 125 121.8', className: className },
-	            _react2.default.createElement('circle', { cx: '62.5', cy: '61.1', r: '59.3', fill: '#CBA764' }),
-	            _react2.default.createElement('polygon', { points: '80.5 88.5 62.5 75.4 44.5 88.5 51.4 67.3 33.3 54.2 55.6 54.2 62.5 33 68.3 50.9 65.9 51.7 62.5 41.1 57.4 56.7 41 56.7 54.3 66.3 49.2 81.9 62.5 72.3 75.8 81.9 70.7 66.3 84 56.7 75.1 56.7 75.1 54.2 91.7 54.2 73.6 67.3 ', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '61.8 68 55.9 60.9 57.8 59.3 61.8 64 83.3 37.3 85.2 38.9 ', fill: '#FFF' })
-	          );
-	          break;
-	        case 'carousel_left':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '14', viewBox: '0 0 7.9 14.1', className: className },
-	            _react2.default.createElement('polyline', { points: '7.4 0.5 0.8 7.1 7.5 13.7 ', fill: 'none', stroke: '#CBA764', strokeWidth: '2' })
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '8', height: '14', viewBox: '0 0 7.7 13.8', className: className },
+	            _react2.default.createElement('polyline', { points: '0.5 0.4 7 6.9 0.4 13.5 ', fill: 'none', stroke: '#FFF' })
 	          );
 	          break;
 	        case 'carousel_right':
 	          return _react2.default.createElement(
 	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '14', viewBox: '0 0 7.9 14.1', className: className },
-	            _react2.default.createElement('polyline', { points: '0.9 13.7 7.5 7.1 0.8 0.5 ', fill: 'none', stroke: '#CBA764', strokeWidth: '2' })
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '18', viewBox: '0 0 10.1 18' },
+	            _react2.default.createElement('polyline', { points: ' 1.1 1.1 9 9 1.1 16.9 ', fill: 'none', strokeLinejoin: 'round', strokeWidth: '2', stroke: '#010101' })
 	          );
 	          break;
-	        case 'servicios_entrevista':
+	        case 'carousel_left':
 	          return _react2.default.createElement(
 	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '119', height: '119', viewBox: '0 0 118.6 118.6', className: className },
-	            _react2.default.createElement('circle', { cx: '59.3', cy: '59.3', r: '59.3', fill: '#FFB69F' }),
-	            _react2.default.createElement('rect', { x: '27', y: '28.5', width: '64.6', height: '61.6', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('circle', { cx: '38.4', cy: '59.3', r: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('circle', { cx: '80.2', cy: '59.3', r: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('circle', { cx: '59.3', cy: '78.7', r: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('circle', { cx: '59.3', cy: '39.9', r: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' })
-	          );
-	          break;
-	        case 'servicios_conceptualizacion':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '119', height: '119', viewBox: '0 0 118.6 118.6', className: className },
-	            _react2.default.createElement('circle', { cx: '59.3', cy: '59.3', r: '59.3', fill: '#FFB69F' }),
-	            _react2.default.createElement('rect', { x: '28.5', y: '28.1', width: '61.6', height: '62', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '56.3', y: '70.1', width: '25.8', height: '10.9', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '35.8', y: '36.1', width: '11.4', height: '26.7', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '35.8', y: '70.1', width: '11.4', height: '10.9', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '56.3', y: '36.1', width: '25.8', height: '26.7', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '82.1', y1: '62.7', x2: '56.3', y2: '36.1', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '82.1', y1: '51.2', x2: '67.5', y2: '36.1', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '71', y1: '62.7', x2: '56.3', y2: '47.6', fill: 'none', strokeWidth: '3', stroke: '#fff' })
-	          );
-	          break;
-	        case 'servicios_proyecto':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '119', height: '119', viewBox: '0 0 118.6 118.6', className: className },
-	            _react2.default.createElement('circle', { cx: '59.2', cy: '59.3', r: '59.3', fill: '#FFB69F' }),
-	            _react2.default.createElement('polyline', { points: '90.7 45.8 90.7 90.8 27.6 90.8 27.6 29.2 90.7 29.2 90.7 34.1 ', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('polyline', { points: '73.8 68.2 90.7 68.2 90.7 90.8 57.2 90.8 57.2 68.2 61 68.2 ', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('polyline', { points: '27.6 68.2 46.4 68.2 46.4 81.4 ', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '90.7', y1: '59.5', x2: '56.1', y2: '59.5', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '46.9', y1: '28.8', x2: '46.9', y2: '59.1', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '54.8', y: '37.5', width: '27.8', height: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '64.8', y: '73.8', width: '17.8', height: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '33.3', y: '73.8', width: '7.9', height: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '33.3', y: '37.5', width: '7.9', height: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' })
-	          );
-	          break;
-	        case 'servicios_ejecucion':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '119', height: '119', viewBox: '0 0 118.6 118.6', className: className },
-	            _react2.default.createElement('circle', { cx: '59.3', cy: '59.3', r: '59.3', fill: '#FFB69F' }),
-	            _react2.default.createElement('rect', { x: '28.5', y: '28.3', width: '61.6', height: '62', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '55.9', y: '66.7', width: '6.9', height: '12.2', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '56.1', y1: '78.9', x2: '56.1', y2: '83', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '76.8', y1: '78.9', x2: '76.8', y2: '83', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '66.3', y: '38.2', width: '16', height: '20.1', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '71.2', y: '68.5', width: '18.9', height: '10.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M77.8 72.8c0.5 0 0.9 0.4 0.9 0.9s-0.4 0.9-0.9 0.9 -0.9-0.4-0.9-0.9S77.3 72.8 77.8 72.8M77.8 71.5c-1.2 0-2.2 1-2.2 2.2s1 2.2 2.2 2.2 2.2-1 2.2-2.2S79 71.5 77.8 71.5L77.8 71.5z', fill: '#FFF' }),
-	            _react2.default.createElement('polyline', { points: '56.1 78.9 28.5 78.9 28.5 70.9 55.7 70.9', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('polyline', { points: '56.1 70.9 28.5 70.9 28.5 58.3 59.3 58.3 59.3 66.7', fill: 'none', strokeWidth: '3', stroke: '#fff' })
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '18', viewBox: '0 0 10.1 18' },
+	            _react2.default.createElement('polyline', { points: ' 9 16.9 1.1 9 9 1.1 ', fill: 'none', strokeLinejoin: 'round', strokeWidth: '2', stroke: '#010101' })
 	          );
 	          break;
 	        case 'location':
@@ -1819,15 +1694,15 @@
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(33);
+	var _block3 = __webpack_require__(35);
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _block5 = __webpack_require__(34);
+	var _block5 = __webpack_require__(37);
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(35);
+	var _block7 = __webpack_require__(39);
 
 	var _block8 = _interopRequireDefault(_block7);
 
@@ -1903,6 +1778,10 @@
 
 	var _imageUtil = __webpack_require__(32);
 
+	var _carousel = __webpack_require__(33);
+
+	var _carousel2 = _interopRequireDefault(_carousel);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1911,7 +1790,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	// const style = require('./style.scss');
+	var style = __webpack_require__(34);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -1923,32 +1802,61 @@
 	  }
 
 	  _createClass(Block1, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props$data = this.props.data;
-	      var buttons = _props$data.buttons;
-	      var images = _props$data.images;
-
-	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        { style: divStyle },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid' },
-	          _react2.default.createElement(
+	    key: 'renderItems',
+	    value: function renderItems(data) {
+	      if (_lodash2.default.isArray(data) && data.length) {
+	        return data.map(function (item, index) {
+	          var divStyle = (0, _imageUtil.getImageBackground)(item.image);
+	          var className = index === 0 ? 'active' : '';
+	          return _react2.default.createElement(
 	            'div',
-	            { className: 'row' },
+	            { className: 'item ' + className + ' ' + (style.item || ''), key: index },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-10 col-xs-12' },
+	              { style: divStyle },
 	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button1.href },
-	                buttons.button1.title
+	                'div',
+	                { className: 'container-fluid' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'row' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-sm-10 col-xs-12' },
+	                    _react2.default.createElement(
+	                      _reactRouter.Link,
+	                      { to: item.button_url },
+	                      item.button_title
+	                    )
+	                  )
+	                )
 	              )
 	            )
-	          )
+	          );
+	        });
+	      }
+	      return null;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var slides = this.props.data.slides;
+
+	      var carouselClasses = {
+	        inner: style.inner,
+	        controls: {
+	          base: style.controls,
+	          prev: style.prev,
+	          next: style.next
+	        }
+	      };
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _carousel2.default,
+	          { id: 'carousel-home-block-1', interval: 8000, indicators: false, controls: false, classes: carouselClasses },
+	          this.renderItems(slides)
 	        )
 	      ) : null;
 	    }
@@ -2015,353 +1923,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(4);
-
-	var _lodash = __webpack_require__(6);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// const style = require('./style.scss');
-
-	var Block2 = function (_React$Component) {
-	  _inherits(Block2, _React$Component);
-
-	  function Block2() {
-	    _classCallCheck(this, Block2);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block2).apply(this, arguments));
-	  }
-
-	  _createClass(Block2, [{
-	    key: 'render',
-	    value: function render() {
-	      var buttons = this.props.data.buttons;
-
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement('div', { className: 'col-sm1' }),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-2 col-xs-12' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button1.href },
-	                buttons.button1.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-2 col-xs-12' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button2.href },
-	                buttons.button2.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-2 col-xs-12' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button3.href },
-	                buttons.button3.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-2 col-xs-12' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button4.href },
-	                buttons.button4.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-2 col-xs-12' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button5.href },
-	                buttons.button5.title
-	              )
-	            ),
-	            _react2.default.createElement('div', { className: 'col-sm1' })
-	          )
-	        )
-	      ) : null;
-	    }
-	  }]);
-
-	  return Block2;
-	}(_react2.default.Component);
-
-	exports.default = Block2;
-
-
-	Block2.propTypes = {
-	  data: _react2.default.PropTypes.object
-	};
-
-/***/ },
-/* 34 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(4);
-
-	var _lodash = __webpack_require__(6);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _imageUtil = __webpack_require__(32);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
-
-	// const style = require('./style.scss');
-
-	var Block3 = function (_React$Component) {
-	  _inherits(Block3, _React$Component);
-
-	  function Block3() {
-	    _classCallCheck(this, Block3);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block3).apply(this, arguments));
-	  }
-
-	  _createClass(Block3, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var buttons = _props$data.buttons;
-	      var images = _props$data.images;
-	      var paragraphs = _props$data.paragraphs;
-
-	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        { style: divStyle },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-10 col-xs-12' },
-	              _react2.default.createElement(
-	                'h2',
-	                null,
-	                titles.title1
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                paragraphs.paragraph1
-	              ),
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button1.href },
-	                buttons.button1.title
-	              )
-	            )
-	          )
-	        )
-	      ) : null;
-	    }
-	  }]);
-
-	  return Block3;
-	}(_react2.default.Component);
-
-	exports.default = Block3;
-
-
-	Block3.propTypes = {
-	  data: _react2.default.PropTypes.object
-	};
-
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(4);
-
-	var _lodash = __webpack_require__(6);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _carousel = __webpack_require__(36);
-
-	var _carousel2 = _interopRequireDefault(_carousel);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
-
-
-	var style = __webpack_require__(37);
-
-	var Block4 = function (_React$Component) {
-	  _inherits(Block4, _React$Component);
-
-	  function Block4() {
-	    _classCallCheck(this, Block4);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block4).apply(this, arguments));
-	  }
-
-	  _createClass(Block4, [{
-	    key: 'renderItems',
-	    value: function renderItems(data) {
-	      if (_lodash2.default.isArray(data) && data.length) {
-	        return data.map(function (item, index) {
-	          var className = index === 0 ? 'active' : '';
-	          return _react2.default.createElement(
-	            'div',
-	            { className: 'item ' + className + ' ' + (style.item || ''), key: index },
-	            _react2.default.createElement('img', { src: item.image, alt: item.title })
-	          );
-	        });
-	      }
-	      return null;
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var slides = _props$data.slides;
-	      var paragraphs = _props$data.paragraphs;
-	      var buttons = _props$data.buttons;
-
-	      var carouselClasses = {
-	        inner: style.inner,
-	        controls: {
-	          base: style.controls,
-	          prev: style.prev,
-	          next: style.next
-	        }
-	      };
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-6 col-xs-12' },
-	              _react2.default.createElement(
-	                'h2',
-	                null,
-	                titles.title1
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                paragraphs.paragraph1
-	              ),
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button1.href },
-	                buttons.button1.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-6 col-xs-12' },
-	              _react2.default.createElement(
-	                _carousel2.default,
-	                { id: 'carousel-home-block-4', interval: 8000, indicators: false, classes: carouselClasses },
-	                this.renderItems(slides)
-	              )
-	            )
-	          )
-	        )
-	      ) : null;
-	    }
-	  }]);
-
-	  return Block4;
-	}(_react2.default.Component);
-
-	exports.default = Block4;
-
-
-	Block4.propTypes = {
-	  data: _react2.default.PropTypes.object,
-	  classes: _react2.default.PropTypes.object
-	};
-
-/***/ },
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
 	var _lodash = __webpack_require__(6);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
@@ -2406,7 +1967,7 @@
 	    }
 	  }, {
 	    key: 'getControls',
-	    value: function getControls(flag, id, classes) {
+	    value: function getControls(flag, classes, id) {
 	      var base = classes.base;
 	      var prev = classes.prev;
 	      var next = classes.next;
@@ -2459,7 +2020,7 @@
 	          { className: 'carousel-inner ' + (classes.inner || ''), role: 'listbox' },
 	          this.getIndicators(children, indicators, id),
 	          children,
-	          this.getControls(controls, id, classes.controls)
+	          this.getControls(controls, classes.controls, id)
 	        )
 	      );
 	    }
@@ -2481,14 +2042,403 @@
 	};
 
 /***/ },
-/* 37 */
+/* 34 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___2Xb8X","vCenter":"style__vCenter___hmun0","vCenterRel":"style__vCenterRel___2lPVo","hCenter":"style__hCenter___1JZnn","inheritHeight":"style__inheritHeight___1rILl","hideOverflow":"style__hideOverflow___1Q2PJ","icon-sprites":"style__icon-sprites___38gIr","wrapper1":"style__wrapper1___3ANK2","wrapper2":"style__wrapper2___2RaJ7","sideSwipe":"style__sideSwipe___2Dk6P","button1":"style__button1___1hNj-","button2":"style__button2___1PxHI","button3":"style__button3___1BqYh","title1":"style__title1___25IAx","title2":"style__title2___wfjef","title4":"style__title4____YoIR","title5":"style__title5___T2PV8","title6":"style__title6___G7Bi3","title3":"style__title3___EBeus","title7":"style__title7___18HEf","title8":"style__title8___1HuLF","image1":"style__image1___3Iegh","image":"style__image___t1t90","paragraph1":"style__paragraph1___1KYt4","paragraph2":"style__paragraph2___2j4Qo","paragraph3":"style__paragraph3___29XST","paragraph4":"style__paragraph4___3QuOc","paragraph5":"style__paragraph5___39V90"};
+	module.exports = {"fCenter":"style__fCenter___1IAv0","vCenter":"style__vCenter___3op1c","button2":"style__button2___3emCl","vCenterRel":"style__vCenterRel___3rmpk","hCenter":"style__hCenter___bN1_x","inheritHeight":"style__inheritHeight___3EV0T","hideOverflow":"style__hideOverflow___1jYcy","icon-sprites":"style__icon-sprites___113mW","button3":"style__button3___1egvE","button3v1":"style__button3v1___e8Puv","button3v2":"style__button3v2___aYpPW","button3v3":"style__button3v3___18OJd","button3v4":"style__button3v4___347NJ","button3v5":"style__button3v5___6eHiy","wrapper1":"style__wrapper1___3LV9m","wrapper2":"style__wrapper2___3Do_q","title1":"style__title1___1fgRn","title2":"style__title2___3VQJ-","title3":"style__title3___15G1J","title4":"style__title4___GbpGB","title5":"style__title5___21deO","title6":"style__title6___2x7FO","title7":"style__title7___1Pacu","title8":"style__title8___1BoeB","sideSwipe":"style__sideSwipe___1_Jvs","bottomSwipe":"style__bottomSwipe___2qtvt","button1":"style__button1___3teya"};
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(4);
+
+	var _lodash = __webpack_require__(6);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _svg = __webpack_require__(18);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(36);
+
+	var Block2 = function (_React$Component) {
+	  _inherits(Block2, _React$Component);
+
+	  function Block2() {
+	    _classCallCheck(this, Block2);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block2).apply(this, arguments));
+	  }
+
+	  _createClass(Block2, [{
+	    key: 'render',
+	    value: function render() {
+	      var buttons = this.props.data.buttons;
+
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-2 col-xs-12 col-sm-offset-1' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button3v1 + ' row', to: buttons.button1.href },
+	                buttons.button1.title,
+	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-2 col-xs-12' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button3v2 + ' row', to: buttons.button2.href },
+	                buttons.button2.title,
+	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-2 col-xs-12' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button3v3 + ' row', to: buttons.button3.href },
+	                buttons.button3.title,
+	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-2 col-xs-12' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button3v4 + ' row', to: buttons.button4.href },
+	                buttons.button4.title,
+	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-2 col-xs-12' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button3v5 + ' row', to: buttons.button5.href },
+	                buttons.button5.title,
+	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	              )
+	            )
+	          )
+	        )
+	      ) : null;
+	    }
+	  }]);
+
+	  return Block2;
+	}(_react2.default.Component);
+
+	exports.default = Block2;
+
+
+	Block2.propTypes = {
+	  data: _react2.default.PropTypes.object
+	};
+
+/***/ },
+/* 36 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","button2":"style__button2___2zikt","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","icon-sprites":"style__icon-sprites___1crXd","button3":"style__button3___3KWNZ","button3v1":"style__button3v1___3BT_T","button3v2":"style__button3v2___1cST3","button3v3":"style__button3v3___1O1XL","button3v4":"style__button3v4___1ekHt","button3v5":"style__button3v5___m7eJK","image1":"style__image1___4P84q","paragraph1":"style__paragraph1___2Ov3F","paragraph1b":"style__paragraph1b___3CQIB","paragraph2":"style__paragraph2___10FLO","paragraph3":"style__paragraph3___3kGpq","paragraph4":"style__paragraph4___15kjh","paragraph5":"style__paragraph5___3EMdx","sideSwipe":"style__sideSwipe___2tbA2","bottomSwipe":"style__bottomSwipe___3tj3d","button1":"style__button1___3Mc_g","title1":"style__title1___3Lp7y","title2":"style__title2___1Nebh","title3":"style__title3___2cBjs","title4":"style__title4___90ELg","title5":"style__title5___3p9GA","title6":"style__title6___1cWpF","title7":"style__title7___1hdkz","title8":"style__title8___4sMWt"};
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(4);
+
+	var _lodash = __webpack_require__(6);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _imageUtil = __webpack_require__(32);
+
+	var _svg = __webpack_require__(18);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+	var style = __webpack_require__(38);
+
+	var Block3 = function (_React$Component) {
+	  _inherits(Block3, _React$Component);
+
+	  function Block3() {
+	    _classCallCheck(this, Block3);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block3).apply(this, arguments));
+	  }
+
+	  _createClass(Block3, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props$data = this.props.data;
+	      var titles = _props$data.titles;
+	      var buttons = _props$data.buttons;
+	      var images = _props$data.images;
+	      var paragraphs = _props$data.paragraphs;
+
+	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        { style: divStyle, className: style.passeDeChat },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-xs-12' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: style.title },
+	                titles.title1
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { className: style.paragraph },
+	                paragraphs.paragraph1
+	              ),
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button, to: buttons.button1.href },
+	                buttons.button1.title,
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_down' })
+	              )
+	            )
+	          )
+	        )
+	      ) : null;
+	    }
+	  }]);
+
+	  return Block3;
+	}(_react2.default.Component);
+
+	exports.default = Block3;
+
+
+	Block3.propTypes = {
+	  data: _react2.default.PropTypes.object
+	};
 
 /***/ },
 /* 38 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___1UpIU","vCenter":"style__vCenter___1YV9g","button2":"style__button2___SbKZT","button":"style__button____i21N","vCenterRel":"style__vCenterRel___1D8tj","hCenter":"style__hCenter___2TvfM","inheritHeight":"style__inheritHeight___3jids","hideOverflow":"style__hideOverflow___16pkQ","icon-sprites":"style__icon-sprites___3x6uL","button3":"style__button3___wn-mV","button3v1":"style__button3v1___2JRum","button3v2":"style__button3v2___1HD5h","button3v3":"style__button3v3___X_IwQ","button3v4":"style__button3v4___2gUdl","button3v5":"style__button3v5___brc20","passeDeChat":"style__passeDeChat___3lcIC","wrapper1":"style__wrapper1___11dmn","wrapper2":"style__wrapper2___btSte","title1":"style__title1___3QBup","title2":"style__title2___19ma5","title3":"style__title3___17GG-","title4":"style__title4___1kzHe","title5":"style__title5___w6HV2","title":"style__title___2uzOV","title6":"style__title6___8k-iy","title7":"style__title7___3kWyz","title8":"style__title8___3tkZ-","sideSwipe":"style__sideSwipe___M8sba","bottomSwipe":"style__bottomSwipe____fcIm","button1":"style__button1___100rH","paragraph1":"style__paragraph1___mOtQ_","paragraph1b":"style__paragraph1b___1l31N","paragraph2":"style__paragraph2___34cYP","paragraph3":"style__paragraph3___pE0dO","paragraph":"style__paragraph___1CprJ","paragraph4":"style__paragraph4___2Bqj7","paragraph5":"style__paragraph5___8lnUF"};
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(4);
+
+	var _lodash = __webpack_require__(6);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _carousel = __webpack_require__(33);
+
+	var _carousel2 = _interopRequireDefault(_carousel);
+
+	var _imageUtil = __webpack_require__(32);
+
+	var _svg = __webpack_require__(18);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(40);
+
+	var Block4 = function (_React$Component) {
+	  _inherits(Block4, _React$Component);
+
+	  function Block4() {
+	    _classCallCheck(this, Block4);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block4).apply(this, arguments));
+	  }
+
+	  _createClass(Block4, [{
+	    key: 'renderItems',
+	    value: function renderItems(data) {
+	      if (_lodash2.default.isArray(data) && data.length) {
+	        return data.map(function (item, index) {
+	          var className = index === 0 ? 'active' : '';
+	          var imageUrl = (0, _imageUtil.normalizeImageUrl)(item.image);
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'item ' + className + ' ' + (style.item || ''), key: index },
+	            _react2.default.createElement('img', { src: imageUrl, alt: item.title })
+	          );
+	        });
+	      }
+	      return null;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props$data = this.props.data;
+	      var titles = _props$data.titles;
+	      var slides = _props$data.slides;
+	      var paragraphs = _props$data.paragraphs;
+	      var buttons = _props$data.buttons;
+
+	      var carouselClasses = {
+	        inner: style.inner,
+	        controls: {
+	          base: style.controls,
+	          prev: style.prev,
+	          next: style.next
+	        }
+	      };
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-6 col-xs-12' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: style.title },
+	                titles.title1
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { className: style.paragraph },
+	                paragraphs.paragraph1
+	              ),
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button, to: buttons.button1.href },
+	                buttons.button1.title,
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_down' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-6 col-xs-12' },
+	              _react2.default.createElement(
+	                _carousel2.default,
+	                { id: 'carousel-home-block-4', interval: 8000, indicators: false, classes: carouselClasses },
+	                this.renderItems(slides)
+	              )
+	            )
+	          )
+	        )
+	      ) : null;
+	    }
+	  }]);
+
+	  return Block4;
+	}(_react2.default.Component);
+
+	exports.default = Block4;
+
+
+	Block4.propTypes = {
+	  data: _react2.default.PropTypes.object,
+	  classes: _react2.default.PropTypes.object
+	};
+
+/***/ },
+/* 40 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___2Xb8X","vCenter":"style__vCenter___hmun0","button2":"style__button2___1PxHI","button":"style__button___2WejV","controls":"style__controls___20l_V","vCenterRel":"style__vCenterRel___2lPVo","hCenter":"style__hCenter___1JZnn","inheritHeight":"style__inheritHeight___1rILl","hideOverflow":"style__hideOverflow___1Q2PJ","icon-sprites":"style__icon-sprites___38gIr","button3":"style__button3___1BqYh","button3v1":"style__button3v1___rymdE","button3v2":"style__button3v2___3AaDs","button3v3":"style__button3v3___313Qy","button3v4":"style__button3v4___3NRPp","button3v5":"style__button3v5___3Klbx","wrapper1":"style__wrapper1___3ANK2","wrapper2":"style__wrapper2___2RaJ7","sideSwipe":"style__sideSwipe___2Dk6P","bottomSwipe":"style__bottomSwipe___1PfSR","button1":"style__button1___1hNj-","title1":"style__title1___25IAx","title2":"style__title2___wfjef","title3":"style__title3___EBeus","title4":"style__title4____YoIR","title5":"style__title5___T2PV8","title6":"style__title6___G7Bi3","title":"style__title___3PYI0","title7":"style__title7___18HEf","title8":"style__title8___1HuLF","image1":"style__image1___3Iegh","image":"style__image___t1t90","paragraph1":"style__paragraph1___1KYt4","paragraph1b":"style__paragraph1b___3FINH","paragraph":"style__paragraph___2ThL6","paragraph2":"style__paragraph2___2j4Qo","paragraph3":"style__paragraph3___29XST","paragraph4":"style__paragraph4___3QuOc","paragraph5":"style__paragraph5___39V90"};
+
+/***/ },
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2507,35 +2457,35 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _block = __webpack_require__(39);
+	var _block = __webpack_require__(42);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(42);
+	var _block3 = __webpack_require__(45);
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _block5 = __webpack_require__(44);
+	var _block5 = __webpack_require__(47);
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(46);
+	var _block7 = __webpack_require__(49);
 
 	var _block8 = _interopRequireDefault(_block7);
 
-	var _block9 = __webpack_require__(48);
+	var _block9 = __webpack_require__(51);
 
 	var _block10 = _interopRequireDefault(_block9);
 
-	var _block11 = __webpack_require__(53);
+	var _block11 = __webpack_require__(56);
 
 	var _block12 = _interopRequireDefault(_block11);
 
-	var _block13 = __webpack_require__(55);
+	var _block13 = __webpack_require__(58);
 
 	var _block14 = _interopRequireDefault(_block13);
 
-	var _data = __webpack_require__(56);
+	var _data = __webpack_require__(59);
 
 	var _data2 = _interopRequireDefault(_data);
 
@@ -2607,7 +2557,7 @@
 	};
 
 /***/ },
-/* 39 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2634,7 +2584,7 @@
 
 	var _imageUtil = __webpack_require__(32);
 
-	var _sanitize = __webpack_require__(40);
+	var _sanitize = __webpack_require__(43);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -2647,7 +2597,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(41);
+	var style = __webpack_require__(44);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -2710,7 +2660,7 @@
 	};
 
 /***/ },
-/* 40 */
+/* 43 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2726,14 +2676,14 @@
 	};
 
 /***/ },
-/* 41 */
+/* 44 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","sideSwipe":"style__sideSwipe___3OFJQ","button1":"style__button1___knh5C","button2":"style__button2___3rlK3","button3":"style__button3___2KaTC","title1":"style__title1___1LlDm","title2":"style__title2___3ep2l","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title3":"style__title3___1URy1","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","svg":"style__svg___29LI3"};
+	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","button2":"style__button2___3rlK3","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","button3":"style__button3___2KaTC","button3v1":"style__button3v1___16SWp","button3v2":"style__button3v2___3N8UW","button3v3":"style__button3v3___2h7PD","button3v4":"style__button3v4___3p_tP","button3v5":"style__button3v5___2P4jz","sideSwipe":"style__sideSwipe___3OFJQ","bottomSwipe":"style__bottomSwipe___3ltu-","button1":"style__button1___knh5C","title1":"style__title1___1LlDm","title2":"style__title2___3ep2l","title3":"style__title3___1URy1","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph1b":"style__paragraph1b___2_mfn","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","svg":"style__svg___29LI3"};
 
 /***/ },
-/* 42 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2756,11 +2706,11 @@
 
 	var _imageUtil = __webpack_require__(32);
 
-	var _sanitize = __webpack_require__(40);
+	var _sanitize = __webpack_require__(43);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
-	var _carousel = __webpack_require__(36);
+	var _carousel = __webpack_require__(33);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
@@ -2773,7 +2723,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(43);
+	var style = __webpack_require__(46);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -2872,14 +2822,14 @@
 	};
 
 /***/ },
-/* 43 */
+/* 46 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___xP6Z-","vCenter":"style__vCenter___3EDwH","vCenterRel":"style__vCenterRel___1d1I_","hCenter":"style__hCenter___3LKuT","inheritHeight":"style__inheritHeight___11OVE","hideOverflow":"style__hideOverflow___1koJ0","icon-sprites":"style__icon-sprites___2uiLf","sideSwipe":"style__sideSwipe___19HIU","button1":"style__button1___ma4vA","button2":"style__button2___1Fwzx","button3":"style__button3___3p2Pg","title1":"style__title1___2c1PC","title2":"style__title2___U0Za7","title4":"style__title4___c-0OO","title5":"style__title5___XOjHY","title6":"style__title6___2E_cG","title3":"style__title3___qpZuD","title7":"style__title7___21JO_","title8":"style__title8___36gBQ","paragraph1":"style__paragraph1___1m33N","paragraph2":"style__paragraph2___3OtNY","paragraph3":"style__paragraph3___3qs1J","paragraph4":"style__paragraph4___3oqJH","paragraph5":"style__paragraph5___akVWK","mainbanner":"style__mainbanner___37cO7","svg":"style__svg___25w61"};
+	module.exports = {"fCenter":"style__fCenter___xP6Z-","vCenter":"style__vCenter___3EDwH","button2":"style__button2___1Fwzx","vCenterRel":"style__vCenterRel___1d1I_","hCenter":"style__hCenter___3LKuT","inheritHeight":"style__inheritHeight___11OVE","hideOverflow":"style__hideOverflow___1koJ0","icon-sprites":"style__icon-sprites___2uiLf","button3":"style__button3___3p2Pg","button3v1":"style__button3v1____mMiu","button3v2":"style__button3v2___7-kje","button3v3":"style__button3v3___2-obj","button3v4":"style__button3v4___ldhG5","button3v5":"style__button3v5___1kCHN","sideSwipe":"style__sideSwipe___19HIU","bottomSwipe":"style__bottomSwipe___3RO2M","button1":"style__button1___ma4vA","title1":"style__title1___2c1PC","title2":"style__title2___U0Za7","title3":"style__title3___qpZuD","title4":"style__title4___c-0OO","title5":"style__title5___XOjHY","title6":"style__title6___2E_cG","title7":"style__title7___21JO_","title8":"style__title8___36gBQ","paragraph1":"style__paragraph1___1m33N","paragraph1b":"style__paragraph1b___30nAD","paragraph2":"style__paragraph2___3OtNY","paragraph3":"style__paragraph3___3qs1J","paragraph4":"style__paragraph4___3oqJH","paragraph5":"style__paragraph5___akVWK","mainbanner":"style__mainbanner___37cO7","svg":"style__svg___25w61"};
 
 /***/ },
-/* 44 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2909,7 +2859,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(45);
+	var style = __webpack_require__(48);
 
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
@@ -2966,14 +2916,14 @@
 	};
 
 /***/ },
-/* 45 */
+/* 48 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","sideSwipe":"style__sideSwipe___1wQDY","button1":"style__button1___ysj8P","button2":"style__button2___3T26W","button3":"style__button3___1B5ky","title1":"style__title1___36WkF","title2":"style__title2___21MoW","title4":"style__title4___3vPE_","title5":"style__title5___1hZAj","title6":"style__title6___3ZgkO","title3":"style__title3___WdO4l","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbanner":"style__mainbanner___2J7_D","svg":"style__svg___6prOk"};
+	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","button2":"style__button2___3T26W","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","button3":"style__button3___1B5ky","button3v1":"style__button3v1___1K2ga","button3v2":"style__button3v2___2cSYL","button3v3":"style__button3v3___2QAs0","button3v4":"style__button3v4___1yJWM","button3v5":"style__button3v5___19FE3","sideSwipe":"style__sideSwipe___1wQDY","bottomSwipe":"style__bottomSwipe___3FjOI","button1":"style__button1___ysj8P","title1":"style__title1___36WkF","title2":"style__title2___21MoW","title3":"style__title3___WdO4l","title4":"style__title4___3vPE_","title5":"style__title5___1hZAj","title6":"style__title6___3ZgkO","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph1b":"style__paragraph1b___3yolC","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbanner":"style__mainbanner___2J7_D","svg":"style__svg___6prOk"};
 
 /***/ },
-/* 46 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2992,11 +2942,11 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _sanitize = __webpack_require__(40);
+	var _sanitize = __webpack_require__(43);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
-	var _carousel = __webpack_require__(36);
+	var _carousel = __webpack_require__(33);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
@@ -3009,7 +2959,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(47);
+	var style = __webpack_require__(50);
 
 	var Block4 = function (_React$Component) {
 	  _inherits(Block4, _React$Component);
@@ -3093,14 +3043,14 @@
 	};
 
 /***/ },
-/* 47 */
+/* 50 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","sideSwipe":"style__sideSwipe___13jwX","button1":"style__button1___1pbIc","button2":"style__button2___1FucC","button3":"style__button3___1uWcc","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title3":"style__title3___L0OLC","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","mainbanner":"style__mainbanner___21nfH","svg":"style__svg___3Smom"};
+	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","button2":"style__button2___1FucC","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","button3":"style__button3___1uWcc","button3v1":"style__button3v1___2s-Yj","button3v2":"style__button3v2___2VAH8","button3v3":"style__button3v3___iwEeg","button3v4":"style__button3v4___3wMtL","button3v5":"style__button3v5___2ieFT","sideSwipe":"style__sideSwipe___13jwX","bottomSwipe":"style__bottomSwipe___2_85D","button1":"style__button1___1pbIc","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title3":"style__title3___L0OLC","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph1b":"style__paragraph1b___2rvU9","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","mainbanner":"style__mainbanner___21nfH","svg":"style__svg___3Smom"};
 
 /***/ },
-/* 48 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3119,7 +3069,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _listShow = __webpack_require__(49);
+	var _listShow = __webpack_require__(52);
 
 	var _listShow2 = _interopRequireDefault(_listShow);
 
@@ -3168,7 +3118,7 @@
 	};
 
 /***/ },
-/* 49 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3187,15 +3137,15 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _list = __webpack_require__(50);
+	var _list = __webpack_require__(53);
 
 	var _list2 = _interopRequireDefault(_list);
 
-	var _show = __webpack_require__(52);
+	var _show = __webpack_require__(55);
 
 	var _show2 = _interopRequireDefault(_show);
 
-	var _slug = __webpack_require__(51);
+	var _slug = __webpack_require__(54);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -3275,7 +3225,7 @@
 	};
 
 /***/ },
-/* 50 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3296,7 +3246,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _slug = __webpack_require__(51);
+	var _slug = __webpack_require__(54);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -3363,7 +3313,7 @@
 	};
 
 /***/ },
-/* 51 */
+/* 54 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3394,7 +3344,7 @@
 	};
 
 /***/ },
-/* 52 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3494,7 +3444,7 @@
 	};
 
 /***/ },
-/* 53 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3513,11 +3463,11 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _carousel = __webpack_require__(36);
+	var _carousel = __webpack_require__(33);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
-	var _sanitize = __webpack_require__(40);
+	var _sanitize = __webpack_require__(43);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -3530,7 +3480,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(54);
+	var style = __webpack_require__(57);
 
 	var Block7 = function (_React$Component) {
 	  _inherits(Block7, _React$Component);
@@ -3599,13 +3549,13 @@
 	};
 
 /***/ },
-/* 54 */
+/* 57 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 55 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3715,7 +3665,7 @@
 	};
 
 /***/ },
-/* 56 */
+/* 59 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3833,7 +3783,7 @@
 	};
 
 /***/ },
-/* 57 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3852,19 +3802,19 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _block = __webpack_require__(58);
+	var _block = __webpack_require__(61);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(33);
+	var _block3 = __webpack_require__(35);
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _block5 = __webpack_require__(60);
+	var _block5 = __webpack_require__(63);
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(62);
+	var _block7 = __webpack_require__(65);
 
 	var _block8 = _interopRequireDefault(_block7);
 
@@ -3943,7 +3893,7 @@
 	};
 
 /***/ },
-/* 58 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3970,7 +3920,7 @@
 
 	var _imageUtil = __webpack_require__(32);
 
-	var _sanitize = __webpack_require__(40);
+	var _sanitize = __webpack_require__(43);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -3983,7 +3933,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(59);
+	var style = __webpack_require__(62);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -4046,14 +3996,14 @@
 	};
 
 /***/ },
-/* 59 */
+/* 62 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1j0pv","vCenter":"style__vCenter___2KQFQ","vCenterRel":"style__vCenterRel___34eYy","hCenter":"style__hCenter___1Lkdf","inheritHeight":"style__inheritHeight___1q40G","hideOverflow":"style__hideOverflow___DrxCZ","icon-sprites":"style__icon-sprites___3tV9U","sideSwipe":"style__sideSwipe___1FVlo","button1":"style__button1___3ZmPV","button2":"style__button2___2shnn","button3":"style__button3___3VbYO","title1":"style__title1___1gW4S","title2":"style__title2___2Tj1e","title4":"style__title4___3J4Je","title5":"style__title5___2Nimp","title6":"style__title6___1J_L3","title3":"style__title3___1HOPW","title7":"style__title7___2tzA4","title8":"style__title8___2p7DZ","paragraph1":"style__paragraph1___3jelK","paragraph2":"style__paragraph2___3QqbA","paragraph3":"style__paragraph3___2muKz","paragraph4":"style__paragraph4___1geTk","paragraph5":"style__paragraph5___30-m9","mainbanner":"style__mainbanner___17dAE","svg":"style__svg___1UaPh"};
+	module.exports = {"fCenter":"style__fCenter___1j0pv","vCenter":"style__vCenter___2KQFQ","button2":"style__button2___2shnn","vCenterRel":"style__vCenterRel___34eYy","hCenter":"style__hCenter___1Lkdf","inheritHeight":"style__inheritHeight___1q40G","hideOverflow":"style__hideOverflow___DrxCZ","icon-sprites":"style__icon-sprites___3tV9U","button3":"style__button3___3VbYO","button3v1":"style__button3v1___1AjUN","button3v2":"style__button3v2___3ejfJ","button3v3":"style__button3v3___B8Ol9","button3v4":"style__button3v4___31_JU","button3v5":"style__button3v5___y00P6","sideSwipe":"style__sideSwipe___1FVlo","bottomSwipe":"style__bottomSwipe___2c0uL","button1":"style__button1___3ZmPV","title1":"style__title1___1gW4S","title2":"style__title2___2Tj1e","title3":"style__title3___1HOPW","title4":"style__title4___3J4Je","title5":"style__title5___2Nimp","title6":"style__title6___1J_L3","title7":"style__title7___2tzA4","title8":"style__title8___2p7DZ","paragraph1":"style__paragraph1___3jelK","paragraph1b":"style__paragraph1b___2o55y","paragraph2":"style__paragraph2___3QqbA","paragraph3":"style__paragraph3___2muKz","paragraph4":"style__paragraph4___1geTk","paragraph5":"style__paragraph5___30-m9","mainbanner":"style__mainbanner___17dAE","svg":"style__svg___1UaPh"};
 
 /***/ },
-/* 60 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4074,11 +4024,11 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _carousel = __webpack_require__(36);
+	var _carousel = __webpack_require__(33);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
-	var _slug = __webpack_require__(51);
+	var _slug = __webpack_require__(54);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -4091,7 +4041,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(61);
+	var style = __webpack_require__(64);
 
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
@@ -4216,14 +4166,14 @@
 	};
 
 /***/ },
-/* 61 */
+/* 64 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___zkvoI","vCenter":"style__vCenter___1amrF","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button3":"style__button3___90xKI","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title3":"style__title3___3_np7","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraph5":"style__paragraph5___1IKiM"};
+	module.exports = {"fCenter":"style__fCenter___zkvoI","vCenter":"style__vCenter___1amrF","button2":"style__button2___2IfG_","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","button3v5":"style__button3v5___1gczD","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","button1":"style__button1___1wRom","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraph5":"style__paragraph5___1IKiM"};
 
 /***/ },
-/* 62 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4333,7 +4283,7 @@
 	};
 
 /***/ },
-/* 63 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4352,11 +4302,11 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _block = __webpack_require__(64);
+	var _block = __webpack_require__(67);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(66);
+	var _block3 = __webpack_require__(69);
 
 	var _block4 = _interopRequireDefault(_block3);
 
@@ -4404,7 +4354,7 @@
 	};
 
 /***/ },
-/* 64 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4431,7 +4381,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(65);
+	var style = __webpack_require__(68);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -4467,14 +4417,14 @@
 	};
 
 /***/ },
-/* 65 */
+/* 68 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3WsSe","vCenter":"style__vCenter___3G_X_","vCenterRel":"style__vCenterRel___2rlOE","hCenter":"style__hCenter___3ARcP","inheritHeight":"style__inheritHeight___1YsqB","hideOverflow":"style__hideOverflow___ps_Tr","icon-sprites":"style__icon-sprites___2f7vT","image1":"style__image1___1oYSl","paragraph1":"style__paragraph1___3JnQd","paragraph2":"style__paragraph2___3M3qm","paragraph3":"style__paragraph3___6lKhK","paragraph4":"style__paragraph4___1Z42s","paragraph5":"style__paragraph5___1v105","sideSwipe":"style__sideSwipe___50l2S","button1":"style__button1___1iQls","button":"style__button___6iE0P","button2":"style__button2___2nT5Y","button3":"style__button3___1WIju","title1":"style__title1___3f0o0","title2":"style__title2___XQgLg","title4":"style__title4___BpZsL","title5":"style__title5___hKWjC","title6":"style__title6___2GSXY","title3":"style__title3___2f5QU","title7":"style__title7___3_kU1","title8":"style__title8___2cLGW","image":"style__image___mSywh"};
+	module.exports = {"fCenter":"style__fCenter___3WsSe","vCenter":"style__vCenter___3G_X_","button2":"style__button2___2nT5Y","vCenterRel":"style__vCenterRel___2rlOE","hCenter":"style__hCenter___3ARcP","inheritHeight":"style__inheritHeight___1YsqB","hideOverflow":"style__hideOverflow___ps_Tr","icon-sprites":"style__icon-sprites___2f7vT","button3":"style__button3___1WIju","button3v1":"style__button3v1___32z7Y","button3v2":"style__button3v2___3m_1I","button3v3":"style__button3v3___3STSg","button3v4":"style__button3v4___3GtKt","button3v5":"style__button3v5___2M1AI","image1":"style__image1___1oYSl","paragraph1":"style__paragraph1___3JnQd","paragraph1b":"style__paragraph1b___xv990","paragraph2":"style__paragraph2___3M3qm","paragraph3":"style__paragraph3___6lKhK","paragraph4":"style__paragraph4___1Z42s","paragraph5":"style__paragraph5___1v105","sideSwipe":"style__sideSwipe___50l2S","bottomSwipe":"style__bottomSwipe___-6WwV","button1":"style__button1___1iQls","button":"style__button___6iE0P","title1":"style__title1___3f0o0","title2":"style__title2___XQgLg","title3":"style__title3___2f5QU","title4":"style__title4___BpZsL","title5":"style__title5___hKWjC","title6":"style__title6___2GSXY","title7":"style__title7___3_kU1","title8":"style__title8___2cLGW","image":"style__image___mSywh"};
 
 /***/ },
-/* 66 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4493,7 +4443,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _form = __webpack_require__(67);
+	var _form = __webpack_require__(70);
 
 	var _form2 = _interopRequireDefault(_form);
 
@@ -4506,7 +4456,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(69);
+	var style = __webpack_require__(72);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -4605,7 +4555,7 @@
 	};
 
 /***/ },
-/* 67 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4636,7 +4586,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 600, 4] */
 
-	var style = __webpack_require__(68);
+	var style = __webpack_require__(71);
 
 	var Form1 = function (_React$Component) {
 	  _inherits(Form1, _React$Component);
@@ -4889,18 +4839,18 @@
 	exports.default = Form1;
 
 /***/ },
-/* 68 */
+/* 71 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___365qk","vCenter":"style__vCenter___9LFiT","vCenterRel":"style__vCenterRel___27ebh","hCenter":"style__hCenter___3MSN5","inheritHeight":"style__inheritHeight___20X8j","hideOverflow":"style__hideOverflow___1e_Sa","icon-sprites":"style__icon-sprites___SBb6q","image1":"style__image1___20ULB","paragraph1":"style__paragraph1___1Iuas","paragraph2":"style__paragraph2___XLNUn","paragraph3":"style__paragraph3___cQhzG","paragraph4":"style__paragraph4___3o8-x","paragraph5":"style__paragraph5___-5J8a","sideSwipe":"style__sideSwipe___3Jh_M","button1":"style__button1___QW0Tv","submit":"style__submit___2YBRa","button2":"style__button2___3fzL1","button3":"style__button3___1LtgP","title1":"style__title1___2DL5-","title2":"style__title2___3etcM","title4":"style__title4___33kmt","title5":"style__title5___2k_sU","title6":"style__title6___1dv-o","title3":"style__title3___8tZ0C","title7":"style__title7___OUaen","title8":"style__title8___1LvKh","form":"style__form___1nnSk","formGroup":"style__formGroup___1VfYe"};
+	module.exports = {"fCenter":"style__fCenter___365qk","vCenter":"style__vCenter___9LFiT","button2":"style__button2___3fzL1","vCenterRel":"style__vCenterRel___27ebh","hCenter":"style__hCenter___3MSN5","inheritHeight":"style__inheritHeight___20X8j","hideOverflow":"style__hideOverflow___1e_Sa","icon-sprites":"style__icon-sprites___SBb6q","button3":"style__button3___1LtgP","button3v1":"style__button3v1___1Mvm_","button3v2":"style__button3v2___1N7QE","button3v3":"style__button3v3___11aHd","button3v4":"style__button3v4___2B0cK","button3v5":"style__button3v5___zgSlr","image1":"style__image1___20ULB","paragraph1":"style__paragraph1___1Iuas","paragraph1b":"style__paragraph1b___14XS7","paragraph2":"style__paragraph2___XLNUn","paragraph3":"style__paragraph3___cQhzG","paragraph4":"style__paragraph4___3o8-x","paragraph5":"style__paragraph5___-5J8a","sideSwipe":"style__sideSwipe___3Jh_M","bottomSwipe":"style__bottomSwipe___2N3qh","button1":"style__button1___QW0Tv","submit":"style__submit___2YBRa","title1":"style__title1___2DL5-","title2":"style__title2___3etcM","title3":"style__title3___8tZ0C","title4":"style__title4___33kmt","title5":"style__title5___2k_sU","title6":"style__title6___1dv-o","title7":"style__title7___OUaen","title8":"style__title8___1LvKh","form":"style__form___1nnSk","formGroup":"style__formGroup___1VfYe"};
 
 /***/ },
-/* 69 */
+/* 72 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph2":"style__paragraph2___1ISwm","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","paragraph":"style__paragraph___29758","sideSwipe":"style__sideSwipe___1IOUP","button1":"style__button1___1cwjy","button2":"style__button2___hQ_-V","button3":"style__button3___3HwaY","gmap":"style__gmap___1uAlR","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title3":"style__title3___173Gl","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","svg":"style__svg___38pi8"};
+	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","button2":"style__button2___hQ_-V","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","button3":"style__button3___3HwaY","button3v1":"style__button3v1___2Wuut","button3v2":"style__button3v2___5XAeE","button3v3":"style__button3v3___bPEC9","button3v4":"style__button3v4___3dETf","button3v5":"style__button3v5___3o_q3","gmap":"style__gmap___1uAlR","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph1b":"style__paragraph1b___1kRb1","paragraph2":"style__paragraph2___1ISwm","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","paragraph":"style__paragraph___29758","sideSwipe":"style__sideSwipe___1IOUP","bottomSwipe":"style__bottomSwipe___1Id40","button1":"style__button1___1cwjy","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title3":"style__title3___173Gl","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","svg":"style__svg___38pi8"};
 
 /***/ }
 /******/ ]);

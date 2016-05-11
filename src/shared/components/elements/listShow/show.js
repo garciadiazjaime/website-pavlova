@@ -23,10 +23,12 @@ export default class Show extends React.Component {
         </div>
         <div className="col-sm-6 col-xs-12">
           <h3 className={style.subtitle}>{data.subtitle}</h3>
-          <p className={style.intro}>{data.intro}</p>
-          <div className={style.content}>
-            {this.renderItems(data.content)}
-          </div>
+          <p className={style.content}>{data.intro}</p>
+        </div>
+        <div className="col-xs-12">
+        <div className={style.content}>
+          {this.renderItems(data.content)}
+        </div>
         </div>
       </div>
     </div>);

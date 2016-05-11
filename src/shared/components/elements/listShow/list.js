@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import _ from 'lodash';
+import SVG from '../../svg';
 import getSlug from '../../../utils/slug';
 
 export default class List extends React.Component {
@@ -13,7 +14,7 @@ export default class List extends React.Component {
         const slug = getSlug(item.title);
         const className = slug === itemUrl ? 'active' : '';
         return (<div key={index} className={style.item}>
-          <Link className={className} to={'/' + sectionUrl + '/' + slug} title={item.title}>{item.title}</Link>
+          <Link className={className} to={'/' + sectionUrl + '/' + slug} title={item.title}>{item.title}<SVG network="arrow_right" className={style.svg}/></Link>
         </div>);
       });
     }

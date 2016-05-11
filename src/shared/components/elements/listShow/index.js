@@ -23,11 +23,11 @@ export default class ListShow extends React.Component {
     const itemInfo = this.getItemInfo(data.items, item);
     return (<div>
       <div className="row">
-        <div className="col-sm-6 col-xs-6">
+        <div className="col-sm-5 col-xs-12">
           <h2 className={style.title}>Conoce a nuestro staff</h2>
           <List data={data} item={item} style={style} />
         </div>
-        <div className="col-sm-6 col-xs-6">
+        <div className="col-sm-6 col-sm-offset-1 col-xs-12">
           <Show data={itemInfo} style={style} />
         </div>
       </div>

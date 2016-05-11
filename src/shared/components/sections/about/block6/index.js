@@ -9,8 +9,10 @@ export default class Block6 extends React.Component {
 
   render() {
     const { data, showListItem } = this.props;
-    return !_.isEmpty(this.props.data) ? (<div className="container-fluid">
-      <ListShow data={data} item={showListItem} style={style} />
+    return !_.isEmpty(this.props.data) ? (<div className={style.wrapper}>
+        <div className="container-fluid">
+        <ListShow data={data} item={showListItem} style={style} />
+      </div>
     </div>) : null;
   }
 }

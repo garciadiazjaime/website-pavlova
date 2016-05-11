@@ -1,4 +1,4 @@
-/* eslint max-len: [2, 500, 4] */
+  /* eslint max-len: [2, 500, 4] */
 import React from 'react';
 import _ from 'lodash';
 import Carousel from '../../../elements/carousel';
@@ -12,7 +12,8 @@ export default class Block7 extends React.Component {
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
         return (<div className={'item ' + className} key={index}>
-          <div dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
+          <p className={style.paragraph} dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
+          <p className={style.author}>{item.title}</p>
         </div>);
       });
     }
@@ -30,7 +31,7 @@ export default class Block7 extends React.Component {
       },
     };
     return !_.isEmpty(this.props.data) ? (<div className="container-fluid">
-      <h2>{titles.title1}</h2>
+      <h2 className={style.title}>{titles.title1}</h2>
       <Carousel id="carousel-about-block-7" interval={8000} controls={false} indicators={false} classes={carouselClasses}>
         {this.renderItems(slides)}
       </Carousel>

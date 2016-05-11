@@ -13,8 +13,8 @@ export default class Block4 extends React.Component {
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
         return (<div className={'item ' + className} key={index}>
-          <h3 className={style.titles6}>{item.title}</h3>
-          <div className={style.paragraph1} dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
+          <h3 className={style.title}>{item.title}</h3>
+          <div className={style.paragraph} dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
         </div>);
       });
     }
@@ -32,15 +32,17 @@ export default class Block4 extends React.Component {
       },
     };
     const imgUrl = images.image1.src ? images.image1.src.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : images.image1.src;
-    return !_.isEmpty(this.props.data) ? (<div className="container-fluid">
-      <div className="row">
-        <div className="col-sm-6 col-xs-12">
-          <img className={style.image} src={imgUrl} alt={images.image1.alt} />
-        </div>
-        <div className="col-sm-6 col-xs-12">
-          <Carousel id="carousel-about-block-4" interval={8000} controls={false} classes={carouselClasses}>
-            {this.renderItems(slides)}
-          </Carousel>
+    return !_.isEmpty(this.props.data) ? (<div className={style.wrapper}>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-sm-6 col-xs-12">
+            <img className={style.image} src={imgUrl} alt={images.image1.alt} />
+          </div>
+          <div className="col-sm-6 col-xs-12">
+            <Carousel id="carousel-about-block-4" interval={8000} controls={false} classes={carouselClasses}>
+              {this.renderItems(slides)}
+            </Carousel>
+          </div>
         </div>
       </div>
     </div>) : null;

@@ -1,7 +1,6 @@
-@import '../../../../theme/constants';
-@import '../../../../theme/buttons/buttons';
-@import '../../../../theme/titles/titles';
-@import '../../../../theme/paragraphs/paragraphs';
+@import '../../../../theme/titles/titles.scss';
+@import '../../../../theme/paragraphs/paragraphs.scss';
+@import '../../../../theme/constants.scss';
 
 .title{
   @extend .title6;
@@ -16,9 +15,9 @@
 }
 
 .intro {
-  @extend .paragrap1;
+  // @extend .paragrap1;
 }
 
 .content {
-  @extend .paragrap1;
+  // @extend .paragrap1;
 }

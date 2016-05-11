@@ -26,3 +26,10 @@
     }
   }
 }
+@media #{$isPhone}{
+  .item{
+    a{
+      margin: 600px auto 0;
+    }
+  }
+}

@@ -1,4 +1,10 @@
-$sprites-brand: -0px -0px 133px 40px;
+$sprites-Icon-Ballet: -182px -0px 100px 100px;
+$sprites-Icon-Barre: -0px -160px 100px 100px;
+$sprites-Icon-CardioDanza: -100px -160px 100px 100px;
+$sprites-Icon-Flamenco: -282px -0px 100px 100px;
+$sprites-Icon-Jazz: -282px -100px 100px 100px;
+$sprites-Logo-PasdeChat: -0px -0px 182px 160px;
+$sprites-brand: -0px -260px 133px 40px;
 @mixin sprite-width($sprite) {
   width: nth($sprite, 3);
 }

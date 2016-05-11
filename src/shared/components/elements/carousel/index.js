@@ -13,10 +13,11 @@ export default class Carousel extends React.Component {
         const className = index === 0 ? 'active' : '';
         return (<li data-target={'#' + sliderId} data-slide-to={index} className={className} key={index} />);
       });
+      return (<ol className={'carousel-indicators ' + (indicatorClass || '')}>
+        {indicators}
+      </ol>);
     }
-    return (<ol className={'carousel-indicators ' + (indicatorClass || '')}>
-      {indicators}
-    </ol>);
+    return null;
   }
 
 

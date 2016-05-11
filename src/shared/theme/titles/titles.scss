@@ -7,10 +7,27 @@
   letter-spacing: 30px;
 }
 .title2{
-  display: block;
+  font-family: $fontA;
+  color: $white;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing:2px;
+  a{
+    display: block;
+    cursor: pointer;
+    padding: 15px 30px;
+    color: $gray;
+    &:hover{
+      color: $white;
+    }
+  }
 }
 .title3{
-  display: block;
+  font-family: $fontA;
+  color: $white;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing:2px;
 }
 .title4{
   display: block;

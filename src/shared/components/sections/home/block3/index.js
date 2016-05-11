@@ -12,8 +12,6 @@ export default class Block3 extends React.Component {
 
   render() {
     const { titles, buttons, images, paragraphs } = this.props.data;
-    // ************* Fix para mientras quedan las imagenes correctas en la BD ******************
-    images.image1.src = '/images/Img-PasdeChat-bg.jpg';
     const divStyle = getImageBackground(images.image1);
     return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.passeDeChat}>
       <div className="container-fluid">

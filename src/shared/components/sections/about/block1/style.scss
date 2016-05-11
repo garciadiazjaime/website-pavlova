@@ -9,12 +9,14 @@
 	padding-top: 220px;
 	background-size: cover;
 }
-.title3{
+.title{
+	@extend .title1;
 	text-align: center;
 	margin-bottom: 50px;
 	letter-spacing: 11px;
 }
-.paragraph3{
+.paragraph{
+	@extend .paragraph3;
 	text-align: center;
 	margin-bottom: 50px;
 }
@@ -24,7 +26,8 @@
 }
 // --- Responsive
 @media #{$isPhone}{
-  .title3{
+  .title{
 		font-size: 30px;
+		letter-spacing: 10px;
 	}
 }

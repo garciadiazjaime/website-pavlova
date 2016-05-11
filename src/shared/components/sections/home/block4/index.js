@@ -39,7 +39,7 @@ export default class Block4 extends React.Component {
           <div className="col-sm-6 col-xs-12">
             <h2 className={style.title}>{titles.title1}</h2>
             <p className={style.paragraph}>{paragraphs.paragraph1}</p>
-            <Link className={style.button} to={buttons.button1.href}>{buttons.button1.title}<SVG network="arrow_down"/></Link>
+            <Link className={style.button} to={buttons.button1.href}>{buttons.button1.title}<SVG network="arrow_right"/></Link>
           </div>
           <div className="col-sm-6 col-xs-12">
             <Carousel id="carousel-home-block-4" interval={8000} indicators={false} classes={carouselClasses}>

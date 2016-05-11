@@ -1,0 +1,23 @@
+@import '../../../../theme/titles/titles.scss';
+@import '../../../../theme/paragraphs/paragraphs.scss';
+@import '../../../../theme/constants.scss';
+
+.title{
+  @extend .title6;
+}
+
+.subtitle {
+  @extend .title3;
+}
+
+.item {
+  @extend .title2;
+}
+
+.intro {
+  // @extend .paragrap1;
+}
+
+.content {
+  // @extend .paragrap1;
+}

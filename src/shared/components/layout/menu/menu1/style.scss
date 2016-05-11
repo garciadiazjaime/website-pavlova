@@ -19,10 +19,13 @@ $hamburger-background: lighten($black, 15%)!important;
 
 
 .navbarWrapper {
-  height: 165px;
+  height: 135px;
   @include transform(skew(0deg, -2.69deg));
   background-color: $background-color!important;
   margin-top: -25px;
+  margin-bottom: -60px;
+  z-index: 2;
+  position: relative;
 }
 // ********** The full navbar *********************
 .navbarDefault {

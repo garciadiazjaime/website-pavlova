@@ -15,7 +15,7 @@ export default class Block3 extends React.Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-12 col-xs-12">
-            <h2 className={style.title3 + ' ' + variations.variation1}>{titles.title1}</h2>
+            <h2 className={style.title1 + ' ' + variations.variation1}>{titles.title1}</h2>
           </div>
         </div>
       </div>

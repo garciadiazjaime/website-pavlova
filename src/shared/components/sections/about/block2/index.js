@@ -4,8 +4,9 @@ import _ from 'lodash';
 import { Link } from 'react-router';
 import { getImageBackground } from '../../../../utils/imageUtil';
 import sanitizeUtil from '../../../../utils/sanitize';
-const style = require('./style.scss');
+import SVG from '../../../svg';
 import Carousel from '../../../elements/carousel';
+const style = require('./style.scss');
 
 
 export default class Block2 extends React.Component {
@@ -15,8 +16,8 @@ export default class Block2 extends React.Component {
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
         return (<div className={'item ' + className} key={index}>
-          <h3>{item.title}</h3>
-          <div dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
+          <h3 className={style.title6}>{item.title}</h3>
+          <div className={style.paragraph1} dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
         </div>);
       });
     }
@@ -41,10 +42,10 @@ export default class Block2 extends React.Component {
             <Carousel id="carousel-about-block-2" interval={8000} controls={false} classes={carouselClasses}>
               {this.renderItems(slides)}
             </Carousel>
-            <Link to={buttons.button1.href}>{buttons.button1.title}</Link>
+            <Link className={style.button2} to={buttons.button1.href}>{buttons.button1.title}<SVG network="arrow_down"/></Link>
           </div>
           <div className="col-sm-6 col-xs-12">
-            <h2 className={style.title3}>{titles.title1}</h2>
+            <p className={style.paragraph5}>{titles.title1}</p>
           </div>
         </div>
       </div>

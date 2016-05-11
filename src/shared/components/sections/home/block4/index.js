@@ -13,7 +13,7 @@ export default class Block4 extends React.Component {
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
         return (<div className={'item ' + className + ' ' + (style.item || '')} key={index}>
-          <img src={item.image} alt={item.title} />
+          <img className={style.carrouselImg} src={item.image} alt={item.title} />
         </div>);
       });
     }

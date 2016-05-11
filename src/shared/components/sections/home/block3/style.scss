@@ -31,3 +31,8 @@
   margin: 0 auto;
   display: block;
 }
+@media #{$isPhone}{
+ .title{
+   font-size: 35px;
+ }
+}

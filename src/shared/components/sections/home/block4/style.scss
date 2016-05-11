@@ -18,6 +18,10 @@
 }
 .button{
   @extend .button2;
+  margin-bottom: 50px;
+}
+.carrouselImg{
+  width: 100%;
 }
 .controls{
   background-image: none!important;

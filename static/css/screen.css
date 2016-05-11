@@ -399,7 +399,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___1fgRn {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___3VQJ- {
   display: block; }
@@ -852,7 +856,11 @@
   display: block; }
 
 .style__paragraph5___3EMdx {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__fCenter___ByilZ {
   position: absolute;
@@ -1096,7 +1104,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___3Lp7y {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___1Nebh {
   display: block; }
@@ -1239,7 +1251,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___3QBup {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___19ma5 {
   display: block; }
@@ -1533,7 +1549,11 @@
   display: block; }
 
 .style__paragraph5___8lnUF {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__fCenter___1UpIU {
   position: absolute;
@@ -1954,7 +1974,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___25IAx {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___wfjef {
   display: block; }
@@ -2103,7 +2127,11 @@
   display: block; }
 
 .style__paragraph5___39V90 {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__wrapper___17dlG {
   padding: 100px 0; }
@@ -2412,8 +2440,12 @@
 .style__icon-sprites___1i1iv, .style__button3___2KaTC::before, .style__button3v1___16SWp::before, .style__button3v2___3N8UW::before, .style__button3v3___2h7PD::before, .style__button3v4___3p_tP::before, .style__button3v5___2P4jz::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
-.style__title1___1LlDm {
-  display: block; }
+.style__title1___1LlDm, .style__title___JG5hq {
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___3ep2l {
   display: block; }
@@ -2502,7 +2534,7 @@
 .style__paragraph2___KQkCk {
   display: block; }
 
-.style__paragraph3___2Y3uZ {
+.style__paragraph3___2Y3uZ, .style__paragraph___1Wwqc {
   font-family: "Source Sans Pro", sans-serif;
   color: #fff;
   font-weight: 300;
@@ -2512,19 +2544,23 @@
   display: block; }
 
 .style__paragraph5___iOq2N {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__mainbanner___3hjPv {
   height: 619px;
   padding-top: 220px;
   background-size: cover; }
 
-.style__title3___1URy1 {
+.style__title___JG5hq {
   text-align: center;
   margin-bottom: 50px;
   letter-spacing: 11px; }
 
-.style__paragraph3___2Y3uZ {
+.style__paragraph___1Wwqc {
   text-align: center;
   margin-bottom: 50px; }
 
@@ -2533,8 +2569,9 @@
   margin: 0 auto; }
 
 @media only screen and (max-width: 767px) {
-  .style__title3___1URy1 {
-    font-size: 30px; } }
+  .style__title___JG5hq {
+    font-size: 30px;
+    letter-spacing: 10px; } }
 .style__fCenter___xP6Z- {
   position: absolute;
   top: 50%;
@@ -2545,7 +2582,7 @@
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%); }
 
-.style__vCenter___3EDwH, .style__button2___1Fwzx svg, .style__button2b___GtnQK svg {
+.style__vCenter___3EDwH, .style__button2___1Fwzx svg, .style__button___15DCt svg, .style__button2b___GtnQK svg {
   position: absolute;
   top: 50%;
   -moz-transform: translateY(-50%);
@@ -2591,7 +2628,7 @@
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%); }
 
-.style__vCenter___3EDwH, .style__button2___1Fwzx svg, .style__button2b___GtnQK svg {
+.style__vCenter___3EDwH, .style__button2___1Fwzx svg, .style__button___15DCt svg, .style__button2b___GtnQK svg {
   position: absolute;
   top: 50%;
   -moz-transform: translateY(-50%);
@@ -2648,7 +2685,7 @@
     z-index: -1;
     -webkit-transition: right 0.2s ease-in; }
 
-.style__bottomSwipe___3RO2M, .style__button2___1Fwzx, .style__button2b___GtnQK {
+.style__bottomSwipe___3RO2M, .style__button2___1Fwzx, .style__button___15DCt, .style__button2b___GtnQK {
   position: relative;
   z-index: 1;
   text-align: left;
@@ -2657,9 +2694,9 @@
   -ms-transition: 0.08s ease-in;
   -moz-transition: 0.08s ease-in;
   -webkit-transition: 0.08s ease-in; }
-  .style__bottomSwipe___3RO2M:hover::before, .style__button2___1Fwzx:hover::before, .style__button2b___GtnQK:hover::before {
+  .style__bottomSwipe___3RO2M:hover::before, .style__button2___1Fwzx:hover::before, .style__button___15DCt:hover::before, .style__button2b___GtnQK:hover::before {
     top: 0; }
-  .style__bottomSwipe___3RO2M::before, .style__button2___1Fwzx::before, .style__button2b___GtnQK::before {
+  .style__bottomSwipe___3RO2M::before, .style__button2___1Fwzx::before, .style__button___15DCt::before, .style__button2b___GtnQK::before {
     content: "";
     position: absolute;
     right: 0;
@@ -2672,7 +2709,7 @@
 .style__button1___ma4vA {
   display: block; }
 
-.style__button2___1Fwzx {
+.style__button2___1Fwzx, .style__button___15DCt {
   position: relative;
   background-color: transparent;
   border: 1px solid #fff;
@@ -2683,15 +2720,15 @@
   width: 195px;
   font-size: 15px;
   display: block; }
-  .style__button2___1Fwzx:hover {
+  .style__button2___1Fwzx:hover, .style__button___15DCt:hover {
     color: #000; }
-    .style__button2___1Fwzx:hover svg polyline {
+    .style__button2___1Fwzx:hover svg polyline, .style__button___15DCt:hover svg polyline {
       stroke: #000; }
-  .style__button2___1Fwzx::before {
+  .style__button2___1Fwzx::before, .style__button___15DCt::before {
     background: #fff; }
-  .style__button2___1Fwzx svg {
+  .style__button2___1Fwzx svg, .style__button___15DCt svg {
     right: 15px; }
-    .style__button2___1Fwzx svg polyline {
+    .style__button2___1Fwzx svg polyline, .style__button___15DCt svg polyline {
       stroke: #fff; }
 
 .style__button2b___GtnQK {
@@ -2786,7 +2823,7 @@
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%); }
 
-.style__vCenter___3EDwH, .style__button2___1Fwzx svg, .style__button2b___GtnQK svg {
+.style__vCenter___3EDwH, .style__button2___1Fwzx svg, .style__button___15DCt svg, .style__button2b___GtnQK svg {
   position: absolute;
   top: 50%;
   -moz-transform: translateY(-50%);
@@ -2823,7 +2860,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___2c1PC {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___U0Za7 {
   display: block; }
@@ -2841,7 +2882,7 @@
   letter-spacing: 5px;
   font-family: "Playfair Display", serif; }
 
-.style__title6___2E_cG {
+.style__title6___2E_cG, .style__title___3-jmd {
   color: #fff;
   font-family: "Playfair Display", serif;
   letter-spacing: 3px;
@@ -2864,7 +2905,7 @@
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%); }
 
-.style__vCenter___3EDwH, .style__button2___1Fwzx svg, .style__button2b___GtnQK svg {
+.style__vCenter___3EDwH, .style__button2___1Fwzx svg, .style__button___15DCt svg, .style__button2b___GtnQK svg {
   position: absolute;
   top: 50%;
   -moz-transform: translateY(-50%);
@@ -2921,29 +2962,39 @@
 .style__paragraph4___3oqJH {
   display: block; }
 
-.style__paragraph5___akVWK {
-  display: block; }
+.style__paragraph5___akVWK, .style__tagline___Dl43p {
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__paragraph___2dz5L {
   margin-bottom: 50px; }
 
 .style__mainbanner___37cO7 {
-  height: 619px;
-  padding-top: 220px;
+  height: 750px;
+  padding-top: 100px;
   background-size: cover; }
 
-.style__title3___qpZuD {
-  text-align: center;
+.style__title___3-jmd {
   margin-bottom: 50px;
   letter-spacing: 11px; }
 
-.style__paragraph3___3qs1J {
-  text-align: center;
-  margin-bottom: 50px; }
+.style__paragraph___2dz5L {
+  margin-bottom: 25px; }
+
+.style__tagline___Dl43p {
+  margin-top: 230px;
+  font-size: 41px;
+  letter-spacing: 3px; }
 
 .style__svg___25w61 {
   display: block;
   margin: 0 auto; }
+
+.style__inner___1SA8W {
+  margin-bottom: 120px; }
 
 @media only screen and (max-width: 767px) {
   .style__title3___qpZuD {
@@ -3236,7 +3287,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___36WkF {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___21MoW {
   display: block; }
@@ -3335,7 +3390,11 @@
   display: block; }
 
 .style__paragraph5___c7_OI {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__mainbanner___2J7_D {
   height: 619px;
@@ -3646,7 +3705,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___1w9oV {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___2-ry2 {
   display: block; }
@@ -3745,7 +3808,11 @@
   display: block; }
 
 .style__paragraph5___3cZ7N {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__mainbanner___21nfH {
   height: 619px;
@@ -3815,7 +3882,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___3gJwS {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___2UYID, .style__item___19454 {
   display: block; }
@@ -3914,7 +3985,11 @@
   display: block; }
 
 .style__paragraph5___2ND05 {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__fCenter___5Hdev {
   position: absolute;
@@ -4249,7 +4324,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___1gW4S {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___2Tj1e {
   display: block; }
@@ -4348,7 +4427,11 @@
   display: block; }
 
 .style__paragraph5___30-m9 {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__mainbanner___17dAE {
   height: 619px;
@@ -4713,7 +4796,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___1ALfY {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___1rAMk {
   display: block; }
@@ -4862,7 +4949,11 @@
   display: block; }
 
 .style__paragraph5___1IKiM {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 .style__fCenter___3WsSe {
   position: absolute;
   top: 50%;
@@ -5027,7 +5118,11 @@
   display: block; }
 
 .style__paragraph5___1v105 {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__fCenter___3WsSe {
   position: absolute;
@@ -5271,7 +5366,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___3f0o0 {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___XQgLg {
   display: block; }
@@ -5472,7 +5571,11 @@
   display: block; }
 
 .style__paragraph5___-5J8a {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__fCenter___365qk {
   position: absolute;
@@ -5716,7 +5819,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___2DL5- {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___3etcM {
   display: block; }
@@ -5932,7 +6039,11 @@
   display: block; }
 
 .style__paragraph5___BDRxV, .style__paragraph___29758 {
-  display: block; }
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px; }
 
 .style__fCenter___YPy8K {
   position: absolute;
@@ -6176,7 +6287,11 @@
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___OAVsV {
-  display: block; }
+  font-family: "Old Standard TT", serif;
+  color: #fff;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px; }
 
 .style__title2___3iVlU {
   display: block; }

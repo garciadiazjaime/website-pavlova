@@ -1094,11 +1094,18 @@
 	            _react2.default.createElement('polyline', { points: ' 13.2 9.1 19.7 15.6 13.1 22.2 ', fill: 'none', stroke: '#fff' })
 	          );
 	          break;
-	        case 'arrow_down':
+	        case 'arrow_right':
 	          return _react2.default.createElement(
 	            'svg',
 	            { xmlns: 'http://www.w3.org/2000/svg', width: '8', height: '14', viewBox: '0 0 7.7 13.8', className: className },
 	            _react2.default.createElement('polyline', { points: '0.5 0.4 7 6.9 0.4 13.5 ', fill: 'none', stroke: '#FFF' })
+	          );
+	          break;
+	        case 'arrow_down':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '15', height: '8', viewBox: '0 0 14.6 8', className: className },
+	            _react2.default.createElement('polyline', { points: '13.8 0.8 7.3 7.3 0.7 0.7 ', fill: 'none', stroke: '#FFF' })
 	          );
 	          break;
 	        case 'carousel_right':
@@ -1829,7 +1836,7 @@
 	                    _reactRouter.Link,
 	                    { to: item.button_url },
 	                    item.button_title,
-	                    _react2.default.createElement(_svg2.default, { network: 'arrow_down' })
+	                    _react2.default.createElement(_svg2.default, { network: 'arrow_right' })
 	                  )
 	                )
 	              )
@@ -1953,9 +1960,9 @@
 
 	  _createClass(Carousel, [{
 	    key: 'getIndicators',
-	    value: function getIndicators(data, flag, sliderId) {
+	    value: function getIndicators(sliderId, isVisible, data, indicatorClass) {
 	      var indicators = [];
-	      if (flag !== false && _lodash2.default.isArray(data) && data.length) {
+	      if (isVisible !== false && _lodash2.default.isArray(data) && data.length) {
 	        indicators = data.map(function (item, index) {
 	          var className = index === 0 ? 'active' : '';
 	          return _react2.default.createElement('li', { 'data-target': '#' + sliderId, 'data-slide-to': index, className: className, key: index });
@@ -1963,25 +1970,25 @@
 	      }
 	      return _react2.default.createElement(
 	        'ol',
-	        { className: 'carousel-indicators' },
+	        { className: 'carousel-indicators ' + (indicatorClass || '') },
 	        indicators
 	      );
 	    }
 	  }, {
 	    key: 'getControls',
-	    value: function getControls(flag, classes, id) {
+	    value: function getControls(sliderId, isVisible, classes) {
 	      var base = classes.base;
 	      var prev = classes.prev;
 	      var next = classes.next;
 	      var arrow = classes.arrow;
 
-	      if (flag !== false) {
+	      if (isVisible !== false) {
 	        return _react2.default.createElement(
 	          'div',
 	          null,
 	          _react2.default.createElement(
 	            'a',
-	            { className: 'left carousel-control ' + (base || '') + ' ' + (prev || ''), href: '#' + id, role: 'button', 'data-slide': 'prev' },
+	            { className: 'left carousel-control ' + (base || '') + ' ' + (prev || ''), href: '#' + sliderId, role: 'button', 'data-slide': 'prev' },
 	            _react2.default.createElement(_svg2.default, { network: 'carousel_left', className: arrow }),
 	            _react2.default.createElement(
 	              'span',
@@ -1991,7 +1998,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'a',
-	            { className: 'right carousel-control ' + (base || '') + ' ' + (next || ''), href: '#' + id, role: 'button', 'data-slide': 'next' },
+	            { className: 'right carousel-control ' + (base || '') + ' ' + (next || ''), href: '#' + sliderId, role: 'button', 'data-slide': 'next' },
 	            _react2.default.createElement(_svg2.default, { network: 'carousel_right', className: arrow }),
 	            _react2.default.createElement(
 	              'span',
@@ -2017,13 +2024,13 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { id: id, className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': interval || 5000 },
-	        this.getIndicators(children, indicators, id),
+	        this.getIndicators(id, indicators, children, classes.indicator),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'carousel-inner ' + (classes.inner || ''), role: 'listbox' },
 	          children
 	        ),
-	        this.getControls(controls, classes.controls, id)
+	        this.getControls(id, controls, classes.controls)
 	      );
 	    }
 	  }]);
@@ -2266,7 +2273,7 @@
 	                _reactRouter.Link,
 	                { className: style.button, to: buttons.button1.href },
 	                buttons.button1.title,
-	                _react2.default.createElement(_svg2.default, { network: 'arrow_down' })
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_right' })
 	              )
 	            )
 	          )
@@ -2403,7 +2410,7 @@
 	                _reactRouter.Link,
 	                { className: style.button, to: buttons.button1.href },
 	                buttons.button1.title,
-	                _react2.default.createElement(_svg2.default, { network: 'arrow_down' })
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_right' })
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -2578,8 +2585,6 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _reactRouter = __webpack_require__(4);
-
 	var _svg = __webpack_require__(18);
 
 	var _svg2 = _interopRequireDefault(_svg);
@@ -2634,15 +2639,11 @@
 	              { className: 'col-xs-12 col-sm-6 col-sm-offset-3' },
 	              _react2.default.createElement(
 	                'h2',
-	                { className: style.title1 },
+	                { className: style.title },
 	                titles.title1
 	              ),
-	              _react2.default.createElement('p', { className: style.paragraph3, dangerouslySetInnerHTML: (0, _sanitize2.default)(paragraphs.paragraph1) }),
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/inicio' },
-	                _react2.default.createElement(_svg2.default, { network: 'double_arrow_down', className: style.svg })
-	              )
+	              _react2.default.createElement('p', { className: style.paragraph, dangerouslySetInnerHTML: (0, _sanitize2.default)(paragraphs.paragraph1) }),
+	              _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
 	            )
 	          )
 	        )
@@ -2682,7 +2683,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","button2":"style__button2___3rlK3","button2b":"style__button2b___H0Brp","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","button3":"style__button3___2KaTC","button3v1":"style__button3v1___16SWp","button3v2":"style__button3v2___3N8UW","button3v3":"style__button3v3___2h7PD","button3v4":"style__button3v4___3p_tP","button3v5":"style__button3v5___2P4jz","sideSwipe":"style__sideSwipe___3OFJQ","bottomSwipe":"style__bottomSwipe___3ltu-","button1":"style__button1___knh5C","title1":"style__title1___1LlDm","title2":"style__title2___3ep2l","title3":"style__title3___1URy1","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph1b":"style__paragraph1b___2_mfn","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","svg":"style__svg___29LI3"};
+	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","button2":"style__button2___3rlK3","button2b":"style__button2b___H0Brp","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","button3":"style__button3___2KaTC","button3v1":"style__button3v1___16SWp","button3v2":"style__button3v2___3N8UW","button3v3":"style__button3v3___2h7PD","button3v4":"style__button3v4___3p_tP","button3v5":"style__button3v5___2P4jz","sideSwipe":"style__sideSwipe___3OFJQ","bottomSwipe":"style__bottomSwipe___3ltu-","button1":"style__button1___knh5C","title1":"style__title1___1LlDm","title":"style__title___JG5hq","title2":"style__title2___3ep2l","title3":"style__title3___1URy1","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph1b":"style__paragraph1b___2_mfn","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph":"style__paragraph___1Wwqc","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","svg":"style__svg___29LI3"};
 
 /***/ },
 /* 45 */
@@ -2751,10 +2752,10 @@
 	            { className: 'item ' + className, key: index },
 	            _react2.default.createElement(
 	              'h3',
-	              { className: style.title6 },
+	              { className: style.title },
 	              item.title
 	            ),
-	            _react2.default.createElement('div', { className: style.paragraph1, dangerouslySetInnerHTML: (0, _sanitize2.default)(item.content) })
+	            _react2.default.createElement('div', { className: style.paragraph, dangerouslySetInnerHTML: (0, _sanitize2.default)(item.content) })
 	          );
 	        });
 	      }
@@ -2776,7 +2777,8 @@
 	          base: style.controls,
 	          prev: style.prev,
 	          next: style.next
-	        }
+	        },
+	        indicator: 'indicator_class'
 	      };
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
@@ -2797,17 +2799,17 @@
 	              ),
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { className: style.button2, to: buttons.button1.href },
+	                { className: style.button, to: buttons.button1.href },
 	                buttons.button1.title,
 	                _react2.default.createElement(_svg2.default, { network: 'arrow_down' })
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-6 col-xs-12' },
+	              { className: 'col-sm-4 col-xs-12 col-sm-offset-1' },
 	              _react2.default.createElement(
 	                'p',
-	                { className: style.paragraph5 },
+	                { className: style.tagline },
 	                titles.title1
 	              )
 	            )
@@ -2833,7 +2835,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___xP6Z-","vCenter":"style__vCenter___3EDwH","button2":"style__button2___1Fwzx","button2b":"style__button2b___GtnQK","vCenterRel":"style__vCenterRel___1d1I_","hCenter":"style__hCenter___3LKuT","inheritHeight":"style__inheritHeight___11OVE","hideOverflow":"style__hideOverflow___1koJ0","icon-sprites":"style__icon-sprites___2uiLf","button3":"style__button3___3p2Pg","button3v1":"style__button3v1____mMiu","button3v2":"style__button3v2___7-kje","button3v3":"style__button3v3___2-obj","button3v4":"style__button3v4___ldhG5","button3v5":"style__button3v5___1kCHN","sideSwipe":"style__sideSwipe___19HIU","bottomSwipe":"style__bottomSwipe___3RO2M","button1":"style__button1___ma4vA","title1":"style__title1___2c1PC","title2":"style__title2___U0Za7","title3":"style__title3___qpZuD","title4":"style__title4___c-0OO","title5":"style__title5___XOjHY","title6":"style__title6___2E_cG","title7":"style__title7___21JO_","title8":"style__title8___36gBQ","paragraph1":"style__paragraph1___1m33N","paragraph1b":"style__paragraph1b___30nAD","paragraph":"style__paragraph___2dz5L","paragraph2":"style__paragraph2___3OtNY","paragraph3":"style__paragraph3___3qs1J","paragraph4":"style__paragraph4___3oqJH","paragraph5":"style__paragraph5___akVWK","mainbanner":"style__mainbanner___37cO7","svg":"style__svg___25w61"};
+	module.exports = {"fCenter":"style__fCenter___xP6Z-","vCenter":"style__vCenter___3EDwH","button2":"style__button2___1Fwzx","button":"style__button___15DCt","button2b":"style__button2b___GtnQK","vCenterRel":"style__vCenterRel___1d1I_","hCenter":"style__hCenter___3LKuT","inheritHeight":"style__inheritHeight___11OVE","hideOverflow":"style__hideOverflow___1koJ0","icon-sprites":"style__icon-sprites___2uiLf","button3":"style__button3___3p2Pg","button3v1":"style__button3v1____mMiu","button3v2":"style__button3v2___7-kje","button3v3":"style__button3v3___2-obj","button3v4":"style__button3v4___ldhG5","button3v5":"style__button3v5___1kCHN","sideSwipe":"style__sideSwipe___19HIU","bottomSwipe":"style__bottomSwipe___3RO2M","button1":"style__button1___ma4vA","title1":"style__title1___2c1PC","title2":"style__title2___U0Za7","title3":"style__title3___qpZuD","title4":"style__title4___c-0OO","title5":"style__title5___XOjHY","title6":"style__title6___2E_cG","title":"style__title___3-jmd","title7":"style__title7___21JO_","title8":"style__title8___36gBQ","paragraph1":"style__paragraph1___1m33N","paragraph1b":"style__paragraph1b___30nAD","paragraph":"style__paragraph___2dz5L","paragraph2":"style__paragraph2___3OtNY","paragraph3":"style__paragraph3___3qs1J","paragraph4":"style__paragraph4___3oqJH","paragraph5":"style__paragraph5___akVWK","tagline":"style__tagline___Dl43p","mainbanner":"style__mainbanner___37cO7","svg":"style__svg___25w61","inner":"style__inner___1SA8W"};
 
 /***/ },
 /* 47 */
@@ -3376,6 +3378,8 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
+	var _imageUtil = __webpack_require__(32);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3413,6 +3417,7 @@
 	      var data = _props.data;
 	      var style = _props.style;
 
+	      var imgUrl = (0, _imageUtil.normalizeImageUrl)(data.image);
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -3422,7 +3427,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'col-sm-6 col-xs-12' },
-	            _react2.default.createElement('img', { className: style.image, src: data.image, alt: data.title })
+	            _react2.default.createElement('img', { className: style.image, src: imgUrl, alt: data.title })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -3704,37 +3709,37 @@
 	    title: 'GLORIA ZUÑIGA',
 	    subtitle: 'GLORIA ZUÑIGA DE WHEBER',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/s02dsqogkixpk4x/Img-Gloria-Zuniga.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'ALICIA LUNA',
 	    subtitle: 'ALICIA LUNA',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/3b1zex2m6csljia/Img_Alicia-Luna.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'MILY WEHBER',
 	    subtitle: 'MILY WEHBER',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/mdw3idb1vbek96z/Img-Mily-Wehber.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'ALEJANDRA GUTIERRÉZ',
 	    subtitle: 'ALEJANDRA GUTIERRÉZ',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/r81hjmxo9niz3pf/Img-Alejandra-Gutierrez.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'GABY LUNA',
 	    subtitle: 'GABY LUNA',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/j8xkmek0y87lfvd/Img_Gaby-Luna.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'TANIA ADAME',
 	    subtitle: 'TANIA ADAME',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/s8rs8vyfju6cmic/Img-Tania-Adame.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'RHONAL RUVALCABA',
@@ -3752,55 +3757,55 @@
 	    title: 'CORINA PERAZA',
 	    subtitle: 'CORINA PERAZA',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/78ttm4iz875wtir/Img-Corina-Peraza.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'CLAUDIA LUNA',
 	    subtitle: 'CLAUDIA LUNA',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/u0fp0uwjuc220wq/Img_Claudia-Luna.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'JESSICA TAMEZ',
 	    subtitle: 'JESSICA TAMEZ',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/d5mojxozu8lvpgn/Img_Jessica-Temez.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'BÁRBARA MARTÍNEZ',
 	    subtitle: 'BÁRBARA MARTÍNEZ',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/fhuqvmm5vzkg4cd/Img-Barbara-Martinez.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'MAYRA JIMÉNEZ',
 	    subtitle: 'MAYRA JIMÉNEZ',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/1ubs0mhib2ca80a/Img_Mayra-Jimenez.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'LILIAN ARMENTA',
 	    subtitle: 'LILIAN ARMENTA',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/qi97pgj3mlmnaz5/Img_Lilian_Armenta.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'VICKY SAENZ',
 	    subtitle: 'VICKY SAENZ',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/at4sqtsps9210dw/Img-VickySaenz.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'ROSALINA CAZAREZ',
 	    subtitle: 'ROSALINA CAZAREZ',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/lygd3hjuuczivc2/Img-Rosalina-Cazarez.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }, {
 	    title: 'VERÓNICA FLORES',
 	    subtitle: 'VERÓNICA FLORES',
 	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
+	    image: 'https://www.dropbox.com/s/bw1xiq136kkzkl0/Img-Veronica-Flores.png?dl=0',
 	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
 	  }]
 	};

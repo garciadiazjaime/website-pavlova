@@ -26,7 +26,7 @@ export default {
       url: '/clases',
       component: ProductsSection,
     }, {
-      id: 5,
+      id: 4,
       title: 'Contacto',
       url: '/contacto',
       component: ContactSection,

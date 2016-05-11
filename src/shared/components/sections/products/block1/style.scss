@@ -4,51 +4,27 @@
 @import '../../../../theme/paragraphs/paragraphs';
 
 // ---- main slider
-.slide{
+.mainbanner{
 	height: 619px;
+	padding-top: 220px;
 	background-size: cover;
-	background-position: center center;
 }
-.overbanner{
-	height: 619px;
-	margin-top: -619px;
-	position: relative;
-}
-.title{
-	@extend .title6;
+.title3{
+	text-align: center;
 	margin-bottom: 50px;
-	text-align: left;
+	letter-spacing: 11px;
 }
-.subtitle{
-	@extend .title7;
-	margin-bottom: 0;
-	font-size: 15px;
-}
-.paragraph{
-	@extend .paragraph2;
+.paragraph3{
+	text-align: center;
 	margin-bottom: 50px;
 }
-.button{
-	@extend .button1;
-	margin-left: 0;
+.svg{
+	display: block;
+	margin: 0 auto;
 }
-
-// Carousel
-.controls{
-	background-image: none!important;
-	background: none;
-	opacity: 1;
-	height: 334px;
-	width: 118px;
-	svg{
-		margin-top: 30px;
-	}
-}
-@media#{$isPhone}{
-  .bannerContainer{
-    margin-top: 50px;
-  }
-	.controls{
-		width: 50px;
+// --- Responsive
+@media #{$isPhone}{
+  .title3{
+		font-size: 30px;
 	}
 }

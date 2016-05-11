@@ -2,55 +2,27 @@
 import React from 'react';
 import _ from 'lodash';
 import { Link } from 'react-router';
-import Carousel from '../../../elements/carousel';
-
+import SVG from '../../../svg';
+import { getImageBackground } from '../../../../utils/imageUtil';
 import sanitizeUtil from '../../../../utils/sanitize';
 const style = require('./style.scss');
 
 
 export default class Block1 extends React.Component {
 
-  renderItems(data) {
-    if (_.isArray(data) && data.length) {
-      return data.map((item, index) => {
-        const className = index === 0 ? 'active' : '';
-        const imgUrl = item.image.length ? item.image.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : '/images/demo.png';
-
-        return (<div className={'item ' + style.slide + ' ' + className + ' ' + (style.item || '')} key={index} style={{ backgroundImage: 'url("' + imgUrl + '");"' }}>
-        </div>);
-      });
-    }
-    return null;
-  }
-
   render() {
-    const { slides, titles, paragraphs, buttons } = this.props.data;
-    const carouselClasses = {
-      inner: style.inner,
-      controls: {
-        base: style.controls,
-        prev: style.prev,
-        next: style.next,
-        arrow: style.arrow,
-      },
-    };
-    return _.isArray(slides) && slides.length && titles ? (<div className={style.bannerContainer}>
-      <Carousel id="main-carousel2" interval={8000} indicators={false} classes={carouselClasses}>
-        {this.renderItems(slides)}
-      </Carousel>
+    const styles = this.props.style;
+    const { titles, paragraphs, images } = this.props.data;
+    const divStyle = getImageBackground(images.image1);
+    return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.mainbanner + ' ' + (styles ? styles.wrapper : '')}>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-xs-12 col-sm-5">
-            <div className={style.overbanner}>
-              <div className={style.vCenter}>
-                <h1 className={style.title}>{titles.title1}</h1>
-                <h2 className={style.subtitle}>{titles.title2}</h2>
-                <p className={style.paragraph}dangerouslySetInnerHTML={sanitizeUtil(paragraphs.paragraph1)} />
-                <Link className={style.button} to={buttons.button1.href} title={buttons.button1.title}>
-                  {buttons.button1.title}
-                </Link>
-              </div>
-            </div>
+          <div className="col-xs-12 col-sm-6 col-sm-offset-3">
+            <h2 className={style.title3}>{titles.title1}</h2>
+            <p className={style.paragraph3} dangerouslySetInnerHTML={sanitizeUtil(paragraphs.paragraph1)} />
+            <Link to="/inicio">
+              <SVG network="double_arrow_down" className={style.svg}/>
+            </Link>
           </div>
         </div>
       </div>
@@ -60,4 +32,5 @@ export default class Block1 extends React.Component {
 
 Block1.propTypes = {
   data: React.PropTypes.object,
+  style: React.PropTypes.object,
 };

@@ -1,0 +1,24 @@
+@import '../../../../theme/constants';
+@import '../../../../theme/buttons/buttons';
+@import '../../../../theme/titles/titles';
+@import '../../../../theme/paragraphs/paragraphs';
+
+.title{
+  @extend .title6;
+}
+
+.subtitle {
+  @extend .title3;
+}
+
+.item {
+  @extend .title2;
+}
+
+.intro {
+  @extend .paragrap1;
+}
+
+.content {
+  @extend .paragrap1;
+}

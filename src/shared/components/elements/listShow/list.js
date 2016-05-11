@@ -7,12 +7,12 @@ import getSlug from '../../../utils/slug';
 
 export default class List extends React.Component {
 
-  renderItems(data, sectionUrl, itemUrl) {
+  renderItems(data, sectionUrl, itemUrl, style) {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
         const slug = getSlug(item.title);
         const className = slug === itemUrl ? 'active' : '';
-        return (<div key={index}>
+        return (<div key={index} className={style.item}>
           <Link className={className} to={'/' + sectionUrl + '/' + slug} title={item.title}>{item.title}</Link>
         </div>);
       });
@@ -20,9 +20,9 @@ export default class List extends React.Component {
   }
 
   render() {
-    const { data, item } = this.props;
+    const { data, item, style } = this.props;
     return (<div>
-      {this.renderItems(data.items, data.sectionUrl, item)}
+      {this.renderItems(data.items, data.sectionUrl, item, style)}
     </div>);
   }
 }
@@ -30,4 +30,5 @@ export default class List extends React.Component {
 List.propTypes = {
   data: React.PropTypes.object.isRequired,
   item: React.PropTypes.string,
+  style: React.PropTypes.object,
 };

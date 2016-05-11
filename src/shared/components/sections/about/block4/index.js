@@ -13,8 +13,8 @@ export default class Block4 extends React.Component {
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
         return (<div className={'item ' + className} key={index}>
-          <h3>{item.title}</h3>
-          <div dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
+          <h3 className={style.titles6}>{item.title}</h3>
+          <div className={style.paragraph1} dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
         </div>);
       });
     }

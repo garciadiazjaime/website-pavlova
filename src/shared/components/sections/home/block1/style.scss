@@ -2,3 +2,26 @@
 @import '../../../../theme/titles/titles';
 @import '../../../../theme/buttons/buttons';
 @import '../../../../theme/constants.scss';
+
+
+.item{
+  height: 750px;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: white;
+  a{
+    @extend .button2b;
+    margin-top: 600px;
+  }
+}
+.item.darkBG{
+  background-color: #000;
+  a{
+    @extend .button2;
+    &:hover{
+      &::before{
+        top: 0;
+      }
+    }
+  }
+}

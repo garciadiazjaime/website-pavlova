@@ -20,10 +20,12 @@ export default class AboutSection extends React.Component {
     const { block1, block2, block3, block4, block5, block7, block8 } = data;
     const { showListItem } = params;
     const block3Variations = {
-      variation1: 'class1',
+      variation1: 'mainbanner3',
+      variation2: 'title3',
     };
     const block5Variations = {
-      variation1: 'class1',
+      variation1: 'mainbanner5',
+      variation2: 'title5',
     };
 
     return !_.isEmpty(this.props.data) ? (<div>

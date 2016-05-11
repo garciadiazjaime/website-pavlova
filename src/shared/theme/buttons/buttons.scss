@@ -51,7 +51,35 @@
 }
 
 .button1{
+  @extend .bottomSwipe;
+  position: relative;
+  background-color: $black;
+  border: 1px solid $black;
+  padding: 20px 45px;
+  color: $white;
+  text-transform: uppercase;
+  font-family: $fontA;
+  width: 195px;
+  font-size: 15px;
   display: block;
+  &:hover{
+    color: black;
+    svg{
+      polyline{
+        stroke: $black;
+      }
+    }
+  }
+  &::before{
+    background: $white;
+  }
+  svg{
+    @extend .vCenter;
+    right: 15px;
+    polyline{
+      stroke: $white;
+    }
+  }
 }
 
 .button2{

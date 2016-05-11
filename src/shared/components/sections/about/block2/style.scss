@@ -11,7 +11,7 @@
 
 // ---- main slider
 .mainbanner{
-	height: 750px;
+	min-height: 750px;
 	padding-top: 100px;
 	background-size: cover;
 }
@@ -38,11 +38,25 @@
 	margin: 0 auto;
 }
 .inner{
-  margin-bottom: 120px;
+  margin-bottom: 100px;
+}
+.indicators{
+  bottom: -25px;
 }
 // --- Responsive
 @media #{$isPhone}{
-  .title3{
-		font-size: 30px;
+  .title{
+		font-size: 25px;
+    letter-spacing: 10px;
 	}
+  .button{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tagline{
+    margin-top: 100px;
+    font-size: 30px;
+    margin-bottom: 100px;
+    text-align: center;
+  }
 }

@@ -34,7 +34,7 @@ export default class Block2 extends React.Component {
         prev: style.prev,
         next: style.next,
       },
-      indicator: 'indicator_class',
+      indicator: style.indicators,
     };
     return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.mainbanner}>
       <div className="container-fluid">
@@ -45,7 +45,7 @@ export default class Block2 extends React.Component {
             </Carousel>
             <Link className={style.button} to={buttons.button1.href}>{buttons.button1.title}<SVG network="arrow_down"/></Link>
           </div>
-          <div className="col-sm-4 col-xs-12 col-sm-offset-1">
+          <div className="col-sm-4 col-xs-10 col-xs-offset-1">
             <p className={style.tagline}>{titles.title1}</p>
           </div>
         </div>

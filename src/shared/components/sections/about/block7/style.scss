@@ -1,0 +1,22 @@
+@import '../../../../theme/constants';
+@import '../../../../theme/titles/titles';
+@import '../../../../theme/paragraphs/paragraphs';
+
+// ---- main slider
+.title{
+  @extend .title6;
+  margin-top: 100px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.paragraph{
+	@extend .paragraph1;
+	margin-bottom: 25px;
+  color: $white;
+  text-align: center;
+}
+.author{
+  @extend .paragraph2;
+  margin-bottom: 100px;
+  text-align: center;
+}

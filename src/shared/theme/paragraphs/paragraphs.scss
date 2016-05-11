@@ -10,7 +10,11 @@
   color: $white;
 }
 .paragraph2{
-  display: block;
+  font: $fontA;
+  color: $white;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
 }
 .paragraph3{
   font-family: $fontA;
@@ -26,5 +30,5 @@ display: block;
   color: $white;
   font-style: italic;
   font-size: 45px;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 }

@@ -6,4 +6,8 @@
 
 .customCol {
   width: 20%;
+  // --- Responsive
+  @media #{$isPhone}{
+		width: 100%;
+  }
 }

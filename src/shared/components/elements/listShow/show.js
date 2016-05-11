@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import { normalizeImageUrl } from '../../../utils/imageUtil';
 
 
 export default class Show extends React.Component {
@@ -14,10 +15,11 @@ export default class Show extends React.Component {
 
   render() {
     const { data, style } = this.props;
+    const imgUrl = normalizeImageUrl(data.image);
     return (<div>
       <div className="row">
         <div className="col-sm-6 col-xs-12">
-          <img className={style.image} src={data.image} alt={data.title} />
+          <img className={style.image} src={imgUrl} alt={data.title} />
         </div>
         <div className="col-sm-6 col-xs-12">
           <h3 className={style.subtitle}>{data.subtitle}</h3>

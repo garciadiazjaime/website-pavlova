@@ -1,4 +1,33 @@
 @import '../../../../theme/wrappers/wrappers';
 @import '../../../../theme/titles/titles';
 @import '../../../../theme/buttons/buttons';
+@import '../../../../theme/paragraphs/paragraphs';
 @import '../../../../theme/constants.scss';
+.passeDeChat{
+  background-size: cover;
+  background-position: center center;
+  height: 730px;
+  padding-top: 70px;
+  &::before{
+    content: " ";
+    display: block;
+    @extend .icon-sprites;
+    @include sprite($sprites-Logo-PasdeChat);
+    margin: 0 auto 50px;
+  }
+}
+.title{
+  @extend .title5;
+  margin-bottom: 25px;
+  text-align:center;
+}
+.paragraph{
+  @extend .paragraph3;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.button{
+  @extend .button2;
+  margin: 0 auto;
+  display: block;
+}

@@ -4,22 +4,24 @@ import React from 'react';
 import { Link } from 'react-router';
 import _ from 'lodash';
 import { getImageBackground } from '../../../../utils/imageUtil';
+import SVG from '../../../svg';
 
-// const style = require('./style.scss');
-
+const style = require('./style.scss');
 
 export default class Block3 extends React.Component {
 
   render() {
     const { titles, buttons, images, paragraphs } = this.props.data;
+    // ************* Fix para mientras quedan las imagenes correctas en la BD ******************
+    images.image1.src = '/images/Img-PasdeChat-bg.jpg';
     const divStyle = getImageBackground(images.image1);
-    return !_.isEmpty(this.props.data) ? (<div style={divStyle}>
+    return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.passeDeChat}>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-sm-10 col-xs-12">
-            <h2>{titles.title1}</h2>
-            <p>{paragraphs.paragraph1}</p>
-            <Link to={buttons.button1.href}>{buttons.button1.title}</Link>
+          <div className="col-xs-12">
+            <h2 className={style.title}>{titles.title1}</h2>
+            <p className={style.paragraph}>{paragraphs.paragraph1}</p>
+            <Link className={style.button} to={buttons.button1.href}>{buttons.button1.title}<SVG network="arrow_down"/></Link>
           </div>
         </div>
       </div>

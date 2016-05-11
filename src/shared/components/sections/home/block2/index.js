@@ -13,31 +13,32 @@ export default class Block2 extends React.Component {
     return !_.isEmpty(this.props.data) ? (<div>
       <div className="container-fluid">
         <div className="row">
-          <div className={style.customCol + ' col-xs-12'}>
+          <div className={style.customCol + ' col-xs-6'}>
             <Link className={style.button3v1 + ' row'} to={buttons.button1.href}>
               {buttons.button1.title}
               <SVG network="square_arrow" className={style.svg}/>
             </Link>
           </div>
-          <div className={style.customCol + ' col-xs-12'}>
+
+          <div className={style.customCol + ' col-xs-6'}>
             <Link className={style.button3v2 + ' row'} to={buttons.button2.href}>
               {buttons.button2.title}
               <SVG network="square_arrow" className={style.svg}/>
             </Link>
           </div>
-          <div className={style.customCol + ' col-xs-12'}>
+          <div className={style.customCol + ' col-xs-6'}>
             <Link className={style.button3v3 + ' row'} to={buttons.button3.href}>
               {buttons.button3.title}
               <SVG network="square_arrow" className={style.svg}/>
             </Link>
           </div>
-          <div className={style.customCol + ' col-xs-12'}>
+          <div className={style.customCol + ' col-xs-6'}>
             <Link className={style.button3v4 + ' row'} to={buttons.button4.href}>
               {buttons.button4.title}
               <SVG network="square_arrow" className={style.svg}/>
             </Link>
           </div>
-          <div className={style.customCol + ' col-xs-12'}>
+          <div className={style.customCol + ' col-xs-6 col-xs-offset-3 col-sm-offset-0'}>
             <Link className={style.button3v5 + ' row'} to={buttons.button5.href}>
               {buttons.button5.title}
               <SVG network="square_arrow" className={style.svg}/>

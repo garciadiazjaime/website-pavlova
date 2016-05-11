@@ -56,6 +56,8 @@
 
 .button2{
   @extend .bottomSwipe;
+  position: relative;
+  background-color: transparent;
   border: 1px solid $white;
   padding: 20px 45px;
   color: $white;
@@ -78,6 +80,39 @@
   svg{
     @extend .vCenter;
     right: 15px;
+    polyline{
+      stroke: $white;
+    }
+  }
+}
+.button2b{
+  @extend .bottomSwipe;
+  background-color: transparent;
+  border: 1px solid $black;
+  padding: 20px 45px;
+  color: $black;
+  text-transform: uppercase;
+  font-family: $fontA;
+  width: 195px;
+  font-size: 15px;
+  display: block;
+  &:hover{
+    color: $white;
+    svg {
+      polyline{
+        stroke: $white;
+      }
+    }
+  }
+  &::before{
+    background: $black;
+  }
+  svg{
+    @extend .vCenter;
+    right: 15px;
+    polyline{
+      stroke: $black;
+    }
   }
 }
 

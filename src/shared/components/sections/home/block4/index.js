@@ -16,7 +16,7 @@ export default class Block4 extends React.Component {
         const className = index === 0 ? 'active' : '';
         const imageUrl = normalizeImageUrl(item.image);
         return (<div className={'item ' + className + ' ' + (style.item || '')} key={index}>
-          <img src={imageUrl} alt={item.title} />
+          <img className={style.carrouselImg} src={imageUrl} alt={item.title} />
         </div>);
       });
     }
@@ -34,7 +34,7 @@ export default class Block4 extends React.Component {
       },
     };
     return !_.isEmpty(this.props.data) ? (<div>
-      <div className={'container-fluid'}>
+      <div className={'container-fluid ' + style.wrapper}>
         <div className="row">
           <div className="col-sm-6 col-xs-12">
             <h2 className={style.title}>{titles.title1}</h2>

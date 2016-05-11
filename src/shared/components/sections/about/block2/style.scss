@@ -11,22 +11,34 @@
 
 // ---- main slider
 .mainbanner{
-	height: 619px;
-	padding-top: 220px;
+	height: 750px;
+	padding-top: 100px;
 	background-size: cover;
 }
-.title3{
-	text-align: center;
+.title{
+  @extend .title6;
 	margin-bottom: 50px;
 	letter-spacing: 11px;
 }
-.paragraph3{
-	text-align: center;
-	margin-bottom: 50px;
+.paragraph{
+  @extend .paragraph1;
+	margin-bottom: 25px;
+}
+.tagline{
+  @extend .paragraph5;
+  margin-top: 230px;
+  font-size: 41px;
+  letter-spacing: 3px;
+}
+.button{
+  @extend .button2;
 }
 .svg{
 	display: block;
 	margin: 0 auto;
+}
+.inner{
+  margin-bottom: 120px;
 }
 // --- Responsive
 @media #{$isPhone}{

@@ -3,8 +3,10 @@ import React from 'react';
 import { Link } from 'react-router';
 import _ from 'lodash';
 import Carousel from '../../../elements/carousel';
-const style = require('./style.scss');
+import { normalizeImageUrl } from '../../../../utils/imageUtil';
 import SVG from '../../../svg';
+const style = require('./style.scss');
+
 
 export default class Block4 extends React.Component {
 
@@ -12,8 +14,9 @@ export default class Block4 extends React.Component {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
+        const imageUrl = normalizeImageUrl(item.image);
         return (<div className={'item ' + className + ' ' + (style.item || '')} key={index}>
-          <img src={item.image} alt={item.title} />
+          <img src={imageUrl} alt={item.title} />
         </div>);
       });
     }

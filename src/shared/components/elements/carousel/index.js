@@ -20,7 +20,7 @@ export default class Carousel extends React.Component {
   }
 
 
-  getControls(flag, id, classes) {
+  getControls(flag, classes, id) {
     const { base, prev, next, arrow } = classes;
     if (flag !== false) {
       return (<div>
@@ -45,7 +45,7 @@ export default class Carousel extends React.Component {
 
         {children}
 
-        { this.getControls(controls, id, classes.controls) }
+        { this.getControls(controls, classes.controls, id) }
       </div>
     </div>);
   }

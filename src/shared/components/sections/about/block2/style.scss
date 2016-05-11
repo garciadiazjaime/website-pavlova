@@ -3,6 +3,12 @@
 @import '../../../../theme/titles/titles';
 @import '../../../../theme/paragraphs/paragraphs';
 
+
+.paragraph{
+  @extend .paragraph1b;
+  margin-bottom: 50px;
+}
+
 // ---- main slider
 .mainbanner{
 	height: 619px;

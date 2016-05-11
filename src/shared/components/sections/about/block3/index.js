@@ -11,11 +11,11 @@ export default class Block3 extends React.Component {
     const { data, variations } = this.props;
     const { titles, images } = data;
     const divStyle = getImageBackground(images.image1);
-    return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.mainbanner}>
+    return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style[variations.variation1]}>
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-12 col-xs-12">
-            <h2 className={style.title1 + ' ' + variations.variation1}>{titles.title1}</h2>
+            <h2 className={style[variations.variation2]}>{titles.title1}</h2>
           </div>
         </div>
       </div>

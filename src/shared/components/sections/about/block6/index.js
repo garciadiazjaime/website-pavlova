@@ -2,7 +2,7 @@
 import React from 'react';
 import _ from 'lodash';
 import ListShow from '../../../elements/listShow';
-const style = require('./style');
+const style = require('./style.scss');
 
 
 export default class Block6 extends React.Component {

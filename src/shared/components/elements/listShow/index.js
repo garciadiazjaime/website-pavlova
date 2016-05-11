@@ -19,19 +19,18 @@ export default class ListShow extends React.Component {
   }
 
   render() {
-    const { data, item } = this.props;
+    const { data, item, style } = this.props;
     const itemInfo = this.getItemInfo(data.items, item);
     return (<div>
       <div className="row">
         <div className="col-sm-6 col-xs-6">
-          <h2>Conoce a nuestro staff</h2>
-          <List data={data} item={item} />
+          <h2 className={style.title}>Conoce a nuestro staff</h2>
+          <List data={data} item={item} style={style} />
         </div>
         <div className="col-sm-6 col-xs-6">
-          <Show data={itemInfo} />
+          <Show data={itemInfo} style={style} />
         </div>
       </div>
-
     </div>);
   }
 }
@@ -39,4 +38,5 @@ export default class ListShow extends React.Component {
 ListShow.propTypes = {
   data: React.PropTypes.object.isRequired,
   item: React.PropTypes.string,
+  style: React.PropTypes.object,
 };

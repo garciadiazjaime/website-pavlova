@@ -13,16 +13,16 @@ export default class Show extends React.Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, style } = this.props;
     return (<div>
       <div className="row">
         <div className="col-sm-6 col-xs-12">
-          <img src={data.image} alt={data.title} />
+          <img className={style.image} src={data.image} alt={data.title} />
         </div>
         <div className="col-sm-6 col-xs-12">
-          <h3>{data.subtitle}</h3>
-          <p>{data.intro}</p>
-          <div>
+          <h3 className={style.subtitle}>{data.subtitle}</h3>
+          <p className={style.intro}>{data.intro}</p>
+          <div className={style.content}>
             {this.renderItems(data.content)}
           </div>
         </div>
@@ -33,4 +33,5 @@ export default class Show extends React.Component {
 
 Show.propTypes = {
   data: React.PropTypes.object.isRequired,
+  style: React.PropTypes.object,
 };

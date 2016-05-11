@@ -24,51 +24,115 @@
     -webkit-transition: right 0.2s ease-in;
   }
 }
-
-.button1{
-  @extend .sideSwipe;
-  background-color: $blue;
-  font-family: $fontB;
-  color: $white;
-  font-size: 13px;
-  text-transform: uppercase;
-  padding: 15px 0;
-  display: block;
-  margin: 0 auto;
-  width: 200px;
+.bottomSwipe{
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  transition:         0.08s ease-in;
+  -o-transition:      0.08s ease-in;
+  -ms-transition:     0.08s ease-in;
+  -moz-transition:    0.08s ease-in;
+  -webkit-transition: 0.08s ease-in;
   &:hover{
-    color: $white;
+    &::before{
+      top: 0;
+    }
   }
   &::before{
-    background: $gold;
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 100%;
+    z-index: -1;
+    -webkit-transition: top 0.2s ease-in;
   }
 }
 
+.button1{
+  display: block;
+}
+
 .button2{
-  @extend .sideSwipe;
+  @extend .bottomSwipe;
   border: 1px solid $white;
+  padding: 20px 45px;
   color: $white;
-  font-family: $fontB;
-  font-size: 13px;
   text-transform: uppercase;
-  padding: 15px 0;
-  width: 166px;
-  text-align: center;
+  font-family: $fontA;
+  width: 195px;
+  font-size: 15px;
   display: block;
   &:hover{
-    color: $blue;
+    color: $black;
+    svg {
+      polyline{
+        stroke: $black;
+      }
+    }
   }
   &::before{
     background: $white;
   }
+  svg{
+    @extend .vCenter;
+    right: 15px;
+  }
 }
+
 .button3{
-  color: $gold;
-  font-size: 15px;
-  font-family: $fontA;
-  line-height: 30px;
-  font-weight: 600;
+  height: 290px;
+  padding-top: 60px;
+  display: block;
+  color: $white;
+  font-family: $fontB;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
   &:hover{
-    color: $blue;
+    background: $white;
+    color: $black;
+  }
+  svg{
+    display: block;
+    margin: 25px auto;
+  }
+  &::before{
+    content: " ";
+    @extend .icon-sprites;
+    margin: 0 auto 25px;
+  }
+}
+.button3v1{
+  @extend .button3;
+  &::before{
+    @include sprite($sprites-Icon-Ballet);
+  }
+}
+.button3v2{
+  @extend .button3;
+  &::before{
+    @include sprite($sprites-Icon-Jazz);
+  }
+}
+.button3v3{
+  @extend .button3;
+  &::before{
+    @include sprite($sprites-Icon-Flamenco);
+  }
+}
+.button3v4{
+  @extend .button3;
+  &::before{
+    @include sprite($sprites-Icon-CardioDanza);
+  }
+}
+.button3v5{
+  @extend .button3;
+  &::before{
+    @include sprite($sprites-Icon-Barre);
   }
 }

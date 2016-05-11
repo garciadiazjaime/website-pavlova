@@ -8,3 +8,24 @@
 .image{
   @extend .image1;
 }
+.title{
+  @extend .title6;
+  margin-bottom: 50px;
+}
+.paragraph{
+  @extend .paragraph1b;
+  margin-bottom: 50px;
+}
+.button{
+  @extend .button2;
+}
+.controls{
+  background-image: none!important;
+  position: absolute;
+  &:hover{
+    opacity: 1;
+  }
+  svg{
+    @extend .vCenter;
+  }
+}

@@ -34,6 +34,7 @@ export default class Block2 extends React.Component {
         prev: style.prev,
         next: style.next,
       },
+      indicator: 'indicator_class',
     };
     return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.mainbanner}>
       <div className="container-fluid">

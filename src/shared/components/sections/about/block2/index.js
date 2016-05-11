@@ -16,8 +16,8 @@ export default class Block2 extends React.Component {
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
         return (<div className={'item ' + className} key={index}>
-          <h3 className={style.title6}>{item.title}</h3>
-          <div className={style.paragraph1} dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
+          <h3 className={style.title}>{item.title}</h3>
+          <div className={style.paragraph} dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
         </div>);
       });
     }
@@ -34,6 +34,7 @@ export default class Block2 extends React.Component {
         prev: style.prev,
         next: style.next,
       },
+      indicator: 'indicator_class',
     };
     return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.mainbanner}>
       <div className="container-fluid">
@@ -42,10 +43,10 @@ export default class Block2 extends React.Component {
             <Carousel id="carousel-about-block-2" interval={8000} controls={false} classes={carouselClasses}>
               {this.renderItems(slides)}
             </Carousel>
-            <Link className={style.button2} to={buttons.button1.href}>{buttons.button1.title}<SVG network="arrow_down"/></Link>
+            <Link className={style.button} to={buttons.button1.href}>{buttons.button1.title}<SVG network="arrow_down"/></Link>
           </div>
-          <div className="col-sm-6 col-xs-12">
-            <p className={style.paragraph5}>{titles.title1}</p>
+          <div className="col-sm-4 col-xs-12 col-sm-offset-1">
+            <p className={style.tagline}>{titles.title1}</p>
           </div>
         </div>
       </div>

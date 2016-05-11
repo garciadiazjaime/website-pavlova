@@ -22,5 +22,9 @@
 display: block;
 }
 .paragraph5{
-display: block;
+  font-family: $fontB;
+  color: $white;
+  font-style: italic;
+  font-size: 45px;
+  letter-spacing: 4px;
 }

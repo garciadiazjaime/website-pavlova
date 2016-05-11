@@ -1,6 +1,10 @@
 @import '../constants';
 .title1{
-  display: block;
+  font-family: $fontC;
+  color: $white;
+  font-style: italic;
+  font-size: 65px;
+  letter-spacing: 30px;
 }
 .title2{
   display: block;

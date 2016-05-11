@@ -18,9 +18,14 @@ export default class SVG extends React.Component {
           <polyline points=" 13.2 9.1 19.7 15.6 13.1 22.2 " fill="none" stroke="#fff"/>
         </svg>)
         break;
-      case 'arrow_down':
+      case 'arrow_right':
         return (<svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 7.7 13.8" className={className}>
           <polyline points="0.5 0.4 7 6.9 0.4 13.5 " fill="none"stroke="#FFF"/>
+        </svg>);
+        break;
+      case 'arrow_down':
+        return (<svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 14.6 8" className={className}>
+          <polyline points="13.8 0.8 7.3 7.3 0.7 0.7 " fill="none"stroke="#FFF"/>
         </svg>);
         break;
       case 'carousel_right':

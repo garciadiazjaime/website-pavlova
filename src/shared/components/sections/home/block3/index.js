@@ -19,7 +19,7 @@ export default class Block3 extends React.Component {
           <div className="col-xs-12">
             <h2 className={style.title}>{titles.title1}</h2>
             <p className={style.paragraph}>{paragraphs.paragraph1}</p>
-            <Link className={style.button} to={buttons.button1.href}>{buttons.button1.title}<SVG network="arrow_down"/></Link>
+            <Link className={style.button} to={buttons.button1.href}>{buttons.button1.title}<SVG network="arrow_right"/></Link>
           </div>
         </div>
       </div>

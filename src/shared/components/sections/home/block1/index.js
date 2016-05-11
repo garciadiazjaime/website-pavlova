@@ -22,7 +22,7 @@ export default class Block1 extends React.Component {
           <div className="container-fluid">
             <div className="row">
               <div className="col-xs-12">
-                <Link to={item.button_url}>{item.button_title}<SVG network="arrow_down"/></Link>
+                <Link to={item.button_url}>{item.button_title}<SVG network="arrow_right"/></Link>
               </div>
             </div>
           </div>

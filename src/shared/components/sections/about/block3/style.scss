@@ -4,14 +4,14 @@
 @import '../../../../theme/paragraphs/paragraphs';
 
 // ---- Block3
-.mainbanner3{
+.mainbannerC{
 	height: 600px;
 	background-size: auto;
 	background-position: center 100px;
 	background-repeat: no-repeat;
 	background-color: $white;
 }
-.title3{
+.titleC{
 	@extend .title1;
 	color: $red;
 	text-align: center;
@@ -19,12 +19,12 @@
 	text-transform: uppercase;
 }
 // ---- Block5
-.mainbanner5{
+.mainbannerE{
 	height: 550px;
 	background-size: cover;
 	background-position: center top;
 }
-.title5{
+.titleE{
 	@extend .title1;
 	color: $white;
 	text-align: center;
@@ -33,7 +33,11 @@
 }
 // --- Responsive
 @media #{$isPhone}{
-  .title{
+	.titleC{
+		font-size: 30px;
+		letter-spacing: 6px;
+	}
+	.titleE{
 		font-size: 30px;
 		letter-spacing: 15px;
 	}

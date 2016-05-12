@@ -1,10 +1,12 @@
 @import '../../../../theme/constants';
 // ------ VARIABLES ---------
 $background-color: $black;
-$link-color: darken($white, 10%);
+$border-color: $gray;
+$link-color: darken($white, 20%);
 $link-color-hover: $white;
 $sm-background: #0074c8;
 $sm-color: $white;
+$title-font: $fontA;
 
 // ------ STYLE ----------
 .footerWrapper {
@@ -16,27 +18,59 @@ $sm-color: $white;
       color: $link-color-hover!important;
     }
   }
+  .title{
+    font-family: $title-font;
+    font-weight: 300;
+    font-size: 15px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    color: $link-color-hover;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 25px;
+  }
+  .paragraph{
+    font-family: $title-font;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: $link-color;
+  }
+  .list{
+    padding-left: 0;
+    list-style: none;
+    a, li{
+      font-size: 15px;
+      font: $title-font;
+      font-weight: 400;
+      color: $link-color;
+      &:hover{
+        color: $link-color-hover;
+      }
+    }
+    a {
+      font-weight: 600;
+      margin-bottom: 15px;
+      display: block;
+    }
+  }
   .container{
     padding-top: 50px;
     padding-bottom: 50px;
   }
-
-  .sitemap{
-    padding-left: 0;
-    list-style: none;
-    li{
-      display: block;
-    }
-    a{
-      display: block;
-      margin-bottom: 10px;
-      font-family: $fontA;
-    }
+  .footerBrand{
+    margin-left: 0!important;
+    padding: 0;
+    display: block;
+    @extend .icon-sprites;
+    @include sprite($sprites-brand_footer);
+    left: 0;
+    margin-bottom: 25px;
   }
+
   svg {
     position: relative;
     display: block;
-    margin: 0 auto 20px;
+    margin: 0 0 15px;
     circle{
       fill: $sm-background;
     }
@@ -44,22 +78,8 @@ $sm-color: $white;
       fill: $sm-color;
     }
   }
-  .facebook{
-    &:hover{
-      circle {
-        fill: #0584d3;
-      }
-      path {
-        fill: #fff;
-      }
-    }
-  }
 }
-.contact_info{
-  a{
-    display: block;
-  }
-}
+
 .powered {
   background-color: #191919;
   color: $white;

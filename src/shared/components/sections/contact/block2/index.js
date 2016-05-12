@@ -1,7 +1,5 @@
 /* eslint max-len: [2, 500, 4] */
 import React from 'react';
-// import { Link } from 'react-router';
-// import SVG from '../../../svg';
 import _ from 'lodash';
 import { getFacebookIcon } from '../../../svg';
 const style = require('./style.scss');

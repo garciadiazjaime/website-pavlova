@@ -6,7 +6,7 @@
 
 .submit{
   @extend .button1;
-  margin: 25px 0 100px;
+  margin: 0 0 100px;
 }
 .form{
   margin-left: 0;
@@ -15,9 +15,10 @@
 .formGroup{
   margin-left: 0!important;
   margin-right: 0!important;
+  margin-bottom: 25px;
   color: #bbbdbf;
-  border-bottom: 1px solid #bbbdbf;
-  input, label {
+  border-bottom: 1px solid #eaeaea;
+  input, label, textarea {
     border: none;
     color: inherit;
     display: inline-block;
@@ -26,6 +27,7 @@
     font-family: $fontA!important;
     font-weight: 400;
     padding-left: 0;
+    width: 100%;
 
   }
 }

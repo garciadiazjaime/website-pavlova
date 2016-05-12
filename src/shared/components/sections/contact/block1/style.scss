@@ -8,6 +8,7 @@
 	height: 619px;
 	padding-top: 220px;
 	background-size: cover;
+	background-position: center center;
 }
 
 .image {
@@ -17,4 +18,9 @@
   @extend .button1;
   width: 100%;
   letter-spacing: 3px;
+}
+@media #{$isPhone}{
+	.mainbanner{
+		background-position: -360px center;
+	}
 }

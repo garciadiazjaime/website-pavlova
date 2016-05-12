@@ -19,13 +19,14 @@ $hamburger-background: lighten($black, 15%)!important;
 
 
 .navbarWrapper {
-  height: 135px;
+  height: 180px;
   @include transform(skew(0deg, -2.69deg));
   background-color: $background-color!important;
-  margin-top: -25px;
+  margin-top: -60px;
   margin-bottom: -60px;
   z-index: 2;
-  position: relative;
+  position: fixed;
+  width: 100%;
 }
 // ********** The full navbar *********************
 .navbarDefault {
@@ -34,7 +35,7 @@ $hamburger-background: lighten($black, 15%)!important;
   border: none!important;
   margin-bottom: 0;
   @include transform(skew(0deg, 2.69deg));
-  margin-top: 30px;
+  margin-top: 65px;
 }
 // ********** Navbar Header consists in mobile button and brand image *********************
 .navbarHeader {
@@ -158,6 +159,10 @@ $hamburger-background: lighten($black, 15%)!important;
   }
 }
 @media#{$isPhone}{
+  .navbarWrapper{
+    height: 154px;
+    margin-top: -72px;
+  }
   .navbarBrand{
     left: 15px;
   }

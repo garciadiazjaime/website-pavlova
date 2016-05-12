@@ -9,15 +9,22 @@
   @extend .title8;
   margin-bottom: 25px;
   color: $white;
+  margin-top: 0;
+  &::before{
+    content: " ";
+    @extend .icon-sprites;
+    display: block;
+    margin-bottom: 25px;
+  }
 }
 
 .paragraph {
 	@extend .paragraph1;
-	margin-bottom: 25px;
+	margin-bottom: 50px;
   color: $white;
 }
 
-.paragraph2 {
+.paragraphB {
   @extend .paragraph4;
 	margin-bottom: 25px;
   color: $white;
@@ -25,8 +32,64 @@
 
 .button {
   @extend .button2;
+  margin-bottom: 100px;
+}
+.sm{
+  padding: 20px 0 0 50px;
+  *{
+    vertical-align: middle;
+  }
+  a{
+    margin-bottom: 0;
+    &:hover{
+      color: $white;
+      font-weight: bold;
+    }
+  }
 }
 
 .image {
   @extend .image1;
+  width: 100%;
+}
+.ballet{
+  &::before{
+    @include sprite($sprites-Icon-Ballet);
+  }
+}
+.jazz{
+  &::before{
+    @include sprite($sprites-Icon-Jazz);
+  }
+}
+.flamenco{
+  &::before{
+    @include sprite($sprites-Icon-Flamenco);
+  }
+}
+.cardioDanza{
+  &::before{
+    @include sprite($sprites-Icon-CardioDanza);
+  }
+}
+.barre{
+  margin-top: -30px;
+  &::before{
+    @include sprite($sprites-Icon-Barre);
+  }
+}
+.controls{
+  background-image: none!important;
+  background-color: transparent!important;
+  svg{
+    @extend .fCenter;
+  }
+}
+@media#{$isPhone}{
+  .button {
+    margin-bottom: 25px;
+  }
+  .sm{
+    margin-bottom: 50px;
+  }
 }

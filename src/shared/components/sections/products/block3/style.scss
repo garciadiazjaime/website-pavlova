@@ -5,6 +5,28 @@
 @import '../../../../theme/images/images';
 @import '../../../../theme/paragraphs/paragraphs';
 
-.image{
+.title {
+  @extend .title8;
+  margin-bottom: 25px;
+  color: $white;
+}
+
+.paragraph {
+	@extend .paragraph1;
+	margin-bottom: 25px;
+  color: $white;
+}
+
+.paragraph2 {
+  @extend .paragraph4;
+	margin-bottom: 25px;
+  color: $white;
+}
+
+.button {
+  @extend .button2;
+}
+
+.image {
   @extend .image1;
 }

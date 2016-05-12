@@ -27,7 +27,7 @@ export default class Block2 extends React.Component {
 
             <h2 className={style.title}>{titles.title3}</h2>
             <p className={style.paragraph2}>{paragraphs.paragraph4}</p>
-            {getFacebookIcon('SHOW_TEXT')}
+            {getFacebookIcon(buttons.button2.href, buttons.button2.title, style.paragraph2)}
           </div>
         </div>
       </div>

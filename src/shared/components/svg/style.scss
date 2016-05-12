@@ -18,8 +18,6 @@ $sm-color: $white;
     }
   }
   span {
-    @extend .paragraph2;
-    color: $black;
     padding-left: 20px;
   }
   .facebook{

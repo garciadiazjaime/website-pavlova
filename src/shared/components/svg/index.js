@@ -68,9 +68,9 @@ SVG.propTypes = {
   className: React.PropTypes.string,
 };
 
-export function getFacebookIcon(flag) {
-  return (<Link to="http://facebook.com" className={style.fbIcon} target="_blank">
+export function getFacebookIcon(href, title, className) {
+  return (<Link to={href} className={[style.fbIcon, (className || '')].join(' ')} target="_blank">
       {renderItems('facebook', style.facebook)}
-      { flag === 'SHOW_TEXT' ? <span>Síguenos en Facebook</span> : null}
+      { title ? <span>{title}</span> : null}
     </Link>);
 }

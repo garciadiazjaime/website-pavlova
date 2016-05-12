@@ -31,7 +31,7 @@ export default {
     },
     button5: {
       title: 'CARDIO DANZA',
-      href: '/clases/cardio-danza',
+      href: '/clases/kardio-danza',
     },
     button6: {
       title: 'BARRÉ',

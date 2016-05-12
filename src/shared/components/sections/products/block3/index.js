@@ -32,7 +32,7 @@ export default class Block3 extends React.Component {
       <p className={style.paragraph}>{paragraphs.paragraph1}</p>
       <div className="row">
         <div className="col-sm-6 col-xs12">
-          <Link className={style.button} to={buttons.button1.href}>{buttons.button1.title}<SVG network="arrow_down"/></Link>
+          <Link className={style.button} to={buttons.button1.href} target="_blank">{buttons.button1.title}<SVG network="arrow_down"/></Link>
         </div>
         <div className="col-sm-6 col-xs12">
           { buttons.button2 ? getFacebookIcon(buttons.button2.href, buttons.button2.title, style.paragraph2) : null}
@@ -59,8 +59,9 @@ export default class Block3 extends React.Component {
     const { titles, slides, paragraphs, buttons } = data;
     const sliderEl = this.getColumnSlider(slides, titles.title1);
     const contentEl = this.getColumnContent(titles, paragraphs, buttons);
+    const blockId = getSlug(titles.title1);
 
-    return !_.isEmpty(this.props.data) ? (<div>
+    return !_.isEmpty(this.props.data) ? (<div id={blockId}>
       <div className={'container-fluid'}>
         <div className="row">
           <div className="col-sm-6 col-xs-12">

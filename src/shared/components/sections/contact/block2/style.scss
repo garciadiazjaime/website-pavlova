@@ -6,38 +6,60 @@
 
 .wrapper{
   background-color: $white;
-  padding: 50px 0 100px;
+  padding: 100px 0 100px;
 }
 
 .title{
   @extend .title6;
   color: $black;
   text-align: left;
-  margin-top: 100px;
-  margin-bottom: 50px;
-  position: relative;
+  margin-bottom: 25px;
+  margin-top: 0;
   letter-spacing: 5px;
+  position: relative;
 }
+.title_2{
+  @extend .title;
+  margin-top: 60px;
+  padding-bottom: 25px;
+  &::after{
+    content: " ";
+    height: 1px;
+    background-color: #eaeaea;
+    width: 180px;
+    position: absolute;
+    display: block;
+    bottom: 0;
+  }
+}
+.sm{
+  padding: 20px 0 0;
+  *{
+    vertical-align: middle;
+  }
+  a{
+    margin-bottom: 0;
+    color: $black;
+    &:hover{
+      color: $gray;
+    }
+  }
+}
+
 .paragraph{
   @extend .paragraph1b;
   color: $black;
   position: relative;
-  padding-left: 45px;
+  margin-bottom: 25px;
 }
-.paragraph2{
+.paragraph_2{
   @extend .paragraph2;
   color: $black;
   margin-bottom: 25px;
   display: block;
-  padding-left: 45px;
 }
 .svg{
   position: absolute;
   bottom: -80px;
   left: 0;
-}
-@media #{$isPhone}{
-  .title{
-		font-size: 30px;
-	}
 }

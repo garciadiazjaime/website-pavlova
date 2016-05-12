@@ -22,7 +22,7 @@ export default class AppHandler extends React.Component {
 
   componentDidMount() {
     this.scrollHandler(true);
-    window.addEventListener('scroll', this.onScroll, false);
+    // window.addEventListener('scroll', this.onScroll, false);
     // this.googleAnalytics();
     if (_.isEmpty(this.state.data)) {
       this.loadData();
@@ -47,7 +47,7 @@ export default class AppHandler extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll, false);
+    // window.removeEventListener('scroll', this.onScroll, false);
   }
 
   onScroll() {

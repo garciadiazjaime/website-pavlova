@@ -10,6 +10,7 @@ export default {
     component: AppHandler,
     default: HomeSection,
     showListItem: AboutSection,
+    service: ProductsSection,
     children: [{
       id: 1,
       title: 'Inicio',

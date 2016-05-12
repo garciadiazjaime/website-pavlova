@@ -20,7 +20,7 @@ export default class Powered extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-xs-12 col-sm-6">
-              Todos los derechos reservados &copy; Lasermedica
+              Todos los derechos reservados &copy; Pavlova
             </div>
             <div className="col-xs-12 col-sm-6">
               Un proyecto de:&nbsp;

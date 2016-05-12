@@ -138,7 +138,9 @@ export default class Form1 extends React.Component {
 
     return (<form id="form" className={style.form + ' form-horizontal'}>
         <div className={'form-group ' + style.formGroup}>
-          <label id="lab_name" className="col-xs-2 control-label">Nombre:</label>
+          <div className="col-xs-2">
+            <label id="lab_name" className="row control-label">Nombre:</label>
+          </div>
           <div className="col-xs-10">
             <input type="text" name="name" onChange={this.onChangeHandler} value={name.value} />
           </div>
@@ -146,7 +148,9 @@ export default class Form1 extends React.Component {
         </div>
 
         <div className={'form-group ' + style.formGroup}>
-          <label id="lab_email" className="col-xs-2 control-label">Correo:</label>
+          <div className="col-xs-2">
+            <label id="lab_email" className="row control-label">Correo:</label>
+          </div>
           <div className="col-xs-10">
             <input type="text" name="email" onChange={this.onChangeHandler} value={email.value}/>
           </div>
@@ -154,7 +158,9 @@ export default class Form1 extends React.Component {
         </div>
 
         <div className={'form-group ' + style.formGroup}>
-          <label id="lab_tel" className="col-xs-2 control-label">Teléfono:</label>
+          <div className="col-xs-2">
+            <label id="lab_tel" className="row control-label">Teléfono:</label>
+          </div>
           <div className="col-xs-10">
             <input type="tel" name="tel" onChange={this.onChangeHandler} value={tel.value}/>
           </div>
@@ -162,11 +168,11 @@ export default class Form1 extends React.Component {
         </div>
 
         <div className={'form-group ' + style.formGroup}>
-          <label id="lab_message" className="col-sm-12 control-label">
-            Mensaje:
-          </label>
-          <div className="col-sm-12 col-sm-offset-1">
-            <input type="text" name="message" onChange={this.onChangeHandler} value={message.value} />
+          <div className="col-xs-2">
+            <label id="lab_message" className="row control-label">Mensaje:</label>
+          </div>
+          <div className="col-sm-12 col-sm-offset-0">
+            <textarea type="text" name="message" onChange={this.onChangeHandler} value={message.value} />
           </div>
           <div className={style.borderBottom2}></div>
         </div>
@@ -182,7 +188,7 @@ export default class Form1 extends React.Component {
         <div className="pull-right">
           <a className={style.submit} onClick={this.submitFormHandler}>
             ENVIAR
-            <SVG network="square_arrow" className={style.svg}/>
+            <SVG network="arrow_right" className={style.svg}/>
           </a>
         </div>
       </form>

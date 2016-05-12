@@ -12,12 +12,16 @@ const style = require('./style.scss');
 
 export default class Block1 extends React.Component {
 
+  componentDidMount() {
+    $('#carousel-home-block-1').carousel();
+  }
+
   renderItems(data) {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
         const divStyle = getImageBackground(item.image);
         let className = index === 0 ? 'active' : '';
-        className += index === 0 ? ' ' + style.darkBG : '';
+        className += index === 1 ? style.darkBG : '';
         return (<div className={'item ' + (style.item || '') + ' ' + className} key={index} style={divStyle}>
           <div className="container-fluid">
             <div className="row">

@@ -4,7 +4,7 @@ import React from 'react';
 import _ from 'lodash';
 import restClient from '../../../../../../server/helpers/rest-client';
 const style = require('./style.scss');
-
+import SVG from '../../../../svg';
 
 export default class Form1 extends React.Component {
 
@@ -182,6 +182,7 @@ export default class Form1 extends React.Component {
         <div className="pull-right">
           <a className={style.submit} onClick={this.submitFormHandler}>
             ENVIAR
+            <SVG network="square_arrow" className={style.svg}/>
           </a>
         </div>
       </form>

@@ -1,0 +1,33 @@
+@import '../../theme/paragraphs/paragraphs.scss';
+@import '../../theme/constants';
+// ------ VARIABLES ---------
+$background-color: $black;
+$link-color: darken($white, 10%);
+$link-color-hover: $white;
+$sm-background: #0074c8;
+$sm-color: $white;
+
+// ------ STYLE ----------
+.fbIcon {
+  svg {
+    circle{
+      fill: $sm-background;
+    }
+    path{
+      fill: $sm-color;
+    }
+  }
+  span {
+    padding-left: 20px;
+  }
+  .facebook{
+    &:hover{
+      circle {
+        fill: #0584d3;
+      }
+      path {
+        fill: #fff;
+      }
+    }
+  }
+}

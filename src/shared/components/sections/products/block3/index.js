@@ -4,6 +4,9 @@ import { Link } from 'react-router';
 import _ from 'lodash';
 import Carousel from '../../../elements/carousel';
 import getSlug from '../../../../utils/slug';
+import { normalizeImageUrl } from '../../../../utils/imageUtil';
+import SVG from '../../../svg';
+import { getFacebookIcon } from '../../../svg';
 const style = require('./style.scss');
 
 export default class Block3 extends React.Component {
@@ -25,11 +28,16 @@ export default class Block3 extends React.Component {
 
   getColumnContent(titles, paragraphs, buttons) {
     return (<div>
-      <h2>{titles.title1}</h2>
-      <p>{paragraphs.paragraph1}</p>
-      <Link to={buttons.button1.href}>{buttons.button1.title}</Link>
-      { buttons.button2 ? <Link to={buttons.button2.href}>{buttons.button2.title}</Link> : null}
-
+      <h2 className={style.title}>{titles.title1}</h2>
+      <p className={style.paragraph}>{paragraphs.paragraph1}</p>
+      <div className="row">
+        <div className="col-sm-6 col-xs12">
+          <Link className={style.button} to={buttons.button1.href}>{buttons.button1.title}<SVG network="arrow_down"/></Link>
+        </div>
+        <div className="col-sm-6 col-xs12">
+          { buttons.button2 ? getFacebookIcon(buttons.button2.href, buttons.button2.title, style.paragraph2) : null}
+        </div>
+      </div>
     </div>);
   }
 
@@ -37,8 +45,9 @@ export default class Block3 extends React.Component {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
+        const imageUrl = normalizeImageUrl(item.image);
         return (<div className={'item ' + className + ' ' + (style.item || '')} key={index}>
-          <img src={item.image} alt={item.title} />
+          <img src={imageUrl} alt={item.title} />
         </div>);
       });
     }

@@ -4,8 +4,14 @@
 @import '../../../../theme/buttons/buttons';
 @import '../../../../theme/titles/titles';
 
+.wrapper{
+  background-color: $white;
+  padding: 50px 0 100px;
+}
+
 .title{
   @extend .title6;
+  color: $black;
   text-align: left;
   margin-top: 100px;
   margin-bottom: 50px;
@@ -13,12 +19,14 @@
   letter-spacing: 5px;
 }
 .paragraph{
-  @extend .paragraph5;
+  @extend .paragraph1b;
+  color: $black;
   position: relative;
   padding-left: 45px;
 }
-.gmap{
-  @extend .button3;
+.paragraph2{
+  @extend .paragraph2;
+  color: $black;
   margin-bottom: 25px;
   display: block;
   padding-left: 45px;

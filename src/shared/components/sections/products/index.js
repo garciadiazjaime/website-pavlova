@@ -2,14 +2,14 @@
 import React from 'react';
 import _ from 'lodash';
 
-import Block1 from './block1';
+import Block1 from '../about/block1';
 import Block2 from '../home/block2';
 import Block3 from './block3';
 import Block4 from './block3';
 import Block5 from './block3';
 import Block6 from './block3';
 import Block7 from './block3';
-import Block8 from './block8';
+import Block8 from '../about/block8';
 // const style = require('./style.scss');
 
 export default class ProductsSection extends React.Component {

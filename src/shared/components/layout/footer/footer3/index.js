@@ -55,9 +55,9 @@ export default class FooterAAA extends React.Component {
           <div className="col-sm-3 col-xs-12">
             <h3 className={style.title}>{titles.title4}</h3>
             <ul className={style.list}>
-              <li><a href={buttons.button7.href} title={buttons.button7.title}>{buttons.button7.title}</a></li>
-              <li><a href={buttons.button8.href} title={buttons.button8.title}>{buttons.button8.title}</a></li>
-              <li><a href={buttons.button9.href} title={buttons.button9.title}>{buttons.button9.title}</a></li>
+              <li><a href={buttons.button7.href} title={buttons.button7.title} target="_blank">{buttons.button7.title}</a></li>
+              <li><a href={buttons.button8.href} title={buttons.button8.title} target="_blank">{buttons.button8.title}</a></li>
+              <li><a href={buttons.button9.href} title={buttons.button9.title} target="_blank">{buttons.button9.title}</a></li>
             </ul>
           </div>
         </div>

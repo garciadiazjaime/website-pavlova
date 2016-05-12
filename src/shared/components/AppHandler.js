@@ -22,7 +22,7 @@ export default class AppHandler extends React.Component {
 
   componentDidMount() {
     this.scrollHandler(true);
-    window.addEventListener('scroll', this.onScroll, false);
+    // window.addEventListener('scroll', this.onScroll, false);
     // this.googleAnalytics();
     if (_.isEmpty(this.state.data)) {
       this.loadData();
@@ -47,7 +47,27 @@ export default class AppHandler extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll, false);
+    // window.removeEventListener('scroll', this.onScroll, false);
+  }
+
+  onScroll() {
+    const offset = window.pageYOffset;
+    const width = window.innerWidth;
+    if (width < 768) {
+      $('#menu_wrapper').addClass('navbar-fixed-top');
+      $('.navbar-brand').css('display', 'block');
+      $('.navbar-icons').css('display', 'block');
+    } else {
+      if (offset > 386) {
+        $('#menu_wrapper').addClass('navbar-fixed-top');
+        $('.navbar-brand').css('display', 'block');
+        $('.navbar-icons').css('display', 'block');
+      } else {
+        $('#menu_wrapper').removeClass('navbar-fixed-top');
+        $('.navbar-brand').css('display', 'none');
+        $('.navbar-icons').css('display', 'none');
+      }
+    }
   }
 
   getBlocksData(data) {

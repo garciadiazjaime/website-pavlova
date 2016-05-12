@@ -453,7 +453,8 @@
 	    { path: '/', component: items.component },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: items.default }),
 	    routes,
-	    _react2.default.createElement(_reactRouter.Route, { path: 'escuela/:showListItem', component: items.showListItem })
+	    _react2.default.createElement(_reactRouter.Route, { path: 'escuela/:showListItem', component: items.showListItem }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'clases/:service', component: items.service })
 	  )
 	);
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
@@ -601,6 +602,7 @@
 	    component: _AppHandler2.default,
 	    default: _home2.default,
 	    showListItem: _about2.default,
+	    service: _products2.default,
 	    children: [{
 	      id: 1,
 	      title: 'Inicio',
@@ -701,7 +703,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.scrollHandler(true);
-	      window.addEventListener('scroll', this.onScroll, false);
+	      // window.addEventListener('scroll', this.onScroll, false);
 	      // this.googleAnalytics();
 	      if (_lodash2.default.isEmpty(this.state.data)) {
 	        this.loadData();
@@ -729,7 +731,7 @@
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      window.removeEventListener('scroll', this.onScroll, false);
+	      // window.removeEventListener('scroll', this.onScroll, false);
 	    }
 	  }, {
 	    key: 'onScroll',
@@ -979,7 +981,7 @@
 	        { className: style.navbarWrapper },
 	        _react2.default.createElement(
 	          'nav',
-	          { className: style.navbarDefault + ' navbar navbar navbar-fixed-top', id: 'menu_wrapper' },
+	          { className: style.navbarDefault + ' navbar navbar-fixed-top', id: 'menu_wrapper' },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'container-fluid' },
@@ -1249,13 +1251,9 @@
 	    value: function getIcons(data) {
 	      return data.map(function (item, index) {
 	        return _react2.default.createElement(
-	          'div',
-	          { key: index, className: 'col-xs-6 col-md-3' },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: item.url, className: style.sm_icon, id: item.url, target: '_blank' },
-	            _react2.default.createElement(_svg2.default, { network: item.title, className: style[item.title] })
-	          )
+	          _reactRouter.Link,
+	          { key: index, to: item.url, className: style.sm_icon, id: item.url, target: '_blank' },
+	          _react2.default.createElement(_svg2.default, { network: item.title, className: style[item.title] })
 	        );
 	      });
 	    }
@@ -1278,15 +1276,20 @@
 	            { className: 'row' },
 	            _react2.default.createElement(
 	              'div',
+	              { className: 'col-xs-12' },
+	              _react2.default.createElement('div', { className: style.footerBrand })
+	            ),
+	            _react2.default.createElement(
+	              'div',
 	              { className: 'col-sm-3 col-xs-12' },
 	              _react2.default.createElement(
 	                'h3',
-	                null,
+	                { className: style.title },
 	                titles.title1
 	              ),
 	              _react2.default.createElement(
 	                'ul',
-	                null,
+	                { className: style.list },
 	                _react2.default.createElement(
 	                  'li',
 	                  null,
@@ -1302,6 +1305,7 @@
 	                  null,
 	                  paragraphs.paragraph3
 	                ),
+	                _react2.default.createElement('br', null),
 	                _react2.default.createElement(
 	                  'li',
 	                  null,
@@ -1314,18 +1318,18 @@
 	              { className: 'col-sm-3 col-xs-12' },
 	              _react2.default.createElement(
 	                'h3',
-	                null,
+	                { className: style.title },
 	                titles.title2
 	              ),
 	              _react2.default.createElement(
 	                'p',
-	                null,
+	                { className: style.paragraph },
 	                paragraphs.paragraph5
 	              ),
 	              this.getIcons(icons),
 	              _react2.default.createElement(
 	                'a',
-	                { href: buttons.button1.href, title: buttons.button1.title, target: '_blank' },
+	                { className: style.paragraph, href: buttons.button1.href, title: buttons.button1.title, target: '_blank' },
 	                buttons.button1.title
 	              )
 	            ),
@@ -1334,12 +1338,12 @@
 	              { className: 'col-sm-3 col-xs-12' },
 	              _react2.default.createElement(
 	                'h3',
-	                null,
+	                { className: style.title },
 	                titles.title3
 	              ),
 	              _react2.default.createElement(
 	                'ul',
-	                null,
+	                { className: style.list },
 	                _react2.default.createElement(
 	                  'li',
 	                  null,
@@ -1392,18 +1396,18 @@
 	              { className: 'col-sm-3 col-xs-12' },
 	              _react2.default.createElement(
 	                'h3',
-	                null,
+	                { className: style.title },
 	                titles.title4
 	              ),
 	              _react2.default.createElement(
 	                'ul',
-	                null,
+	                { className: style.list },
 	                _react2.default.createElement(
 	                  'li',
 	                  null,
 	                  _react2.default.createElement(
 	                    'a',
-	                    { href: buttons.button7.href, title: buttons.button7.title },
+	                    { href: buttons.button7.href, title: buttons.button7.title, target: '_blank' },
 	                    buttons.button7.title
 	                  )
 	                ),
@@ -1412,7 +1416,7 @@
 	                  null,
 	                  _react2.default.createElement(
 	                    'a',
-	                    { href: buttons.button8.href, title: buttons.button8.title },
+	                    { href: buttons.button8.href, title: buttons.button8.title, target: '_blank' },
 	                    buttons.button8.title
 	                  )
 	                ),
@@ -1421,7 +1425,7 @@
 	                  null,
 	                  _react2.default.createElement(
 	                    'a',
-	                    { href: buttons.button9.href, title: buttons.button9.title },
+	                    { href: buttons.button9.href, title: buttons.button9.title, target: '_blank' },
 	                    buttons.button9.title
 	                  )
 	                )
@@ -1504,7 +1508,7 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'col-xs-12 col-sm-6' },
-	              'Todos los derechos reservados © Lasermedica'
+	              'Todos los derechos reservados © Pavlova'
 	            ),
 	            _react2.default.createElement(
 	              'div',
@@ -1538,7 +1542,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3sp06","vCenter":"style__vCenter___2G-_B","vCenterRel":"style__vCenterRel___3pk1i","hCenter":"style__hCenter___uDimH","inheritHeight":"style__inheritHeight___1W6vZ","hideOverflow":"style__hideOverflow___1oOYw","icon-sprites":"style__icon-sprites___3Wvbf","footerWrapper":"style__footerWrapper___LwV_7","container":"style__container___1CyCK","sitemap":"style__sitemap___130Ar","facebook":"style__facebook___3bmod","contact_info":"style__contact_info___pUiM_","powered":"style__powered___3yTUa","serviceTitle":"style__serviceTitle___3QrAo"};
+	module.exports = {"fCenter":"style__fCenter___3sp06","vCenter":"style__vCenter___2G-_B","vCenterRel":"style__vCenterRel___3pk1i","hCenter":"style__hCenter___uDimH","inheritHeight":"style__inheritHeight___1W6vZ","hideOverflow":"style__hideOverflow___1oOYw","icon-sprites":"style__icon-sprites___3Wvbf","footerWrapper":"style__footerWrapper___LwV_7","footerBrand":"style__footerBrand___1BcOo","title":"style__title___3vTD3","paragraph":"style__paragraph___v5jSt","list":"style__list___2_aVL","container":"style__container___1CyCK","powered":"style__powered___3yTUa","serviceTitle":"style__serviceTitle___3QrAo","facebook":"style__facebook___3bmod"};
 
 /***/ },
 /* 24 */
@@ -1582,7 +1586,7 @@
 	    },
 	    button5: {
 	      title: 'CARDIO DANZA',
-	      href: '/clases/cardio-danza'
+	      href: '/clases/kardio-danza'
 	    },
 	    button6: {
 	      title: 'BARRÉ',
@@ -2567,12 +2571,12 @@
 	      var showListItem = params.showListItem;
 
 	      var block3Variations = {
-	        variation1: 'mainbanner3',
-	        variation2: 'title3'
+	        variation1: 'mainbannerC',
+	        variation2: 'titleC'
 	      };
 	      var block5Variations = {
-	        variation1: 'mainbanner5',
-	        variation2: 'title5'
+	        variation1: 'mainbannerE',
+	        variation2: 'titleE'
 	      };
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
@@ -2965,7 +2969,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","button1":"style__button1___ysj8P","button2":"style__button2___3T26W","button2b":"style__button2b___2FwWn","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","button3":"style__button3___1B5ky","button3v1":"style__button3v1___1K2ga","button3v2":"style__button3v2___2cSYL","button3v3":"style__button3v3___2QAs0","button3v4":"style__button3v4___1yJWM","button3v5":"style__button3v5___19FE3","sideSwipe":"style__sideSwipe___1wQDY","bottomSwipe":"style__bottomSwipe___3FjOI","title1":"style__title1___36WkF","title3":"style__title3___WdO4l","title5":"style__title5___1hZAj","title2":"style__title2___21MoW","title4":"style__title4___3vPE_","title6":"style__title6___3ZgkO","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph1b":"style__paragraph1b___3yolC","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbanner3":"style__mainbanner3___cvQBB","mainbanner5":"style__mainbanner5___2trYH","title":"style__title___3Docb"};
+	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","button1":"style__button1___ysj8P","button2":"style__button2___3T26W","button2b":"style__button2b___2FwWn","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","button3":"style__button3___1B5ky","button3v1":"style__button3v1___1K2ga","button3v2":"style__button3v2___2cSYL","button3v3":"style__button3v3___2QAs0","button3v4":"style__button3v4___1yJWM","button3v5":"style__button3v5___19FE3","sideSwipe":"style__sideSwipe___1wQDY","bottomSwipe":"style__bottomSwipe___3FjOI","title1":"style__title1___36WkF","titleC":"style__titleC___3Juam","titleE":"style__titleE___3vfVE","title2":"style__title2___21MoW","title3":"style__title3___WdO4l","title4":"style__title4___3vPE_","title5":"style__title5___1hZAj","title6":"style__title6___3ZgkO","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph1b":"style__paragraph1b___3yolC","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbannerC":"style__mainbannerC___1dg2G","mainbannerE":"style__mainbannerE___2wqi4"};
 
 /***/ },
 /* 50 */
@@ -3522,7 +3526,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___5Hdev","vCenter":"style__vCenter___2R7xI","item":"style__item___19454","svg":"style__svg___3EKSG","vCenterRel":"style__vCenterRel___1n4Yk","hCenter":"style__hCenter___3Hr8B","inheritHeight":"style__inheritHeight___1S0fd","hideOverflow":"style__hideOverflow___ABBe6","icon-sprites":"style__icon-sprites___3FKSV","title1":"style__title1___3gJwS","title2":"style__title2___2UYID","title3":"style__title3___AphF6","subtitle":"style__subtitle___eiDqf","title4":"style__title4___VjkpC","title5":"style__title5___1rO0v","title6":"style__title6___19b6v","title":"style__title___2v8uo","title7":"style__title7___3lYX3","title8":"style__title8___2nnP7","paragraph1":"style__paragraph1___27lCC","paragraph1b":"style__paragraph1b___kWEkR","content":"style__content___2WHKr","paragraph2":"style__paragraph2___1Cp7R","paragraph3":"style__paragraph3___1gcAp","paragraph4":"style__paragraph4___3OSxZ","paragraph5":"style__paragraph5___2ND05","wrapper":"style__wrapper___2dGti"};
+	module.exports = {"fCenter":"style__fCenter___5Hdev","vCenter":"style__vCenter___2R7xI","item":"style__item___19454","svg":"style__svg___3EKSG","vCenterRel":"style__vCenterRel___1n4Yk","hCenter":"style__hCenter___3Hr8B","inheritHeight":"style__inheritHeight___1S0fd","hideOverflow":"style__hideOverflow___ABBe6","icon-sprites":"style__icon-sprites___3FKSV","title1":"style__title1___3gJwS","title2":"style__title2___2UYID","title3":"style__title3___AphF6","subtitle":"style__subtitle___eiDqf","title4":"style__title4___VjkpC","title5":"style__title5___1rO0v","title6":"style__title6___19b6v","title":"style__title___2v8uo","title7":"style__title7___3lYX3","title8":"style__title8___2nnP7","paragraph1":"style__paragraph1___27lCC","paragraph1b":"style__paragraph1b___kWEkR","content":"style__content___2WHKr","paragraph2":"style__paragraph2___1Cp7R","paragraph3":"style__paragraph3___1gcAp","paragraph4":"style__paragraph4___3OSxZ","paragraph5":"style__paragraph5___2ND05","wrapper":"style__wrapper___2dGti","image":"style__image___2RETE"};
 
 /***/ },
 /* 58 */
@@ -3957,19 +3961,19 @@
 	      var block8 = _props$data.block8;
 
 	      var block3Variations = {
-	        variation1: 'class1'
+	        variation1: 'ballet'
 	      };
 	      var block4Variations = {
-	        variation1: 'class1'
+	        variation1: 'jazz'
 	      };
 	      var block5Variations = {
-	        variation1: 'class1'
+	        variation1: 'flamenco'
 	      };
 	      var block6Variations = {
-	        variation1: 'class1'
+	        variation1: 'cardioDanza'
 	      };
 	      var block7Variations = {
-	        variation1: 'class1'
+	        variation1: 'barre'
 	      };
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
@@ -4066,20 +4070,24 @@
 	      };
 	      var slug = (0, _slug2.default)(item);
 	      return _react2.default.createElement(
-	        _carousel2.default,
-	        { id: 'carousel-clases-' + slug, interval: 8000, indicators: false, classes: carouselClasses },
-	        this.renderItems(slides)
+	        'div',
+	        { className: 'col-xs-12 col-sm-6' },
+	        _react2.default.createElement(
+	          _carousel2.default,
+	          { id: 'carousel-clases-' + slug, interval: 8000, indicators: false, classes: carouselClasses },
+	          this.renderItems(slides)
+	        )
 	      );
 	    }
 	  }, {
 	    key: 'getColumnContent',
-	    value: function getColumnContent(titles, paragraphs, buttons) {
+	    value: function getColumnContent(titles, paragraphs, buttons, danceStyle) {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'col-xs-12 col-sm-5' },
 	        _react2.default.createElement(
 	          'h2',
-	          { className: style.title },
+	          { className: style.title + ' ' + style[danceStyle] },
 	          titles.title1
 	        ),
 	        _react2.default.createElement(
@@ -4095,15 +4103,15 @@
 	            { className: 'col-sm-6 col-xs12' },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { className: style.button, to: buttons.button1.href },
+	              { className: style.button, to: buttons.button1.href, target: '_blank' },
 	              buttons.button1.title,
 	              _react2.default.createElement(_svg2.default, { network: 'arrow_down' })
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-6 col-xs12' },
-	            buttons.button2 ? (0, _svg.getFacebookIcon)(buttons.button2.href, buttons.button2.title, style.paragraph2) : null
+	            { className: 'col-sm-6 col-xs12 ' + style.sm },
+	            buttons.button2 ? (0, _svg.getFacebookIcon)(buttons.button2.href, buttons.button2.title, style.paragraphB) : null
 	          )
 	        )
 	      );
@@ -4118,7 +4126,7 @@
 	          return _react2.default.createElement(
 	            'div',
 	            { className: 'item ' + className + ' ' + (style.item || ''), key: index },
-	            _react2.default.createElement('img', { src: imageUrl, alt: item.title })
+	            _react2.default.createElement('img', { src: imageUrl, alt: item.title, className: style.image })
 	          );
 	        });
 	      }
@@ -4130,33 +4138,28 @@
 	      var _props = this.props;
 	      var data = _props.data;
 	      var type = _props.type;
+	      var variations = _props.variations;
 	      var titles = data.titles;
 	      var slides = data.slides;
 	      var paragraphs = data.paragraphs;
 	      var buttons = data.buttons;
 
 	      var sliderEl = this.getColumnSlider(slides, titles.title1);
-	      var contentEl = this.getColumnContent(titles, paragraphs, buttons);
+	      var contentEl = this.getColumnContent(titles, paragraphs, buttons, variations.variation1);
+	      var blockId = (0, _slug2.default)(titles.title1);
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
-	        null,
+	        { id: blockId },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container-fluid' },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-6 col-xs-12' },
-	              type === 'SLIDER_CONTENT' ? sliderEl : contentEl
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-6 col-xs-12' },
-	              type === 'SLIDER_CONTENT' ? contentEl : sliderEl
-	            )
+	            type === 'SLIDER_CONTENT' ? sliderEl : contentEl,
+	            _react2.default.createElement('div', { className: 'col-sm-1 hidden-xs' }),
+	            type === 'SLIDER_CONTENT' ? contentEl : sliderEl
 	          )
 	        )
 	      ) : null;
@@ -4181,7 +4184,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___zkvoI","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","button3v5":"style__button3v5___1gczD","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","title":"style__title___2mlf9","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraph5":"style__paragraph5___1IKiM"};
+	module.exports = {"fCenter":"style__fCenter___zkvoI","controls":"style__controls___1nXQ8","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","button3v5":"style__button3v5___1gczD","title":"style__title___2mlf9","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraphB":"style__paragraphB___3TQhf","paragraph5":"style__paragraph5___1IKiM","sm":"style__sm___OLDFM","ballet":"style__ballet___2ecR7","jazz":"style__jazz___24bYU","flamenco":"style__flamenco___2coaY","cardioDanza":"style__cardioDanza___2LYVb","barre":"style__barre___2QrzR"};
 
 /***/ },
 /* 66 */
@@ -4397,10 +4400,10 @@
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-6 col-xs-12' },
+	              { className: 'col-sm-4 col-sm-offset-1 col-xs-12' },
 	              _react2.default.createElement(
 	                'h2',
-	                { className: style.title },
+	                { className: style.title_2 },
 	                titles.title2
 	              ),
 	              _react2.default.createElement(
@@ -4415,7 +4418,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'a',
-	                { className: style.paragraph2, href: buttons.button1.href, target: '_blank' },
+	                { className: style.paragraph_2, href: buttons.button1.href, target: '_blank' },
 	                buttons.button1.title
 	              ),
 	              _react2.default.createElement(
@@ -4425,15 +4428,19 @@
 	              ),
 	              _react2.default.createElement(
 	                'h2',
-	                { className: style.title },
+	                { className: style.title_2 },
 	                titles.title3
 	              ),
 	              _react2.default.createElement(
 	                'p',
-	                { className: style.paragraph2 },
+	                { className: style.paragraph_2 },
 	                paragraphs.paragraph4
 	              ),
-	              (0, _svg.getFacebookIcon)(buttons.button2.href, buttons.button2.title, style.paragraph2)
+	              _react2.default.createElement(
+	                'div',
+	                { className: style.sm },
+	                (0, _svg.getFacebookIcon)(buttons.button2.href, buttons.button2.title, style.paragraph2)
+	              )
 	            )
 	          )
 	        )
@@ -4651,9 +4658,13 @@
 	          'div',
 	          { className: 'form-group ' + style.formGroup },
 	          _react2.default.createElement(
-	            'label',
-	            { id: 'lab_name', className: 'col-xs-2 control-label' },
-	            'Nombre:'
+	            'div',
+	            { className: 'col-xs-2' },
+	            _react2.default.createElement(
+	              'label',
+	              { id: 'lab_name', className: 'row control-label' },
+	              'Nombre:'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -4666,9 +4677,13 @@
 	          'div',
 	          { className: 'form-group ' + style.formGroup },
 	          _react2.default.createElement(
-	            'label',
-	            { id: 'lab_email', className: 'col-xs-2 control-label' },
-	            'Correo:'
+	            'div',
+	            { className: 'col-xs-2' },
+	            _react2.default.createElement(
+	              'label',
+	              { id: 'lab_email', className: 'row control-label' },
+	              'Correo:'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -4681,9 +4696,13 @@
 	          'div',
 	          { className: 'form-group ' + style.formGroup },
 	          _react2.default.createElement(
-	            'label',
-	            { id: 'lab_tel', className: 'col-xs-2 control-label' },
-	            'Teléfono:'
+	            'div',
+	            { className: 'col-xs-2' },
+	            _react2.default.createElement(
+	              'label',
+	              { id: 'lab_tel', className: 'row control-label' },
+	              'Teléfono:'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -4696,14 +4715,18 @@
 	          'div',
 	          { className: 'form-group ' + style.formGroup },
 	          _react2.default.createElement(
-	            'label',
-	            { id: 'lab_message', className: 'col-sm-12 control-label' },
-	            'Mensaje:'
+	            'div',
+	            { className: 'col-xs-2' },
+	            _react2.default.createElement(
+	              'label',
+	              { id: 'lab_message', className: 'row control-label' },
+	              'Mensaje:'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-12 col-sm-offset-1' },
-	            _react2.default.createElement('input', { type: 'text', name: 'message', onChange: this.onChangeHandler, value: message.value })
+	            { className: 'col-sm-12 col-sm-offset-0' },
+	            _react2.default.createElement('textarea', { type: 'text', name: 'message', onChange: this.onChangeHandler, value: message.value })
 	          ),
 	          _react2.default.createElement('div', { className: style.borderBottom2 })
 	        ),
@@ -4728,7 +4751,7 @@
 	            'a',
 	            { className: style.submit, onClick: this.submitFormHandler },
 	            'ENVIAR',
-	            _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	            _react2.default.createElement(_svg2.default, { network: 'arrow_right', className: style.svg })
 	          )
 	        )
 	      );
@@ -4752,7 +4775,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","button1":"style__button1___1cwjy","button2":"style__button2___hQ_-V","button2b":"style__button2b___1b2RV","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","button3":"style__button3___3HwaY","button3v1":"style__button3v1___2Wuut","button3v2":"style__button3v2___5XAeE","button3v3":"style__button3v3___bPEC9","button3v4":"style__button3v4___3dETf","button3v5":"style__button3v5___3o_q3","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph1b":"style__paragraph1b___1kRb1","paragraph":"style__paragraph___29758","paragraph2":"style__paragraph2___1ISwm","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","sideSwipe":"style__sideSwipe___1IOUP","bottomSwipe":"style__bottomSwipe___1Id40","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title3":"style__title3___173Gl","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","wrapper":"style__wrapper___2GZMu","svg":"style__svg___38pi8"};
+	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","button1":"style__button1___1cwjy","button2":"style__button2___hQ_-V","button2b":"style__button2b___1b2RV","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","button3":"style__button3___3HwaY","button3v1":"style__button3v1___2Wuut","button3v2":"style__button3v2___5XAeE","button3v3":"style__button3v3___bPEC9","button3v4":"style__button3v4___3dETf","button3v5":"style__button3v5___3o_q3","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph1b":"style__paragraph1b___1kRb1","paragraph":"style__paragraph___29758","paragraph2":"style__paragraph2___1ISwm","paragraph_2":"style__paragraph_2___217YF","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","sideSwipe":"style__sideSwipe___1IOUP","bottomSwipe":"style__bottomSwipe___1Id40","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title3":"style__title3___173Gl","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title_2":"style__title_2___3IHOj","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","wrapper":"style__wrapper___2GZMu","sm":"style__sm___1spdw","svg":"style__svg___38pi8"};
 
 /***/ }
 /******/ ]);

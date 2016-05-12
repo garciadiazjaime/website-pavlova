@@ -13,3 +13,12 @@
 .button{
   @extend .button1;
 }
+// --- Responsive
+@media #{$isPhone}{
+  .title{
+    text-align: center;
+  }
+  .button{
+    margin: 0 auto 25px;
+  }
+}

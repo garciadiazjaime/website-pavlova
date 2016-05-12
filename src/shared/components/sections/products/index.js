@@ -17,19 +17,19 @@ export default class ProductsSection extends React.Component {
   render() {
     const { block1, block2, block3, block4, block5, block6, block7, block8 } = this.props.data;
     const block3Variations = {
-      variation1: 'class1',
+      variation1: 'ballet',
     };
     const block4Variations = {
-      variation1: 'class1',
+      variation1: 'jazz',
     };
     const block5Variations = {
-      variation1: 'class1',
+      variation1: 'flamenco',
     };
     const block6Variations = {
-      variation1: 'class1',
+      variation1: 'cardioDanza',
     };
     const block7Variations = {
-      variation1: 'class1',
+      variation1: 'barre',
     };
 
     return !_.isEmpty(this.props.data) ? (<div>

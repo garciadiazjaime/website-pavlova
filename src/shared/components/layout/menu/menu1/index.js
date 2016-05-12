@@ -35,7 +35,7 @@ export default class MainMenu extends React.Component {
   render() {
     /*eslint-disable */
     return (<div className={style.navbarWrapper}>
-      <nav className={style.navbarDefault + ' navbar navbar navbar-fixed-top'} id="menu_wrapper">
+      <nav className={style.navbarDefault + ' navbar navbar-fixed-top'} id="menu_wrapper">
         <div className="container-fluid">
           <div className="row">
             <div className={style.navbarHeader + ' navbar-header'}>

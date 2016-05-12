@@ -50,26 +50,6 @@ export default class AppHandler extends React.Component {
     window.removeEventListener('scroll', this.onScroll, false);
   }
 
-  onScroll() {
-    const offset = window.pageYOffset;
-    const width = window.innerWidth;
-    if (width < 768) {
-      $('#menu_wrapper').addClass('navbar-fixed-top');
-      $('.navbar-brand').css('display', 'block');
-      $('.navbar-icons').css('display', 'block');
-    } else {
-      if (offset > 386) {
-        $('#menu_wrapper').addClass('navbar-fixed-top');
-        $('.navbar-brand').css('display', 'block');
-        $('.navbar-icons').css('display', 'block');
-      } else {
-        $('#menu_wrapper').removeClass('navbar-fixed-top');
-        $('.navbar-brand').css('display', 'none');
-        $('.navbar-icons').css('display', 'none');
-      }
-    }
-  }
-
   getBlocksData(data) {
     const properties = ['slides', 'buttons', 'images', 'paragraphs', 'titles'];
     const response = {};

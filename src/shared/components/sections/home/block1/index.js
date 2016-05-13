@@ -47,7 +47,7 @@ export default class Block1 extends React.Component {
       },
     };
     return !_.isEmpty(this.props.data) ? (<div>
-      <Carousel id="carousel-home-block-1" interval={8000} classes={carouselClasses}>
+      <Carousel id="carousel-home-block-1" interval={8000} indicators={false} controls={false} classes={carouselClasses}>
         {this.renderItems(slides)}
       </Carousel>
     </div>) : null;

@@ -44340,9 +44340,9 @@
 	  }, {
 	    key: 'renderIds',
 	    value: function renderIds(data) {
-	      return data.map(function (item) {
+	      return data.map(function (item, index) {
 	        var id = (0, _slug2.default)(item.title);
-	        return _react2.default.createElement('span', { id: id });
+	        return _react2.default.createElement('span', { id: id, key: index });
 	      });
 	    }
 	  }, {
@@ -44826,13 +44826,27 @@
 	var ProductsSection = function (_React$Component) {
 	  _inherits(ProductsSection, _React$Component);
 
-	  function ProductsSection() {
+	  function ProductsSection(props) {
 	    _classCallCheck(this, ProductsSection);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ProductsSection).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ProductsSection).call(this, props));
+
+	    _this.state = {
+	      types: ['SLIDER_CONTENT', 'CONTENT_SLIDER', 'SLIDER_CONTENT', 'CONTENT_SLIDER', 'SLIDER_CONTENT']
+	    };
+	    return _this;
 	  }
 
 	  _createClass(ProductsSection, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      /*eslint-disable */
+	      this.setState({
+	        types: ['CONTENT_SLIDER', 'CONTENT_SLIDER', 'CONTENT_SLIDER', 'CONTENT_SLIDER', 'CONTENT_SLIDER']
+	      });
+	      /*eslint-enable */
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _props$data = this.props.data;
@@ -44860,17 +44874,19 @@
 	      var block7Variations = {
 	        variation1: 'barre'
 	      };
+	      var types = this.state.types;
+
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(_block2.default, { data: block1 }),
 	        _react2.default.createElement(_block4.default, { data: block2 }),
-	        _react2.default.createElement(_block6.default, { data: block3, type: 'SLIDER_CONTENT', variations: block3Variations }),
-	        _react2.default.createElement(_block6.default, { data: block4, type: 'CONTENT_SLIDER', variations: block4Variations }),
-	        _react2.default.createElement(_block6.default, { data: block5, type: 'SLIDER_CONTENT', variations: block5Variations }),
-	        _react2.default.createElement(_block6.default, { data: block6, type: 'CONTENT_SLIDER', variations: block6Variations }),
-	        _react2.default.createElement(_block6.default, { data: block7, type: 'SLIDER_CONTENT', variations: block7Variations }),
+	        _react2.default.createElement(_block6.default, { data: block3, type: types[0], variations: block3Variations }),
+	        _react2.default.createElement(_block6.default, { data: block4, type: types[1], variations: block4Variations }),
+	        _react2.default.createElement(_block6.default, { data: block5, type: types[2], variations: block5Variations }),
+	        _react2.default.createElement(_block6.default, { data: block6, type: types[3], variations: block6Variations, noControls: false }),
+	        _react2.default.createElement(_block6.default, { data: block7, type: types[4], variations: block7Variations, noControls: false }),
 	        _react2.default.createElement(_block8.default, { data: block8 })
 	      ) : null;
 	    }
@@ -44944,7 +44960,7 @@
 
 	  _createClass(Block3, [{
 	    key: 'getColumnSlider',
-	    value: function getColumnSlider(slides, item) {
+	    value: function getColumnSlider(slides, item, noControls) {
 	      var carouselClasses = {
 	        inner: style.inner,
 	        controls: {
@@ -44957,9 +44973,13 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'col-xs-12 col-sm-6' },
-	        _react2.default.createElement(
+	        noControls !== false ? _react2.default.createElement(
 	          _carousel2.default,
 	          { id: 'carousel-clases-' + slug, interval: 8000, indicators: false, classes: carouselClasses },
+	          this.renderItems(slides)
+	        ) : _react2.default.createElement(
+	          _carousel2.default,
+	          { id: 'carousel-clases-' + slug, interval: 8000, indicators: false, controls: false, classes: carouselClasses },
 	          this.renderItems(slides)
 	        )
 	      );
@@ -45024,12 +45044,13 @@
 	      var data = _props.data;
 	      var type = _props.type;
 	      var variations = _props.variations;
+	      var noControls = _props.noControls;
 	      var titles = data.titles;
 	      var slides = data.slides;
 	      var paragraphs = data.paragraphs;
 	      var buttons = data.buttons;
 
-	      var sliderEl = this.getColumnSlider(slides, titles.title1);
+	      var sliderEl = this.getColumnSlider(slides, titles.title1, noControls);
 	      var contentEl = this.getColumnContent(titles, paragraphs, buttons, variations.variation1);
 	      var blockId = (0, _slug2.default)(titles.title1);
 
@@ -45061,7 +45082,8 @@
 	  data: _react2.default.PropTypes.object.isRequired,
 	  classes: _react2.default.PropTypes.object,
 	  type: _react2.default.PropTypes.string.isRequired,
-	  variations: _react2.default.PropTypes.object.isRequired
+	  variations: _react2.default.PropTypes.object.isRequired,
+	  noControls: _react2.default.PropTypes.bool
 	};
 
 /***/ },

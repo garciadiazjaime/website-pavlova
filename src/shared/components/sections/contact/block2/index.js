@@ -20,8 +20,7 @@ export default class Block2 extends React.Component {
           </div>
           <div className="col-sm-4 col-sm-offset-1 col-xs-12">
             <h2 className={style.title_2}>{titles.title2}</h2>
-            <p className={style.paragraph}>{paragraphs.paragraph1}</p>
-            <p className={style.paragraph}>{paragraphs.paragraph2}</p>
+            <p className={style.paragraph}>{paragraphs.paragraph1}<br />{paragraphs.paragraph2}</p>
             <a className={style.paragraph_2} href={buttons.button1.href} target="_blank">{buttons.button1.title}</a>
             <p className={style.paragraph}>{paragraphs.paragraph3}</p>
 

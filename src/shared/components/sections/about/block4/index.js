@@ -30,7 +30,10 @@ export default class Block4 extends React.Component {
         prev: style.prev,
         next: style.next,
       },
-      indicator: style.indicators,
+      indicator: {
+        base: style.indicators,
+        active: style.active,
+      },
     };
     const imgUrl = images.image1.src ? images.image1.src.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : images.image1.src;
     return !_.isEmpty(this.props.data) ? (<div className={style.wrapper}>

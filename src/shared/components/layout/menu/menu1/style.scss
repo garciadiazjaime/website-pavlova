@@ -21,6 +21,8 @@ $hamburger-background: lighten($black, 15%)!important;
 .navbarWrapper {
   height: 180px;
   @include transform(skew(0deg, -2.69deg));
+  outline: 1px solid transparent;
+  padding: 1px;
   background-color: $background-color!important;
   top: -60px;
   margin-bottom: -60px;
@@ -161,7 +163,7 @@ $hamburger-background: lighten($black, 15%)!important;
 @media#{$isPhone}{
   .navbarWrapper{
     height: 154px;
-    margin-top: -72px;
+    margin-top: -11px;
   }
   .navbarBrand{
     left: 15px;

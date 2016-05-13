@@ -12,7 +12,12 @@ export default class List extends React.Component {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
         const slug = getSlug(item.title);
-        const className = slug === itemUrl ? 'active' : '';
+        let className = '';
+        if (!itemUrl && index === 0) {
+          className = style.active;
+        } else if (slug === itemUrl) {
+          className = style.active;
+        }
         return (<div key={index} className={style.item}>
           <Link className={className} to={'/' + sectionUrl + '/' + slug} title={item.title}>{item.title}<SVG network="arrow_right" className={style.svg}/></Link>
         </div>);

@@ -36,7 +36,7 @@ export default class Block2 extends React.Component {
       },
       indicator: {
         base: style.indicators,
-        active: style.indicatorActive,
+        active: style.active,
       },
     };
     return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.mainbanner}>

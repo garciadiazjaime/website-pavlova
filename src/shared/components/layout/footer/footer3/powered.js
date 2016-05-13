@@ -22,7 +22,7 @@ export default class Powered extends React.Component {
             <div className="col-xs-12 col-sm-6">
               Todos los derechos reservados &copy; Pavlova
             </div>
-            <div className="col-xs-12 col-sm-6">
+            <div className={'col-xs-12 col-sm-6 ' + style.wrapperBy}>
               Un proyecto de:&nbsp;
               <a href={data[0].url} title={data[0].title} target="_blank">{data[0].name}</a>
               &nbsp;&nbsp;

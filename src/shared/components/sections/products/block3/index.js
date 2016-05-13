@@ -63,9 +63,9 @@ export default class Block3 extends React.Component {
     const contentEl = this.getColumnContent(titles, paragraphs, buttons, variations.variation1);
     const blockId = getSlug(titles.title1);
 
-    return !_.isEmpty(this.props.data) ? (<div id={blockId}>
+    return !_.isEmpty(this.props.data) ? (<div id={blockId} className={style.wrapper_2}>
       <div className={'container-fluid'}>
-        <div className="row">
+        <div className={'row ' + style.wrapper_}>
           {type === 'SLIDER_CONTENT' ? sliderEl : contentEl}
           <div className="col-sm-1 hidden-xs" />
           {type === 'SLIDER_CONTENT' ? contentEl : sliderEl}

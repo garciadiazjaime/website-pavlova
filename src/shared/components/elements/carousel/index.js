@@ -9,11 +9,12 @@ export default class Carousel extends React.Component {
   getIndicators(sliderId, isVisible, data, indicatorClass) {
     let indicators = [];
     if (isVisible !== false && _.isArray(data) && data.length) {
+      const activeClassName = indicatorClass && indicatorClass.active ? 'active ' + indicatorClass.active : 'active';
       indicators = data.map((item, index) => {
-        const className = index === 0 ? 'active' : '';
+        const className = index === 0 ? activeClassName : '';
         return (<li data-target={'#' + sliderId} data-slide-to={index} className={className} key={index} />);
       });
-      return (<ol className={'carousel-indicators ' + (indicatorClass || '')}>
+      return (<ol className={'carousel-indicators ' + (indicatorClass.base || '')}>
         {indicators}
       </ol>);
     }

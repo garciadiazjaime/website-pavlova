@@ -37,7 +37,9 @@
 .intro {
   // @extend .paragrap1;
 }
-
+.active{
+  color: $white  !important;
+}
 .content {
   @extend .paragraph1;
   color: $white;

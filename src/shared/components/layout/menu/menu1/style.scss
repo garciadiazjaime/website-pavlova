@@ -22,7 +22,7 @@ $hamburger-background: lighten($black, 15%)!important;
   height: 180px;
   @include transform(skew(0deg, -2.69deg));
   background-color: $background-color!important;
-  margin-top: -60px;
+  top: -60px;
   margin-bottom: -60px;
   z-index: 2;
   position: fixed;

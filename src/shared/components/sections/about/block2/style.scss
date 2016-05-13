@@ -32,6 +32,9 @@
 }
 .button{
   @extend .button2;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  width: 215px;
 }
 .svg{
 	display: block;
@@ -42,6 +45,17 @@
 }
 .indicators{
   bottom: -25px;
+  left: 0;
+  margin-left: 0;
+  text-align: left;
+  width: 100%;
+  li {
+    margin-right: 18px!important;
+    margin-left: 0;
+  }
+  li:last-child{
+    margin-right: 0!important;
+  }
 }
 // --- Responsive
 @media #{$isPhone}{

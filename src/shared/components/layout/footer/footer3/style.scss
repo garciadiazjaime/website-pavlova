@@ -2,8 +2,8 @@
 // ------ VARIABLES ---------
 $background-color: $black;
 $border-color: $gray;
-$link-color: darken($white, 20%);
-$link-color-hover: $white;
+$link-color: $white;
+$link-color-hover: darken($white, 20%);
 $sm-background: #0074c8;
 $sm-color: $white;
 $title-font: $fontA;
@@ -93,6 +93,9 @@ $title-font: $fontA;
     }
   }
 }
+.wrapperBy{
+  text-align: right;
+}
 
 @media #{$isPhone}{
   .serviceTitle{
@@ -100,5 +103,8 @@ $title-font: $fontA;
   }
   .facebook{
     margin-top: 30px;
+  }
+  .wrapperBy{
+    text-align: left;
   }
 }

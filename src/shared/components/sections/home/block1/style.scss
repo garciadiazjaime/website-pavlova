@@ -6,19 +6,22 @@
 
 .item{
   height: 750px;
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
   background-color: white;
   a{
     @extend .button2b;
     margin-top: 600px;
-    padding-left: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 .item.darkBG{
   background-color: #000;
   a{
     @extend .button2;
+    padding-left: 40px;
+    padding-right: 40px;
     &:hover{
       &::before{
         top: 0;

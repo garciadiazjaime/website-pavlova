@@ -28,7 +28,7 @@ export default class ListShow extends React.Component {
           <List data={data} item={item} style={style} />
         </div>
         <div className="col-sm-6 col-sm-offset-1 col-xs-12">
-          <Show data={itemInfo} style={style} />
+          <Show items={data.items} data={itemInfo} style={style} />
         </div>
       </div>
     </div>);

@@ -37555,7 +37555,7 @@
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-xs-12 col-sm-6' },
+	              { className: 'col-xs-12 col-sm-6 ' + style.wrapperBy },
 	              'Un proyecto de: ',
 	              _react2.default.createElement(
 	                'a',
@@ -37585,7 +37585,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3sp06","vCenter":"style__vCenter___2G-_B","vCenterRel":"style__vCenterRel___3pk1i","hCenter":"style__hCenter___uDimH","inheritHeight":"style__inheritHeight___1W6vZ","hideOverflow":"style__hideOverflow___1oOYw","icon-sprites":"style__icon-sprites___3Wvbf","footerWrapper":"style__footerWrapper___LwV_7","footerBrand":"style__footerBrand___1BcOo","title":"style__title___3vTD3","paragraph":"style__paragraph___v5jSt","list":"style__list___2_aVL","container":"style__container___1CyCK","powered":"style__powered___3yTUa","serviceTitle":"style__serviceTitle___3QrAo","facebook":"style__facebook___3bmod"};
+	module.exports = {"fCenter":"style__fCenter___3sp06","vCenter":"style__vCenter___2G-_B","vCenterRel":"style__vCenterRel___3pk1i","hCenter":"style__hCenter___uDimH","inheritHeight":"style__inheritHeight___1W6vZ","hideOverflow":"style__hideOverflow___1oOYw","icon-sprites":"style__icon-sprites___3Wvbf","footerWrapper":"style__footerWrapper___LwV_7","footerBrand":"style__footerBrand___1BcOo","title":"style__title___3vTD3","paragraph":"style__paragraph___v5jSt","list":"style__list___2_aVL","container":"style__container___1CyCK","powered":"style__powered___3yTUa","wrapperBy":"style__wrapperBy___2KG7E","serviceTitle":"style__serviceTitle___3QrAo","facebook":"style__facebook___3bmod"};
 
 /***/ },
 /* 219 */
@@ -42812,6 +42812,8 @@
 	  value: true
 	});
 
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -42849,15 +42851,22 @@
 	    value: function getIndicators(sliderId, isVisible, data, indicatorClass) {
 	      var indicators = [];
 	      if (isVisible !== false && _lodash2.default.isArray(data) && data.length) {
-	        indicators = data.map(function (item, index) {
-	          var className = index === 0 ? 'active' : '';
-	          return _react2.default.createElement('li', { 'data-target': '#' + sliderId, 'data-slide-to': index, className: className, key: index });
-	        });
-	        return _react2.default.createElement(
-	          'ol',
-	          { className: 'carousel-indicators ' + (indicatorClass || '') },
-	          indicators
-	        );
+	        var _ret = function () {
+	          var activeClassName = indicatorClass && indicatorClass.active ? 'active ' + indicatorClass.active : 'active';
+	          indicators = data.map(function (item, index) {
+	            var className = index === 0 ? activeClassName : '';
+	            return _react2.default.createElement('li', { 'data-target': '#' + sliderId, 'data-slide-to': index, className: className, key: index });
+	          });
+	          return {
+	            v: _react2.default.createElement(
+	              'ol',
+	              { className: 'carousel-indicators ' + (indicatorClass.base || '') },
+	              indicators
+	            )
+	          };
+	        }();
+
+	        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
 	      }
 	      return null;
 	    }
@@ -43046,7 +43055,7 @@
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: style.customCol + ' col-xs-6 col-xs-offset-3 col-sm-offset-0' },
+	              { className: style.customCol + ' col-xs-6' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
 	                { className: style.button3v5 + ' row', to: buttons.button5.href },
@@ -43667,7 +43676,10 @@
 	          prev: style.prev,
 	          next: style.next
 	        },
-	        indicator: style.indicators
+	        indicator: {
+	          base: style.indicators,
+	          active: style.active
+	        }
 	      };
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
@@ -43690,7 +43702,7 @@
 	                _reactRouter.Link,
 	                { className: style.button, to: buttons.button1.href },
 	                buttons.button1.title,
-	                _react2.default.createElement(_svg2.default, { network: 'arrow_down' })
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_right' })
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -43901,6 +43913,10 @@
 	          base: style.controls,
 	          prev: style.prev,
 	          next: style.next
+	        },
+	        indicator: {
+	          base: style.indicators,
+	          active: style.active
 	        }
 	      };
 	      var imgUrl = images.image1.src ? images.image1.src.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : images.image1.src;
@@ -43949,7 +43965,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","button1":"style__button1___1pbIc","button2":"style__button2___1FucC","button2b":"style__button2b___2FsuG","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","button3":"style__button3___1uWcc","button3v1":"style__button3v1___2s-Yj","button3v2":"style__button3v2___2VAH8","button3v3":"style__button3v3___iwEeg","button3v4":"style__button3v4___3wMtL","button3v5":"style__button3v5___2ieFT","sideSwipe":"style__sideSwipe___13jwX","bottomSwipe":"style__bottomSwipe___2_85D","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title3":"style__title3___L0OLC","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title":"style__title___2_j9U","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph1b":"style__paragraph1b___2rvU9","paragraph":"style__paragraph___2RMic","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","wrapper":"style__wrapper___3B2lE","indicators":"style__indicators___3yzgC"};
+	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","button1":"style__button1___1pbIc","button2":"style__button2___1FucC","button2b":"style__button2b___2FsuG","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","button3":"style__button3___1uWcc","button3v1":"style__button3v1___2s-Yj","button3v2":"style__button3v2___2VAH8","button3v3":"style__button3v3___iwEeg","button3v4":"style__button3v4___3wMtL","button3v5":"style__button3v5___2ieFT","sideSwipe":"style__sideSwipe___13jwX","bottomSwipe":"style__bottomSwipe___2_85D","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title3":"style__title3___L0OLC","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title":"style__title___2_j9U","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph1b":"style__paragraph1b___2rvU9","paragraph":"style__paragraph___2RMic","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","wrapper":"style__wrapper___3B2lE","indicators":"style__indicators___3yzgC","active":"style__active___3uHbf"};
 
 /***/ },
 /* 288 */
@@ -44115,7 +44131,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'col-sm-6 col-sm-offset-1 col-xs-12' },
-	            _react2.default.createElement(_show2.default, { data: itemInfo, style: style })
+	            _react2.default.createElement(_show2.default, { items: data.items, data: itemInfo, style: style })
 	          )
 	        )
 	      );
@@ -44187,7 +44203,12 @@
 	      if (_lodash2.default.isArray(data) && data.length) {
 	        return data.map(function (item, index) {
 	          var slug = (0, _slug2.default)(item.title);
-	          var className = slug === itemUrl ? 'active' : '';
+	          var className = '';
+	          if (!itemUrl && index === 0) {
+	            className = style.active;
+	          } else if (slug === itemUrl) {
+	            className = style.active;
+	          }
 	          return _react2.default.createElement(
 	            'div',
 	            { key: index, className: style.item },
@@ -44282,6 +44303,10 @@
 
 	var _imageUtil = __webpack_require__(269);
 
+	var _slug = __webpack_require__(291);
+
+	var _slug2 = _interopRequireDefault(_slug);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44313,16 +44338,26 @@
 	      }
 	    }
 	  }, {
+	    key: 'renderIds',
+	    value: function renderIds(data) {
+	      return data.map(function (item) {
+	        var id = (0, _slug2.default)(item.title);
+	        return _react2.default.createElement('span', { id: id });
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
 	      var data = _props.data;
 	      var style = _props.style;
+	      var items = _props.items;
 
 	      var imgUrl = (0, _imageUtil.normalizeImageUrl)(data.image);
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        this.renderIds(items),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row' },
@@ -44367,7 +44402,8 @@
 
 	Show.propTypes = {
 	  data: _react2.default.PropTypes.object.isRequired,
-	  style: _react2.default.PropTypes.object
+	  style: _react2.default.PropTypes.object,
+	  items: _react2.default.PropTypes.array
 	};
 
 /***/ },
@@ -44375,7 +44411,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___5Hdev","vCenter":"style__vCenter___2R7xI","item":"style__item___19454","svg":"style__svg___3EKSG","vCenterRel":"style__vCenterRel___1n4Yk","hCenter":"style__hCenter___3Hr8B","inheritHeight":"style__inheritHeight___1S0fd","hideOverflow":"style__hideOverflow___ABBe6","icon-sprites":"style__icon-sprites___3FKSV","title1":"style__title1___3gJwS","title2":"style__title2___2UYID","title3":"style__title3___AphF6","subtitle":"style__subtitle___eiDqf","title4":"style__title4___VjkpC","title5":"style__title5___1rO0v","title6":"style__title6___19b6v","title":"style__title___2v8uo","title7":"style__title7___3lYX3","title8":"style__title8___2nnP7","paragraph1":"style__paragraph1___27lCC","paragraph1b":"style__paragraph1b___kWEkR","content":"style__content___2WHKr","paragraph2":"style__paragraph2___1Cp7R","paragraph3":"style__paragraph3___1gcAp","paragraph4":"style__paragraph4___3OSxZ","paragraph5":"style__paragraph5___2ND05","wrapper":"style__wrapper___2dGti","image":"style__image___2RETE"};
+	module.exports = {"fCenter":"style__fCenter___5Hdev","vCenter":"style__vCenter___2R7xI","item":"style__item___19454","svg":"style__svg___3EKSG","vCenterRel":"style__vCenterRel___1n4Yk","hCenter":"style__hCenter___3Hr8B","inheritHeight":"style__inheritHeight___1S0fd","hideOverflow":"style__hideOverflow___ABBe6","icon-sprites":"style__icon-sprites___3FKSV","title1":"style__title1___3gJwS","title2":"style__title2___2UYID","title3":"style__title3___AphF6","subtitle":"style__subtitle___eiDqf","title4":"style__title4___VjkpC","title5":"style__title5___1rO0v","title6":"style__title6___19b6v","title":"style__title___2v8uo","title7":"style__title7___3lYX3","title8":"style__title8___2nnP7","paragraph1":"style__paragraph1___27lCC","paragraph1b":"style__paragraph1b___kWEkR","content":"style__content___2WHKr","paragraph2":"style__paragraph2___1Cp7R","paragraph3":"style__paragraph3___1gcAp","paragraph4":"style__paragraph4___3OSxZ","paragraph5":"style__paragraph5___2ND05","wrapper":"style__wrapper___2dGti","active":"style__active___2EtVR","image":"style__image___2RETE"};
 
 /***/ },
 /* 294 */
@@ -44999,13 +45035,13 @@
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
-	        { id: blockId },
+	        { id: blockId, className: style.wrapper_2 },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container-fluid' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'row' },
+	            { className: 'row ' + style.wrapper_ },
 	            type === 'SLIDER_CONTENT' ? sliderEl : contentEl,
 	            _react2.default.createElement('div', { className: 'col-sm-1 hidden-xs' }),
 	            type === 'SLIDER_CONTENT' ? contentEl : sliderEl
@@ -45033,7 +45069,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___zkvoI","controls":"style__controls___1nXQ8","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","button3v5":"style__button3v5___1gczD","title":"style__title___2mlf9","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraphB":"style__paragraphB___3TQhf","paragraph5":"style__paragraph5___1IKiM","sm":"style__sm___OLDFM","ballet":"style__ballet___2ecR7","jazz":"style__jazz___24bYU","flamenco":"style__flamenco___2coaY","cardioDanza":"style__cardioDanza___2LYVb","barre":"style__barre___2QrzR"};
+	module.exports = {"fCenter":"style__fCenter___zkvoI","controls":"style__controls___1nXQ8","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","button3v5":"style__button3v5___1gczD","title":"style__title___2mlf9","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraphB":"style__paragraphB___3TQhf","paragraph5":"style__paragraph5___1IKiM","wrapper_":"style__wrapper____1tcC1","wrapper_2":"style__wrapper_2___16tcC","sm":"style__sm___OLDFM","ballet":"style__ballet___2ecR7","jazz":"style__jazz___24bYU","flamenco":"style__flamenco___2coaY","cardioDanza":"style__cardioDanza___2LYVb","barre":"style__barre___2QrzR"};
 
 /***/ },
 /* 302 */
@@ -45258,11 +45294,8 @@
 	              _react2.default.createElement(
 	                'p',
 	                { className: style.paragraph },
-	                paragraphs.paragraph1
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                { className: style.paragraph },
+	                paragraphs.paragraph1,
+	                _react2.default.createElement('br', null),
 	                paragraphs.paragraph2
 	              ),
 	              _react2.default.createElement(

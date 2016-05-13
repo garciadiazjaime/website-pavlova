@@ -14,6 +14,21 @@ import Block8 from '../about/block8';
 
 export default class ProductsSection extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      types: ['SLIDER_CONTENT', 'CONTENT_SLIDER', 'SLIDER_CONTENT', 'CONTENT_SLIDER', 'SLIDER_CONTENT'],
+    };
+  }
+
+  componentDidMount() {
+    /*eslint-disable */
+    this.setState({
+      types: ['CONTENT_SLIDER', 'CONTENT_SLIDER', 'CONTENT_SLIDER', 'CONTENT_SLIDER', 'CONTENT_SLIDER'],
+    });
+    /*eslint-enable */
+  }
+
   render() {
     const { block1, block2, block3, block4, block5, block6, block7, block8 } = this.props.data;
     const block3Variations = {
@@ -31,15 +46,16 @@ export default class ProductsSection extends React.Component {
     const block7Variations = {
       variation1: 'barre',
     };
+    const { types } = this.state;
 
     return !_.isEmpty(this.props.data) ? (<div>
       <Block1 data={block1} />
       <Block2 data={block2} />
-      <Block3 data={block3} type={'SLIDER_CONTENT'} variations={block3Variations} />
-      <Block4 data={block4} type={'CONTENT_SLIDER'} variations={block4Variations} />
-      <Block5 data={block5} type={'SLIDER_CONTENT'} variations={block5Variations} />
-      <Block6 data={block6} type={'CONTENT_SLIDER'} variations={block6Variations} noControls={false} />
-      <Block7 data={block7} type={'SLIDER_CONTENT'} variations={block7Variations} noControls={false} />
+      <Block3 data={block3} type={types[0]} variations={block3Variations} />
+      <Block4 data={block4} type={types[1]} variations={block4Variations} />
+      <Block5 data={block5} type={types[2]} variations={block5Variations} />
+      <Block6 data={block6} type={types[3]} variations={block6Variations} noControls={false} />
+      <Block7 data={block7} type={types[4]} variations={block7Variations} noControls={false} />
       <Block8 data={block8} />
     </div>) : null;
   }

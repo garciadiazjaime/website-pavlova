@@ -15,9 +15,9 @@ export default class Show extends React.Component {
   }
 
   renderIds(data) {
-    return data.map((item) => {
+    return data.map((item, index) => {
       const id = getSlug(item.title);
-      return (<span id={id} />);
+      return (<span id={id} key={index} />);
     });
   }
 

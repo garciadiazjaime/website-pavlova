@@ -38,8 +38,8 @@ export default class ProductsSection extends React.Component {
       <Block3 data={block3} type={'SLIDER_CONTENT'} variations={block3Variations} />
       <Block4 data={block4} type={'CONTENT_SLIDER'} variations={block4Variations} />
       <Block5 data={block5} type={'SLIDER_CONTENT'} variations={block5Variations} />
-      <Block6 data={block6} type={'CONTENT_SLIDER'} variations={block6Variations} />
-      <Block7 data={block7} type={'SLIDER_CONTENT'} variations={block7Variations} />
+      <Block6 data={block6} type={'CONTENT_SLIDER'} variations={block6Variations} noControls={false} />
+      <Block7 data={block7} type={'SLIDER_CONTENT'} variations={block7Variations} noControls={false} />
       <Block8 data={block8} />
     </div>) : null;
   }

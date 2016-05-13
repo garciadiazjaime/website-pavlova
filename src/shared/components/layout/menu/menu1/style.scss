@@ -5,7 +5,7 @@ $height: 80px;
 $background-color: $black;
 // - links -
 $link-color: $white;
-$hover-color: $white!important;
+$hover-color: $gray!important;
 $active: $white;
 // - social media
 $sm-background: $gray;
@@ -92,7 +92,6 @@ $hamburger-background: lighten($black, 15%)!important;
   @extend .vCenter;
   &:hover, &:focus {
     color: $hover-color;
-    font-weight: 700;
     background-color: transparent!important;
   }
 }

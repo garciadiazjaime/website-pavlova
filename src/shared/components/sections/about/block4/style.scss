@@ -19,9 +19,20 @@
 }
 .indicators{
   bottom: -25px;
+  left: 0;
+  margin-left: 0;
+  text-align: left;
+  width: 100%;
+  li {
+    margin-right: 18px!important;
+    margin-left: 0;
+		border-color: $black;
+  }
+  li:last-child{
+    margin-right: 0!important;
+  }
+	li.active{
+		background-color: $black;
+	}
 }
 // --- Responsive
-@media #{$isPhone}{
-}
-
-// Block3

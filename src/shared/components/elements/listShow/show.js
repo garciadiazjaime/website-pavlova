@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { normalizeImageUrl } from '../../../utils/imageUtil';
+import getSlug from '../../../utils/slug';
 
 
 export default class Show extends React.Component {
@@ -13,10 +14,18 @@ export default class Show extends React.Component {
     }
   }
 
+  renderIds(data) {
+    return data.map((item) => {
+      const id = getSlug(item.title);
+      return (<span id={id} />);
+    });
+  }
+
   render() {
-    const { data, style } = this.props;
+    const { data, style, items } = this.props;
     const imgUrl = normalizeImageUrl(data.image);
     return (<div>
+      {this.renderIds(items)}
       <div className="row">
         <div className="col-sm-6 col-xs-12">
           <img className={style.image} src={imgUrl} alt={data.title} />
@@ -38,4 +47,5 @@ export default class Show extends React.Component {
 Show.propTypes = {
   data: React.PropTypes.object.isRequired,
   style: React.PropTypes.object,
+  items: React.PropTypes.array,
 };

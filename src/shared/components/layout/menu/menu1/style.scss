@@ -92,7 +92,6 @@ $hamburger-background: lighten($black, 15%)!important;
   @extend .vCenter;
   &:hover, &:focus {
     color: $hover-color;
-    font-weight: 700;
     background-color: transparent!important;
   }
 }

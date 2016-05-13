@@ -11,7 +11,7 @@ const style = require('./style.scss');
 
 export default class Block3 extends React.Component {
 
-  getColumnSlider(slides, item) {
+  getColumnSlider(slides, item, noControls) {
     const carouselClasses = {
       inner: style.inner,
       controls: {
@@ -22,9 +22,15 @@ export default class Block3 extends React.Component {
     };
     const slug = getSlug(item);
     return (<div className="col-xs-12 col-sm-6">
+    {
+      noControls !== false ?
       <Carousel id={'carousel-clases-' + slug} interval={8000} indicators={false} classes={carouselClasses}>
         {this.renderItems(slides)}
+      </Carousel> :
+      <Carousel id={'carousel-clases-' + slug} interval={8000} indicators={false} controls={false} classes={carouselClasses}>
+        {this.renderItems(slides)}
       </Carousel>
+    }
     </div>);
   }
 
@@ -57,9 +63,9 @@ export default class Block3 extends React.Component {
   }
 
   render() {
-    const { data, type, variations } = this.props;
+    const { data, type, variations, noControls } = this.props;
     const { titles, slides, paragraphs, buttons } = data;
-    const sliderEl = this.getColumnSlider(slides, titles.title1);
+    const sliderEl = this.getColumnSlider(slides, titles.title1, noControls);
     const contentEl = this.getColumnContent(titles, paragraphs, buttons, variations.variation1);
     const blockId = getSlug(titles.title1);
 
@@ -80,4 +86,5 @@ Block3.propTypes = {
   classes: React.PropTypes.object,
   type: React.PropTypes.string.isRequired,
   variations: React.PropTypes.object.isRequired,
+  noControls: React.PropTypes.bool,
 };

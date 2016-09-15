@@ -41,7 +41,7 @@ export default class Carousel extends React.Component {
 
   render() {
     const { id, interval, children, indicators, controls, classes } = this.props;
-    return (<div id={id} className="carousel slide" data-ride="carousel" data-interval={interval || 5000}>
+    return (<div id={id} className="carousel slide" data-ride="carousel" data-interval={interval || 8000}>
       { this.getIndicators(id, indicators, children, classes.indicator) }
       <div className={'carousel-inner ' + (classes.inner || '')} role="listbox">
         {children}

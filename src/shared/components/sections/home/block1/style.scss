@@ -31,6 +31,10 @@
 }
 @media #{$isPhone}{
   .item{
+    background-size: cover;
+    width: 140%;
+    height: 350px;
+
     a{
       margin: 600px auto 0;
     }

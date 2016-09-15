@@ -13,7 +13,7 @@
     "clean": "rm ./static/css/screen.css && rm ./static/js/app.js && rm ./dist/server.js",
     "sprites": "./node_modules/.bin/gulp build:sprites",
     "lint": "./node_modules/.bin/eslint --ignore-pattern **/app-*.js, **/**/sprite.js --ext .js,.jsx src",
-    "update": "git checkout production && git pull origin develop",
+    "update": "git checkout master && git pull origin develop",
     "deploy": "git add . && git commit -m 'deploy' && git push upstream HEAD:master",
     "assets": "cp -rf ./build/. ./static/ && rm ./static/index.html",
     "minify-css": "./node_modules/.bin/gulp minify-css",

@@ -59,8 +59,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*eslint-enable */
-
-
 	(0, _reactDom.render)(_routes2.default, document.getElementById('app')); /*eslint-disable */
 
 /***/ },
@@ -220,8 +218,94 @@
 /***/ function(module, exports) {
 
 	// shim for using process in browser
-
 	var process = module.exports = {};
+
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout () {
+	    throw new Error('clearTimeout has not been defined');
+	}
+	(function () {
+	    try {
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
+	    }
+	    try {
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
+	    }
+	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch(e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch(e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+
+
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+
+
+
+	}
 	var queue = [];
 	var draining = false;
 	var currentQueue;
@@ -246,7 +330,7 @@
 	    if (draining) {
 	        return;
 	    }
-	    var timeout = setTimeout(cleanUpNextTick);
+	    var timeout = runTimeout(cleanUpNextTick);
 	    draining = true;
 
 	    var len = queue.length;
@@ -263,7 +347,7 @@
 	    }
 	    currentQueue = null;
 	    draining = false;
-	    clearTimeout(timeout);
+	    runClearTimeout(timeout);
 	}
 
 	process.nextTick = function (fun) {
@@ -275,7 +359,7 @@
 	    }
 	    queue.push(new Item(fun, args));
 	    if (queue.length === 1 && !draining) {
-	        setTimeout(drainQueue, 0);
+	        runTimeout(drainQueue);
 	    }
 	};
 
@@ -24296,7 +24380,7 @@
 	  },
 	  icons: [{
 	    title: 'facebook',
-	    url: 'https://www.facebook.com/'
+	    url: 'https://www.facebook.com/pavlova.hipodromo/'
 	  }]
 	};
 
@@ -24359,7 +24443,7 @@
 	  function AppHandler(props, context) {
 	    _classCallCheck(this, AppHandler);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AppHandler).call(this, props, context));
+	    var _this = _possibleConstructorReturn(this, (AppHandler.__proto__ || Object.getPrototypeOf(AppHandler)).call(this, props, context));
 
 	    _this.state = {
 	      data: context.data && context.data.blocks ? context.data.blocks : window._data.blocks,
@@ -36973,7 +37057,7 @@
 	  function MainMenu() {
 	    _classCallCheck(this, MainMenu);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MainMenu).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (MainMenu.__proto__ || Object.getPrototypeOf(MainMenu)).apply(this, arguments));
 	  }
 
 	  _createClass(MainMenu, [{
@@ -37189,7 +37273,7 @@
 	  function SVG() {
 	    _classCallCheck(this, SVG);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SVG).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (SVG.__proto__ || Object.getPrototypeOf(SVG)).apply(this, arguments));
 	  }
 
 	  _createClass(SVG, [{
@@ -37286,7 +37370,7 @@
 	  function FooterAAA() {
 	    _classCallCheck(this, FooterAAA);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(FooterAAA).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (FooterAAA.__proto__ || Object.getPrototypeOf(FooterAAA)).apply(this, arguments));
 	  }
 
 	  _createClass(FooterAAA, [{
@@ -37523,7 +37607,7 @@
 	  function Powered() {
 	    _classCallCheck(this, Powered);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Powered).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Powered.__proto__ || Object.getPrototypeOf(Powered)).apply(this, arguments));
 	  }
 
 	  _createClass(Powered, [{
@@ -42608,7 +42692,7 @@
 	  function HomeSection() {
 	    _classCallCheck(this, HomeSection);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(HomeSection).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (HomeSection.__proto__ || Object.getPrototypeOf(HomeSection)).apply(this, arguments));
 	  }
 
 	  _createClass(HomeSection, [{
@@ -42690,7 +42774,7 @@
 	  function Block1() {
 	    _classCallCheck(this, Block1);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block1).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block1.__proto__ || Object.getPrototypeOf(Block1)).apply(this, arguments));
 	  }
 
 	  _createClass(Block1, [{
@@ -42796,8 +42880,6 @@
 	    backgroundImage: 'url(' + imgUrl + ')'
 	  } : null;
 	} /* eslint max-len: [2, 500, 4] */
-
-
 	function normalizeImageUrl(data) {
 	  return data.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
 	}
@@ -42843,7 +42925,7 @@
 	  function Carousel() {
 	    _classCallCheck(this, Carousel);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Carousel).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Carousel.__proto__ || Object.getPrototypeOf(Carousel)).apply(this, arguments));
 	  }
 
 	  _createClass(Carousel, [{
@@ -42919,7 +43001,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { id: id, className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': interval || 5000 },
+	        { id: id, className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': interval || 8000 },
 	        this.getIndicators(id, indicators, children, classes.indicator),
 	        _react2.default.createElement(
 	          'div',
@@ -42996,7 +43078,7 @@
 	  function Block2() {
 	    _classCallCheck(this, Block2);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block2).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block2.__proto__ || Object.getPrototypeOf(Block2)).apply(this, arguments));
 	  }
 
 	  _createClass(Block2, [{
@@ -43130,7 +43212,7 @@
 	  function Block3() {
 	    _classCallCheck(this, Block3);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block3).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block3.__proto__ || Object.getPrototypeOf(Block3)).apply(this, arguments));
 	  }
 
 	  _createClass(Block3, [{
@@ -43244,7 +43326,7 @@
 	  function Block4() {
 	    _classCallCheck(this, Block4);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block4).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block4.__proto__ || Object.getPrototypeOf(Block4)).apply(this, arguments));
 	  }
 
 	  _createClass(Block4, [{
@@ -43404,13 +43486,14 @@
 
 	// const style = require('./style.scss');
 
+
 	var AboutSection = function (_React$Component) {
 	  _inherits(AboutSection, _React$Component);
 
 	  function AboutSection() {
 	    _classCallCheck(this, AboutSection);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AboutSection).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (AboutSection.__proto__ || Object.getPrototypeOf(AboutSection)).apply(this, arguments));
 	  }
 
 	  _createClass(AboutSection, [{
@@ -43510,7 +43593,7 @@
 	  function Block1() {
 	    _classCallCheck(this, Block1);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block1).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block1.__proto__ || Object.getPrototypeOf(Block1)).apply(this, arguments));
 	  }
 
 	  _createClass(Block1, [{
@@ -43636,7 +43719,7 @@
 	  function Block2() {
 	    _classCallCheck(this, Block2);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block2).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block2.__proto__ || Object.getPrototypeOf(Block2)).apply(this, arguments));
 	  }
 
 	  _createClass(Block2, [{
@@ -43777,7 +43860,7 @@
 	  function Block3() {
 	    _classCallCheck(this, Block3);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block3).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block3.__proto__ || Object.getPrototypeOf(Block3)).apply(this, arguments));
 	  }
 
 	  _createClass(Block3, [{
@@ -43877,7 +43960,7 @@
 	  function Block4() {
 	    _classCallCheck(this, Block4);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block4).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block4.__proto__ || Object.getPrototypeOf(Block4)).apply(this, arguments));
 	  }
 
 	  _createClass(Block4, [{
@@ -44008,7 +44091,7 @@
 	  function Block6() {
 	    _classCallCheck(this, Block6);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block6).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block6.__proto__ || Object.getPrototypeOf(Block6)).apply(this, arguments));
 	  }
 
 	  _createClass(Block6, [{
@@ -44087,7 +44170,7 @@
 	  function ListShow() {
 	    _classCallCheck(this, ListShow);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ListShow).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (ListShow.__proto__ || Object.getPrototypeOf(ListShow)).apply(this, arguments));
 	  }
 
 	  _createClass(ListShow, [{
@@ -44194,7 +44277,7 @@
 	  function List() {
 	    _classCallCheck(this, List);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(List).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).apply(this, arguments));
 	  }
 
 	  _createClass(List, [{
@@ -44321,7 +44404,7 @@
 	  function Show() {
 	    _classCallCheck(this, Show);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Show).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Show.__proto__ || Object.getPrototypeOf(Show)).apply(this, arguments));
 	  }
 
 	  _createClass(Show, [{
@@ -44458,7 +44541,7 @@
 	  function Block7() {
 	    _classCallCheck(this, Block7);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block7).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block7.__proto__ || Object.getPrototypeOf(Block7)).apply(this, arguments));
 	  }
 
 	  _createClass(Block7, [{
@@ -44550,6 +44633,8 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
+	var _imageUtil = __webpack_require__(269);
+
 	var _svg = __webpack_require__(213);
 
 	var _svg2 = _interopRequireDefault(_svg);
@@ -44571,7 +44656,7 @@
 	  function Block7() {
 	    _classCallCheck(this, Block7);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block7).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block7.__proto__ || Object.getPrototypeOf(Block7)).apply(this, arguments));
 	  }
 
 	  _createClass(Block7, [{
@@ -44600,7 +44685,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'a',
-	                { className: style.button, href: buttons.button1.href, title: buttons.button1.title, target: '_blank' },
+	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)(buttons.button1.href), title: buttons.button1.title, target: '_blank' },
 	                'DESCARGAR',
 	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
 	              )
@@ -44615,7 +44700,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'a',
-	                { className: style.button, href: buttons.button2.href, title: buttons.button2.title, target: '_blank' },
+	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)(buttons.button2.href), title: buttons.button2.title, target: '_blank' },
 	                'DESCARGAR',
 	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
 	              )
@@ -44630,7 +44715,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'a',
-	                { className: style.button, href: buttons.button3.href, title: buttons.button3.title, target: '_blank' },
+	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)(buttons.button3.href), title: buttons.button3.title, target: '_blank' },
 	                'DESCARGAR',
 	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
 	              )
@@ -44829,7 +44914,7 @@
 	  function ProductsSection(props) {
 	    _classCallCheck(this, ProductsSection);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ProductsSection).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (ProductsSection.__proto__ || Object.getPrototypeOf(ProductsSection)).call(this, props));
 
 	    _this.state = {
 	      types: ['SLIDER_CONTENT', 'CONTENT_SLIDER', 'SLIDER_CONTENT', 'CONTENT_SLIDER', 'SLIDER_CONTENT']
@@ -44955,7 +45040,7 @@
 	  function Block3() {
 	    _classCallCheck(this, Block3);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block3).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block3.__proto__ || Object.getPrototypeOf(Block3)).apply(this, arguments));
 	  }
 
 	  _createClass(Block3, [{
@@ -45135,7 +45220,7 @@
 	  function ContactSection() {
 	    _classCallCheck(this, ContactSection);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ContactSection).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (ContactSection.__proto__ || Object.getPrototypeOf(ContactSection)).apply(this, arguments));
 	  }
 
 	  _createClass(ContactSection, [{
@@ -45202,7 +45287,7 @@
 	  function Block1() {
 	    _classCallCheck(this, Block1);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block1).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block1.__proto__ || Object.getPrototypeOf(Block1)).apply(this, arguments));
 	  }
 
 	  _createClass(Block1, [{
@@ -45275,7 +45360,7 @@
 	  function Block2() {
 	    _classCallCheck(this, Block2);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block2).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block2.__proto__ || Object.getPrototypeOf(Block2)).apply(this, arguments));
 	  }
 
 	  _createClass(Block2, [{
@@ -45406,7 +45491,7 @@
 	  function Form1(props) {
 	    _classCallCheck(this, Form1);
 
-	    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Form1).call(this, props));
+	    var _this2 = _possibleConstructorReturn(this, (Form1.__proto__ || Object.getPrototypeOf(Form1)).call(this, props));
 
 	    _this2.state = {
 	      formData: _this2.getInitialFormState(),

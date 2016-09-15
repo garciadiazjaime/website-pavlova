@@ -905,8 +905,12 @@
       top: 0; }
 
 @media only screen and (max-width: 767px) {
-  .style__item___1hdp3 a {
-    margin: 600px auto 0; } }
+  .style__item___1hdp3 {
+    background-size: cover;
+    width: 140%;
+    height: 350px; }
+    .style__item___1hdp3 a {
+      margin: 600px auto 0; } }
 .style__fCenter___ByilZ {
   position: absolute;
   top: 50%;

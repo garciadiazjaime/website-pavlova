@@ -6,6 +6,10 @@ a:hover {
   text-decoration: none;
 }
 
+a:visited {
+  color: white !important;
+}
+
 *:focus {outline:0px none transparent;}
 
 .container-fluid{

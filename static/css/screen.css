@@ -911,6 +911,10 @@
     height: 350px; }
     .style__item___1hdp3 a {
       margin: 600px auto 0; } }
+
+.style__arrow___3-Hu9 {
+  top: 50%;
+  position: relative; }
 .style__fCenter___ByilZ {
   position: absolute;
   top: 50%;
@@ -4386,8 +4390,6 @@
     border-color: #000; }
   .style__indicators___3yzgC li:last-child {
     margin-right: 0 !important; }
-  .style__indicators___3yzgC li.style__active___3uHbf {
-    background-color: #000; }
 .style__fCenter___5Hdev {
   position: absolute;
   top: 50%;

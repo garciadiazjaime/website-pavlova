@@ -20,3 +20,9 @@ img{
 	overflow: hidden;
   padding-top: 48px;
 }
+
+/* ugly fixes */
+
+#carousel-about-block-4 li.active{
+  background-color: #000;
+}

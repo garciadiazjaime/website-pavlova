@@ -9,6 +9,12 @@ export default class Show extends React.Component {
   renderItems(data) {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
+        if (_.isArray(item)) {
+          const bullets = item.map((line, index2) => { return (<li key={index2}>{line}</li>); });
+          return (<ul key={index}>
+            { bullets }
+          </ul>);
+        }
         return (<p key={index}>{item}</p>);
       });
     }

@@ -35,9 +35,9 @@
 }
 @media #{$isPhone}{
   .item{
-    background-size: cover;
-    width: 140%;
-    height: 350px;
+    background-size: cover !important;
+    width: 140% !important;
+    height: 350px !important;
 
     a{
       margin: 600px auto 0;
@@ -45,6 +45,6 @@
   }
 
   .arrow {
-    top: 26%;
+    top: 26% !important;
   }
 }

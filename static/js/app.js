@@ -37237,14 +37237,14 @@
 	    case 'carousel_right':
 	      return _react2.default.createElement(
 	        'svg',
-	        { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '18', viewBox: '0 0 10.1 18' },
+	        { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '18', viewBox: '0 0 10.1 18', className: className },
 	        _react2.default.createElement('polyline', { points: ' 1.1 1.1 9 9 1.1 16.9 ', fill: 'none', strokeLinejoin: 'round', strokeWidth: '2', stroke: '#010101' })
 	      );
 	      break;
 	    case 'carousel_left':
 	      return _react2.default.createElement(
 	        'svg',
-	        { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '18', viewBox: '0 0 10.1 18' },
+	        { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '18', viewBox: '0 0 10.1 18', className: className },
 	        _react2.default.createElement('polyline', { points: ' 9 16.9 1.1 9 9 1.1 ', fill: 'none', strokeLinejoin: 'round', strokeWidth: '2', stroke: '#010101' })
 	      );
 	      break;
@@ -44552,7 +44552,7 @@
 	          var className = index === 0 ? 'active' : '';
 	          return _react2.default.createElement(
 	            'div',
-	            { className: 'item ' + className, key: index },
+	            { className: 'item col-sm-10 col-sm-offset-1 ' + className, key: index },
 	            _react2.default.createElement('p', { className: style.paragraph, dangerouslySetInnerHTML: (0, _sanitize2.default)(item.content) }),
 	            _react2.default.createElement(
 	              'p',
@@ -44576,7 +44576,8 @@
 	        controls: {
 	          base: style.controls,
 	          prev: style.prev,
-	          next: style.next
+	          next: style.next,
+	          arrow: style.arrow
 	        }
 	      };
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
@@ -44589,7 +44590,7 @@
 	        ),
 	        _react2.default.createElement(
 	          _carousel2.default,
-	          { id: 'carousel-about-block-7', interval: 8000, controls: false, indicators: false, classes: carouselClasses },
+	          { id: 'carousel-about-block-7', interval: 8000, indicators: false, classes: carouselClasses },
 	          this.renderItems(slides)
 	        )
 	      ) : null;
@@ -44611,7 +44612,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1YJUo","vCenter":"style__vCenter___1XSDF","vCenterRel":"style__vCenterRel___1J02z","hCenter":"style__hCenter___2Tdv3","inheritHeight":"style__inheritHeight___fdY-6","hideOverflow":"style__hideOverflow___GHITu","icon-sprites":"style__icon-sprites___1TCxk","title1":"style__title1___3raEq","title2":"style__title2___xWuEp","title3":"style__title3___2JND3","title4":"style__title4___3VrXj","title5":"style__title5___14ULg","title6":"style__title6___3Jlc3","title":"style__title___2FxDg","title7":"style__title7___1VsjO","title8":"style__title8___1VtVb","paragraph1":"style__paragraph1___CrxJb","paragraph1b":"style__paragraph1b___f3SZQ","paragraph":"style__paragraph___2hS_M","paragraph2":"style__paragraph2___2Dt1n","author":"style__author___fROZn","paragraph3":"style__paragraph3___NvRs3","paragraph4":"style__paragraph4___1DBvl","paragraph5":"style__paragraph5___3BI-s"};
+	module.exports = {"fCenter":"style__fCenter___1YJUo","vCenter":"style__vCenter___1XSDF","vCenterRel":"style__vCenterRel___1J02z","hCenter":"style__hCenter___2Tdv3","inheritHeight":"style__inheritHeight___fdY-6","hideOverflow":"style__hideOverflow___GHITu","icon-sprites":"style__icon-sprites___1TCxk","title1":"style__title1___3raEq","title2":"style__title2___xWuEp","title3":"style__title3___2JND3","title4":"style__title4___3VrXj","title5":"style__title5___14ULg","title6":"style__title6___3Jlc3","title":"style__title___2FxDg","title7":"style__title7___1VsjO","title8":"style__title8___1VtVb","paragraph1":"style__paragraph1___CrxJb","paragraph1b":"style__paragraph1b___f3SZQ","paragraph":"style__paragraph___2hS_M","paragraph2":"style__paragraph2___2Dt1n","author":"style__author___fROZn","paragraph3":"style__paragraph3___NvRs3","paragraph4":"style__paragraph4___1DBvl","paragraph5":"style__paragraph5___3BI-s","arrow":"style__arrow___2yiv-"};
 
 /***/ },
 /* 296 */
@@ -45093,7 +45094,7 @@
 	            { className: 'col-sm-6 col-xs12' },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { className: style.button, to: buttons.button1.href, target: '_blank' },
+	              { className: style.button, to: (0, _imageUtil.normalizeImageUrl)(buttons.button1.href), target: '_blank' },
 	              buttons.button1.title,
 	              _react2.default.createElement(_svg2.default, { network: 'arrow_down' })
 	            )

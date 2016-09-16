@@ -11,7 +11,7 @@ export default class Block7 extends React.Component {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
-        return (<div className={'item ' + className} key={index}>
+        return (<div className={'item col-sm-10 col-sm-offset-1 ' + className} key={index}>
           <p className={style.paragraph} dangerouslySetInnerHTML={sanitizeUtil(item.content)} />
           <p className={style.author}>{item.title}</p>
         </div>);
@@ -28,11 +28,12 @@ export default class Block7 extends React.Component {
         base: style.controls,
         prev: style.prev,
         next: style.next,
+        arrow: style.arrow,
       },
     };
     return !_.isEmpty(this.props.data) ? (<div className="container-fluid">
       <h2 className={style.title}>{titles.title1}</h2>
-      <Carousel id="carousel-about-block-7" interval={8000} controls={false} indicators={false} classes={carouselClasses}>
+      <Carousel id="carousel-about-block-7" interval={8000} indicators={false} classes={carouselClasses}>
         {this.renderItems(slides)}
       </Carousel>
     </div>) : null;

@@ -910,13 +910,13 @@
 
 @media only screen and (max-width: 767px) {
   .style__item___1hdp3 {
-    background-size: cover;
-    width: 140%;
-    height: 350px; }
+    background-size: cover !important;
+    width: 140% !important;
+    height: 350px !important; }
     .style__item___1hdp3 a {
       margin: 600px auto 0; }
   .style__arrow___3-Hu9 {
-    top: 26%; } }
+    top: 26% !important; } }
 .style__fCenter___ByilZ {
   position: absolute;
   top: 50%;

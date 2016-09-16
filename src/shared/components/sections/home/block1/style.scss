@@ -29,6 +29,10 @@
     }
   }
 }
+.arrow {
+  top: 50%;
+  position: relative;
+}
 @media #{$isPhone}{
   .item{
     background-size: cover;
@@ -39,9 +43,8 @@
       margin: 600px auto 0;
     }
   }
-}
 
-.arrow {
-  top: 50%;
-  position: relative;
+  .arrow {
+    top: 26%;
+  }
 }

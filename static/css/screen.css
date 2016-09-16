@@ -904,17 +904,19 @@
     .style__item___1hdp3.style__darkBG___3_r4I a:hover::before {
       top: 0; }
 
+.style__arrow___3-Hu9 {
+  top: 50%;
+  position: relative; }
+
 @media only screen and (max-width: 767px) {
   .style__item___1hdp3 {
     background-size: cover;
     width: 140%;
     height: 350px; }
     .style__item___1hdp3 a {
-      margin: 600px auto 0; } }
-
-.style__arrow___3-Hu9 {
-  top: 50%;
-  position: relative; }
+      margin: 600px auto 0; }
+  .style__arrow___3-Hu9 {
+    top: 26%; } }
 .style__fCenter___ByilZ {
   position: absolute;
   top: 50%;

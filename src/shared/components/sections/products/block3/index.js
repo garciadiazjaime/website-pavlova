@@ -40,7 +40,7 @@ export default class Block3 extends React.Component {
       <p className={style.paragraph}>{paragraphs.paragraph1}</p>
       <div className="row">
         <div className="col-sm-6 col-xs12">
-          <Link className={style.button} to={buttons.button1.href} target="_blank">{buttons.button1.title}<SVG network="arrow_down"/></Link>
+          <Link className={style.button} to={normalizeImageUrl(buttons.button1.href)} target="_blank">{buttons.button1.title}<SVG network="arrow_down"/></Link>
         </div>
         <div className={'col-sm-6 col-xs12 ' + style.sm}>
           { buttons.button2 ? getFacebookIcon(buttons.button2.href, buttons.button2.title, style.paragraphB) : null}

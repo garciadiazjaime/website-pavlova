@@ -59,8 +59,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*eslint-enable */
-
-
 	(0, _reactDom.render)(_routes2.default, document.getElementById('app')); /*eslint-disable */
 
 /***/ },
@@ -220,8 +218,94 @@
 /***/ function(module, exports) {
 
 	// shim for using process in browser
-
 	var process = module.exports = {};
+
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout () {
+	    throw new Error('clearTimeout has not been defined');
+	}
+	(function () {
+	    try {
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
+	    }
+	    try {
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
+	    }
+	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch(e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch(e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+
+
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+
+
+
+	}
 	var queue = [];
 	var draining = false;
 	var currentQueue;
@@ -246,7 +330,7 @@
 	    if (draining) {
 	        return;
 	    }
-	    var timeout = setTimeout(cleanUpNextTick);
+	    var timeout = runTimeout(cleanUpNextTick);
 	    draining = true;
 
 	    var len = queue.length;
@@ -263,7 +347,7 @@
 	    }
 	    currentQueue = null;
 	    draining = false;
-	    clearTimeout(timeout);
+	    runClearTimeout(timeout);
 	}
 
 	process.nextTick = function (fun) {
@@ -275,7 +359,7 @@
 	    }
 	    queue.push(new Item(fun, args));
 	    if (queue.length === 1 && !draining) {
-	        setTimeout(drainQueue, 0);
+	        runTimeout(drainQueue);
 	    }
 	};
 
@@ -19712,7 +19796,8 @@
 	    { path: '/', component: items.component },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: items.default }),
 	    routes,
-	    _react2.default.createElement(_reactRouter.Route, { path: 'escuela/:showListItem', component: items.showListItem })
+	    _react2.default.createElement(_reactRouter.Route, { path: 'escuela/:showListItem', component: items.showListItem }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'clases/:service', component: items.service })
 	  )
 	);
 
@@ -24251,11 +24336,11 @@
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _about = __webpack_require__(275);
+	var _about = __webpack_require__(278);
 
 	var _about2 = _interopRequireDefault(_about);
 
-	var _products = __webpack_require__(294);
+	var _products = __webpack_require__(299);
 
 	var _products2 = _interopRequireDefault(_products);
 
@@ -24270,6 +24355,7 @@
 	    component: _AppHandler2.default,
 	    default: _home2.default,
 	    showListItem: _about2.default,
+	    service: _products2.default,
 	    children: [{
 	      id: 1,
 	      title: 'Inicio',
@@ -24286,7 +24372,7 @@
 	      url: '/clases',
 	      component: _products2.default
 	    }, {
-	      id: 5,
+	      id: 4,
 	      title: 'Contacto',
 	      url: '/contacto',
 	      component: _contact2.default
@@ -24294,58 +24380,7 @@
 	  },
 	  icons: [{
 	    title: 'facebook',
-	    url: 'https://www.facebook.com/'
-	  }],
-	  addresses: [{
-	    titles: {
-	      title1: 'UBICACIÓN',
-	      title2: 'LLÁMANOS',
-	      title3: 'CLASES',
-	      title4: 'DESCARGABLES'
-	    },
-	    texts: {
-	      text1: 'Av. Allende #38',
-	      text2: 'Col. Hipódromo',
-	      text3: 'Tijuana, B.C.',
-	      text4: 'info@pavlovahipodromo.com',
-	      text5: '664 686.27.87',
-	      text6: 'http://facebook.com',
-	      text7: 'Síguenos en Facebook'
-	    },
-	    links: {
-	      link1: {
-	        title: 'BALLET',
-	        href: '/clases/ballet'
-	      },
-	      link2: {
-	        title: 'JAZZ',
-	        href: '/clases/jazz'
-	      },
-	      link3: {
-	        title: 'FLAMENCO',
-	        href: '/clases/flamenco'
-	      },
-	      link4: {
-	        title: 'CARDIO DANZA',
-	        href: '/clases/cardio-danza'
-	      },
-	      link5: {
-	        title: 'BARRÉ',
-	        href: '/clases/barre'
-	      },
-	      link6: {
-	        title: 'HORARIOS',
-	        href: '/docs/horarios.pdf'
-	      },
-	      link7: {
-	        title: 'FICHA DE INSCRIPCIÓN',
-	        href: '/docs/ficha-inscripcion.pdf'
-	      },
-	      link8: {
-	        title: 'REGLAMENTO',
-	        href: '/docs/reglamento.pdf'
-	      }
-	    }
+	    url: 'https://www.facebook.com/pavlova.hipodromo/'
 	  }]
 	};
 
@@ -24377,7 +24412,7 @@
 
 	var _menu2 = _interopRequireDefault(_menu);
 
-	var _footer = __webpack_require__(215);
+	var _footer = __webpack_require__(216);
 
 	var _footer2 = _interopRequireDefault(_footer);
 
@@ -24408,7 +24443,7 @@
 	  function AppHandler(props, context) {
 	    _classCallCheck(this, AppHandler);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AppHandler).call(this, props, context));
+	    var _this = _possibleConstructorReturn(this, (AppHandler.__proto__ || Object.getPrototypeOf(AppHandler)).call(this, props, context));
 
 	    _this.state = {
 	      data: context.data && context.data.blocks ? context.data.blocks : window._data.blocks,
@@ -24421,7 +24456,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.scrollHandler(true);
-	      window.addEventListener('scroll', this.onScroll, false);
+	      // window.addEventListener('scroll', this.onScroll, false);
 	      // this.googleAnalytics();
 	      if (_lodash2.default.isEmpty(this.state.data)) {
 	        this.loadData();
@@ -24449,7 +24484,7 @@
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      window.removeEventListener('scroll', this.onScroll, false);
+	      // window.removeEventListener('scroll', this.onScroll, false);
 	    }
 	  }, {
 	    key: 'onScroll',
@@ -37014,7 +37049,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var style = __webpack_require__(214);
+	var style = __webpack_require__(215);
 
 	var MainMenu = function (_React$Component) {
 	  _inherits(MainMenu, _React$Component);
@@ -37022,7 +37057,7 @@
 	  function MainMenu() {
 	    _classCallCheck(this, MainMenu);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MainMenu).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (MainMenu.__proto__ || Object.getPrototypeOf(MainMenu)).apply(this, arguments));
 	  }
 
 	  _createClass(MainMenu, [{
@@ -37073,7 +37108,7 @@
 	        { className: style.navbarWrapper },
 	        _react2.default.createElement(
 	          'nav',
-	          { className: style.navbarDefault + ' navbar navbar navbar-fixed-top', id: 'menu_wrapper' },
+	          { className: style.navbarDefault + ' navbar navbar-fixed-top', id: 'menu_wrapper' },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'container-fluid' },
@@ -37144,9 +37179,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	exports.getFacebookIcon = getFacebookIcon;
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(160);
+
+	var _style = __webpack_require__(214);
+
+	var _style2 = _interopRequireDefault(_style);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37157,205 +37200,86 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
+	function renderItems(network, className) {
+	  switch (network) {
+	    case 'facebook':
+	      /*eslint-disable */
+	      return _react2.default.createElement(
+	        'svg',
+	        { xmlns: 'http://www.w3.org/2000/svg', width: '22', height: '22', viewBox: '0 0 30 30', className: className },
+	        _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
+	        _react2.default.createElement('path', { transform: 'scale(.8) translate(4, 4)', d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z' })
+	      );
+	      break;
+	    case 'square_arrow':
+	      return _react2.default.createElement(
+	        'svg',
+	        { xmlns: 'http://www.w3.org/2000/svg', width: '31', height: '31', viewBox: '0 0 31.4 31.3', className: className },
+	        _react2.default.createElement('path', { d: 'M1 30.9c-0.3 0-0.5-0.2-0.5-0.5V1c0-0.3 0.2-0.5 0.5-0.5h29.4c0.3 0 0.5 0.2 0.5 0.5v29.4c0 0.3-0.2 0.5-0.5 0.5H1z', fill: '#221f1f' }),
+	        _react2.default.createElement('path', { d: 'M30.4 1v29.4H1V1H30.4M30.4 0H1c-0.6 0-1 0.4-1 1v29.4c0 0.6 0.4 1 1 1h29.4c0.6 0 1-0.4 1-1V1C31.4 0.4 31 0 30.4 0L30.4 0z', fill: '#FFF' }),
+	        _react2.default.createElement('polyline', { points: ' 13.2 9.1 19.7 15.6 13.1 22.2 ', fill: 'none', stroke: '#fff' })
+	      );
+	      break;
+	    case 'arrow_right':
+	      return _react2.default.createElement(
+	        'svg',
+	        { xmlns: 'http://www.w3.org/2000/svg', width: '8', height: '14', viewBox: '0 0 7.7 13.8', className: className },
+	        _react2.default.createElement('polyline', { points: '0.5 0.4 7 6.9 0.4 13.5 ', fill: 'none', stroke: '#FFF' })
+	      );
+	      break;
+	    case 'arrow_down':
+	      return _react2.default.createElement(
+	        'svg',
+	        { xmlns: 'http://www.w3.org/2000/svg', width: '15', height: '8', viewBox: '0 0 14.6 8', className: className },
+	        _react2.default.createElement('polyline', { points: '13.8 0.8 7.3 7.3 0.7 0.7 ', fill: 'none', stroke: '#FFF' })
+	      );
+	      break;
+	    case 'carousel_right':
+	      return _react2.default.createElement(
+	        'svg',
+	        { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '18', viewBox: '0 0 10.1 18', className: className },
+	        _react2.default.createElement('polyline', { points: ' 1.1 1.1 9 9 1.1 16.9 ', fill: 'none', strokeLinejoin: 'round', strokeWidth: '2', stroke: '#010101' })
+	      );
+	      break;
+	    case 'carousel_left':
+	      return _react2.default.createElement(
+	        'svg',
+	        { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '18', viewBox: '0 0 10.1 18', className: className },
+	        _react2.default.createElement('polyline', { points: ' 9 16.9 1.1 9 9 1.1 ', fill: 'none', strokeLinejoin: 'round', strokeWidth: '2', stroke: '#010101' })
+	      );
+	      break;
+	    case 'location':
+	      return _react2.default.createElement(
+	        'svg',
+	        { xmlns: 'http://www.w3.org/2000/svg', width: '18', height: '30', viewBox: '0 0 17.5 30', className: className },
+	        _react2.default.createElement('path', { d: 'M8.8 5.4c-1.8 0-3.3 1.5-3.3 3.3 0 1.8 1.5 3.3 3.3 3.3 1.8 0 3.3-1.5 3.3-3.3C12.1 6.9 10.6 5.4 8.8 5.4zM8.8 10.1c-0.8 0-1.4-0.6-1.4-1.4 0-0.8 0.6-1.4 1.4-1.4 0.8 0 1.4 0.6 1.4 1.4C10.1 9.5 9.5 10.1 8.8 10.1z', fill: '#CBA764' }),
+	        _react2.default.createElement('path', { d: 'M8.8 0C3.9 0 0 3.9 0 8.8c0 1.1 0.2 2.1 0.6 3.2L7.9 29.4C8 29.8 8.4 30 8.8 30c0 0 0 0 0 0 0.4 0 0.8-0.2 0.9-0.6l7.3-17.5c0.4-1 0.6-2.1 0.6-3.1C17.5 3.9 13.6 0 8.8 0zM15.1 11.3L8.8 26.5 2.5 11.5l-0.1-0.3C2.1 10.4 2 9.6 2 8.8c0-3.8 3.1-6.8 6.8-6.8 3.8 0 6.8 3.1 6.8 6.8C15.6 9.6 15.4 10.4 15.1 11.3z', fill: '#CBA764' })
+	      );
+	      break;
+	    default:
+	      return _react2.default.createElement(
+	        'svg',
+	        { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
+	        _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
+	        _react2.default.createElement('path', { d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z' })
+	      );
+	    /*eslint-enable */
+	  }
+	}
+
 	var SVG = function (_React$Component) {
 	  _inherits(SVG, _React$Component);
 
 	  function SVG() {
 	    _classCallCheck(this, SVG);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SVG).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (SVG.__proto__ || Object.getPrototypeOf(SVG)).apply(this, arguments));
 	  }
 
 	  _createClass(SVG, [{
-	    key: 'renderItems',
-	    value: function renderItems(network, className) {
-	      switch (network) {
-	        case 'facebook':
-	          /*eslint-disable */
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '22', height: '22', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { transform: 'scale(.8) translate(4, 4)', d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z' })
-	          );
-	          break;
-	        case 'twitter':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { d: 'M23.5 9.7c-0.6 0.3-1.3 0.5-2 0.5 0.7-0.4 1.3-1.1 1.5-1.9 -0.7 0.4-1.4 0.7-2.2 0.8 -0.6-0.7-1.5-1.1-2.5-1.1 -1.9 0-3.5 1.6-3.5 3.5 0 0.3 0 0.5 0.1 0.8 -2.9-0.1-5.5-1.5-7.2-3.6 -0.3 0.5-0.5 1.1-0.5 1.8 0 1.2 0.6 2.3 1.6 2.9 -0.6 0-1.1-0.2-1.6-0.4 0 0 0 0 0 0 0 1.7 1.2 3.1 2.8 3.4 -0.3 0.1-0.6 0.1-0.9 0.1 -0.2 0-0.4 0-0.7-0.1 0.4 1.4 1.7 2.4 3.3 2.4 -1.2 0.9-2.7 1.5-4.3 1.5 -0.3 0-0.6 0-0.8 0 1.5 1 3.4 1.6 5.3 1.6 6.4 0 9.9-5.3 9.9-9.9 0-0.1 0-0.3 0-0.4C22.4 11 23 10.4 23.5 9.7z' })
-	          );
-	          break;
-	        case 'pinterest':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { className: this.props.background, cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { d: 'M14.4 18.1c-0.5 2.6-1.1 5.1-2.9 6.4 -0.6-4 0.8-6.9 1.5-10.1 -1.1-1.8 0.1-5.5 2.4-4.6 2.8 1.1-2.4 6.8 1.1 7.5 3.7 0.8 5.2-6.4 2.9-8.8 -3.3-3.4-9.7-0.1-8.9 4.8 0.2 1.2 1.4 1.5 0.5 3.2 -2.1-0.5-2.8-2.1-2.7-4.4 0.1-3.7 3.3-6.2 6.5-6.6 4-0.4 7.8 1.5 8.3 5.2 0.6 4.2-1.8 8.8-6.1 8.5C15.8 19.2 15.4 18.6 14.4 18.1' })
-	          );
-	          break;
-	        case 'instagram':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { d: 'M20.6 7H9.4c-1.3 0-2.4 0.9-2.4 2.1v11.8c0 1.2 1.1 2.1 2.4 2.1h11.3c1.3 0 2.4-0.9 2.4-2.1V9.1C23 7.9 22 7 20.6 7zM18.6 9.2c0-0.3 0.2-0.5 0.5-0.5h1.7c0.3 0 0.5 0.2 0.5 0.5v1.7c0 0.3-0.2 0.5-0.5 0.5h-1.7c-0.3 0-0.5-0.2-0.5-0.5V9.2zM17.7 11.7v0c0 0 0 0 0 0H17.7zM14.9 12c2 0 3.5 1.6 3.5 3.5 0 2-1.6 3.5-3.5 3.5 -2 0-3.5-1.6-3.5-3.5C11.4 13.6 13 12 14.9 12zM22 20.7c0 0.8-0.6 1.4-1.4 1.4H9.3c-0.8 0-1.4-0.6-1.4-1.4V13.3h2.9c-0.3 0.7-0.5 1.4-0.5 2.2 0 2.6 2.1 4.7 4.7 4.7 2.6 0 4.7-2.1 4.7-4.7 0-0.7-0.2-1.4-0.5-2h2.8V20.7z' })
-	          );
-	          break;
-	        case 'brand':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '27', height: '29', viewBox: '0 0 26.8 29.1', className: className },
-	            _react2.default.createElement('path', { d: 'M10.7 0v12L0 5.3v13.7l1.4 0.9v-2.3l0 0V7.8l9.3 5.9v0l3.9 2.5v10.4 0l0 1.7 1.4 0.9v-12.1l10.7 6.8v-13.8L10.7 0zM25.4 21.3l-9.3-5.9 -3.9-2.5V2.5l13.2 8.3V21.3z', fill: '#c59f67' })
-	          );
-	          break;
-	        case 'double_arrow_down':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '15', height: '20', viewBox: '0 0 14.6 19.9', className: className },
-	            _react2.default.createElement('polygon', { points: '7.3 8.7 0 1.4 1.4 0 7.3 5.9 13.2 0 14.6 1.4 ', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '7.3 19.9 0 12.6 1.4 11.2 7.3 17.1 13.2 11.2 14.6 12.6 ', fill: '#FFF' })
-	          );
-	          break;
-	        case 'circled_brand':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '94', height: '94', viewBox: '0 0 94.5 94.5', className: className },
-	            _react2.default.createElement('circle', { cx: '47.2', cy: '47.2', r: '47.2', fill: '#CBA764' }),
-	            _react2.default.createElement('path', { d: 'M44 27.7v15.7l-14-8.8v17.9l1.8 1.1v-2.9l0 0V37.9l12.1 7.6v0l5.1 3.2V62.3v-0.1l0 2.2 1.8 1.1V49.9l14 8.8V40.8L44 27.7zM63 55.4l-12.1-7.7L45.8 44.5V31l17.2 10.8V55.4z', fill: '#FFF' })
-	          );
-	          break;
-	        case 'circled_diseno':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '125', height: '122', viewBox: '0 0 125 121.8', className: className },
-	            _react2.default.createElement('circle', { cx: '63', cy: '59.7', r: '59.3', fill: '#CBA764' }),
-	            _react2.default.createElement('path', { d: 'M50 69.9c-2.3-2.9-3.5-6.4-3.5-10.2 0-9.1 7.4-16.5 16.5-16.5 9.1 0 16.5 7.4 16.5 16.5 0 3.6-1.2 7.1-3.3 10l-2-1.5c1.9-2.4 2.8-5.4 2.8-8.4 0-7.7-6.3-14-14-14 -7.7 0-14 6.3-14 14 0 3.2 1 6.1 3 8.6L50 69.9z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M50.6 82c-8.1-4.5-13.1-13.1-13.1-22.3 0-10.3 6.1-19.5 15.6-23.5l1 2.3c-8.5 3.6-14.1 11.9-14.1 21.2 0 8.3 4.5 16.1 11.8 20.1L50.6 82z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M63 85.2v-2.5c12.7 0 23-10.3 23-23s-10.3-23-23-23v-2.5c14.1 0 25.5 11.5 25.5 25.5C88.5 73.8 77.1 85.2 63 85.2z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M63 94.6c-8.9 0-17.3-3.3-23.8-9.4 -6.8-6.4-10.7-15-11-24.3 -0.6-19.2 14.5-35.4 33.8-36l0.1 2.5c-17.9 0.6-31.9 15.6-31.3 33.4 0.3 8.6 3.9 16.7 10.2 22.6 6.3 5.9 14.5 9 23.2 8.7 17.9-0.6 31.9-15.6 31.3-33.4l2.5-0.1c0.6 19.2-14.5 35.4-33.8 36C63.7 94.6 63.3 94.6 63 94.6z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M94.3 51.3C91.1 39.5 81.3 30.3 69.3 27.9l0.5-2.5c12.9 2.6 23.5 12.5 26.9 25.2L94.3 51.3z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M63 67.5c-4.3 0-7.8-3.5-7.8-7.8 0-4.3 3.5-7.8 7.8-7.8 4.3 0 7.8 3.5 7.8 7.8C70.8 64 67.3 67.5 63 67.5zM63 54.4c-2.9 0-5.3 2.4-5.3 5.3 0 2.9 2.4 5.3 5.3 5.3 2.9 0 5.3-2.4 5.3-5.3C68.3 56.8 65.9 54.4 63 54.4z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M63 76.2c-3.6 0-6.9-1.1-9.8-3.2l1.5-2c2.6 1.9 5.6 2.8 8.8 2.7 2.8-0.1 5.5-1 7.7-2.6l1.5 2c-2.7 1.9-5.8 3-9.1 3.1C63.3 76.2 63.2 76.2 63 76.2z', fill: '#fff' })
-	          );
-	          break;
-	        case 'circled_coordinacion':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '125', height: '122', viewBox: '0 0 125 121.8', className: className },
-	            _react2.default.createElement('circle', { cx: '62.5', cy: '60.9', r: '59.3', fill: '#CBA764' }),
-	            _react2.default.createElement('path', { d: 'M62.5 68.2c-1.9 0-3.8-0.8-5.2-2.1 -2.8-2.8-2.8-7.5 0-10.3 1.4-1.4 3.2-2.1 5.2-2.1 1.9 0 3.8 0.8 5.2 2.1 2.8 2.8 2.8 7.5 0 10.3C66.3 67.5 64.4 68.2 62.5 68.2zM62.5 56.1c-1.3 0-2.5 0.5-3.4 1.4 -1.9 1.9-1.9 4.9 0 6.8 0.9 0.9 2.1 1.4 3.4 1.4 1.3 0 2.5-0.5 3.4-1.4 1.9-1.9 1.9-4.9 0-6.8C65 56.6 63.8 56.1 62.5 56.1z', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '83.9 48.5 82.1 50.3 91.6 59.7 76 59.7 76 62.2 91.5 62.2 82.1 71.7 83.9 73.4 96.3 61 ', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '74.9 39.6 62.5 27.1 50 39.6 51.8 41.3 61.2 31.9 61.2 47.4 63.7 47.4 63.7 31.9 73.2 41.3 ', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '49 59.6 33.5 59.6 42.9 50.2 41.1 48.4 28.7 60.9 41.1 73.3 42.9 71.6 33.4 62.1 49 62.1 ', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '73.3 80.5 63.8 90 63.8 74.4 61.3 74.4 61.3 90 51.8 80.5 50.1 82.3 62.5 94.8 75 82.3 ', fill: '#FFF' })
-	          );
-	          break;
-	        case 'circled_calidad':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '125', height: '122', viewBox: '0 0 125 121.8', className: className },
-	            _react2.default.createElement('circle', { cx: '62.5', cy: '61.1', r: '59.3', fill: '#CBA764' }),
-	            _react2.default.createElement('polygon', { points: '80.5 88.5 62.5 75.4 44.5 88.5 51.4 67.3 33.3 54.2 55.6 54.2 62.5 33 68.3 50.9 65.9 51.7 62.5 41.1 57.4 56.7 41 56.7 54.3 66.3 49.2 81.9 62.5 72.3 75.8 81.9 70.7 66.3 84 56.7 75.1 56.7 75.1 54.2 91.7 54.2 73.6 67.3 ', fill: '#FFF' }),
-	            _react2.default.createElement('polygon', { points: '61.8 68 55.9 60.9 57.8 59.3 61.8 64 83.3 37.3 85.2 38.9 ', fill: '#FFF' })
-	          );
-	          break;
-	        case 'carousel_left':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '14', viewBox: '0 0 7.9 14.1', className: className },
-	            _react2.default.createElement('polyline', { points: '7.4 0.5 0.8 7.1 7.5 13.7 ', fill: 'none', stroke: '#CBA764', strokeWidth: '2' })
-	          );
-	          break;
-	        case 'carousel_right':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '14', viewBox: '0 0 7.9 14.1', className: className },
-	            _react2.default.createElement('polyline', { points: '0.9 13.7 7.5 7.1 0.8 0.5 ', fill: 'none', stroke: '#CBA764', strokeWidth: '2' })
-	          );
-	          break;
-	        case 'servicios_entrevista':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '119', height: '119', viewBox: '0 0 118.6 118.6', className: className },
-	            _react2.default.createElement('circle', { cx: '59.3', cy: '59.3', r: '59.3', fill: '#FFB69F' }),
-	            _react2.default.createElement('rect', { x: '27', y: '28.5', width: '64.6', height: '61.6', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('circle', { cx: '38.4', cy: '59.3', r: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('circle', { cx: '80.2', cy: '59.3', r: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('circle', { cx: '59.3', cy: '78.7', r: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('circle', { cx: '59.3', cy: '39.9', r: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' })
-	          );
-	          break;
-	        case 'servicios_conceptualizacion':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '119', height: '119', viewBox: '0 0 118.6 118.6', className: className },
-	            _react2.default.createElement('circle', { cx: '59.3', cy: '59.3', r: '59.3', fill: '#FFB69F' }),
-	            _react2.default.createElement('rect', { x: '28.5', y: '28.1', width: '61.6', height: '62', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '56.3', y: '70.1', width: '25.8', height: '10.9', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '35.8', y: '36.1', width: '11.4', height: '26.7', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '35.8', y: '70.1', width: '11.4', height: '10.9', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '56.3', y: '36.1', width: '25.8', height: '26.7', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '82.1', y1: '62.7', x2: '56.3', y2: '36.1', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '82.1', y1: '51.2', x2: '67.5', y2: '36.1', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '71', y1: '62.7', x2: '56.3', y2: '47.6', fill: 'none', strokeWidth: '3', stroke: '#fff' })
-	          );
-	          break;
-	        case 'servicios_proyecto':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '119', height: '119', viewBox: '0 0 118.6 118.6', className: className },
-	            _react2.default.createElement('circle', { cx: '59.2', cy: '59.3', r: '59.3', fill: '#FFB69F' }),
-	            _react2.default.createElement('polyline', { points: '90.7 45.8 90.7 90.8 27.6 90.8 27.6 29.2 90.7 29.2 90.7 34.1 ', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('polyline', { points: '73.8 68.2 90.7 68.2 90.7 90.8 57.2 90.8 57.2 68.2 61 68.2 ', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('polyline', { points: '27.6 68.2 46.4 68.2 46.4 81.4 ', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '90.7', y1: '59.5', x2: '56.1', y2: '59.5', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '46.9', y1: '28.8', x2: '46.9', y2: '59.1', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '54.8', y: '37.5', width: '27.8', height: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '64.8', y: '73.8', width: '17.8', height: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '33.3', y: '73.8', width: '7.9', height: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '33.3', y: '37.5', width: '7.9', height: '11.4', fill: 'none', strokeWidth: '3', stroke: '#fff' })
-	          );
-	          break;
-	        case 'servicios_ejecucion':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '119', height: '119', viewBox: '0 0 118.6 118.6', className: className },
-	            _react2.default.createElement('circle', { cx: '59.3', cy: '59.3', r: '59.3', fill: '#FFB69F' }),
-	            _react2.default.createElement('rect', { x: '28.5', y: '28.3', width: '61.6', height: '62', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '55.9', y: '66.7', width: '6.9', height: '12.2', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '56.1', y1: '78.9', x2: '56.1', y2: '83', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('line', { x1: '76.8', y1: '78.9', x2: '76.8', y2: '83', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '66.3', y: '38.2', width: '16', height: '20.1', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('rect', { x: '71.2', y: '68.5', width: '18.9', height: '10.4', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M77.8 72.8c0.5 0 0.9 0.4 0.9 0.9s-0.4 0.9-0.9 0.9 -0.9-0.4-0.9-0.9S77.3 72.8 77.8 72.8M77.8 71.5c-1.2 0-2.2 1-2.2 2.2s1 2.2 2.2 2.2 2.2-1 2.2-2.2S79 71.5 77.8 71.5L77.8 71.5z', fill: '#FFF' }),
-	            _react2.default.createElement('polyline', { points: '56.1 78.9 28.5 78.9 28.5 70.9 55.7 70.9', fill: 'none', strokeWidth: '3', stroke: '#fff' }),
-	            _react2.default.createElement('polyline', { points: '56.1 70.9 28.5 70.9 28.5 58.3 59.3 58.3 59.3 66.7', fill: 'none', strokeWidth: '3', stroke: '#fff' })
-	          );
-	          break;
-	        case 'location':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '18', height: '30', viewBox: '0 0 17.5 30', className: className },
-	            _react2.default.createElement('path', { d: 'M8.8 5.4c-1.8 0-3.3 1.5-3.3 3.3 0 1.8 1.5 3.3 3.3 3.3 1.8 0 3.3-1.5 3.3-3.3C12.1 6.9 10.6 5.4 8.8 5.4zM8.8 10.1c-0.8 0-1.4-0.6-1.4-1.4 0-0.8 0.6-1.4 1.4-1.4 0.8 0 1.4 0.6 1.4 1.4C10.1 9.5 9.5 10.1 8.8 10.1z', fill: '#CBA764' }),
-	            _react2.default.createElement('path', { d: 'M8.8 0C3.9 0 0 3.9 0 8.8c0 1.1 0.2 2.1 0.6 3.2L7.9 29.4C8 29.8 8.4 30 8.8 30c0 0 0 0 0 0 0.4 0 0.8-0.2 0.9-0.6l7.3-17.5c0.4-1 0.6-2.1 0.6-3.1C17.5 3.9 13.6 0 8.8 0zM15.1 11.3L8.8 26.5 2.5 11.5l-0.1-0.3C2.1 10.4 2 9.6 2 8.8c0-3.8 3.1-6.8 6.8-6.8 3.8 0 6.8 3.1 6.8 6.8C15.6 9.6 15.4 10.4 15.1 11.3z', fill: '#CBA764' })
-	          );
-	          break;
-	        default:
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z' })
-	          );
-	        /*eslint-enable */
-	      }
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return this.renderItems(this.props.network, this.props.className);
+	      return renderItems(this.props.network, this.props.className);
 	    }
 	  }]);
 
@@ -37364,6 +37288,7 @@
 
 	exports.default = SVG;
 
+
 	SVG.propTypes = {
 	  background: _react2.default.PropTypes.string,
 	  color: _react2.default.PropTypes.string,
@@ -37371,130 +37296,32 @@
 	  className: _react2.default.PropTypes.string
 	};
 
+	function getFacebookIcon(href, title, className) {
+	  return _react2.default.createElement(
+	    _reactRouter.Link,
+	    { to: href, className: [_style2.default.fbIcon, className || ''].join(' '), target: '_blank' },
+	    renderItems('facebook', _style2.default.facebook),
+	    title ? _react2.default.createElement(
+	      'span',
+	      null,
+	      title
+	    ) : null
+	  );
+	}
+
 /***/ },
 /* 214 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___cfX-h","vCenter":"style__vCenter___ZA14l","navbarBrand":"style__navbarBrand___2rqc0","toggleButton":"style__toggleButton___3q8M1","navbarNavAnchor":"style__navbarNavAnchor___37QYF","vCenterRel":"style__vCenterRel___1GkYt","navbarIcons":"style__navbarIcons___jZlWo","sm_icon":"style__sm_icon___3hlQn","hCenter":"style__hCenter___2Rj-i","inheritHeight":"style__inheritHeight___2LMcf","hideOverflow":"style__hideOverflow___3olA9","icon-sprites":"style__icon-sprites___1xY5y","navbarWrapper":"style__navbarWrapper___VqN0H","navbarDefault":"style__navbarDefault___aolZK","navbarHeader":"style__navbarHeader___2FrdS","iconBar":"style__iconBar___1hD4n","navbarCollapse":"style__navbarCollapse___3blFh","navbarNav":"style__navbarNav___1r3v1","facebook":"style__facebook___5X5oX"};
+	module.exports = {"fCenter":"style__fCenter___eofHt","vCenter":"style__vCenter___3ydwB","vCenterRel":"style__vCenterRel___1Xcj8","hCenter":"style__hCenter___2IrLV","inheritHeight":"style__inheritHeight___XdU0Q","hideOverflow":"style__hideOverflow___1wNkm","icon-sprites":"style__icon-sprites___33LTB","paragraph1":"style__paragraph1___105nn","paragraph1b":"style__paragraph1b___2EzhZ","paragraph2":"style__paragraph2___1RbUN","paragraph3":"style__paragraph3___1Vukg","paragraph4":"style__paragraph4___2u3F_","paragraph5":"style__paragraph5___1bu0t","fbIcon":"style__fbIcon___3C8wt","facebook":"style__facebook___5cRlv"};
 
 /***/ },
 /* 215 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(160);
-
-	var _powered = __webpack_require__(216);
-
-	var _powered2 = _interopRequireDefault(_powered);
-
-	var _simplecontact = __webpack_require__(218);
-
-	var _simplecontact2 = _interopRequireDefault(_simplecontact);
-
-	var _simplesitemap = __webpack_require__(219);
-
-	var _simplesitemap2 = _interopRequireDefault(_simplesitemap);
-
-	var _svg = __webpack_require__(213);
-
-	var _svg2 = _interopRequireDefault(_svg);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var style = __webpack_require__(217);
-
-	var FooterAAA = function (_React$Component) {
-	  _inherits(FooterAAA, _React$Component);
-
-	  function FooterAAA() {
-	    _classCallCheck(this, FooterAAA);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(FooterAAA).apply(this, arguments));
-	  }
-
-	  _createClass(FooterAAA, [{
-	    key: 'getIcons',
-	    value: function getIcons(data) {
-	      return data.map(function (item, index) {
-	        return _react2.default.createElement(
-	          'div',
-	          { key: index, className: 'col-xs-6 col-md-3' },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: item.url, className: style.sm_icon, id: item.url, target: '_blank' },
-	            _react2.default.createElement(_svg2.default, { network: item.title, className: style[item.title] })
-	          )
-	        );
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: style.footerWrapper },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid ' + style.container },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-xs-12 col-md-2' },
-	              _react2.default.createElement(_simplesitemap2.default, { data: this.props.items })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-xs-12 col-sm-6' },
-	              _react2.default.createElement(_simplecontact2.default, null)
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-xs-12 col-sm-4' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'row' },
-	                this.getIcons(this.props.icons)
-	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(_powered2.default, null)
-	      );
-	    }
-	  }]);
-
-	  return FooterAAA;
-	}(_react2.default.Component);
-
-	exports.default = FooterAAA;
-
-
-	FooterAAA.propTypes = {
-	  items: _react2.default.PropTypes.array.isRequired,
-	  addresses: _react2.default.PropTypes.array,
-	  icons: _react2.default.PropTypes.array
-	};
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___cfX-h","vCenter":"style__vCenter___ZA14l","navbarBrand":"style__navbarBrand___2rqc0","toggleButton":"style__toggleButton___3q8M1","navbarNavAnchor":"style__navbarNavAnchor___37QYF","vCenterRel":"style__vCenterRel___1GkYt","navbarIcons":"style__navbarIcons___jZlWo","sm_icon":"style__sm_icon___3hlQn","hCenter":"style__hCenter___2Rj-i","inheritHeight":"style__inheritHeight___2LMcf","hideOverflow":"style__hideOverflow___3olA9","icon-sprites":"style__icon-sprites___1xY5y","navbarWrapper":"style__navbarWrapper___VqN0H","navbarDefault":"style__navbarDefault___aolZK","navbarHeader":"style__navbarHeader___2FrdS","iconBar":"style__iconBar___1hD4n","navbarCollapse":"style__navbarCollapse___3blFh","navbarNav":"style__navbarNav___1r3v1","facebook":"style__facebook___5X5oX"};
 
 /***/ },
 /* 216 */
@@ -37512,6 +37339,258 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(160);
+
+	var _powered = __webpack_require__(217);
+
+	var _powered2 = _interopRequireDefault(_powered);
+
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	var _data = __webpack_require__(219);
+
+	var _data2 = _interopRequireDefault(_data);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(218);
+
+	var FooterAAA = function (_React$Component) {
+	  _inherits(FooterAAA, _React$Component);
+
+	  function FooterAAA() {
+	    _classCallCheck(this, FooterAAA);
+
+	    return _possibleConstructorReturn(this, (FooterAAA.__proto__ || Object.getPrototypeOf(FooterAAA)).apply(this, arguments));
+	  }
+
+	  _createClass(FooterAAA, [{
+	    key: 'getIcons',
+	    value: function getIcons(data) {
+	      return data.map(function (item, index) {
+	        return _react2.default.createElement(
+	          _reactRouter.Link,
+	          { key: index, to: item.url, className: style.sm_icon, id: item.url, target: '_blank' },
+	          _react2.default.createElement(_svg2.default, { network: item.title, className: style[item.title] })
+	        );
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var icons = this.props.icons;
+	      var titles = _data2.default.titles;
+	      var paragraphs = _data2.default.paragraphs;
+	      var buttons = _data2.default.buttons;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: style.footerWrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid ' + style.container },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-xs-12' },
+	              _react2.default.createElement('div', { className: style.footerBrand })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-3 col-xs-12' },
+	              _react2.default.createElement(
+	                'h3',
+	                { className: style.title },
+	                titles.title1
+	              ),
+	              _react2.default.createElement(
+	                'ul',
+	                { className: style.list },
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  paragraphs.paragraph1
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  paragraphs.paragraph2
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  paragraphs.paragraph3
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  paragraphs.paragraph4
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-3 col-xs-12' },
+	              _react2.default.createElement(
+	                'h3',
+	                { className: style.title },
+	                titles.title2
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { className: style.paragraph },
+	                paragraphs.paragraph5
+	              ),
+	              this.getIcons(icons),
+	              _react2.default.createElement(
+	                'a',
+	                { className: style.paragraph, href: buttons.button1.href, title: buttons.button1.title, target: '_blank' },
+	                buttons.button1.title
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-3 col-xs-12' },
+	              _react2.default.createElement(
+	                'h3',
+	                { className: style.title },
+	                titles.title3
+	              ),
+	              _react2.default.createElement(
+	                'ul',
+	                { className: style.list },
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: buttons.button2.href, title: buttons.button2.title },
+	                    buttons.button2.title
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: buttons.button3.href, title: buttons.button3.title },
+	                    buttons.button3.title
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: buttons.button4.href, title: buttons.button4.title },
+	                    buttons.button4.title
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: buttons.button5.href, title: buttons.button5.title },
+	                    buttons.button5.title
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: buttons.button6.href, title: buttons.button6.title },
+	                    buttons.button6.title
+	                  )
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-3 col-xs-12' },
+	              _react2.default.createElement(
+	                'h3',
+	                { className: style.title },
+	                titles.title4
+	              ),
+	              _react2.default.createElement(
+	                'ul',
+	                { className: style.list },
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: buttons.button7.href, title: buttons.button7.title, target: '_blank' },
+	                    buttons.button7.title
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: buttons.button8.href, title: buttons.button8.title, target: '_blank' },
+	                    buttons.button8.title
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: buttons.button9.href, title: buttons.button9.title, target: '_blank' },
+	                    buttons.button9.title
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(_powered2.default, null)
+	      );
+	    }
+	  }]);
+
+	  return FooterAAA;
+	}(_react2.default.Component);
+
+	exports.default = FooterAAA;
+
+
+	FooterAAA.propTypes = {
+	  icons: _react2.default.PropTypes.array
+	};
+
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37520,7 +37599,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var style = __webpack_require__(217);
+	var style = __webpack_require__(218);
 
 	var Powered = function (_React$Component) {
 	  _inherits(Powered, _React$Component);
@@ -37528,7 +37607,7 @@
 	  function Powered() {
 	    _classCallCheck(this, Powered);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Powered).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Powered.__proto__ || Object.getPrototypeOf(Powered)).apply(this, arguments));
 	  }
 
 	  _createClass(Powered, [{
@@ -37556,11 +37635,11 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'col-xs-12 col-sm-6' },
-	              'Todos los derechos reservados © Lasermedica'
+	              'Todos los derechos reservados © Pavlova'
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-xs-12 col-sm-6' },
+	              { className: 'col-xs-12 col-sm-6 ' + style.wrapperBy },
 	              'Un proyecto de: ',
 	              _react2.default.createElement(
 	                'a',
@@ -37586,161 +37665,73 @@
 	exports.default = Powered;
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3sp06","vCenter":"style__vCenter___2G-_B","vCenterRel":"style__vCenterRel___3pk1i","hCenter":"style__hCenter___uDimH","inheritHeight":"style__inheritHeight___1W6vZ","hideOverflow":"style__hideOverflow___1oOYw","icon-sprites":"style__icon-sprites___3Wvbf","footerWrapper":"style__footerWrapper___LwV_7","container":"style__container___1CyCK","sitemap":"style__sitemap___130Ar","facebook":"style__facebook___3bmod","contact_info":"style__contact_info___pUiM_","powered":"style__powered___3yTUa","serviceTitle":"style__serviceTitle___3QrAo"};
-
-/***/ },
-/* 218 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(160);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var style = __webpack_require__(217);
-
-	var SimpleContact = function (_React$Component) {
-	  _inherits(SimpleContact, _React$Component);
-
-	  function SimpleContact() {
-	    _classCallCheck(this, SimpleContact);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SimpleContact).apply(this, arguments));
-	  }
-
-	  _createClass(SimpleContact, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: style.contact_info },
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'contacto', title: 'Contáctanos' },
-	          'Contáctanos'
-	        ),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'mailto:info@mintitmedia.com', title: 'Contáctanos' },
-	          'info@mintitmedia.com'
-	        ),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'contacto', title: 'Contáctanos' },
-	          '(664)308-2240'
-	        ),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'https://www.google.com.mx/maps/@32.5019264,-116.9870849,17.44z?hl=en', title: 'Contáctanos' },
-	          'Calle Sacramento #4872, Col. El Paraíso, Tijuana B. C. México'
-	        )
-	      );
-	    }
-	  }]);
-
-	  return SimpleContact;
-	}(_react2.default.Component);
-
-	exports.default = SimpleContact;
+	module.exports = {"fCenter":"style__fCenter___3sp06","vCenter":"style__vCenter___2G-_B","vCenterRel":"style__vCenterRel___3pk1i","hCenter":"style__hCenter___uDimH","inheritHeight":"style__inheritHeight___1W6vZ","hideOverflow":"style__hideOverflow___1oOYw","icon-sprites":"style__icon-sprites___3Wvbf","footerWrapper":"style__footerWrapper___LwV_7","footerBrand":"style__footerBrand___1BcOo","title":"style__title___3vTD3","paragraph":"style__paragraph___v5jSt","list":"style__list___2_aVL","container":"style__container___1CyCK","powered":"style__powered___3yTUa","wrapperBy":"style__wrapperBy___2KG7E","serviceTitle":"style__serviceTitle___3QrAo","facebook":"style__facebook___3bmod"};
 
 /***/ },
 /* 219 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(160);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var style = __webpack_require__(217);
-
-	var SiteMap = function (_React$Component) {
-	  _inherits(SiteMap, _React$Component);
-
-	  function SiteMap() {
-	    _classCallCheck(this, SiteMap);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SiteMap).apply(this, arguments));
+	exports.default = {
+	  titles: {
+	    title1: 'UBICACIÓN',
+	    title2: 'LLÁMANOS',
+	    title3: 'CLASES',
+	    title4: 'DESCARGABLES'
+	  },
+	  paragraphs: {
+	    paragraph1: 'Av. Allende #38',
+	    paragraph2: 'Col. Hipódromo',
+	    paragraph3: 'Tijuana, B.C.',
+	    paragraph4: 'info@pavlovahipodromo.com',
+	    paragraph5: '664 686.27.87'
+	  },
+	  buttons: {
+	    button1: {
+	      title: 'Síguenos en Facebook',
+	      href: 'http://facebook.com'
+	    },
+	    button2: {
+	      title: 'BALLET',
+	      href: '/clases/ballet'
+	    },
+	    button3: {
+	      title: 'JAZZ',
+	      href: '/clases/jazz'
+	    },
+	    button4: {
+	      title: 'FLAMENCO',
+	      href: '/clases/flamenco'
+	    },
+	    button5: {
+	      title: 'CARDIO DANZA',
+	      href: '/clases/kardio-danza'
+	    },
+	    button6: {
+	      title: 'BARRÉ',
+	      href: '/clases/barre'
+	    },
+	    button7: {
+	      title: 'HORARIOS',
+	      href: '/docs/horarios.pdf'
+	    },
+	    button8: {
+	      title: 'FICHA DE INSCRIPCIÓN',
+	      href: '/docs/ficha-inscripcion.pdf'
+	    },
+	    button9: {
+	      title: 'REGLAMENTO',
+	      href: '/docs/reglamento.pdf'
+	    }
 	  }
-
-	  _createClass(SiteMap, [{
-	    key: 'getItems',
-	    value: function getItems(data) {
-	      var _this2 = this;
-
-	      var items = data.map(function (item, index) {
-	        var children = item.children ? _this2.getItems(item.children) : null;
-
-	        return _react2.default.createElement(
-	          'li',
-	          { key: index },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: item.url },
-	            item.title
-	          ),
-	          children
-	        );
-	      }, this);
-	      return _react2.default.createElement(
-	        'ul',
-	        { className: style.sitemap },
-	        items
-	      );
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return this.getItems(this.props.data);
-	    }
-	  }]);
-
-	  return SiteMap;
-	}(_react2.default.Component);
-
-	exports.default = SiteMap;
-
-
-	SiteMap.propTypes = {
-	  data: _react2.default.PropTypes.array.isRequired
 	};
 
 /***/ },
@@ -42675,15 +42666,15 @@
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(270);
+	var _block3 = __webpack_require__(272);
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _block5 = __webpack_require__(271);
+	var _block5 = __webpack_require__(274);
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(272);
+	var _block7 = __webpack_require__(276);
 
 	var _block8 = _interopRequireDefault(_block7);
 
@@ -42701,7 +42692,7 @@
 	  function HomeSection() {
 	    _classCallCheck(this, HomeSection);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(HomeSection).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (HomeSection.__proto__ || Object.getPrototypeOf(HomeSection)).apply(this, arguments));
 	  }
 
 	  _createClass(HomeSection, [{
@@ -42759,6 +42750,14 @@
 
 	var _imageUtil = __webpack_require__(269);
 
+	var _carousel = __webpack_require__(270);
+
+	var _carousel2 = _interopRequireDefault(_carousel);
+
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42767,7 +42766,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	// const style = require('./style.scss');
+	var style = __webpack_require__(271);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -42775,36 +42774,69 @@
 	  function Block1() {
 	    _classCallCheck(this, Block1);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block1).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block1.__proto__ || Object.getPrototypeOf(Block1)).apply(this, arguments));
 	  }
 
 	  _createClass(Block1, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props$data = this.props.data;
-	      var buttons = _props$data.buttons;
-	      var images = _props$data.images;
-
-	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        { style: divStyle },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid' },
-	          _react2.default.createElement(
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      $('#carousel-home-block-1').carousel();
+	    }
+	  }, {
+	    key: 'renderItems',
+	    value: function renderItems(data) {
+	      if (_lodash2.default.isArray(data) && data.length) {
+	        return data.map(function (item, index) {
+	          var divStyle = (0, _imageUtil.getImageBackground)(item.image);
+	          var className = index === 0 ? 'active' : '';
+	          className += index === 1 ? style.darkBG : '';
+	          return _react2.default.createElement(
 	            'div',
-	            { className: 'row' },
+	            { className: 'item ' + (style.item || '') + ' ' + className, key: index, style: divStyle },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-10 col-xs-12' },
+	              { className: 'container-fluid' },
 	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button1.href },
-	                buttons.button1.title
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'col-xs-12' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: item.button_url },
+	                    item.button_title,
+	                    _react2.default.createElement(_svg2.default, { network: 'arrow_right' })
+	                  )
+	                )
 	              )
 	            )
-	          )
+	          );
+	        });
+	      }
+	      return null;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var slides = this.props.data.slides;
+
+	      var carouselClasses = {
+	        inner: style.inner,
+	        controls: {
+	          base: style.controls,
+	          prev: style.prev,
+	          next: style.next,
+	          arrow: style.arrow
+	        }
+	      };
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _carousel2.default,
+	          { id: 'carousel-home-block-1', interval: 8000, indicators: false, classes: carouselClasses },
+	          this.renderItems(slides)
 	        )
 	      ) : null;
 	    }
@@ -42849,8 +42881,6 @@
 	    backgroundImage: 'url(' + imgUrl + ')'
 	  } : null;
 	} /* eslint max-len: [2, 500, 4] */
-
-
 	function normalizeImageUrl(data) {
 	  return data.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
 	}
@@ -42865,352 +42895,7 @@
 	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(160);
-
-	var _lodash = __webpack_require__(210);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// const style = require('./style.scss');
-
-	var Block2 = function (_React$Component) {
-	  _inherits(Block2, _React$Component);
-
-	  function Block2() {
-	    _classCallCheck(this, Block2);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block2).apply(this, arguments));
-	  }
-
-	  _createClass(Block2, [{
-	    key: 'render',
-	    value: function render() {
-	      var buttons = this.props.data.buttons;
-
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement('div', { className: 'col-sm1' }),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-2 col-xs-12' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button1.href },
-	                buttons.button1.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-2 col-xs-12' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button2.href },
-	                buttons.button2.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-2 col-xs-12' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button3.href },
-	                buttons.button3.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-2 col-xs-12' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button4.href },
-	                buttons.button4.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-2 col-xs-12' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button5.href },
-	                buttons.button5.title
-	              )
-	            ),
-	            _react2.default.createElement('div', { className: 'col-sm1' })
-	          )
-	        )
-	      ) : null;
-	    }
-	  }]);
-
-	  return Block2;
-	}(_react2.default.Component);
-
-	exports.default = Block2;
-
-
-	Block2.propTypes = {
-	  data: _react2.default.PropTypes.object
-	};
-
-/***/ },
-/* 271 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(160);
-
-	var _lodash = __webpack_require__(210);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _imageUtil = __webpack_require__(269);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
-
-	// const style = require('./style.scss');
-
-	var Block3 = function (_React$Component) {
-	  _inherits(Block3, _React$Component);
-
-	  function Block3() {
-	    _classCallCheck(this, Block3);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block3).apply(this, arguments));
-	  }
-
-	  _createClass(Block3, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var buttons = _props$data.buttons;
-	      var images = _props$data.images;
-	      var paragraphs = _props$data.paragraphs;
-
-	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        { style: divStyle },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-10 col-xs-12' },
-	              _react2.default.createElement(
-	                'h2',
-	                null,
-	                titles.title1
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                paragraphs.paragraph1
-	              ),
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button1.href },
-	                buttons.button1.title
-	              )
-	            )
-	          )
-	        )
-	      ) : null;
-	    }
-	  }]);
-
-	  return Block3;
-	}(_react2.default.Component);
-
-	exports.default = Block3;
-
-
-	Block3.propTypes = {
-	  data: _react2.default.PropTypes.object
-	};
-
-/***/ },
-/* 272 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(160);
-
-	var _lodash = __webpack_require__(210);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _carousel = __webpack_require__(273);
-
-	var _carousel2 = _interopRequireDefault(_carousel);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
-
-
-	var style = __webpack_require__(274);
-
-	var Block4 = function (_React$Component) {
-	  _inherits(Block4, _React$Component);
-
-	  function Block4() {
-	    _classCallCheck(this, Block4);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block4).apply(this, arguments));
-	  }
-
-	  _createClass(Block4, [{
-	    key: 'renderItems',
-	    value: function renderItems(data) {
-	      if (_lodash2.default.isArray(data) && data.length) {
-	        return data.map(function (item, index) {
-	          var className = index === 0 ? 'active' : '';
-	          return _react2.default.createElement(
-	            'div',
-	            { className: 'item ' + className + ' ' + (style.item || ''), key: index },
-	            _react2.default.createElement('img', { src: item.image, alt: item.title })
-	          );
-	        });
-	      }
-	      return null;
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var slides = _props$data.slides;
-	      var paragraphs = _props$data.paragraphs;
-	      var buttons = _props$data.buttons;
-
-	      var carouselClasses = {
-	        inner: style.inner,
-	        controls: {
-	          base: style.controls,
-	          prev: style.prev,
-	          next: style.next
-	        }
-	      };
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-6 col-xs-12' },
-	              _react2.default.createElement(
-	                'h2',
-	                null,
-	                titles.title1
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                paragraphs.paragraph1
-	              ),
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: buttons.button1.href },
-	                buttons.button1.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-6 col-xs-12' },
-	              _react2.default.createElement(
-	                _carousel2.default,
-	                { id: 'carousel-home-block-4', interval: 8000, indicators: false, classes: carouselClasses },
-	                this.renderItems(slides)
-	              )
-	            )
-	          )
-	        )
-	      ) : null;
-	    }
-	  }]);
-
-	  return Block4;
-	}(_react2.default.Component);
-
-	exports.default = Block4;
-
-
-	Block4.propTypes = {
-	  data: _react2.default.PropTypes.object,
-	  classes: _react2.default.PropTypes.object
-	};
-
-/***/ },
-/* 273 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -43241,40 +42926,48 @@
 	  function Carousel() {
 	    _classCallCheck(this, Carousel);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Carousel).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Carousel.__proto__ || Object.getPrototypeOf(Carousel)).apply(this, arguments));
 	  }
 
 	  _createClass(Carousel, [{
 	    key: 'getIndicators',
-	    value: function getIndicators(data, flag, sliderId) {
+	    value: function getIndicators(sliderId, isVisible, data, indicatorClass) {
 	      var indicators = [];
-	      if (flag !== false && _lodash2.default.isArray(data) && data.length) {
-	        indicators = data.map(function (item, index) {
-	          var className = index === 0 ? 'active' : '';
-	          return _react2.default.createElement('li', { 'data-target': '#' + sliderId, 'data-slide-to': index, className: className, key: index });
-	        });
+	      if (isVisible !== false && _lodash2.default.isArray(data) && data.length) {
+	        var _ret = function () {
+	          var activeClassName = indicatorClass && indicatorClass.active ? 'active ' + indicatorClass.active : 'active';
+	          indicators = data.map(function (item, index) {
+	            var className = index === 0 ? activeClassName : '';
+	            return _react2.default.createElement('li', { 'data-target': '#' + sliderId, 'data-slide-to': index, className: className, key: index });
+	          });
+	          return {
+	            v: _react2.default.createElement(
+	              'ol',
+	              { className: 'carousel-indicators ' + (indicatorClass.base || '') },
+	              indicators
+	            )
+	          };
+	        }();
+
+	        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
 	      }
-	      return _react2.default.createElement(
-	        'ol',
-	        { className: 'carousel-indicators' },
-	        indicators
-	      );
+	      return null;
 	    }
 	  }, {
 	    key: 'getControls',
-	    value: function getControls(flag, id, classes) {
+	    value: function getControls(sliderId, isVisible, classes) {
 	      var base = classes.base;
 	      var prev = classes.prev;
 	      var next = classes.next;
 	      var arrow = classes.arrow;
 
-	      if (flag !== false) {
+	      if (isVisible !== false) {
 	        return _react2.default.createElement(
 	          'div',
 	          null,
 	          _react2.default.createElement(
 	            'a',
-	            { className: 'left carousel-control ' + (base || '') + ' ' + (prev || ''), href: '#' + id, role: 'button', 'data-slide': 'prev' },
+	            { className: 'left carousel-control ' + (base || '') + ' ' + (prev || ''), href: '#' + sliderId, role: 'button', 'data-slide': 'prev' },
 	            _react2.default.createElement(_svg2.default, { network: 'carousel_left', className: arrow }),
 	            _react2.default.createElement(
 	              'span',
@@ -43284,7 +42977,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'a',
-	            { className: 'right carousel-control ' + (base || '') + ' ' + (next || ''), href: '#' + id, role: 'button', 'data-slide': 'next' },
+	            { className: 'right carousel-control ' + (base || '') + ' ' + (next || ''), href: '#' + sliderId, role: 'button', 'data-slide': 'next' },
 	            _react2.default.createElement(_svg2.default, { network: 'carousel_right', className: arrow }),
 	            _react2.default.createElement(
 	              'span',
@@ -43309,14 +43002,14 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { id: id, className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': interval || 5000 },
+	        { id: id, className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': interval || 8000 },
+	        this.getIndicators(id, indicators, children, classes.indicator),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'carousel-inner ' + (classes.inner || ''), role: 'listbox' },
-	          this.getIndicators(children, indicators, id),
-	          children,
-	          this.getControls(controls, id, classes.controls)
-	        )
+	          children
+	        ),
+	        this.getControls(id, controls, classes.controls)
 	      );
 	    }
 	  }]);
@@ -43337,14 +43030,403 @@
 	};
 
 /***/ },
-/* 274 */
+/* 271 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___2Xb8X","vCenter":"style__vCenter___hmun0","vCenterRel":"style__vCenterRel___2lPVo","hCenter":"style__hCenter___1JZnn","inheritHeight":"style__inheritHeight___1rILl","hideOverflow":"style__hideOverflow___1Q2PJ","icon-sprites":"style__icon-sprites___38gIr","wrapper1":"style__wrapper1___3ANK2","wrapper2":"style__wrapper2___2RaJ7","sideSwipe":"style__sideSwipe___2Dk6P","button1":"style__button1___1hNj-","button2":"style__button2___1PxHI","button3":"style__button3___1BqYh","title1":"style__title1___25IAx","title2":"style__title2___wfjef","title4":"style__title4____YoIR","title5":"style__title5___T2PV8","title6":"style__title6___G7Bi3","title3":"style__title3___EBeus","title7":"style__title7___18HEf","title8":"style__title8___1HuLF","image1":"style__image1___3Iegh","image":"style__image___t1t90","paragraph1":"style__paragraph1___1KYt4","paragraph2":"style__paragraph2___2j4Qo","paragraph3":"style__paragraph3___29XST","paragraph4":"style__paragraph4___3QuOc","paragraph5":"style__paragraph5___39V90"};
+	module.exports = {"fCenter":"style__fCenter___1IAv0","vCenter":"style__vCenter___3op1c","button1":"style__button1___3teya","button2":"style__button2___3emCl","item":"style__item___1hdp3","darkBG":"style__darkBG___3_r4I","button2b":"style__button2b___1gkLu","vCenterRel":"style__vCenterRel___3rmpk","hCenter":"style__hCenter___bN1_x","inheritHeight":"style__inheritHeight___3EV0T","hideOverflow":"style__hideOverflow___1jYcy","icon-sprites":"style__icon-sprites___113mW","button3":"style__button3___1egvE","button3v1":"style__button3v1___e8Puv","button3v2":"style__button3v2___aYpPW","button3v3":"style__button3v3___18OJd","button3v4":"style__button3v4___347NJ","button3v5":"style__button3v5___6eHiy","wrapper1":"style__wrapper1___3LV9m","wrapper2":"style__wrapper2___3Do_q","title1":"style__title1___1fgRn","title2":"style__title2___3VQJ-","title3":"style__title3___15G1J","title4":"style__title4___GbpGB","title5":"style__title5___21deO","title6":"style__title6___2x7FO","title7":"style__title7___1Pacu","title8":"style__title8___1BoeB","sideSwipe":"style__sideSwipe___1_Jvs","bottomSwipe":"style__bottomSwipe___2qtvt","arrow":"style__arrow___3-Hu9"};
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(160);
+
+	var _lodash = __webpack_require__(210);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(273);
+
+	var Block2 = function (_React$Component) {
+	  _inherits(Block2, _React$Component);
+
+	  function Block2() {
+	    _classCallCheck(this, Block2);
+
+	    return _possibleConstructorReturn(this, (Block2.__proto__ || Object.getPrototypeOf(Block2)).apply(this, arguments));
+	  }
+
+	  _createClass(Block2, [{
+	    key: 'render',
+	    value: function render() {
+	      var buttons = this.props.data.buttons;
+
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: style.customCol + ' col-xs-6' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button3v1 + ' row', to: buttons.button1.href },
+	                buttons.button1.title,
+	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: style.customCol + ' col-xs-6' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button3v2 + ' row', to: buttons.button2.href },
+	                buttons.button2.title,
+	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: style.customCol + ' col-xs-6' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button3v3 + ' row', to: buttons.button3.href },
+	                buttons.button3.title,
+	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: style.customCol + ' col-xs-6' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button3v4 + ' row', to: buttons.button4.href },
+	                buttons.button4.title,
+	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: style.customCol + ' col-xs-6' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button3v5 + ' row', to: buttons.button5.href },
+	                buttons.button5.title,
+	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	              )
+	            )
+	          )
+	        )
+	      ) : null;
+	    }
+	  }]);
+
+	  return Block2;
+	}(_react2.default.Component);
+
+	exports.default = Block2;
+
+
+	Block2.propTypes = {
+	  data: _react2.default.PropTypes.object
+	};
+
+/***/ },
+/* 273 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","button1":"style__button1___3Mc_g","button2":"style__button2___2zikt","button2b":"style__button2b___UKCOY","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","icon-sprites":"style__icon-sprites___1crXd","button3":"style__button3___3KWNZ","button3v1":"style__button3v1___3BT_T","button3v2":"style__button3v2___1cST3","button3v3":"style__button3v3___1O1XL","button3v4":"style__button3v4___1ekHt","button3v5":"style__button3v5___m7eJK","image1":"style__image1___4P84q","paragraph1":"style__paragraph1___2Ov3F","paragraph1b":"style__paragraph1b___3CQIB","paragraph2":"style__paragraph2___10FLO","paragraph3":"style__paragraph3___3kGpq","paragraph4":"style__paragraph4___15kjh","paragraph5":"style__paragraph5___3EMdx","sideSwipe":"style__sideSwipe___2tbA2","bottomSwipe":"style__bottomSwipe___3tj3d","title1":"style__title1___3Lp7y","title2":"style__title2___1Nebh","title3":"style__title3___2cBjs","title4":"style__title4___90ELg","title5":"style__title5___3p9GA","title6":"style__title6___1cWpF","title7":"style__title7___1hdkz","title8":"style__title8___4sMWt","customCol":"style__customCol___3nRYv"};
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(160);
+
+	var _lodash = __webpack_require__(210);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _imageUtil = __webpack_require__(269);
+
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+	var style = __webpack_require__(275);
+
+	var Block3 = function (_React$Component) {
+	  _inherits(Block3, _React$Component);
+
+	  function Block3() {
+	    _classCallCheck(this, Block3);
+
+	    return _possibleConstructorReturn(this, (Block3.__proto__ || Object.getPrototypeOf(Block3)).apply(this, arguments));
+	  }
+
+	  _createClass(Block3, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props$data = this.props.data;
+	      var titles = _props$data.titles;
+	      var buttons = _props$data.buttons;
+	      var images = _props$data.images;
+	      var paragraphs = _props$data.paragraphs;
+
+	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        { style: divStyle, className: style.passeDeChat },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-xs-12' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: style.title },
+	                titles.title1
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { className: style.paragraph },
+	                paragraphs.paragraph1
+	              ),
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button, to: buttons.button1.href },
+	                buttons.button1.title,
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_right' })
+	              )
+	            )
+	          )
+	        )
+	      ) : null;
+	    }
+	  }]);
+
+	  return Block3;
+	}(_react2.default.Component);
+
+	exports.default = Block3;
+
+
+	Block3.propTypes = {
+	  data: _react2.default.PropTypes.object
+	};
 
 /***/ },
 /* 275 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___1UpIU","vCenter":"style__vCenter___1YV9g","button1":"style__button1___100rH","button2":"style__button2___SbKZT","button":"style__button____i21N","button2b":"style__button2b___1z6B8","vCenterRel":"style__vCenterRel___1D8tj","hCenter":"style__hCenter___2TvfM","inheritHeight":"style__inheritHeight___3jids","hideOverflow":"style__hideOverflow___16pkQ","icon-sprites":"style__icon-sprites___3x6uL","button3":"style__button3___wn-mV","button3v1":"style__button3v1___2JRum","button3v2":"style__button3v2___1HD5h","button3v3":"style__button3v3___X_IwQ","button3v4":"style__button3v4___2gUdl","button3v5":"style__button3v5___brc20","passeDeChat":"style__passeDeChat___3lcIC","wrapper1":"style__wrapper1___11dmn","wrapper2":"style__wrapper2___btSte","title1":"style__title1___3QBup","title2":"style__title2___19ma5","title3":"style__title3___17GG-","title4":"style__title4___1kzHe","title5":"style__title5___w6HV2","title":"style__title___2uzOV","title6":"style__title6___8k-iy","title7":"style__title7___3kWyz","title8":"style__title8___3tkZ-","sideSwipe":"style__sideSwipe___M8sba","bottomSwipe":"style__bottomSwipe____fcIm","paragraph1":"style__paragraph1___mOtQ_","paragraph1b":"style__paragraph1b___1l31N","paragraph2":"style__paragraph2___34cYP","paragraph3":"style__paragraph3___pE0dO","paragraph":"style__paragraph___1CprJ","paragraph4":"style__paragraph4___2Bqj7","paragraph5":"style__paragraph5___8lnUF"};
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(160);
+
+	var _lodash = __webpack_require__(210);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _carousel = __webpack_require__(270);
+
+	var _carousel2 = _interopRequireDefault(_carousel);
+
+	var _imageUtil = __webpack_require__(269);
+
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(277);
+
+	var Block4 = function (_React$Component) {
+	  _inherits(Block4, _React$Component);
+
+	  function Block4() {
+	    _classCallCheck(this, Block4);
+
+	    return _possibleConstructorReturn(this, (Block4.__proto__ || Object.getPrototypeOf(Block4)).apply(this, arguments));
+	  }
+
+	  _createClass(Block4, [{
+	    key: 'renderItems',
+	    value: function renderItems(data) {
+	      if (_lodash2.default.isArray(data) && data.length) {
+	        return data.map(function (item, index) {
+	          var className = index === 0 ? 'active' : '';
+	          var imageUrl = (0, _imageUtil.normalizeImageUrl)(item.image);
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'item ' + className + ' ' + (style.item || ''), key: index },
+	            _react2.default.createElement('img', { className: style.carrouselImg, src: imageUrl, alt: item.title })
+	          );
+	        });
+	      }
+	      return null;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props$data = this.props.data;
+	      var titles = _props$data.titles;
+	      var slides = _props$data.slides;
+	      var paragraphs = _props$data.paragraphs;
+	      var buttons = _props$data.buttons;
+
+	      var carouselClasses = {
+	        inner: style.inner,
+	        controls: {
+	          base: style.controls,
+	          prev: style.prev,
+	          next: style.next
+	        }
+	      };
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid ' + style.wrapper },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-6 col-xs-12' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: style.title },
+	                titles.title1
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { className: style.paragraph },
+	                paragraphs.paragraph1
+	              ),
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: style.button, to: buttons.button1.href },
+	                buttons.button1.title,
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_right' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-6 col-xs-12' },
+	              _react2.default.createElement(
+	                _carousel2.default,
+	                { id: 'carousel-home-block-4', interval: 8000, indicators: false, classes: carouselClasses },
+	                this.renderItems(slides)
+	              )
+	            )
+	          )
+	        )
+	      ) : null;
+	    }
+	  }]);
+
+	  return Block4;
+	}(_react2.default.Component);
+
+	exports.default = Block4;
+
+
+	Block4.propTypes = {
+	  data: _react2.default.PropTypes.object,
+	  classes: _react2.default.PropTypes.object
+	};
+
+/***/ },
+/* 277 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___2Xb8X","vCenter":"style__vCenter___hmun0","button1":"style__button1___1hNj-","button2":"style__button2___1PxHI","button":"style__button___2WejV","button2b":"style__button2b___3PsG1","controls":"style__controls___20l_V","vCenterRel":"style__vCenterRel___2lPVo","hCenter":"style__hCenter___1JZnn","inheritHeight":"style__inheritHeight___1rILl","hideOverflow":"style__hideOverflow___1Q2PJ","icon-sprites":"style__icon-sprites___38gIr","button3":"style__button3___1BqYh","button3v1":"style__button3v1___rymdE","button3v2":"style__button3v2___3AaDs","button3v3":"style__button3v3___313Qy","button3v4":"style__button3v4___3NRPp","button3v5":"style__button3v5___3Klbx","wrapper1":"style__wrapper1___3ANK2","wrapper2":"style__wrapper2___2RaJ7","sideSwipe":"style__sideSwipe___2Dk6P","bottomSwipe":"style__bottomSwipe___1PfSR","title1":"style__title1___25IAx","title2":"style__title2___wfjef","title3":"style__title3___EBeus","title4":"style__title4____YoIR","title5":"style__title5___T2PV8","title6":"style__title6___G7Bi3","title":"style__title___3PYI0","title7":"style__title7___18HEf","title8":"style__title8___1HuLF","image1":"style__image1___3Iegh","image":"style__image___t1t90","paragraph1":"style__paragraph1___1KYt4","paragraph1b":"style__paragraph1b___3FINH","paragraph":"style__paragraph___2ThL6","paragraph2":"style__paragraph2___2j4Qo","paragraph3":"style__paragraph3___29XST","paragraph4":"style__paragraph4___3QuOc","paragraph5":"style__paragraph5___39V90","wrapper":"style__wrapper___17dlG","carrouselImg":"style__carrouselImg___1peuz"};
+
+/***/ },
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43363,35 +43445,35 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _block = __webpack_require__(276);
+	var _block = __webpack_require__(279);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(279);
+	var _block3 = __webpack_require__(282);
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _block5 = __webpack_require__(281);
+	var _block5 = __webpack_require__(284);
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(283);
+	var _block7 = __webpack_require__(286);
 
 	var _block8 = _interopRequireDefault(_block7);
 
-	var _block9 = __webpack_require__(285);
+	var _block9 = __webpack_require__(288);
 
 	var _block10 = _interopRequireDefault(_block9);
 
-	var _block11 = __webpack_require__(290);
+	var _block11 = __webpack_require__(294);
 
 	var _block12 = _interopRequireDefault(_block11);
 
-	var _block13 = __webpack_require__(292);
+	var _block13 = __webpack_require__(296);
 
 	var _block14 = _interopRequireDefault(_block13);
 
-	var _data = __webpack_require__(293);
+	var _data = __webpack_require__(298);
 
 	var _data2 = _interopRequireDefault(_data);
 
@@ -43405,13 +43487,14 @@
 
 	// const style = require('./style.scss');
 
+
 	var AboutSection = function (_React$Component) {
 	  _inherits(AboutSection, _React$Component);
 
 	  function AboutSection() {
 	    _classCallCheck(this, AboutSection);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AboutSection).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (AboutSection.__proto__ || Object.getPrototypeOf(AboutSection)).apply(this, arguments));
 	  }
 
 	  _createClass(AboutSection, [{
@@ -43430,10 +43513,12 @@
 	      var showListItem = params.showListItem;
 
 	      var block3Variations = {
-	        variation1: 'class1'
+	        variation1: 'mainbannerC',
+	        variation2: 'titleC'
 	      };
 	      var block5Variations = {
-	        variation1: 'class1'
+	        variation1: 'mainbannerE',
+	        variation2: 'titleE'
 	      };
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
@@ -43463,7 +43548,7 @@
 	};
 
 /***/ },
-/* 276 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43482,15 +43567,13 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _reactRouter = __webpack_require__(160);
-
 	var _svg = __webpack_require__(213);
 
 	var _svg2 = _interopRequireDefault(_svg);
 
 	var _imageUtil = __webpack_require__(269);
 
-	var _sanitize = __webpack_require__(277);
+	var _sanitize = __webpack_require__(280);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -43503,7 +43586,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(278);
+	var style = __webpack_require__(281);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -43511,7 +43594,7 @@
 	  function Block1() {
 	    _classCallCheck(this, Block1);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block1).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block1.__proto__ || Object.getPrototypeOf(Block1)).apply(this, arguments));
 	  }
 
 	  _createClass(Block1, [{
@@ -43538,15 +43621,11 @@
 	              { className: 'col-xs-12 col-sm-6 col-sm-offset-3' },
 	              _react2.default.createElement(
 	                'h2',
-	                { className: style.title3 },
+	                { className: style.title },
 	                titles.title1
 	              ),
-	              _react2.default.createElement('p', { className: style.paragraph3, dangerouslySetInnerHTML: (0, _sanitize2.default)(paragraphs.paragraph1) }),
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/inicio' },
-	                _react2.default.createElement(_svg2.default, { network: 'double_arrow_down', className: style.svg })
-	              )
+	              _react2.default.createElement('p', { className: style.paragraph, dangerouslySetInnerHTML: (0, _sanitize2.default)(paragraphs.paragraph1) }),
+	              _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
 	            )
 	          )
 	        )
@@ -43566,7 +43645,7 @@
 	};
 
 /***/ },
-/* 277 */
+/* 280 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -43582,14 +43661,14 @@
 	};
 
 /***/ },
-/* 278 */
+/* 281 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","sideSwipe":"style__sideSwipe___3OFJQ","button1":"style__button1___knh5C","button2":"style__button2___3rlK3","button3":"style__button3___2KaTC","title1":"style__title1___1LlDm","title2":"style__title2___3ep2l","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title3":"style__title3___1URy1","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","svg":"style__svg___29LI3"};
+	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","button1":"style__button1___knh5C","button2":"style__button2___3rlK3","button2b":"style__button2b___H0Brp","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","button3":"style__button3___2KaTC","button3v1":"style__button3v1___16SWp","button3v2":"style__button3v2___3N8UW","button3v3":"style__button3v3___2h7PD","button3v4":"style__button3v4___3p_tP","button3v5":"style__button3v5___2P4jz","sideSwipe":"style__sideSwipe___3OFJQ","bottomSwipe":"style__bottomSwipe___3ltu-","title1":"style__title1___1LlDm","title":"style__title___JG5hq","title2":"style__title2___3ep2l","title3":"style__title3___1URy1","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph1b":"style__paragraph1b___2_mfn","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph":"style__paragraph___1Wwqc","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","svg":"style__svg___29LI3"};
 
 /***/ },
-/* 279 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43612,11 +43691,15 @@
 
 	var _imageUtil = __webpack_require__(269);
 
-	var _sanitize = __webpack_require__(277);
+	var _sanitize = __webpack_require__(280);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
-	var _carousel = __webpack_require__(273);
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	var _carousel = __webpack_require__(270);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
@@ -43629,7 +43712,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(280);
+	var style = __webpack_require__(283);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -43637,7 +43720,7 @@
 	  function Block2() {
 	    _classCallCheck(this, Block2);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block2).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block2.__proto__ || Object.getPrototypeOf(Block2)).apply(this, arguments));
 	  }
 
 	  _createClass(Block2, [{
@@ -43651,10 +43734,10 @@
 	            { className: 'item ' + className, key: index },
 	            _react2.default.createElement(
 	              'h3',
-	              null,
+	              { className: style.title },
 	              item.title
 	            ),
-	            _react2.default.createElement('div', { dangerouslySetInnerHTML: (0, _sanitize2.default)(item.content) })
+	            _react2.default.createElement('div', { className: style.paragraph, dangerouslySetInnerHTML: (0, _sanitize2.default)(item.content) })
 	          );
 	        });
 	      }
@@ -43676,6 +43759,10 @@
 	          base: style.controls,
 	          prev: style.prev,
 	          next: style.next
+	        },
+	        indicator: {
+	          base: style.indicators,
+	          active: style.active
 	        }
 	      };
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
@@ -43697,16 +43784,17 @@
 	              ),
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: buttons.button1.href },
-	                buttons.button1.title
+	                { className: style.button, to: buttons.button1.href },
+	                buttons.button1.title,
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_right' })
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-6 col-xs-12' },
+	              { className: 'col-sm-4 col-xs-10 col-xs-offset-1' },
 	              _react2.default.createElement(
-	                'h2',
-	                { className: style.title3 },
+	                'p',
+	                { className: style.tagline },
 	                titles.title1
 	              )
 	            )
@@ -43728,14 +43816,14 @@
 	};
 
 /***/ },
-/* 280 */
+/* 283 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___xP6Z-","vCenter":"style__vCenter___3EDwH","vCenterRel":"style__vCenterRel___1d1I_","hCenter":"style__hCenter___3LKuT","inheritHeight":"style__inheritHeight___11OVE","hideOverflow":"style__hideOverflow___1koJ0","icon-sprites":"style__icon-sprites___2uiLf","sideSwipe":"style__sideSwipe___19HIU","button1":"style__button1___ma4vA","button2":"style__button2___1Fwzx","button3":"style__button3___3p2Pg","title1":"style__title1___2c1PC","title2":"style__title2___U0Za7","title4":"style__title4___c-0OO","title5":"style__title5___XOjHY","title6":"style__title6___2E_cG","title3":"style__title3___qpZuD","title7":"style__title7___21JO_","title8":"style__title8___36gBQ","paragraph1":"style__paragraph1___1m33N","paragraph2":"style__paragraph2___3OtNY","paragraph3":"style__paragraph3___3qs1J","paragraph4":"style__paragraph4___3oqJH","paragraph5":"style__paragraph5___akVWK","mainbanner":"style__mainbanner___37cO7","svg":"style__svg___25w61"};
+	module.exports = {"fCenter":"style__fCenter___xP6Z-","vCenter":"style__vCenter___3EDwH","button1":"style__button1___ma4vA","button2":"style__button2___1Fwzx","button":"style__button___15DCt","button2b":"style__button2b___GtnQK","vCenterRel":"style__vCenterRel___1d1I_","hCenter":"style__hCenter___3LKuT","inheritHeight":"style__inheritHeight___11OVE","hideOverflow":"style__hideOverflow___1koJ0","icon-sprites":"style__icon-sprites___2uiLf","button3":"style__button3___3p2Pg","button3v1":"style__button3v1____mMiu","button3v2":"style__button3v2___7-kje","button3v3":"style__button3v3___2-obj","button3v4":"style__button3v4___ldhG5","button3v5":"style__button3v5___1kCHN","sideSwipe":"style__sideSwipe___19HIU","bottomSwipe":"style__bottomSwipe___3RO2M","title1":"style__title1___2c1PC","title2":"style__title2___U0Za7","title3":"style__title3___qpZuD","title4":"style__title4___c-0OO","title5":"style__title5___XOjHY","title6":"style__title6___2E_cG","title":"style__title___3-jmd","title7":"style__title7___21JO_","title8":"style__title8___36gBQ","paragraph1":"style__paragraph1___1m33N","paragraph1b":"style__paragraph1b___30nAD","paragraph":"style__paragraph___2dz5L","paragraph2":"style__paragraph2___3OtNY","paragraph3":"style__paragraph3___3qs1J","paragraph4":"style__paragraph4___3oqJH","paragraph5":"style__paragraph5___akVWK","tagline":"style__tagline___Dl43p","mainbanner":"style__mainbanner___37cO7","svg":"style__svg___25w61","inner":"style__inner___1SA8W","indicators":"style__indicators___1lG-t"};
 
 /***/ },
-/* 281 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43765,7 +43853,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(282);
+	var style = __webpack_require__(285);
 
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
@@ -43773,7 +43861,7 @@
 	  function Block3() {
 	    _classCallCheck(this, Block3);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block3).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block3.__proto__ || Object.getPrototypeOf(Block3)).apply(this, arguments));
 	  }
 
 	  _createClass(Block3, [{
@@ -43788,7 +43876,7 @@
 	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
-	        { style: divStyle, className: style.mainbanner },
+	        { style: divStyle, className: style[variations.variation1] },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container-fluid' },
@@ -43800,7 +43888,7 @@
 	              { className: 'col-sm-12 col-xs-12' },
 	              _react2.default.createElement(
 	                'h2',
-	                { className: style.title3 + ' ' + variations.variation1 },
+	                { className: style[variations.variation2] },
 	                titles.title1
 	              )
 	            )
@@ -43822,206 +43910,11 @@
 	};
 
 /***/ },
-/* 282 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","sideSwipe":"style__sideSwipe___1wQDY","button1":"style__button1___ysj8P","button2":"style__button2___3T26W","button3":"style__button3___1B5ky","title1":"style__title1___36WkF","title2":"style__title2___21MoW","title4":"style__title4___3vPE_","title5":"style__title5___1hZAj","title6":"style__title6___3ZgkO","title3":"style__title3___WdO4l","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbanner":"style__mainbanner___2J7_D","svg":"style__svg___6prOk"};
-
-/***/ },
-/* 283 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _lodash = __webpack_require__(210);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _sanitize = __webpack_require__(277);
-
-	var _sanitize2 = _interopRequireDefault(_sanitize);
-
-	var _carousel = __webpack_require__(273);
-
-	var _carousel2 = _interopRequireDefault(_carousel);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
-
-
-	var style = __webpack_require__(284);
-
-	var Block4 = function (_React$Component) {
-	  _inherits(Block4, _React$Component);
-
-	  function Block4() {
-	    _classCallCheck(this, Block4);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block4).apply(this, arguments));
-	  }
-
-	  _createClass(Block4, [{
-	    key: 'renderItems',
-	    value: function renderItems(data) {
-	      if (_lodash2.default.isArray(data) && data.length) {
-	        return data.map(function (item, index) {
-	          var className = index === 0 ? 'active' : '';
-	          return _react2.default.createElement(
-	            'div',
-	            { className: 'item ' + className, key: index },
-	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              item.title
-	            ),
-	            _react2.default.createElement('div', { dangerouslySetInnerHTML: (0, _sanitize2.default)(item.content) })
-	          );
-	        });
-	      }
-	      return null;
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props$data = this.props.data;
-	      var images = _props$data.images;
-	      var slides = _props$data.slides;
-
-	      var carouselClasses = {
-	        inner: style.inner,
-	        controls: {
-	          base: style.controls,
-	          prev: style.prev,
-	          next: style.next
-	        }
-	      };
-	      var imgUrl = images.image1.src ? images.image1.src.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : images.image1.src;
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        { className: 'container-fluid' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-sm-6 col-xs-12' },
-	            _react2.default.createElement('img', { className: style.image, src: imgUrl, alt: images.image1.alt })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-sm-6 col-xs-12' },
-	            _react2.default.createElement(
-	              _carousel2.default,
-	              { id: 'carousel-about-block-4', interval: 8000, controls: false, classes: carouselClasses },
-	              this.renderItems(slides)
-	            )
-	          )
-	        )
-	      ) : null;
-	    }
-	  }]);
-
-	  return Block4;
-	}(_react2.default.Component);
-
-	exports.default = Block4;
-
-
-	Block4.propTypes = {
-	  data: _react2.default.PropTypes.object,
-	  style: _react2.default.PropTypes.object
-	};
-
-/***/ },
-/* 284 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","sideSwipe":"style__sideSwipe___13jwX","button1":"style__button1___1pbIc","button2":"style__button2___1FucC","button3":"style__button3___1uWcc","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title3":"style__title3___L0OLC","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","mainbanner":"style__mainbanner___21nfH","svg":"style__svg___3Smom"};
-
-/***/ },
 /* 285 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _lodash = __webpack_require__(210);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _listShow = __webpack_require__(286);
-
-	var _listShow2 = _interopRequireDefault(_listShow);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
-
-
-	var Block6 = function (_React$Component) {
-	  _inherits(Block6, _React$Component);
-
-	  function Block6() {
-	    _classCallCheck(this, Block6);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block6).apply(this, arguments));
-	  }
-
-	  _createClass(Block6, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props;
-	      var data = _props.data;
-	      var showListItem = _props.showListItem;
-
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        { className: 'container-fluid' },
-	        _react2.default.createElement(_listShow2.default, { data: data, item: showListItem })
-	      ) : null;
-	    }
-	  }]);
-
-	  return Block6;
-	}(_react2.default.Component);
-
-	exports.default = Block6;
-
-
-	Block6.propTypes = {
-	  data: _react2.default.PropTypes.object.isRequired,
-	  showListItem: _react2.default.PropTypes.string
-	};
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","button1":"style__button1___ysj8P","button2":"style__button2___3T26W","button2b":"style__button2b___2FwWn","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","button3":"style__button3___1B5ky","button3v1":"style__button3v1___1K2ga","button3v2":"style__button3v2___2cSYL","button3v3":"style__button3v3___2QAs0","button3v4":"style__button3v4___1yJWM","button3v5":"style__button3v5___19FE3","sideSwipe":"style__sideSwipe___1wQDY","bottomSwipe":"style__bottomSwipe___3FjOI","title1":"style__title1___36WkF","titleC":"style__titleC___3Juam","titleE":"style__titleE___3vfVE","title2":"style__title2___21MoW","title3":"style__title3___WdO4l","title4":"style__title4___3vPE_","title5":"style__title5___1hZAj","title6":"style__title6___3ZgkO","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph1b":"style__paragraph1b___3yolC","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbannerC":"style__mainbannerC___1dg2G","mainbannerE":"style__mainbannerE___2wqi4"};
 
 /***/ },
 /* 286 */
@@ -44043,15 +43936,224 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _list = __webpack_require__(287);
+	var _sanitize = __webpack_require__(280);
+
+	var _sanitize2 = _interopRequireDefault(_sanitize);
+
+	var _carousel = __webpack_require__(270);
+
+	var _carousel2 = _interopRequireDefault(_carousel);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(287);
+
+	var Block4 = function (_React$Component) {
+	  _inherits(Block4, _React$Component);
+
+	  function Block4() {
+	    _classCallCheck(this, Block4);
+
+	    return _possibleConstructorReturn(this, (Block4.__proto__ || Object.getPrototypeOf(Block4)).apply(this, arguments));
+	  }
+
+	  _createClass(Block4, [{
+	    key: 'renderItems',
+	    value: function renderItems(data) {
+	      if (_lodash2.default.isArray(data) && data.length) {
+	        return data.map(function (item, index) {
+	          var className = index === 0 ? 'active' : '';
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'item ' + className, key: index },
+	            _react2.default.createElement(
+	              'h3',
+	              { className: style.title },
+	              item.title
+	            ),
+	            _react2.default.createElement('div', { className: style.paragraph, dangerouslySetInnerHTML: (0, _sanitize2.default)(item.content) })
+	          );
+	        });
+	      }
+	      return null;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props$data = this.props.data;
+	      var images = _props$data.images;
+	      var slides = _props$data.slides;
+
+	      var carouselClasses = {
+	        inner: style.inner,
+	        controls: {
+	          base: style.controls,
+	          prev: style.prev,
+	          next: style.next
+	        },
+	        indicator: {
+	          base: style.indicators,
+	          active: style.active
+	        }
+	      };
+	      var imgUrl = images.image1.src ? images.image1.src.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : images.image1.src;
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        { className: style.wrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-6 col-xs-12' },
+	              _react2.default.createElement('img', { className: style.image, src: imgUrl, alt: images.image1.alt })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-6 col-xs-12' },
+	              _react2.default.createElement(
+	                _carousel2.default,
+	                { id: 'carousel-about-block-4', interval: 8000, controls: false, classes: carouselClasses },
+	                this.renderItems(slides)
+	              )
+	            )
+	          )
+	        )
+	      ) : null;
+	    }
+	  }]);
+
+	  return Block4;
+	}(_react2.default.Component);
+
+	exports.default = Block4;
+
+
+	Block4.propTypes = {
+	  data: _react2.default.PropTypes.object,
+	  style: _react2.default.PropTypes.object
+	};
+
+/***/ },
+/* 287 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","button1":"style__button1___1pbIc","button2":"style__button2___1FucC","button2b":"style__button2b___2FsuG","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","button3":"style__button3___1uWcc","button3v1":"style__button3v1___2s-Yj","button3v2":"style__button3v2___2VAH8","button3v3":"style__button3v3___iwEeg","button3v4":"style__button3v4___3wMtL","button3v5":"style__button3v5___2ieFT","sideSwipe":"style__sideSwipe___13jwX","bottomSwipe":"style__bottomSwipe___2_85D","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title3":"style__title3___L0OLC","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title":"style__title___2_j9U","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph1b":"style__paragraph1b___2rvU9","paragraph":"style__paragraph___2RMic","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","wrapper":"style__wrapper___3B2lE","indicators":"style__indicators___3yzgC"};
+
+/***/ },
+/* 288 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _lodash = __webpack_require__(210);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _listShow = __webpack_require__(289);
+
+	var _listShow2 = _interopRequireDefault(_listShow);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(293);
+
+	var Block6 = function (_React$Component) {
+	  _inherits(Block6, _React$Component);
+
+	  function Block6() {
+	    _classCallCheck(this, Block6);
+
+	    return _possibleConstructorReturn(this, (Block6.__proto__ || Object.getPrototypeOf(Block6)).apply(this, arguments));
+	  }
+
+	  _createClass(Block6, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var data = _props.data;
+	      var showListItem = _props.showListItem;
+
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        { className: style.wrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(_listShow2.default, { data: data, item: showListItem, style: style })
+	        )
+	      ) : null;
+	    }
+	  }]);
+
+	  return Block6;
+	}(_react2.default.Component);
+
+	exports.default = Block6;
+
+
+	Block6.propTypes = {
+	  data: _react2.default.PropTypes.object.isRequired,
+	  showListItem: _react2.default.PropTypes.string
+	};
+
+/***/ },
+/* 289 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _lodash = __webpack_require__(210);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _list = __webpack_require__(290);
 
 	var _list2 = _interopRequireDefault(_list);
 
-	var _show = __webpack_require__(289);
+	var _show = __webpack_require__(292);
 
 	var _show2 = _interopRequireDefault(_show);
 
-	var _slug = __webpack_require__(288);
+	var _slug = __webpack_require__(291);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -44069,7 +44171,7 @@
 	  function ListShow() {
 	    _classCallCheck(this, ListShow);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ListShow).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (ListShow.__proto__ || Object.getPrototypeOf(ListShow)).apply(this, arguments));
 	  }
 
 	  _createClass(ListShow, [{
@@ -44091,6 +44193,7 @@
 	      var _props = this.props;
 	      var data = _props.data;
 	      var item = _props.item;
+	      var style = _props.style;
 
 	      var itemInfo = this.getItemInfo(data.items, item);
 	      return _react2.default.createElement(
@@ -44101,18 +44204,18 @@
 	          { className: 'row' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-6 col-xs-6' },
+	            { className: 'col-sm-5 col-xs-12' },
 	            _react2.default.createElement(
 	              'h2',
-	              null,
+	              { className: style.title },
 	              'Conoce a nuestro staff'
 	            ),
-	            _react2.default.createElement(_list2.default, { data: data, item: item })
+	            _react2.default.createElement(_list2.default, { data: data, item: item, style: style })
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-6 col-xs-6' },
-	            _react2.default.createElement(_show2.default, { data: itemInfo })
+	            { className: 'col-sm-6 col-sm-offset-1 col-xs-12' },
+	            _react2.default.createElement(_show2.default, { items: data.items, data: itemInfo, style: style })
 	          )
 	        )
 	      );
@@ -44127,11 +44230,12 @@
 
 	ListShow.propTypes = {
 	  data: _react2.default.PropTypes.object.isRequired,
-	  item: _react2.default.PropTypes.string
+	  item: _react2.default.PropTypes.string,
+	  style: _react2.default.PropTypes.object
 	};
 
 /***/ },
-/* 287 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44152,7 +44256,11 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _slug = __webpack_require__(288);
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	var _slug = __webpack_require__(291);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -44170,23 +44278,29 @@
 	  function List() {
 	    _classCallCheck(this, List);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(List).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).apply(this, arguments));
 	  }
 
 	  _createClass(List, [{
 	    key: 'renderItems',
-	    value: function renderItems(data, sectionUrl, itemUrl) {
+	    value: function renderItems(data, sectionUrl, itemUrl, style) {
 	      if (_lodash2.default.isArray(data) && data.length) {
 	        return data.map(function (item, index) {
 	          var slug = (0, _slug2.default)(item.title);
-	          var className = slug === itemUrl ? 'active' : '';
+	          var className = '';
+	          if (!itemUrl && index === 0) {
+	            className = style.active;
+	          } else if (slug === itemUrl) {
+	            className = style.active;
+	          }
 	          return _react2.default.createElement(
 	            'div',
-	            { key: index },
+	            { key: index, className: style.item },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
 	              { className: className, to: '/' + sectionUrl + '/' + slug, title: item.title },
-	              item.title
+	              item.title,
+	              _react2.default.createElement(_svg2.default, { network: 'arrow_right', className: style.svg })
 	            )
 	          );
 	        });
@@ -44198,11 +44312,12 @@
 	      var _props = this.props;
 	      var data = _props.data;
 	      var item = _props.item;
+	      var style = _props.style;
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        this.renderItems(data.items, data.sectionUrl, item)
+	        this.renderItems(data.items, data.sectionUrl, item, style)
 	      );
 	    }
 	  }]);
@@ -44215,11 +44330,12 @@
 
 	List.propTypes = {
 	  data: _react2.default.PropTypes.object.isRequired,
-	  item: _react2.default.PropTypes.string
+	  item: _react2.default.PropTypes.string,
+	  style: _react2.default.PropTypes.object
 	};
 
 /***/ },
-/* 288 */
+/* 291 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -44250,217 +44366,6 @@
 	};
 
 /***/ },
-/* 289 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _lodash = __webpack_require__(210);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Show = function (_React$Component) {
-	  _inherits(Show, _React$Component);
-
-	  function Show() {
-	    _classCallCheck(this, Show);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Show).apply(this, arguments));
-	  }
-
-	  _createClass(Show, [{
-	    key: 'renderItems',
-	    value: function renderItems(data) {
-	      if (_lodash2.default.isArray(data) && data.length) {
-	        return data.map(function (item, index) {
-	          return _react2.default.createElement(
-	            'p',
-	            { key: index },
-	            item
-	          );
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var data = this.props.data;
-
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-sm-6 col-xs-12' },
-	            _react2.default.createElement('img', { src: data.image, alt: data.title })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-sm-6 col-xs-12' },
-	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              data.subtitle
-	            ),
-	            _react2.default.createElement(
-	              'p',
-	              null,
-	              data.intro
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              this.renderItems(data.content)
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Show;
-	}(_react2.default.Component);
-
-	exports.default = Show;
-
-
-	Show.propTypes = {
-	  data: _react2.default.PropTypes.object.isRequired
-	};
-
-/***/ },
-/* 290 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _lodash = __webpack_require__(210);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _carousel = __webpack_require__(273);
-
-	var _carousel2 = _interopRequireDefault(_carousel);
-
-	var _sanitize = __webpack_require__(277);
-
-	var _sanitize2 = _interopRequireDefault(_sanitize);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
-
-
-	var style = __webpack_require__(291);
-
-	var Block7 = function (_React$Component) {
-	  _inherits(Block7, _React$Component);
-
-	  function Block7() {
-	    _classCallCheck(this, Block7);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block7).apply(this, arguments));
-	  }
-
-	  _createClass(Block7, [{
-	    key: 'renderItems',
-	    value: function renderItems(data) {
-	      if (_lodash2.default.isArray(data) && data.length) {
-	        return data.map(function (item, index) {
-	          var className = index === 0 ? 'active' : '';
-	          return _react2.default.createElement(
-	            'div',
-	            { className: 'item ' + className, key: index },
-	            _react2.default.createElement('div', { dangerouslySetInnerHTML: (0, _sanitize2.default)(item.content) })
-	          );
-	        });
-	      }
-	      return null;
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var slides = _props$data.slides;
-
-	      var carouselClasses = {
-	        inner: style.inner,
-	        controls: {
-	          base: style.controls,
-	          prev: style.prev,
-	          next: style.next
-	        }
-	      };
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        { className: 'container-fluid' },
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          titles.title1
-	        ),
-	        _react2.default.createElement(
-	          _carousel2.default,
-	          { id: 'carousel-about-block-7', interval: 8000, controls: false, indicators: false, classes: carouselClasses },
-	          this.renderItems(slides)
-	        )
-	      ) : null;
-	    }
-	  }]);
-
-	  return Block7;
-	}(_react2.default.Component);
-
-	exports.default = Block7;
-
-
-	Block7.propTypes = {
-	  data: _react2.default.PropTypes.object.isRequired
-	};
-
-/***/ },
-/* 291 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
 /* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -44480,213 +44385,131 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
+	var _imageUtil = __webpack_require__(269);
+
+	var _slug = __webpack_require__(291);
+
+	var _slug2 = _interopRequireDefault(_slug);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var Show = function (_React$Component) {
+	  _inherits(Show, _React$Component);
 
-	// const style = require('./style.scss');
+	  function Show() {
+	    _classCallCheck(this, Show);
 
-	var Block7 = function (_React$Component) {
-	  _inherits(Block7, _React$Component);
-
-	  function Block7() {
-	    _classCallCheck(this, Block7);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block7).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Show.__proto__ || Object.getPrototypeOf(Show)).apply(this, arguments));
 	  }
 
-	  _createClass(Block7, [{
+	  _createClass(Show, [{
+	    key: 'renderItems',
+	    value: function renderItems(data) {
+	      if (_lodash2.default.isArray(data) && data.length) {
+	        return data.map(function (item, index) {
+	          if (_lodash2.default.isArray(item)) {
+	            var bullets = item.map(function (line, index2) {
+	              return _react2.default.createElement(
+	                'li',
+	                { key: index2 },
+	                line
+	              );
+	            });
+	            return _react2.default.createElement(
+	              'ul',
+	              { key: index },
+	              bullets
+	            );
+	          }
+	          return _react2.default.createElement(
+	            'p',
+	            { key: index },
+	            item
+	          );
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'renderIds',
+	    value: function renderIds(data) {
+	      return data.map(function (item, index) {
+	        var id = (0, _slug2.default)(item.title);
+	        return _react2.default.createElement('span', { id: id, key: index });
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var buttons = _props$data.buttons;
+	      var _props = this.props;
+	      var data = _props.data;
+	      var style = _props.style;
+	      var items = _props.items;
 
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	      var imgUrl = (0, _imageUtil.normalizeImageUrl)(data.image);
+	      return _react2.default.createElement(
 	        'div',
-	        { className: 'container-fluid' },
+	        null,
+	        this.renderIds(items),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-4 col-xs-12' },
+	            { className: 'col-sm-6 col-xs-12' },
+	            _react2.default.createElement('img', { className: style.image, src: imgUrl, alt: data.title })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-sm-6 col-xs-12' },
 	            _react2.default.createElement(
 	              'h3',
-	              null,
-	              titles.title1
+	              { className: style.subtitle },
+	              data.subtitle
 	            ),
 	            _react2.default.createElement(
-	              'a',
-	              { href: buttons.button1.href, title: buttons.button1.title, target: '_blank' },
-	              'DESCARGAR'
+	              'p',
+	              { className: style.content },
+	              data.intro
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-4 col-xs-12' },
+	            { className: 'col-xs-12' },
 	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              titles.title2
-	            ),
-	            _react2.default.createElement(
-	              'a',
-	              { href: buttons.button2.href, title: buttons.button2.title, target: '_blank' },
-	              'DESCARGAR'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-sm-4 col-xs-12' },
-	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              titles.title3
-	            ),
-	            _react2.default.createElement(
-	              'a',
-	              { href: buttons.button3.href, title: buttons.button3.title, target: '_blank' },
-	              'DESCARGAR'
+	              'div',
+	              { className: style.content },
+	              this.renderItems(data.content)
 	            )
 	          )
 	        )
-	      ) : null;
+	      );
 	    }
 	  }]);
 
-	  return Block7;
+	  return Show;
 	}(_react2.default.Component);
 
-	exports.default = Block7;
+	exports.default = Show;
 
 
-	Block7.propTypes = {
-	  data: _react2.default.PropTypes.object.isRequired
+	Show.propTypes = {
+	  data: _react2.default.PropTypes.object.isRequired,
+	  style: _react2.default.PropTypes.object,
+	  items: _react2.default.PropTypes.array
 	};
 
 /***/ },
 /* 293 */
 /***/ function(module, exports) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	/* eslint max-len: [2, 500, 4] */
-	exports.default = {
-	  title: 'Conoce a nuestro staff',
-	  sectionUrl: 'escuela',
-	  items: [{
-	    title: 'GLORIA ZUÑIGA',
-	    subtitle: 'GLORIA ZUÑIGA DE WHEBER',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'ALICIA LUNA',
-	    subtitle: 'ALICIA LUNA',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'MILY WEHBER',
-	    subtitle: 'MILY WEHBER',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'ALEJANDRA GUTIERRÉZ',
-	    subtitle: 'ALEJANDRA GUTIERRÉZ',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'GABY LUNA',
-	    subtitle: 'GABY LUNA',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'TANIA ADAME',
-	    subtitle: 'TANIA ADAME',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'RHONAL RUVALCABA',
-	    subtitle: 'RHONAL RUVALCABA',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'DELIA DE LA TORRE',
-	    subtitle: 'DELIA DE LA TORRE',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'CORINA PERAZA',
-	    subtitle: 'CORINA PERAZA',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'CLAUDIA LUNA',
-	    subtitle: 'CLAUDIA LUNA',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'JESSICA TAMEZ',
-	    subtitle: 'JESSICA TAMEZ',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'BÁRBARA MARTÍNEZ',
-	    subtitle: 'BÁRBARA MARTÍNEZ',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'MAYRA JIMÉNEZ',
-	    subtitle: 'MAYRA JIMÉNEZ',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'LILIAN ARMENTA',
-	    subtitle: 'LILIAN ARMENTA',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'VICKY SAENZ',
-	    subtitle: 'VICKY SAENZ',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'ROSALINA CAZAREZ',
-	    subtitle: 'ROSALINA CAZAREZ',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }, {
-	    title: 'VERÓNICA FLORES',
-	    subtitle: 'VERÓNICA FLORES',
-	    intro: '15 años de experiencia',
-	    image: '/images/placeholder.png',
-	    content: ['Gloria inició sus clases de baile con la maestra Sandra Araiza desde que tenía tan sólo tres años. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Téc- nica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certi- ficó como Maestra de Aerobics por ISAT (Institute School of Aerobic Train- ing) y en 1992 se graduó como Licenciada en Danza en San Diego State University, donde participó durante 4 años en la compañía de esta Univer- sidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet “Cascanueces” en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que en verano de 2001 asistió al GUS (Giordiano Workshop) en Monterrey, N.L., y en 2006 tomó el curso para maestras en la escuela y compañía “Broadway Dance Center” de Nueva York.', 'Continúa tomando clases de ballet con la maestra Ma. del Carmen Padrón y asiste a cursos de jazz en la Academia de Performing Arts y Culture Shock en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.']
-	  }]
-	};
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___5Hdev","vCenter":"style__vCenter___2R7xI","item":"style__item___19454","svg":"style__svg___3EKSG","vCenterRel":"style__vCenterRel___1n4Yk","hCenter":"style__hCenter___3Hr8B","inheritHeight":"style__inheritHeight___1S0fd","hideOverflow":"style__hideOverflow___ABBe6","icon-sprites":"style__icon-sprites___3FKSV","title1":"style__title1___3gJwS","title2":"style__title2___2UYID","title3":"style__title3___AphF6","subtitle":"style__subtitle___eiDqf","title4":"style__title4___VjkpC","title5":"style__title5___1rO0v","title6":"style__title6___19b6v","title":"style__title___2v8uo","title7":"style__title7___3lYX3","title8":"style__title8___2nnP7","paragraph1":"style__paragraph1___27lCC","paragraph1b":"style__paragraph1b___kWEkR","content":"style__content___2WHKr","paragraph2":"style__paragraph2___1Cp7R","paragraph3":"style__paragraph3___1gcAp","paragraph4":"style__paragraph4___3OSxZ","paragraph5":"style__paragraph5___2ND05","wrapper":"style__wrapper___2dGti","active":"style__active___2EtVR","image":"style__image___2RETE"};
 
 /***/ },
 /* 294 */
@@ -44708,106 +44531,11 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _block = __webpack_require__(295);
-
-	var _block2 = _interopRequireDefault(_block);
-
-	var _block3 = __webpack_require__(276);
-
-	var _block4 = _interopRequireDefault(_block3);
-
-	var _block5 = __webpack_require__(297);
-
-	var _block6 = _interopRequireDefault(_block5);
-
-	var _block7 = __webpack_require__(299);
-
-	var _block8 = _interopRequireDefault(_block7);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
-
-
-	var style = __webpack_require__(301);
-
-	var ProductsSection = function (_React$Component) {
-	  _inherits(ProductsSection, _React$Component);
-
-	  function ProductsSection() {
-	    _classCallCheck(this, ProductsSection);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ProductsSection).apply(this, arguments));
-	  }
-
-	  _createClass(ProductsSection, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props$data = this.props.data;
-	      var block1 = _props$data.block1;
-	      var block2 = _props$data.block2;
-	      var block3 = _props$data.block3;
-	      var block4 = _props$data.block4;
-	      var block5 = _props$data.block5;
-	      var block6 = _props$data.block6;
-
-	      var block2Styles = {
-	        wrapper: style.wrapper
-	      };
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(_block2.default, { data: block1 }),
-	        _react2.default.createElement(_block4.default, { data: block2, classes: 'col-xs-12 col-sm-8 col-sm-offset-2', style: block2Styles }),
-	        _react2.default.createElement(_block6.default, { data: block3, sliderId: 'main-carousel-livingroom' }),
-	        _react2.default.createElement(_block6.default, { data: block4, sliderId: 'main-carousel-dining' }),
-	        _react2.default.createElement(_block6.default, { data: block5, sliderId: 'main-carousel-bedroom' }),
-	        _react2.default.createElement(_block8.default, { data: block6 })
-	      ) : null;
-	    }
-	  }]);
-
-	  return ProductsSection;
-	}(_react2.default.Component);
-
-	exports.default = ProductsSection;
-
-
-	ProductsSection.propTypes = {
-	  data: _react2.default.PropTypes.object
-	};
-
-/***/ },
-/* 295 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _lodash = __webpack_require__(210);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _reactRouter = __webpack_require__(160);
-
-	var _carousel = __webpack_require__(273);
+	var _carousel = __webpack_require__(270);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
-	var _sanitize = __webpack_require__(277);
+	var _sanitize = __webpack_require__(280);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -44820,205 +44548,31 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(296);
+	var style = __webpack_require__(295);
 
-	var Block1 = function (_React$Component) {
-	  _inherits(Block1, _React$Component);
+	var Block7 = function (_React$Component) {
+	  _inherits(Block7, _React$Component);
 
-	  function Block1() {
-	    _classCallCheck(this, Block1);
+	  function Block7() {
+	    _classCallCheck(this, Block7);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block1).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block7.__proto__ || Object.getPrototypeOf(Block7)).apply(this, arguments));
 	  }
 
-	  _createClass(Block1, [{
+	  _createClass(Block7, [{
 	    key: 'renderItems',
 	    value: function renderItems(data) {
 	      if (_lodash2.default.isArray(data) && data.length) {
 	        return data.map(function (item, index) {
 	          var className = index === 0 ? 'active' : '';
-	          var imgUrl = item.image.length ? item.image.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : '/images/demo.png';
-
-	          return _react2.default.createElement('div', { className: 'item ' + style.slide + ' ' + className + ' ' + (style.item || ''), key: index, style: { backgroundImage: 'url("' + imgUrl + '");"' } });
-	        });
-	      }
-	      return null;
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props$data = this.props.data;
-	      var slides = _props$data.slides;
-	      var titles = _props$data.titles;
-	      var paragraphs = _props$data.paragraphs;
-	      var buttons = _props$data.buttons;
-
-	      var carouselClasses = {
-	        inner: style.inner,
-	        controls: {
-	          base: style.controls,
-	          prev: style.prev,
-	          next: style.next,
-	          arrow: style.arrow
-	        }
-	      };
-	      return _lodash2.default.isArray(slides) && slides.length && titles ? _react2.default.createElement(
-	        'div',
-	        { className: style.bannerContainer },
-	        _react2.default.createElement(
-	          _carousel2.default,
-	          { id: 'main-carousel2', interval: 8000, indicators: false, classes: carouselClasses },
-	          this.renderItems(slides)
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-xs-12 col-sm-5' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: style.overbanner },
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: style.vCenter },
-	                  _react2.default.createElement(
-	                    'h1',
-	                    { className: style.title },
-	                    titles.title1
-	                  ),
-	                  _react2.default.createElement(
-	                    'h2',
-	                    { className: style.subtitle },
-	                    titles.title2
-	                  ),
-	                  _react2.default.createElement('p', { className: style.paragraph, dangerouslySetInnerHTML: (0, _sanitize2.default)(paragraphs.paragraph1) }),
-	                  _react2.default.createElement(
-	                    _reactRouter.Link,
-	                    { className: style.button, to: buttons.button1.href, title: buttons.button1.title },
-	                    buttons.button1.title
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        )
-	      ) : null;
-	    }
-	  }]);
-
-	  return Block1;
-	}(_react2.default.Component);
-
-	exports.default = Block1;
-
-
-	Block1.propTypes = {
-	  data: _react2.default.PropTypes.object
-	};
-
-/***/ },
-/* 296 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1j0pv","vCenter":"style__vCenter___2KQFQ","vCenterRel":"style__vCenterRel___34eYy","hCenter":"style__hCenter___1Lkdf","inheritHeight":"style__inheritHeight___1q40G","hideOverflow":"style__hideOverflow___DrxCZ","icon-sprites":"style__icon-sprites___3tV9U","sideSwipe":"style__sideSwipe___1FVlo","button1":"style__button1___3ZmPV","button":"style__button___1lbNE","button2":"style__button2___2shnn","button3":"style__button3___3VbYO","title1":"style__title1___1gW4S","title2":"style__title2___2Tj1e","title4":"style__title4___3J4Je","title5":"style__title5___2Nimp","title6":"style__title6___1J_L3","title":"style__title___SyWrl","title3":"style__title3___1HOPW","title7":"style__title7___2tzA4","subtitle":"style__subtitle___28u9N","title8":"style__title8___2p7DZ","paragraph1":"style__paragraph1___3jelK","paragraph2":"style__paragraph2___3QqbA","paragraph":"style__paragraph___2nuu4","paragraph3":"style__paragraph3___2muKz","paragraph4":"style__paragraph4___1geTk","paragraph5":"style__paragraph5___30-m9","slide":"style__slide___1g7hl","overbanner":"style__overbanner___2RmA_","controls":"style__controls___MnoRe","bannerContainer":"style__bannerContainer___1enrP"};
-
-/***/ },
-/* 297 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _lodash = __webpack_require__(210);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _reactRouter = __webpack_require__(160);
-
-	var _carousel = __webpack_require__(273);
-
-	var _carousel2 = _interopRequireDefault(_carousel);
-
-	var _sanitize = __webpack_require__(277);
-
-	var _sanitize2 = _interopRequireDefault(_sanitize);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
-
-
-	var style = __webpack_require__(298);
-
-	var Block3 = function (_React$Component) {
-	  _inherits(Block3, _React$Component);
-
-	  function Block3() {
-	    _classCallCheck(this, Block3);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block3).apply(this, arguments));
-	  }
-
-	  _createClass(Block3, [{
-	    key: 'renderItems',
-	    value: function renderItems(data) {
-	      if (_lodash2.default.isArray(data) && data.length) {
-	        return data.map(function (item, index) {
-	          var className = index === 0 ? 'active' : '';
-	          var imgUrl = item.image.length ? item.image.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : '/images/demo.png';
 	          return _react2.default.createElement(
 	            'div',
-	            { className: 'item ' + className + ' ' + (style.item || ''), key: index },
+	            { className: 'item col-sm-10 col-sm-offset-1 ' + className, key: index },
+	            _react2.default.createElement('p', { className: style.paragraph, dangerouslySetInnerHTML: (0, _sanitize2.default)(item.content) }),
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'container-fluid ' + style.wrapper },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'row' },
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'col-xs-12 col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1 ' },
-	                  _react2.default.createElement('img', { className: style.image, src: imgUrl, alt: item.title }),
-	                  _react2.default.createElement('hr', { className: style.hr })
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'col-xs-12 col-sm-4 col-sm-offset-2 col-md-5 col-md-offset-1' },
-	                  _react2.default.createElement(
-	                    'h3',
-	                    { className: style.subtitle },
-	                    item.title
-	                  ),
-	                  _react2.default.createElement('p', { dangerouslySetInnerHTML: (0, _sanitize2.default)(item.content), className: style.paragraph })
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'col-xs-12 col-sm-4 col-md-5' },
-	                  _react2.default.createElement(
-	                    _reactRouter.Link,
-	                    { to: item.button_url, title: item.button_title, className: style.button },
-	                    item.button_title
-	                  )
-	                )
-	              )
+	              'p',
+	              { className: style.author },
+	              item.title
 	            )
 	          );
 	        });
@@ -45028,10 +44582,9 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var sliderId = this.props.sliderId;
 	      var _props$data = this.props.data;
-	      var slides = _props$data.slides;
 	      var titles = _props$data.titles;
+	      var slides = _props$data.slides;
 
 	      var carouselClasses = {
 	        inner: style.inner,
@@ -45042,44 +44595,299 @@
 	          arrow: style.arrow
 	        }
 	      };
-	      return _lodash2.default.isArray(slides) && slides.length && titles ? _react2.default.createElement(
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'container-fluid' },
 	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(
-	            'h2',
-	            { className: style.title },
-	            titles.title1
-	          )
+	          'h2',
+	          { className: style.title },
+	          titles.title1
 	        ),
 	        _react2.default.createElement(
 	          _carousel2.default,
-	          { id: sliderId, interval: 8000, indicators: false, classes: carouselClasses },
+	          { id: 'carousel-about-block-7', interval: 8000, indicators: false, classes: carouselClasses },
 	          this.renderItems(slides)
 	        )
 	      ) : null;
 	    }
 	  }]);
 
-	  return Block3;
+	  return Block7;
 	}(_react2.default.Component);
 
-	exports.default = Block3;
+	exports.default = Block7;
 
 
-	Block3.propTypes = {
-	  data: _react2.default.PropTypes.object,
-	  sliderId: _react2.default.PropTypes.string.isRequired
+	Block7.propTypes = {
+	  data: _react2.default.PropTypes.object.isRequired
 	};
+
+/***/ },
+/* 295 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___1YJUo","vCenter":"style__vCenter___1XSDF","vCenterRel":"style__vCenterRel___1J02z","hCenter":"style__hCenter___2Tdv3","inheritHeight":"style__inheritHeight___fdY-6","hideOverflow":"style__hideOverflow___GHITu","icon-sprites":"style__icon-sprites___1TCxk","title1":"style__title1___3raEq","title2":"style__title2___xWuEp","title3":"style__title3___2JND3","title4":"style__title4___3VrXj","title5":"style__title5___14ULg","title6":"style__title6___3Jlc3","title":"style__title___2FxDg","title7":"style__title7___1VsjO","title8":"style__title8___1VtVb","paragraph1":"style__paragraph1___CrxJb","paragraph1b":"style__paragraph1b___f3SZQ","paragraph":"style__paragraph___2hS_M","paragraph2":"style__paragraph2___2Dt1n","author":"style__author___fROZn","paragraph3":"style__paragraph3___NvRs3","paragraph4":"style__paragraph4___1DBvl","paragraph5":"style__paragraph5___3BI-s","arrow":"style__arrow___2yiv-"};
+
+/***/ },
+/* 296 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _lodash = __webpack_require__(210);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _imageUtil = __webpack_require__(269);
+
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(297);
+
+	var Block7 = function (_React$Component) {
+	  _inherits(Block7, _React$Component);
+
+	  function Block7() {
+	    _classCallCheck(this, Block7);
+
+	    return _possibleConstructorReturn(this, (Block7.__proto__ || Object.getPrototypeOf(Block7)).apply(this, arguments));
+	  }
+
+	  _createClass(Block7, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props$data = this.props.data;
+	      var titles = _props$data.titles;
+	      var buttons = _props$data.buttons;
+
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        { className: style.wrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-4 col-xs-12' },
+	              _react2.default.createElement(
+	                'h3',
+	                { className: style.title },
+	                titles.title1
+	              ),
+	              _react2.default.createElement(
+	                'a',
+	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)(buttons.button1.href), title: buttons.button1.title, target: '_blank' },
+	                'DESCARGAR',
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-4 col-xs-12' },
+	              _react2.default.createElement(
+	                'h3',
+	                { className: style.title },
+	                titles.title2
+	              ),
+	              _react2.default.createElement(
+	                'a',
+	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)(buttons.button2.href), title: buttons.button2.title, target: '_blank' },
+	                'DESCARGAR',
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-4 col-xs-12' },
+	              _react2.default.createElement(
+	                'h3',
+	                { className: style.title },
+	                titles.title3
+	              ),
+	              _react2.default.createElement(
+	                'a',
+	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)(buttons.button3.href), title: buttons.button3.title, target: '_blank' },
+	                'DESCARGAR',
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
+	              )
+	            )
+	          )
+	        )
+	      ) : null;
+	    }
+	  }]);
+
+	  return Block7;
+	}(_react2.default.Component);
+
+	exports.default = Block7;
+
+
+	Block7.propTypes = {
+	  data: _react2.default.PropTypes.object.isRequired
+	};
+
+/***/ },
+/* 297 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___1G5oi","vCenter":"style__vCenter___3eMr-","button1":"style__button1___3rP8P","button":"style__button___138RC","button2":"style__button2___A09os","button2b":"style__button2b___7okhD","vCenterRel":"style__vCenterRel___2FPbE","hCenter":"style__hCenter___273Vb","inheritHeight":"style__inheritHeight___2w5-4","hideOverflow":"style__hideOverflow___35OAp","icon-sprites":"style__icon-sprites___3gAB_","button3":"style__button3___2H38R","button3v1":"style__button3v1___2UPHY","button3v2":"style__button3v2___21LXu","button3v3":"style__button3v3___3aio2","button3v4":"style__button3v4___1E1O4","button3v5":"style__button3v5___3OsL3","title1":"style__title1___2Hrv_","title2":"style__title2___14zdY","title3":"style__title3___wJv6I","title4":"style__title4___bi5rE","title5":"style__title5___1Jrqb","title6":"style__title6___3IfL7","title7":"style__title7___vVSgO","title8":"style__title8___23FzZ","title":"style__title___2GTcd","sideSwipe":"style__sideSwipe___2kJhL","bottomSwipe":"style__bottomSwipe___Iacpj","wrapper":"style__wrapper___3pHW-"};
 
 /***/ },
 /* 298 */
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___zkvoI","arrow":"style__arrow___YRQ8M","vCenter":"style__vCenter___1amrF","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph2":"style__paragraph2___YHIz0","paragraph":"style__paragraph___altZf","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraph5":"style__paragraph5___1IKiM","sideSwipe":"style__sideSwipe___10nak","button1":"style__button1___1wRom","button":"style__button___f4bc2","button2":"style__button2___2IfG_","button3":"style__button3___90xKI","title1":"style__title1___1ALfY","subtitle":"style__subtitle___2oUeT","title2":"style__title2___1rAMk","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title":"style__title___2mlf9","title3":"style__title3___3_np7","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","wrapper":"style__wrapper___1BJ7Q","hr":"style__hr___37AfO","controls":"style__controls___1nXQ8"};
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	/* eslint max-len: [2, 1000, 4] */
+	exports.default = {
+	  title: 'Conoce a nuestro staff',
+	  sectionUrl: 'escuela',
+	  items: [{
+	    title: 'GLORIA ZUÑIGA',
+	    subtitle: 'GLORIA ZUÑIGA DE WHEBER',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/s02dsqogkixpk4x/Img-Gloria-Zuniga.png?dl=0',
+	    content: ['Gloria inició sus clases de baile a los 3 años de edad en las disciplinas de ballet y jazz con la maestra Sandra Araiza. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Técnica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certificó como Maestra de Aerobics por ISAT (Institute School of Aerobic Training) y en 1992 se graduó en la Universidad de San Diego State como Licenciada en Danza donde participó durante 4 años en la compañía de esta Universidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet "Cascanueces" en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que a tomado cursos como:', ['GUS (Giordiano Workshop) en Monterrey, N.L. en 2001', 'Curso para maestros en la escuela "Broadway Dance Center" de Nueva York en 2006.', 'The Pulse en los Angeles C.A EN 2009', 'Nuvo workshop en Long Beach en 2014', 'Jump workshop en Monterrey, Nuevo León en 2015', 'Curso de Anatomía aplicado a maestros de Danza en 2016'], 'En el año 2014 funda junto con Alicia Luna el grupo  Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.', 'Gloria continúa tomando clases de ballet y asiste a cursos de jazz en la Academia de Performing Arts  en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.', 'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 29 años.']
+	  }, {
+	    title: 'ALICIA LUNA',
+	    subtitle: 'ALICIA LUNA',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/3b1zex2m6csljia/Img_Alicia-Luna.png?dl=0',
+	    content: ['Lichita inició su preparación en la Academia de Sandra Araiza y posteriormente en la Escuela de Danza Gloria Campobello. Fue así que formó su destino en esta disciplina para convertirse en maestra de danza y posteriormente cofundadora y directora de la Escuela de Danza Pavlova fundada en el año de 1987.', 'Mientras estuvo en la escuela Campobello, disfrutaba al máximo sus clases como alumna y asistente, donde después de 3 años logró certificarse como Maestra en Técnica de Danza.', 'En el 2014 fundó, junto con Gloria Zuñiga, el grupo Pas de Chat. Este grupo esta integrado por alumnas destacadas de la escuela de danza Pavlova, quienes representan con orgullo y talento a la escuela en distintas competencias de nivel nacional e internacional.', 'Buscando siempre estar actualizada y comprometida con su carrera ha tomado cursos como:', ['Curso de Metodología de la Danza 2014 – Tijuana B.C.', 'Dance Teachers Summit 2015 – Irvine CA.', 'Dance Makers 2015 – Los Ángeles CA.', 'Iniciación a la Danza 2015 – Tijuana B.C.', 'Curso de Anatomía aplicado a maestros de Danza en 2016 – Tijuana B.C.', 'Actualmente se sigue preparando con clases de Ballet Clásico.'], 'El tiempo y la entrega que Lichita dedica a sus alumnas, representan la oportunidad de edificar y promover orden, disciplina y convivencia, teniendo como propósito el fomentar los valores que las acompañarán toda su vida, no sólo como un bonito recuerdo, sino como parte de su formación como personas.']
+	  }, {
+	    title: 'MILY WEHBER',
+	    subtitle: 'MILY WEHBER',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/mdw3idb1vbek96z/Img-Mily-Wehber.png?dl=0',
+	    content: ['Ana Emely Wehber Barreiro, inicia sus estudios a los 4 años de edad en la escuela de danza Gloria Campobello, logrando obtener el título de Técnico en Danza. A los 16 años empieza como asistente de maestra y un año mas tarde la escuela de danza "Nandielo", dandole la oportunidad de dar clases como maestra. Participó como alumna y maestra en la escuela de Danza "Betty Gándara" por 4 años, simultáneamente tomó clases de danza en San Diego State University con maestros como Kelly Grant (Jazz) , George Willis (Contemporáneo). Tomó cursos de Stage 7, Threes Compony y  APA, (Academy of Performing Arts). Workshop de Gus Giordano en Monterrey, ademéas de asistir en Los Angeles CA. con Joe Tremaines, Musicwork Shop, The Pulse. Recientemente participo en Palooza y Novu en Long Beach, CA. con el maestro Yannis Marshall y 24/7 Workshop.', 'Ha participado en el Carnaval Antifaz Fundación Luz, como coreógrafa en el 2012 y 2013, obteniendo el premio de la mejor coreografía en el 2012.', 'Empezó a dar clases en la escuela de danza Pavlova, desde que esta abrió sus puertas.', '"Mi gran pasión es ser maestra de danza... Ver a mis alumnas crecer, como bailarinas, como disfrutan sus clases, transmitirles el amor por la danza, la constancia , diciplina, ver como logran sus metas, y saber que tu eres parte de estos logros, es una de mis más grandes satisfacciones en la vida." – Miss Mily']
+	  }, {
+	    title: 'ALEJANDRA GUTIERRÉZ',
+	    subtitle: 'ALEJANDRA GUTIERRÉZ',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/r81hjmxo9niz3pf/Img-Alejandra-Gutierrez.png?dl=0',
+	    content: ['Inicio sus estudios a la edad de 3 años en el colegio de danza Sylvia bajo la dirección de la maestra Silvia Elena Martínez, estudio ahí por más de 15 años en las disciplinas de Jazz, Ballet y Tap, donde tuvo la oportunidad de asistir a varios cursos como NYCDA, Tremaine y Al Gilbert. Fue asistente en la disciplina de Tap.', 'A la edad de 16 años empezó siendo maestra y asistente en la escuela de danza Ancheyta dando clases de tap y jazz.', 'A los 19 empezó dando clases en la escuela de danza Pavlova Hipódromo en la disciplina de jazz. Se ha preparado en varios cursos como Dancemakers, Nuvo en long beach, Jump Monterrey, 24/7 en San diego, Dance Teacher Summit LB y DancerPalozza en Long beach.', 'Coreógrafa en la escuela de danza Coppelia donde sus alumnas obtuvieron varios primeros lugares en la competencia Dance Makers en la disciplina de lirico así como un premio especial por mejor coreografía.', 'Actualmente forma parte del equipo de trabajo de la escuela Pavlova Hipódromo y es coreógrafa del grupo de competencia Pasdechat by Pavlova con el cual ha viajado a varios concursos nacionales e internacionales, obteniendo varios primeros lugares por sus coreografías y reconocidas becas para sus alumnas, el curso más reconocido que han becado a sus alumnas es Dance Awards.', 'Es una maestra reconocida por sus coreografías tanto en jazz como en lírico en niveles intermedios y avanzados.']
+	  }, {
+	    title: 'GABY LUNA',
+	    subtitle: 'GABY LUNA',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/j8xkmek0y87lfvd/Img_Gaby-Luna.png?dl=0',
+	    content: ['Nació el 6 de Octubre de 1981 en Tijuana, inicio sus estudios de danza en la escuela de Danza Pavlova Hipódromo en 1986 a la edad de 5 años. En el año de 1998 inicio su carrera como maestra de ballet y Jazz en Pavlova. Del 2007 al 2009 fue directora y maestra de ballet y jazz en la escuela de danza Danzart – Tijuana.', 'Del 2009 al 2011 fue directora de y maestro de ballet y jazz en la escuela de danza Danzart Academy of Chula Vista Ca.', 'Cursos de Baile:', ['Gus Giordanos Workshops – Monterrey N.L. | Septiembre 2001', 'Broadway Dance Center – Nueva York  | Agosto 2007', 'Metodología de la Danza – Tijuana | Agosto 2013', 'Diversos cursos en Academy of Perdorming Arts (APA)', 'Diversos cursos en Culture Shock of San Diego Ca.']]
+	  }, {
+	    title: 'TANIA ADAME',
+	    subtitle: 'TANIA ADAME',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/s8rs8vyfju6cmic/Img-Tania-Adame.png?dl=0',
+	    content: ['Inició sus estudios de danza a los 3 años y medio en Tijuana, B. C. Egresó de la carrera de Técnico en Danza en el 2010 de la Escuela de Danza Gloria Campobello.', 'Su formación como bailarina incluye danza clásica, danza española, danza jazz, tap y danza contemporánea. Desde hace 8 años se ha dedicado a la docencia de las distintas danzas en diferentes escuelas.', 'Integrante del Grupo de Danza Minerva Tapia, ha participado en producciones como 16th Annual Noche Cultural de Estudios Chicanos en la Universidad de California Riverside, "Vive la Cultura con Todos los Sentidos" en Sinaloa, México, "Border Dancers" en la ciudad de Nueva York, diferentes ediciones de Entijuanarte, Cuerpos en tránsito y "Celebración anual de la danza" en Rosario, Argentina en el año 2011 por mencionar algunos. Fue becaria del programa Talentos Artísticos, Valores de Baja California en el ciclo 2008 – 2010 dirigido por el Instituto de Cultura de Baja California. Nombrada como una de las "13 promesas artísticas" por el periódico Frontera en el año 2005.', 'Ha asistido a varios cursos como el curso de verano impartido por el Ballet de Monterrey y la Cátedra de danza del Ballet Nacional de Cuba en La Habana.', 'Actualmente continúa su entrenamiento con clases de danza contemporánea y ballet.']
+	  }, {
+	    title: 'RHONAL RUVALCABA',
+	    subtitle: 'RHONAL RUVALCABA',
+	    intro: '',
+	    image: '/images/user_placeholder.png',
+	    content: ['Inicio sus estudios de danza a la edad de 14 años, descubriendo en ella su vocación! Su preparación abarca diversas ramas de esta disciplina, pero son el Jazz y el HipHop su mayor pasión, ganador del 1er lugar en la categoría de Jazz en Danzarte (concurso de Danza realizado anteriormente en Baja California hace ya algunos años).', 'Es Director de su propia Compañía de Danza, con la cual ha llevado su pasión y estilo a diversas partes del mundo desde Taiwan o Puerto Rico, así como a gran parte de México y E.U. como las Vegas, Miami y L.A. entre otros.']
+	  }, {
+	    title: 'DELIA DE LA TORRE',
+	    subtitle: 'DELIA DE LA TORRE',
+	    intro: '',
+	    image: '/images/user_placeholder.png',
+	    content: ['Nació el 25 de Febrero de 1984 en Tijuana, inicio sus estudios en 1988 en la Escuela de Danza Ericka, bajo la dirección de Ericka Moreno, en las disciplinas de ballet, jazz y tap. Teniendo la oportunidad de competir en Estados Unidos y Canadá desde los 9 años, en compañias como Dance America – Dance Olympus, Dance Educators of America, Danza Arte Coreografías entre otras. También a tenido la oportunidad de participar en cursos intensivos, clases magistrales, giras y clases en compañias como Dance Olympus, Tremaine, Malashock Summer Intensive, EDGE Performing Arts Center, Broadway Dance Center, West Coast Salsa Congress, Luz Boreal Summer Intensive.', 'Obtuvo varios reconocimientos y becas, de los cuales destacan "Dance of the year contestan" en Dance America 2001, 2003 y 2005, ganando una beca para asistir a Broadway Dance Center, así como el titulo Best Emotional Execution, Best Technical Execution y Overall High Score en San Diego CA y Nueva York.', '10 años de experiencia como maestra de ballet, jazz y tap, la respaldan. Actualmente es miembro de la organización Dance Educators of America, obteniendo la certificación compelta en la ciudad de de Las Vegas y Nueva York en los años 2007 y 2008, culminando en el 2010 con la certificación para impartir las diciplinas de ballet (escuela Cecchetti), tap, jazz, gimnasia y moderno.']
+	  }, {
+	    title: 'CORINA PERAZA',
+	    subtitle: 'CORINA PERAZA',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/78ttm4iz875wtir/Img-Corina-Peraza.png?dl=0',
+	    content: ['Corina es originaria de Tijuana y desde muy pequeña empezó a bailar Flamenco. Es hija de la famosa bailarina española Teresa Jaen, miembro del dueto "Teresa y Antonio Jaen". El tener a su madre como instructora, le ha ayudado a desarrollarse cada vez más a través de los años.', 'Lleva el arte en sus venas, es por ello que Corina comparte con sus estudiantes el mismo sentimiento y pasión por el baile Flamenco. Es sabido que cualquier forma de arte se transforma en comunicación, entonces, qué mejor manera de transmitirlo tan intensamente a sus estudiantes que a través del amor y pasión del baile Flamenco.']
+	  }, {
+	    title: 'CLAUDIA LUNA',
+	    subtitle: 'CLAUDIA LUNA',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/u0fp0uwjuc220wq/Img_Claudia-Luna.png?dl=0',
+	    content: ['Desde que tenia 4 años inicie en el ambito de la danza, en la Escuela de Danza Gloria Campobello. Obtuve el certificado de maestra en tecnica de danza a los 16 años.', 'La experiencia laboral ha sido en distintas instituciones como:', 'Escuela de danza Gloria  campobello,casino de Mexicali,escuela Felix de Jesus en Mexicali,Escuela Patria,escuela Francis Parker en san Diego;actualmente cuenta con 28 años de pertenecer a la escuela de danza Pavlova como maestra de Ballet.', 'Entre los certificados y cursos que obtenido son: Técnica en Danza, Gus Giordiano (2001), Music Workshop Unlimited de Al Gilbert, Tremaniine Dance convention (2004), Music workshop (2005), Stage 7 San Diego. Comparsa antifaz (2013), Escuela Nicte-Ha, Dance Teacher Summit (2015).', 'He tomado clases con diferentes profesores, como Raul Martinez Tadeo, Maria del Carmen Padron, Tatiana Chevchenko, Carla Mariscal, Alberto Terreros y Gustavo Nava.', '"El ser Maestra le permite transmitir a sus alumnas el amor a la danza por medio de la disciplina y constancia, además de sembrar en ellos la ilusión de ser bailarinas." – Miss Claudia.']
+	  }, {
+	    title: 'JESSICA TAMEZ',
+	    subtitle: 'JESSICA TAMEZ',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/d5mojxozu8lvpgn/Img_Jessica-Temez.png?dl=0',
+	    content: ['En 1988 empecé mis estudios en la Escuela de Danza Pavlova bajo la dirección de Gloria Zúñiga y Alicia Luna.  Durante 9 años. En el 2000 ingresé al Centro de Ballet y Arte, bajo la dirección de la Profesora Verónica Mendoza (Primera Bailarina de la Compañía de danza de Baja California) y Perla Orantes (Primera Solista CDBC)  En los años 2002 y 2003 participé con la Compañía de Danza de Baja California, presentándome con ellos en sus temporadas. Y en este mismo año me dieron la oportunidad de empezar a impartir clases en el Centro de Ballet y Arte a niñas de 4 a 6 años.', 'En  2003 y en el 2005 Participé como solista y en grupo  en una Competencia de Danza llevada a cabo en  la Universidad de San Diego," Spotlight Dance Cup"  calificando  para la final que se llevó a cabo en Las Vegas Nevada en esos mismos años. Del año 2006 al 2014 impartí clases en el Instituto México junto con la profesora Carmen García, combinando danza con gimnasia, a nivel primaria. 2005 al 2007 Clases de ballet en el Auditorio Municipal de Tijuana.', 'En el 2007  empiezo a ser parte del equipo Pavlova.', 'Experiencias y logros', 'Bailar en la Compañia de Baja California bajo la dirección de Raúl Martínez  Tadeo y participar en sus repertorios como: Cascanueces, Giselle, La raza de Bronce, Paquita, Orfeo, asi como El Lago de los Cisnes donde tuve la oportunidad de conocer a los   primeros bailarines de la Compañía Nacional de Danza Irma Morales y Raúl Fernández.', 'Participar en SpotLight Dance Cup, primero como bailarina, y unos años mas tarde  como coreógrafa. Asistir como alumna y maestra a los Cursos de Iniciación y Actualización de la Danza impartidos en las instalaciones del Centro de Ballet y Arte en los veranos.', 'Coordinación y participación como maestra de Ballet y Artes Plásticas del Programa Habitat de la Secretaría de Desarrollo Social Municipal de Tijuana, B.C. Octubre-enero 2006', 'Participé en el curso Internacional de danza Clásica Dance It Tijuana bajo la dirección de la maestra Nicte Ha Escobosa y tomando clases con maestros como Irma Morales y Frank Fisher', 'Asistir como coreógrafa  al festival de Gimnasia  en la Ciudad de Colima y en knott\'s Berry Farm en Dance & Cheer con las alumnas del Instituto México, así como en SpotLight dance Cup.']
+	  }, {
+	    title: 'BÁRBARA MARTÍNEZ',
+	    subtitle: 'BÁRBARA MARTÍNEZ',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/fhuqvmm5vzkg4cd/Img-Barbara-Martinez.png?dl=0',
+	    content: ['A partir de los 7años Barbara inicio sus clases de baile en la escuela Gloria Campobello. Posteriormente fue acreedora a algunos diplomas, obteniendo la Licenciatura en Danza en 1994.', 'Laboralmente cuenta con una amplia experiencia como maestra en las escuelas:  Sylvia,Gloria Campobello, Galina Ulanova,Dance Center, Academia de Ballet Playas, Marycarmen Profesionales en Danza, Mentor Mexicano, UABC, CETYS Universidad así como 14 años en Pavlova.', 'Además  de su participación  en varios cursos como: Dance Olimpus (1991), Cuballet- Mexico, Southwester, Youth Day of Dance, Cinderella (1993) Escuela Petrushka y Compañia de Danza de B.C. (1995) Gran Final DanzarteCoreografia(1996) Escuela Galina Ulanova (1996-2003), Summer Intensive City Ballet (1997), Summer Intensive Master Teachers City Ballet (1999), Gus Giordano Jazz World Congress (2001), Tremaine Dance Convention (2004) Music Works (2005) Especialidad en Pedagogía UNIVER (2005) Taller con Sofia Correa (2012) Palozza(2013)Nuvo(2014) Dance Teacher Summit(2015) Miembro AMA-Prodanza.']
+	  }, {
+	    title: 'MAYRA JIMÉNEZ',
+	    subtitle: 'MAYRA JIMÉNEZ',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/1ubs0mhib2ca80a/Img_Mayra-Jimenez.png?dl=0',
+	    content: ['Nacio el 4 de Junio del 1988. Mayra desde sus 4 años de edad comenzó a experimentar tomando clases de Jazz, y 2 años después comenzó tomando clases de ballet. Hasta la fecha sigue practicando la danza, habiendo tomado aparte de Ballet y Jazz,  clases de Contemporáneo con Miroslava Wilson y  Hip-Hop con el maestro Omar Silva dentro de la Escuela " Ballet Cámara de la Frontera" del Maestro Rafael Oseguera, habiéndose graduado como Bailarina Clásica y Contemporánea.', 'Tiene 9 años de experiencia como Maestra impartiendo clases de Jazz, Ballet, y Lirico. Habiendo concluido con cursos de Metodología para la Danza y pedagogía.', 'Asistiendo al 5to y 6to Congreso Nacional de Danza Jazz en Morelia Michoacán con maestros como: Guillermo Maldonado (barra al piso y pedagogía), Guillermina Gómez y John Lehrer (Jazz), Joshua Bergasse de Nueva York (jazz), Elvin Venegas de Nicaragua (técnica clásica – Ballet), Jermaine Browne de nueva York (hip-hop), Alexis Zanette de Cuba (danza moderna), entre otros. También a tomando el Curso Internacional de Danza Clásica "DANCE IT 2007 y 2008" con la primera Bailarina Irma Morales y Frank Fischer.', 'Posteriormente obteniendo una beca para formar parte de un grupo de baile de la escuela "Culture Shock Dance Center" en San Diego. Asistio Entre el 2014 y 2015 a un curso de Jazz  y "Hells" con Yanis Marshall (bailarin y maestro Internacional) y una Materclass de ballet con la maestra Elena Tokareva Baltovick; entre otros cursos locales.', 'Ha participado en varias obras musicales Infantiles como son "Cri-cri y la danza", "El mago de Oz", "Peter Pan", "Alicia en el país de las maravillas", como también en "La fille Mal Garde", "Graduados", "Cascanueces" y "Carmen" presentadas en el Teatro del Cecut.', 'Su objetivo es transmitir de la manera más correcta todo lo que ha aprendido de la danza, todo lo bueno que le ha dejado e inculcar en el alumnado una disciplina y amor a la danza, a la cultura, al arte, haciéndolas sentir que es una de las mejores maneras para expresar todo aquello que nuestro cuerpo siente.']
+	  }, {
+	    title: 'LILIAN ARMENTA',
+	    subtitle: 'LILIAN ARMENTA',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/qi97pgj3mlmnaz5/Img_Lilian_Armenta.png?dl=0',
+	    content: ['Coreografa y maestro con más de 23 años bailando, 8 años de experiencia como maestro de ballet, tap, jazz, hip-hop, lyrical, modern jazz, etc.', 'Certificada por el DEA (Dance Educators of America) en la ciudad de Las Vegas, Nevada.', 'Participante y ganadora de diversos premios en competencias internacionales en ciudades como: Las Vegas, Nueva York, Orlando, Los Ángeles, San Diego, San Francisco, etc. por compañias como West Coast Dance Explosion, Dance Olympus, Tremaine, Dance America y DEA.']
+	  }, {
+	    title: 'ELEANA FRANCO',
+	    subtitle: 'ELEANA FRANCO',
+	    intro: '',
+	    image: '/images/user_placeholder.png',
+	    content: ['Bailarina, coreógrafa y maestra de danza nacida en Estados Unidos. Inicio sus estudios a la edad de 2 anos en el “Colegio de Danza Sylvia” donde aprendió ballet, tap, flamenco, jazz y hip hop. Varios años después se convirtió en asistente y próximamente en maestra.', 'Participo en varias importantes obras como es “el cascanueces” junto con la compañía “Moscow ballet” en el Civic Theatre en San Diego y también junto con la “Compañía de danza de Baja California” con Raul Tadeo. También fue participe de la obra infantil “pedro y el lobo” que fue presentada en el CECUT bajo la dirección de Norma Herrera. Continuo con sus estudios en Estados Unidos en la escuela “Coronado School of the Arts” donde estudio varios cursos de historia de la danza, nutrición, improvisación, critica de la danza, coreografía entre muchos otros.', 'Actualmente se encuentra aplicando estos conocimientos como maestra y busca seguir creciendo para compartir este conocimiento con sus alumnos.']
+	  }, {
+	    title: 'ADRIANA CORAL',
+	    subtitle: 'ADRIANA CORAL',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/bw1xiq136kkzkl0/Img-Veronica-Flores.png?dl=0',
+	    content: ['Bailarina y maestra que se desarrolla profesionalmente  en el norte de México; miembro fundador de Subterráneo Danza Contemporánea desde hace 17 años, donde su misión es exponer su trabajo como intérprete y colaborador creativo en la realización de espectáculos escénicos. Mantiene una constante búsqueda del lenguaje propio a través de la investigación en diferentes técnicas dancísticas  así como la divulgación de sus conocimientos a través de la docencia, asimismo, busca mantener vínculos estrechos con otros artistas escénicos del país para fortalecer su quehacer  dancístico y contribuir a la difusión del arte.']
+	  }, {
+	    title: 'VIANCA SANTACOLOMBA',
+	    subtitle: 'VIANCA SANTACOLOMBA',
+	    intro: '',
+	    image: '/images/user_placeholder.png',
+	    content: ['La experiencia de Vianca en el mundo del baile ha sido muy significativa ya que ha desarrollado su destreza desde 1991 en las áreas de ballet, jazz y flamenco en las escuelas de danza Sylvia y Pavlova.', 'En 1994 recibió un reconocimiento por su participación en “Cascanueces” de Danz-Arte y en 2004 obtuvo un diploma del curso “Iniciación y actualización de danza” del Centro de Ballet y Arte.', 'Actualmente cuenta con un año como asistente de baile Flamenco Infantil y busca transmitir a sus alumnas la emoción tan especial que le evoca el baile, lo cual no se aprende, se lleva por dentro.']
+	  }, {
+	    title: 'VICKY SAENZ',
+	    subtitle: 'VICKY SAENZ',
+	    intro: '',
+	    image: '/images/user_placeholder.png',
+	    content: []
+	  }, {
+	    title: 'ROSALINA CAZAREZ',
+	    subtitle: 'ROSALINA CAZAREZ',
+	    intro: '',
+	    image: '/images/user_placeholder.png',
+	    content: []
+	  }]
+	};
 
 /***/ },
 /* 299 */
@@ -45097,15 +44905,25 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(160);
-
 	var _lodash = __webpack_require__(210);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _sanitize = __webpack_require__(277);
+	var _block = __webpack_require__(279);
 
-	var _sanitize2 = _interopRequireDefault(_sanitize);
+	var _block2 = _interopRequireDefault(_block);
+
+	var _block3 = __webpack_require__(272);
+
+	var _block4 = _interopRequireDefault(_block3);
+
+	var _block5 = __webpack_require__(300);
+
+	var _block6 = _interopRequireDefault(_block5);
+
+	var _block7 = __webpack_require__(296);
+
+	var _block8 = _interopRequireDefault(_block7);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45116,84 +44934,277 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(300);
+	// const style = require('./style.scss');
 
-	var Block4 = function (_React$Component) {
-	  _inherits(Block4, _React$Component);
+	var ProductsSection = function (_React$Component) {
+	  _inherits(ProductsSection, _React$Component);
 
-	  function Block4() {
-	    _classCallCheck(this, Block4);
+	  function ProductsSection(props) {
+	    _classCallCheck(this, ProductsSection);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block4).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (ProductsSection.__proto__ || Object.getPrototypeOf(ProductsSection)).call(this, props));
+
+	    _this.state = {
+	      types: ['SLIDER_CONTENT', 'CONTENT_SLIDER', 'SLIDER_CONTENT', 'CONTENT_SLIDER', 'SLIDER_CONTENT']
+	    };
+	    return _this;
 	  }
 
-	  _createClass(Block4, [{
+	  _createClass(ProductsSection, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      /*eslint-disable */
+	      this.setState({
+	        types: ['CONTENT_SLIDER', 'CONTENT_SLIDER', 'CONTENT_SLIDER', 'CONTENT_SLIDER', 'CONTENT_SLIDER']
+	      });
+	      /*eslint-enable */
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var images = _props$data.images;
-	      var paragraphs = _props$data.paragraphs;
-	      var buttons = _props$data.buttons;
+	      var block1 = _props$data.block1;
+	      var block2 = _props$data.block2;
+	      var block3 = _props$data.block3;
+	      var block4 = _props$data.block4;
+	      var block5 = _props$data.block5;
+	      var block6 = _props$data.block6;
+	      var block7 = _props$data.block7;
+	      var block8 = _props$data.block8;
+
+	      var block3Variations = {
+	        variation1: 'ballet'
+	      };
+	      var block4Variations = {
+	        variation1: 'jazz'
+	      };
+	      var block5Variations = {
+	        variation1: 'flamenco'
+	      };
+	      var block6Variations = {
+	        variation1: 'cardioDanza'
+	      };
+	      var block7Variations = {
+	        variation1: 'barre'
+	      };
+	      var types = this.state.types;
+
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement(_block2.default, { data: block1 }),
+	        _react2.default.createElement(_block4.default, { data: block2 }),
+	        _react2.default.createElement(_block6.default, { data: block3, type: types[0], variations: block3Variations }),
+	        _react2.default.createElement(_block6.default, { data: block4, type: types[1], variations: block4Variations }),
+	        _react2.default.createElement(_block6.default, { data: block5, type: types[2], variations: block5Variations }),
+	        _react2.default.createElement(_block6.default, { data: block6, type: types[3], variations: block6Variations, noControls: false }),
+	        _react2.default.createElement(_block6.default, { data: block7, type: types[4], variations: block7Variations, noControls: false }),
+	        _react2.default.createElement(_block8.default, { data: block8 })
+	      ) : null;
+	    }
+	  }]);
+
+	  return ProductsSection;
+	}(_react2.default.Component);
+
+	exports.default = ProductsSection;
+
+
+	ProductsSection.propTypes = {
+	  data: _react2.default.PropTypes.object
+	};
+
+/***/ },
+/* 300 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(160);
+
+	var _lodash = __webpack_require__(210);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _carousel = __webpack_require__(270);
+
+	var _carousel2 = _interopRequireDefault(_carousel);
+
+	var _slug = __webpack_require__(291);
+
+	var _slug2 = _interopRequireDefault(_slug);
+
+	var _imageUtil = __webpack_require__(269);
+
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(301);
+
+	var Block3 = function (_React$Component) {
+	  _inherits(Block3, _React$Component);
+
+	  function Block3() {
+	    _classCallCheck(this, Block3);
+
+	    return _possibleConstructorReturn(this, (Block3.__proto__ || Object.getPrototypeOf(Block3)).apply(this, arguments));
+	  }
+
+	  _createClass(Block3, [{
+	    key: 'getColumnSlider',
+	    value: function getColumnSlider(slides, item, noControls) {
+	      var carouselClasses = {
+	        inner: style.inner,
+	        controls: {
+	          base: style.controls,
+	          prev: style.prev,
+	          next: style.next
+	        }
+	      };
+	      var slug = (0, _slug2.default)(item);
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'col-xs-12 col-sm-6' },
+	        noControls !== false ? _react2.default.createElement(
+	          _carousel2.default,
+	          { id: 'carousel-clases-' + slug, interval: 8000, indicators: false, classes: carouselClasses },
+	          this.renderItems(slides)
+	        ) : _react2.default.createElement(
+	          _carousel2.default,
+	          { id: 'carousel-clases-' + slug, interval: 8000, indicators: false, controls: false, classes: carouselClasses },
+	          this.renderItems(slides)
+	        )
+	      );
+	    }
+	  }, {
+	    key: 'getColumnContent',
+	    value: function getColumnContent(titles, paragraphs, buttons, danceStyle) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'col-xs-12 col-sm-5' },
+	        _react2.default.createElement(
+	          'h2',
+	          { className: style.title + ' ' + style[danceStyle] },
+	          titles.title1
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: style.paragraph },
+	          paragraphs.paragraph1
+	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'container-fluid ' + style.wrapper },
+	          { className: 'row' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'row' },
+	            { className: 'col-sm-6 col-xs12' },
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-4 col-sm-offset-2 col-md-5 col-md-offset-1 col-xs-12' },
-	              _react2.default.createElement(
-	                'h2',
-	                { className: style.title },
-	                titles.title1
-	              ),
-	              _react2.default.createElement('p', { className: style.paragraph, dangerouslySetInnerHTML: (0, _sanitize2.default)(paragraphs.paragraph1) }),
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: style.button, to: buttons.button1.href },
-	                buttons.button1.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-6 col-xs-12' },
-	              _react2.default.createElement('img', { className: style.image, src: images.image1.src, alt: images.image1.alt })
+	              _reactRouter.Link,
+	              { className: style.button, to: (0, _imageUtil.normalizeImageUrl)(buttons.button1.href), target: '_blank' },
+	              buttons.button1.title,
+	              _react2.default.createElement(_svg2.default, { network: 'arrow_down' })
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-sm-6 col-xs12 ' + style.sm },
+	            buttons.button2 ? (0, _svg.getFacebookIcon)(buttons.button2.href, buttons.button2.title, style.paragraphB) : null
+	          )
+	        )
+	      );
+	    }
+	  }, {
+	    key: 'renderItems',
+	    value: function renderItems(data) {
+	      if (_lodash2.default.isArray(data) && data.length) {
+	        return data.map(function (item, index) {
+	          var className = index === 0 ? 'active' : '';
+	          var imageUrl = (0, _imageUtil.normalizeImageUrl)(item.image);
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'item ' + className + ' ' + (style.item || ''), key: index },
+	            _react2.default.createElement('img', { src: imageUrl, alt: item.title, className: style.image })
+	          );
+	        });
+	      }
+	      return null;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var data = _props.data;
+	      var type = _props.type;
+	      var variations = _props.variations;
+	      var noControls = _props.noControls;
+	      var titles = data.titles;
+	      var slides = data.slides;
+	      var paragraphs = data.paragraphs;
+	      var buttons = data.buttons;
+
+	      var sliderEl = this.getColumnSlider(slides, titles.title1, noControls);
+	      var contentEl = this.getColumnContent(titles, paragraphs, buttons, variations.variation1);
+	      var blockId = (0, _slug2.default)(titles.title1);
+
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        { id: blockId, className: style.wrapper_2 },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row ' + style.wrapper_ },
+	            type === 'SLIDER_CONTENT' ? sliderEl : contentEl,
+	            _react2.default.createElement('div', { className: 'col-sm-1 hidden-xs' }),
+	            type === 'SLIDER_CONTENT' ? contentEl : sliderEl
 	          )
 	        )
 	      ) : null;
 	    }
 	  }]);
 
-	  return Block4;
+	  return Block3;
 	}(_react2.default.Component);
 
-	exports.default = Block4;
+	exports.default = Block3;
 
 
-	Block4.propTypes = {
-	  data: _react2.default.PropTypes.object
+	Block3.propTypes = {
+	  data: _react2.default.PropTypes.object.isRequired,
+	  classes: _react2.default.PropTypes.object,
+	  type: _react2.default.PropTypes.string.isRequired,
+	  variations: _react2.default.PropTypes.object.isRequired,
+	  noControls: _react2.default.PropTypes.bool
 	};
-
-/***/ },
-/* 300 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___2OwT_","vCenter":"style__vCenter___2CepC","vCenterRel":"style__vCenterRel___3KKir","hCenter":"style__hCenter___3pCCD","inheritHeight":"style__inheritHeight___8XMfg","hideOverflow":"style__hideOverflow___3CRd7","icon-sprites":"style__icon-sprites___xUhFv","image1":"style__image1___s6jf9","image":"style__image___3_x2J","wrapper1":"style__wrapper1___QX2J1","wrapper2":"style__wrapper2___17lUu","paragraph1":"style__paragraph1___dfw1j","paragraph2":"style__paragraph2___338-V","paragraph":"style__paragraph___2V_vx","paragraph3":"style__paragraph3___3UGDB","paragraph4":"style__paragraph4___2cXGH","paragraph5":"style__paragraph5___O7bBq","sideSwipe":"style__sideSwipe___2-mAi","button1":"style__button1___BIa7T","button":"style__button___3VSSK","button2":"style__button2___3QGUS","button3":"style__button3___1UDFh","title1":"style__title1___3cDQX","title2":"style__title2___m8Ozm","title4":"style__title4___3niwQ","title5":"style__title5___21xX0","title6":"style__title6___2KofO","title":"style__title___1d6P1","title3":"style__title3___2xYWi","title7":"style__title7___Vrojr","title8":"style__title8___23y-T","wrapper":"style__wrapper___TskVX"};
 
 /***/ },
 /* 301 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1Q73D","vCenter":"style__vCenter___3XNrH","vCenterRel":"style__vCenterRel___1YeFJ","hCenter":"style__hCenter___1mVF7","inheritHeight":"style__inheritHeight___23Hgw","hideOverflow":"style__hideOverflow___25XXq","icon-sprites":"style__icon-sprites___2Iyi8","title1":"style__title1___1LBCJ","title2":"style__title2___ww8Lf","title4":"style__title4___1hQD3","title5":"style__title5___3wxeQ","title6":"style__title6___1W4EN","title3":"style__title3___1rrjg","title7":"style__title7___2cEVO","title8":"style__title8___2jhdQ","paragraph1":"style__paragraph1___3dDFe","paragraph2":"style__paragraph2___1bVFj","paragraph3":"style__paragraph3___3RtTB","paragraph4":"style__paragraph4___2KvJl","paragraph5":"style__paragraph5___32RKi","wrapper":"style__wrapper___2hxyL"};
+	module.exports = {"fCenter":"style__fCenter___zkvoI","controls":"style__controls___1nXQ8","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","button3v5":"style__button3v5___1gczD","title":"style__title___2mlf9","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraphB":"style__paragraphB___3TQhf","paragraph5":"style__paragraph5___1IKiM","wrapper_":"style__wrapper____1tcC1","wrapper_2":"style__wrapper_2___16tcC","sm":"style__sm___OLDFM","ballet":"style__ballet___2ecR7","jazz":"style__jazz___24bYU","flamenco":"style__flamenco___2coaY","cardioDanza":"style__cardioDanza___2LYVb","barre":"style__barre___2QrzR"};
 
 /***/ },
 /* 302 */
@@ -45237,7 +45248,7 @@
 	  function ContactSection() {
 	    _classCallCheck(this, ContactSection);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ContactSection).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (ContactSection.__proto__ || Object.getPrototypeOf(ContactSection)).apply(this, arguments));
 	  }
 
 	  _createClass(ContactSection, [{
@@ -45286,6 +45297,8 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
+	var _imageUtil = __webpack_require__(269);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45302,27 +45315,16 @@
 	  function Block1() {
 	    _classCallCheck(this, Block1);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block1).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block1.__proto__ || Object.getPrototypeOf(Block1)).apply(this, arguments));
 	  }
 
 	  _createClass(Block1, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var images = _props$data.images;
-	      var buttons = _props$data.buttons;
+	      var images = this.props.data.images;
 
-	      var imgUrl = images && images.image1 && images.image1.src ? images.image1.src.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : '/images/contacto_map.png';
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement('img', { cassName: style.image, src: imgUrl, alt: images.image1.alt }),
-	        _react2.default.createElement(
-	          'a',
-	          { className: style.button, href: buttons.button1.href, target: '_blank' },
-	          buttons.button1.title
-	        )
-	      ) : null;
+	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement('div', { style: divStyle, className: style.mainbanner }) : null;
 	    }
 	  }]);
 
@@ -45341,7 +45343,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3WsSe","vCenter":"style__vCenter___3G_X_","vCenterRel":"style__vCenterRel___2rlOE","hCenter":"style__hCenter___3ARcP","inheritHeight":"style__inheritHeight___1YsqB","hideOverflow":"style__hideOverflow___ps_Tr","icon-sprites":"style__icon-sprites___2f7vT","image1":"style__image1___1oYSl","paragraph1":"style__paragraph1___3JnQd","paragraph2":"style__paragraph2___3M3qm","paragraph3":"style__paragraph3___6lKhK","paragraph4":"style__paragraph4___1Z42s","paragraph5":"style__paragraph5___1v105","sideSwipe":"style__sideSwipe___50l2S","button1":"style__button1___1iQls","button":"style__button___6iE0P","button2":"style__button2___2nT5Y","button3":"style__button3___1WIju","title1":"style__title1___3f0o0","title2":"style__title2___XQgLg","title4":"style__title4___BpZsL","title5":"style__title5___hKWjC","title6":"style__title6___2GSXY","title3":"style__title3___2f5QU","title7":"style__title7___3_kU1","title8":"style__title8___2cLGW","image":"style__image___mSywh"};
+	module.exports = {"fCenter":"style__fCenter___3WsSe","vCenter":"style__vCenter___3G_X_","button1":"style__button1___1iQls","button":"style__button___6iE0P","button2":"style__button2___2nT5Y","button2b":"style__button2b___15vcQ","vCenterRel":"style__vCenterRel___2rlOE","hCenter":"style__hCenter___3ARcP","inheritHeight":"style__inheritHeight___1YsqB","hideOverflow":"style__hideOverflow___ps_Tr","icon-sprites":"style__icon-sprites___2f7vT","button3":"style__button3___1WIju","button3v1":"style__button3v1___32z7Y","button3v2":"style__button3v2___3m_1I","button3v3":"style__button3v3___3STSg","button3v4":"style__button3v4___3GtKt","button3v5":"style__button3v5___2M1AI","image1":"style__image1___1oYSl","paragraph1":"style__paragraph1___3JnQd","paragraph1b":"style__paragraph1b___xv990","paragraph2":"style__paragraph2___3M3qm","paragraph3":"style__paragraph3___6lKhK","paragraph4":"style__paragraph4___1Z42s","paragraph5":"style__paragraph5___1v105","sideSwipe":"style__sideSwipe___50l2S","bottomSwipe":"style__bottomSwipe___-6WwV","title1":"style__title1___3f0o0","title2":"style__title2___XQgLg","title3":"style__title3___2f5QU","title4":"style__title4___BpZsL","title5":"style__title5___hKWjC","title6":"style__title6___2GSXY","title7":"style__title7___3_kU1","title8":"style__title8___2cLGW","mainbanner":"style__mainbanner___1YlSK","image":"style__image___mSywh"};
 
 /***/ },
 /* 305 */
@@ -45365,8 +45367,6 @@
 
 	var _svg = __webpack_require__(213);
 
-	var _svg2 = _interopRequireDefault(_svg);
-
 	var _form = __webpack_require__(306);
 
 	var _form2 = _interopRequireDefault(_form);
@@ -45388,7 +45388,7 @@
 	  function Block2() {
 	    _classCallCheck(this, Block2);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Block2).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block2.__proto__ || Object.getPrototypeOf(Block2)).apply(this, arguments));
 	  }
 
 	  _createClass(Block2, [{
@@ -45401,7 +45401,7 @@
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: style.wrapper },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container-fluid' },
@@ -45414,22 +45414,28 @@
 	              _react2.default.createElement(
 	                'h2',
 	                { className: style.title },
-	                titles.title1,
-	                _react2.default.createElement(_svg2.default, { network: 'location', className: style.svg })
+	                titles.title1
+	              ),
+	              _react2.default.createElement(_form2.default, null)
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-4 col-sm-offset-1 col-xs-12' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: style.title_2 },
+	                titles.title2
 	              ),
 	              _react2.default.createElement(
 	                'p',
 	                { className: style.paragraph },
-	                paragraphs.paragraph1
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                { className: style.paragraph },
+	                paragraphs.paragraph1,
+	                _react2.default.createElement('br', null),
 	                paragraphs.paragraph2
 	              ),
 	              _react2.default.createElement(
 	                'a',
-	                { className: style.gmap, href: buttons.button1.href, target: '_blank' },
+	                { className: style.paragraph_2, href: buttons.button1.href, target: '_blank' },
 	                buttons.button1.title
 	              ),
 	              _react2.default.createElement(
@@ -45438,30 +45444,20 @@
 	                paragraphs.paragraph3
 	              ),
 	              _react2.default.createElement(
+	                'h2',
+	                { className: style.title_2 },
+	                titles.title3
+	              ),
+	              _react2.default.createElement(
 	                'p',
-	                { className: style.paragraph },
+	                { className: style.paragraph_2 },
 	                paragraphs.paragraph4
 	              ),
 	              _react2.default.createElement(
-	                'a',
-	                { className: style.paragraph, href: buttons.button2.href, target: '_blank' },
-	                buttons.button2.title
+	                'div',
+	                { className: style.sm },
+	                (0, _svg.getFacebookIcon)(buttons.button2.href, buttons.button2.title, style.paragraph2)
 	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-6 col-xs-12' },
-	              _react2.default.createElement(
-	                'h2',
-	                { className: style.title },
-	                titles.title2
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                { className: style.paragraph },
-	                paragraphs.paragraph6
-	              ),
-	              _react2.default.createElement(_form2.default, null)
 	            )
 	          )
 	        )
@@ -45503,6 +45499,10 @@
 
 	var _restClient2 = _interopRequireDefault(_restClient);
 
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45519,7 +45519,7 @@
 	  function Form1(props) {
 	    _classCallCheck(this, Form1);
 
-	    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Form1).call(this, props));
+	    var _this2 = _possibleConstructorReturn(this, (Form1.__proto__ || Object.getPrototypeOf(Form1)).call(this, props));
 
 	    _this2.state = {
 	      formData: _this2.getInitialFormState(),
@@ -45675,9 +45675,13 @@
 	          'div',
 	          { className: 'form-group ' + style.formGroup },
 	          _react2.default.createElement(
-	            'label',
-	            { id: 'lab_name', className: 'col-xs-2 control-label' },
-	            'Nombre:'
+	            'div',
+	            { className: 'col-xs-2' },
+	            _react2.default.createElement(
+	              'label',
+	              { id: 'lab_name', className: 'row control-label' },
+	              'Nombre:'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -45690,9 +45694,13 @@
 	          'div',
 	          { className: 'form-group ' + style.formGroup },
 	          _react2.default.createElement(
-	            'label',
-	            { id: 'lab_email', className: 'col-xs-2 control-label' },
-	            'Correo:'
+	            'div',
+	            { className: 'col-xs-2' },
+	            _react2.default.createElement(
+	              'label',
+	              { id: 'lab_email', className: 'row control-label' },
+	              'Correo:'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -45705,9 +45713,13 @@
 	          'div',
 	          { className: 'form-group ' + style.formGroup },
 	          _react2.default.createElement(
-	            'label',
-	            { id: 'lab_tel', className: 'col-xs-2 control-label' },
-	            'Teléfono:'
+	            'div',
+	            { className: 'col-xs-2' },
+	            _react2.default.createElement(
+	              'label',
+	              { id: 'lab_tel', className: 'row control-label' },
+	              'Teléfono:'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -45720,14 +45732,18 @@
 	          'div',
 	          { className: 'form-group ' + style.formGroup },
 	          _react2.default.createElement(
-	            'label',
-	            { id: 'lab_message', className: 'col-sm-12 control-label' },
-	            'Mensaje:'
+	            'div',
+	            { className: 'col-xs-2' },
+	            _react2.default.createElement(
+	              'label',
+	              { id: 'lab_message', className: 'row control-label' },
+	              'Mensaje:'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-12 col-sm-offset-1' },
-	            _react2.default.createElement('input', { type: 'text', name: 'message', onChange: this.onChangeHandler, value: message.value })
+	            { className: 'col-sm-12 col-sm-offset-0' },
+	            _react2.default.createElement('textarea', { type: 'text', name: 'message', onChange: this.onChangeHandler, value: message.value })
 	          ),
 	          _react2.default.createElement('div', { className: style.borderBottom2 })
 	        ),
@@ -45751,7 +45767,8 @@
 	          _react2.default.createElement(
 	            'a',
 	            { className: style.submit, onClick: this.submitFormHandler },
-	            'ENVIAR'
+	            'ENVIAR',
+	            _react2.default.createElement(_svg2.default, { network: 'arrow_right', className: style.svg })
 	          )
 	        )
 	      );
@@ -45768,14 +45785,14 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___365qk","vCenter":"style__vCenter___9LFiT","vCenterRel":"style__vCenterRel___27ebh","hCenter":"style__hCenter___3MSN5","inheritHeight":"style__inheritHeight___20X8j","hideOverflow":"style__hideOverflow___1e_Sa","icon-sprites":"style__icon-sprites___SBb6q","image1":"style__image1___20ULB","paragraph1":"style__paragraph1___1Iuas","paragraph2":"style__paragraph2___XLNUn","paragraph3":"style__paragraph3___cQhzG","paragraph4":"style__paragraph4___3o8-x","paragraph5":"style__paragraph5___-5J8a","sideSwipe":"style__sideSwipe___3Jh_M","button1":"style__button1___QW0Tv","submit":"style__submit___2YBRa","button2":"style__button2___3fzL1","button3":"style__button3___1LtgP","title1":"style__title1___2DL5-","title2":"style__title2___3etcM","title4":"style__title4___33kmt","title5":"style__title5___2k_sU","title6":"style__title6___1dv-o","title3":"style__title3___8tZ0C","title7":"style__title7___OUaen","title8":"style__title8___1LvKh","form":"style__form___1nnSk","formGroup":"style__formGroup___1VfYe"};
+	module.exports = {"fCenter":"style__fCenter___365qk","vCenter":"style__vCenter___9LFiT","button1":"style__button1___QW0Tv","submit":"style__submit___2YBRa","button2":"style__button2___3fzL1","button2b":"style__button2b___2h89H","vCenterRel":"style__vCenterRel___27ebh","hCenter":"style__hCenter___3MSN5","inheritHeight":"style__inheritHeight___20X8j","hideOverflow":"style__hideOverflow___1e_Sa","icon-sprites":"style__icon-sprites___SBb6q","button3":"style__button3___1LtgP","button3v1":"style__button3v1___1Mvm_","button3v2":"style__button3v2___1N7QE","button3v3":"style__button3v3___11aHd","button3v4":"style__button3v4___2B0cK","button3v5":"style__button3v5___zgSlr","image1":"style__image1___20ULB","paragraph1":"style__paragraph1___1Iuas","paragraph1b":"style__paragraph1b___14XS7","paragraph2":"style__paragraph2___XLNUn","paragraph3":"style__paragraph3___cQhzG","paragraph4":"style__paragraph4___3o8-x","paragraph5":"style__paragraph5___-5J8a","sideSwipe":"style__sideSwipe___3Jh_M","bottomSwipe":"style__bottomSwipe___2N3qh","title1":"style__title1___2DL5-","title2":"style__title2___3etcM","title3":"style__title3___8tZ0C","title4":"style__title4___33kmt","title5":"style__title5___2k_sU","title6":"style__title6___1dv-o","title7":"style__title7___OUaen","title8":"style__title8___1LvKh","form":"style__form___1nnSk","formGroup":"style__formGroup___1VfYe"};
 
 /***/ },
 /* 308 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph2":"style__paragraph2___1ISwm","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","paragraph":"style__paragraph___29758","sideSwipe":"style__sideSwipe___1IOUP","button1":"style__button1___1cwjy","button2":"style__button2___hQ_-V","button3":"style__button3___3HwaY","gmap":"style__gmap___1uAlR","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title3":"style__title3___173Gl","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","svg":"style__svg___38pi8"};
+	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","button1":"style__button1___1cwjy","button2":"style__button2___hQ_-V","button2b":"style__button2b___1b2RV","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","button3":"style__button3___3HwaY","button3v1":"style__button3v1___2Wuut","button3v2":"style__button3v2___5XAeE","button3v3":"style__button3v3___bPEC9","button3v4":"style__button3v4___3dETf","button3v5":"style__button3v5___3o_q3","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph1b":"style__paragraph1b___1kRb1","paragraph":"style__paragraph___29758","paragraph2":"style__paragraph2___1ISwm","paragraph_2":"style__paragraph_2___217YF","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","sideSwipe":"style__sideSwipe___1IOUP","bottomSwipe":"style__bottomSwipe___1Id40","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title3":"style__title3___173Gl","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title_2":"style__title_2___3IHOj","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","wrapper":"style__wrapper___2GZMu","sm":"style__sm___1spdw","svg":"style__svg___38pi8"};
 
 /***/ }
 /******/ ]);

@@ -30,12 +30,12 @@ function renderItems(network, className) {
       </svg>);
       break;
     case 'carousel_right':
-      return (<svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10.1 18">
+      return (<svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10.1 18" className={className}>
         <polyline points=" 1.1 1.1 9 9 1.1 16.9 " fill="none" strokeLinejoin="round" strokeWidth="2" stroke="#010101" />
       </svg>);
       break;
       case 'carousel_left':
-        return (<svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10.1 18">
+        return (<svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10.1 18" className={className}>
           <polyline points=" 9 16.9 1.1 9 9 1.1 " fill="none" strokeLinejoin="round" strokeWidth="2" stroke="#010101" />
         </svg>);
         break;

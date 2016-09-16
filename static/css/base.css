@@ -2,7 +2,6 @@ body{
   font-family: 'Open Sans', sans-serif;
   background-color: #000;
 }
-
 a:hover {
   text-decoration: none;
 }
@@ -19,4 +18,11 @@ img{
 
 #app{
 	overflow: hidden;
+  padding-top: 48px;
+}
+
+/* ugly fixes */
+
+#carousel-about-block-4 li.active{
+  background-color: #000;
 }

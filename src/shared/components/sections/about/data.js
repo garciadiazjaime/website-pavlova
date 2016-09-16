@@ -5,7 +5,7 @@ export default {
   items: [{
     title: 'GLORIA ZUÑIGA',
     subtitle: 'GLORIA ZUÑIGA DE WHEBER',
-    intro: '15 años de experiencia',
+    intro: '',
     image: 'https://www.dropbox.com/s/s02dsqogkixpk4x/Img-Gloria-Zuniga.png?dl=0',
     content: [
       'Gloria inició sus clases de baile a los 3 años de edad en las disciplinas de ballet y jazz con la maestra Sandra Araiza. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Técnica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).',

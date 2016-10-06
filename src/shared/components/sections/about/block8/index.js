@@ -5,7 +5,7 @@ import { normalizeImageUrl } from '../../../../utils/imageUtil';
 import SVG from '../../../svg';
 const style = require('./style.scss');
 
-export default class Block7 extends React.Component {
+export default class Block8 extends React.Component {
 
   render() {
     const { titles, buttons } = this.props.data;
@@ -30,6 +30,6 @@ export default class Block7 extends React.Component {
   }
 }
 
-Block7.propTypes = {
+Block8.propTypes = {
   data: React.PropTypes.object.isRequired,
 };

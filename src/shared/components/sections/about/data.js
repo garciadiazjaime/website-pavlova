@@ -101,16 +101,16 @@ export default {
     title: 'RHONAL RUVALCABA',
     subtitle: 'RHONAL RUVALCABA',
     intro: '',
-    image: '/images/user_placeholder.png',
+    image: 'https://www.dropbox.com/s/1qdunfgs9xl72b1/Rhonal-Ruvalcaba.png?dl=0',
     content: [
       'Inicio sus estudios de danza a la edad de 14 años, descubriendo en ella su vocación! Su preparación abarca diversas ramas de esta disciplina, pero son el Jazz y el HipHop su mayor pasión, ganador del 1er lugar en la categoría de Jazz en Danzarte (concurso de Danza realizado anteriormente en Baja California hace ya algunos años).',
       'Es Director de su propia Compañía de Danza, con la cual ha llevado su pasión y estilo a diversas partes del mundo desde Taiwan o Puerto Rico, así como a gran parte de México y E.U. como las Vegas, Miami y L.A. entre otros.',
     ],
   }, {
-    title: 'DELIA DE LA TORRE',
-    subtitle: 'DELIA DE LA TORRE',
+    title: 'DALIA DE LA TORRE',
+    subtitle: 'DALIA DE LA TORRE',
     intro: '',
-    image: '/images/user_placeholder.png',
+    image: 'https://www.dropbox.com/s/alncb3qtjcflz5h/Dalia_delatorre.png?dl=0',
     content: [
       'Nació el 25 de Febrero de 1984 en Tijuana, inicio sus estudios en 1988 en la Escuela de Danza Ericka, bajo la dirección de Ericka Moreno, en las disciplinas de ballet, jazz y tap. Teniendo la oportunidad de competir en Estados Unidos y Canadá desde los 9 años, en compañias como Dance America – Dance Olympus, Dance Educators of America, Danza Arte Coreografías entre otras. También a tenido la oportunidad de participar en cursos intensivos, clases magistrales, giras y clases en compañias como Dance Olympus, Tremaine, Malashock Summer Intensive, EDGE Performing Arts Center, Broadway Dance Center, West Coast Salsa Congress, Luz Boreal Summer Intensive.',
       'Obtuvo varios reconocimientos y becas, de los cuales destacan "Dance of the year contestan" en Dance America 2001, 2003 y 2005, ganando una beca para asistir a Broadway Dance Center, así como el titulo Best Emotional Execution, Best Technical Execution y Overall High Score en San Diego CA y Nueva York.',
@@ -191,7 +191,7 @@ export default {
     title: 'ELEANA FRANCO',
     subtitle: 'ELEANA FRANCO',
     intro: '',
-    image: '/images/user_placeholder.png',
+    image: 'https://www.dropbox.com/s/5eh2c3nmsi7le3g/Eleana-Franco.png?dl=0',
     content: [
       'Bailarina, coreógrafa y maestra de danza nacida en Estados Unidos. Inicio sus estudios a la edad de 2 anos en el “Colegio de Danza Sylvia” donde aprendió ballet, tap, flamenco, jazz y hip hop. Varios años después se convirtió en asistente y próximamente en maestra.',
       'Participo en varias importantes obras como es “el cascanueces” junto con la compañía “Moscow ballet” en el Civic Theatre en San Diego y también junto con la “Compañía de danza de Baja California” con Raul Tadeo. También fue participe de la obra infantil “pedro y el lobo” que fue presentada en el CECUT bajo la dirección de Norma Herrera. Continuo con sus estudios en Estados Unidos en la escuela “Coronado School of the Arts” donde estudio varios cursos de historia de la danza, nutrición, improvisación, critica de la danza, coreografía entre muchos otros.',
@@ -201,7 +201,7 @@ export default {
     title: 'ADRIANA CORAL',
     subtitle: 'ADRIANA CORAL',
     intro: '',
-    image: 'https://www.dropbox.com/s/bw1xiq136kkzkl0/Img-Veronica-Flores.png?dl=0',
+    image: 'https://www.dropbox.com/s/q4kedajs4rgdqe1/Adriana-Coral.png?dl=0',
     content: [
       'Bailarina y maestra que se desarrolla profesionalmente  en el norte de México; miembro fundador de Subterráneo Danza Contemporánea desde hace 17 años, donde su misión es exponer su trabajo como intérprete y colaborador creativo en la realización de espectáculos escénicos. Mantiene una constante búsqueda del lenguaje propio a través de la investigación en diferentes técnicas dancísticas  así como la divulgación de sus conocimientos a través de la docencia, asimismo, busca mantener vínculos estrechos con otros artistas escénicos del país para fortalecer su quehacer  dancístico y contribuir a la difusión del arte.',
     ],
@@ -209,7 +209,7 @@ export default {
     title: 'VIANCA SANTACOLOMBA',
     subtitle: 'VIANCA SANTACOLOMBA',
     intro: '',
-    image: '/images/user_placeholder.png',
+    image: 'https://www.dropbox.com/s/c6aa25qntvi7g9h/Vianca-Santacolomba.png?dl=0',
     content: [
       'La experiencia de Vianca en el mundo del baile ha sido muy significativa ya que ha desarrollado su destreza desde 1991 en las áreas de ballet, jazz y flamenco en las escuelas de danza Sylvia y Pavlova.',
       'En 1994 recibió un reconocimiento por su participación en “Cascanueces” de Danz-Arte y en 2004 obtuvo un diploma del curso “Iniciación y actualización de danza” del Centro de Ballet y Arte.',
@@ -219,13 +219,13 @@ export default {
     title: 'VICKY SAENZ',
     subtitle: 'VICKY SAENZ',
     intro: '',
-    image: '/images/user_placeholder.png',
+    image: 'https://www.dropbox.com/s/7ngb2v9j29d1xd2/Vicky-Saenz.png?dl=0',
     content: [],
   }, {
     title: 'ROSALINA CAZAREZ',
     subtitle: 'ROSALINA CAZAREZ',
     intro: '',
-    image: '/images/user_placeholder.png',
+    image: 'https://www.dropbox.com/s/le82urikib91xek/Rosalina_Cazarez.png?dl=0',
     content: [],
   }],
 };

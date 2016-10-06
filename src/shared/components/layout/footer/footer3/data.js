@@ -9,7 +9,7 @@ export default {
     paragraph1: 'Av. Allende #38',
     paragraph2: 'Col. Hipódromo',
     paragraph3: 'Tijuana, B.C.',
-    paragraph4: 'info@pavlovahipodromo.com',
+    paragraph4: 'pavlovahipodromo@gmail.com',
     paragraph5: '664 686.27.87',
   },
   buttons: {
@@ -39,15 +39,15 @@ export default {
     },
     button7: {
       title: 'HORARIOS',
-      href: '/docs/horarios.pdf',
+      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
     },
     button8: {
       title: 'FICHA DE INSCRIPCIÓN',
-      href: '/docs/ficha-inscripcion.pdf',
+      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-FichaInscripcion.pdf',
     },
     button9: {
       title: 'REGLAMENTO',
-      href: '/docs/reglamento.pdf',
+      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Reglamento.pdf',
     },
   },
 };

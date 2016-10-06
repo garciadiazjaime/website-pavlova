@@ -32,6 +32,10 @@
 .arrow {
   top: 50%;
   position: relative;
+
+  polyline {
+    stroke: $darkGray;
+  }
 }
 @media #{$isPhone}{
   .item{

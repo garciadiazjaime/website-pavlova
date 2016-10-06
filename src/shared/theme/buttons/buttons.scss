@@ -63,12 +63,15 @@
   font-size: 15px;
   display: block;
   &:hover{
-    color: black;
+    color: $black!important;
     svg{
       polyline{
         stroke: $black;
       }
     }
+  }
+  &:visited, &:focus {
+    color: $white;
   }
   &::before{
     background: $white;
@@ -95,12 +98,15 @@
   font-size: 15px;
   display: block;
   &:hover{
-    color: $black;
+    color: $black!important;
     svg {
       polyline{
         stroke: $black;
       }
     }
+  }
+  &:visited, &:focus {
+    color: $white;
   }
   &::before{
     background: $white;
@@ -155,9 +161,12 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px;
-  &:hover{
+  &:hover {
     background: $white;
-    color: $black;
+    color: $black!important;
+  }
+  &:visited {
+    color: $white;
   }
   svg{
     display: block;

@@ -9,6 +9,9 @@ $sm-color: $white;
 
 // ------ STYLE ----------
 .fbIcon {
+  &:visited, &:focus {
+    color: $white!important;
+  }
   svg {
     circle{
       fill: $sm-background;

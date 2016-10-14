@@ -3,8 +3,8 @@ export default {
   title: 'Conoce a nuestro staff',
   sectionUrl: 'escuela',
   items: [{
-    title: 'GLORIA ZUÑIGA',
-    subtitle: 'GLORIA ZUÑIGA DE WHEBER',
+    title: 'GLORIA ZUÑIGA WHEBER',
+    subtitle: 'GLORIA ZUÑIGA WHEBER',
     intro: '',
     image: 'https://www.dropbox.com/s/s02dsqogkixpk4x/Img-Gloria-Zuniga.png?dl=0',
     content: [
@@ -19,11 +19,11 @@ export default {
         'Nuvo workshop en Long Beach en 2014',
         'Jump workshop en Monterrey, Nuevo León en 2015',
         'Curso de Anatomía aplicado a maestros de Danza en 2016',
-        'Dance Teacher Summit en Long Beach, CA. - 2016, 2017 y 2018',
+        'Dance Teacher Summit 2016',
       ],
-      'En el año 2014 funda junto con Alicia Luna el grupo  Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.',
-      'Gloria continúa tomando clases de ballet y asiste a cursos de jazz en la Academia de Performing Arts  en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.',
-      'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 31 años.',
+      'En el año 2014 funda junto con Alicia Luna el grupo Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.',
+      'Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.',
+      'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 29 años.',
     ],
   }, {
     title: 'ALICIA LUNA',
@@ -91,20 +91,10 @@ export default {
     title: 'RHONAL RUVALCABA',
     subtitle: 'RHONAL RUVALCABA',
     intro: '',
-    image: 'https://www.dropbox.com/s/1qdunfgs9xl72b1/Rhonal-Ruvalcaba.png?dl=0',
+    image: 'https://www.dropbox.com/s/izw96o5i39cabla/Img_Rhonal-Ruvalcaba-2.png?dl=0',
     content: [
       'Inicio sus estudios de danza a la edad de 14 años, descubriendo en ella su vocación! Su preparación abarca diversas ramas de esta disciplina, pero son el Jazz y el HipHop su mayor pasión, ganador del 1er lugar en la categoría de Jazz en Danzarte (concurso de Danza realizado anteriormente en Baja California hace ya algunos años).',
       'Es Director de su propia Compañía de Danza, con la cual ha llevado su pasión y estilo a diversas partes del mundo desde Taiwan o Puerto Rico, así como a gran parte de México y E.U. como las Vegas, Miami y L.A. entre otros.',
-    ],
-  }, {
-    title: 'DALIA DE LA TORRE',
-    subtitle: 'DALIA DE LA TORRE',
-    intro: '',
-    image: 'https://www.dropbox.com/s/alncb3qtjcflz5h/Dalia_delatorre.png?dl=0',
-    content: [
-      'Nació el 25 de Febrero de 1984 en Tijuana, inicio sus estudios en 1988 en la Escuela de Danza Ericka, bajo la dirección de Ericka Moreno, en las disciplinas de ballet, jazz y tap. Teniendo la oportunidad de competir en Estados Unidos y Canadá desde los 9 años, en compañias como Dance America – Dance Olympus, Dance Educators of America, Danza Arte Coreografías entre otras. También a tenido la oportunidad de participar en cursos intensivos, clases magistrales, giras y clases en compañias como Dance Olympus, Tremaine, Malashock Summer Intensive, EDGE Performing Arts Center, Broadway Dance Center, West Coast Salsa Congress, Luz Boreal Summer Intensive.',
-      'Obtuvo varios reconocimientos y becas, de los cuales destacan "Dance of the year contestan" en Dance America 2001, 2003 y 2005, ganando una beca para asistir a Broadway Dance Center, así como el titulo Best Emotional Execution, Best Technical Execution y Overall High Score en San Diego CA y Nueva York.',
-      '10 años de experiencia como maestra de ballet, jazz y tap, la respaldan. Actualmente es miembro de la organización Dance Educators of America, obteniendo la certificación compelta en la ciudad de de Las Vegas y Nueva York en los años 2007 y 2008, culminando en el 2010 con la certificación para impartir las diciplinas de ballet (escuela Cecchetti), tap, jazz, gimnasia y moderno.',
     ],
   }, {
     title: 'CORINA PERAZA',
@@ -166,16 +156,6 @@ export default {
       'Posteriormente obteniendo una beca para formar parte de un grupo de baile de la escuela "Culture Shock Dance Center" en San Diego. Asistio Entre el 2014 y 2015 a un curso de Jazz  y "Hells" con Yanis Marshall (bailarin y maestro Internacional) y una Materclass de ballet con la maestra Elena Tokareva Baltovick; entre otros cursos locales.',
       'Ha participado en varias obras musicales Infantiles como son "Cri-cri y la danza", "El mago de Oz", "Peter Pan", "Alicia en el país de las maravillas", como también en "La fille Mal Garde", "Graduados", "Cascanueces" y "Carmen" presentadas en el Teatro del Cecut.',
       'Su objetivo es transmitir de la manera más correcta todo lo que ha aprendido de la danza, todo lo bueno que le ha dejado e inculcar en el alumnado una disciplina y amor a la danza, a la cultura, al arte, haciéndolas sentir que es una de las mejores maneras para expresar todo aquello que nuestro cuerpo siente.',
-    ],
-  }, {
-    title: 'LILIAN ARMENTA',
-    subtitle: 'LILIAN ARMENTA',
-    intro: '',
-    image: 'https://www.dropbox.com/s/qi97pgj3mlmnaz5/Img_Lilian_Armenta.png?dl=0',
-    content: [
-      'Coreografa y maestro con más de 23 años bailando, 8 años de experiencia como maestro de ballet, tap, jazz, hip-hop, lyrical, modern jazz, etc.',
-      'Certificada por el DEA (Dance Educators of America) en la ciudad de Las Vegas, Nevada.',
-      'Participante y ganadora de diversos premios en competencias internacionales en ciudades como: Las Vegas, Nueva York, Orlando, Los Ángeles, San Diego, San Francisco, etc. por compañias como West Coast Dance Explosion, Dance Olympus, Tremaine, Dance America y DEA.',
     ],
   }, {
     title: 'ELEANA FRANCO',

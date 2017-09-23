@@ -44,3 +44,8 @@ rhc env list -a app
 
 Code to increase jslint max line length limit
 /* eslint max-len: [2, 500, 4] */
+
+docker build -t garciadiazjaime/website-pavlova .
+docker run -d -p 49172:3072 garciadiazjaime/website-pavlova
+docker push garciadiazjaime/website-pavlova
+docker pull garciadiazjaime/website-pavlova

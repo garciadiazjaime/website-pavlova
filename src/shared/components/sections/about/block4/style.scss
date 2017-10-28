@@ -2,6 +2,7 @@
 @import '../../../../theme/buttons/buttons';
 @import '../../../../theme/titles/titles';
 @import '../../../../theme/paragraphs/paragraphs';
+@import '../../../../theme/buttons/buttons';
 
 // ---- main slider
 .wrapper{
@@ -33,5 +34,9 @@
   }
 	li.active{
 	}
+}
+
+.button{
+  @extend .button1;
 }
 // --- Responsive

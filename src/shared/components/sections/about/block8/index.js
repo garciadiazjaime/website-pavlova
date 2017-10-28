@@ -18,7 +18,7 @@ export default class Block8 extends React.Component {
           </div>
           <div className="col-sm-6 col-xs-12">
             <h3 className={style.title}>{titles.title3}</h3>
-            <a className={style.button} href={normalizeImageUrl(buttons.button3.href)} title={buttons.button3.title} target="_blank">DESCARGAR<SVG network="arrow_down" className={style.svg}/></a>
+            <a className={style.button} href={normalizeImageUrl(buttons.button2.href)} title={buttons.button3.title} target="_blank">DESCARGAR<SVG network="arrow_down" className={style.svg}/></a>
           </div>
         </div>
       </div>

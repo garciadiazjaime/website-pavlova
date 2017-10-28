@@ -115,6 +115,8 @@ $hamburger-background: lighten($black, 15%)!important;
       svg {
         position: relative;
         cursor: pointer;
+      }
+      .facebook{
         circle{
           fill: #0074c8;
           cursor: pointer;
@@ -123,12 +125,30 @@ $hamburger-background: lighten($black, 15%)!important;
           fill: $sm-color;
           cursor: pointer;
         }
-      }
-      .facebook{
         &:hover{
           cursor: pointer;
           circle {
             fill: #0584d3;
+          }
+          path {
+            cursor: pointer;
+            fill: #fff;
+          }
+        }
+      }
+      .instagram {
+        circle{
+          fill: #bc2a8d;
+          cursor: pointer;
+        }
+        path{
+          fill: #fff;
+          cursor: pointer;
+        }
+        &:hover{
+          cursor: pointer;
+          circle {
+            fill: #b95b9c;
           }
           path {
             cursor: pointer;

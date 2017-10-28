@@ -5,6 +5,7 @@ $background-color: $black;
 $link-color: darken($white, 10%);
 $link-color-hover: $white;
 $sm-background: #0074c8;
+$instagram-color: #bc2a8d;
 $sm-color: $white;
 
 // ------ STYLE ----------
@@ -31,6 +32,24 @@ $sm-color: $white;
       path {
         fill: #fff;
       }
+    }
+  }
+}
+
+.instagram {
+  circle{
+    fill: $instagram-color;
+  }
+  path{
+    fill: $sm-color;
+  }
+
+  &:hover{
+    circle {
+      fill: $instagram-color;
+    }
+    path {
+      fill: #fff;
     }
   }
 }

@@ -1,3 +1,4 @@
+/* eslint max-len: [2, 500, 4] */
 import React from 'react';
 import _ from 'lodash';
 import { normalizeImageUrl } from '../../../utils/imageUtil';
@@ -10,12 +11,12 @@ export default class Show extends React.Component {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
         if (_.isArray(item)) {
-          const bullets = item.map((line, index2) => { return (<li key={index2}>{line}</li>); });
+          const bullets = item.map((line, index2) => { return (<li key={index2} dangerouslySetInnerHTML={{ __html: line }} />); });
           return (<ul key={index}>
             { bullets }
           </ul>);
         }
-        return (<p key={index}>{item}</p>);
+        return (<p key={index} dangerouslySetInnerHTML={{ __html: item }} />);
       });
     }
   }

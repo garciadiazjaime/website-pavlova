@@ -71,11 +71,45 @@ $title-font: $fontA;
     position: relative;
     display: block;
     margin: 0 0 15px;
+  }
+  .facebook{
     circle{
-      fill: $sm-background;
+      fill: #0074c8;
+      cursor: pointer;
     }
     path{
       fill: $sm-color;
+      cursor: pointer;
+    }
+    &:hover{
+      cursor: pointer;
+      circle {
+        fill: #0584d3;
+      }
+      path {
+        cursor: pointer;
+        fill: #fff;
+      }
+    }
+  }
+  .instagram {
+    circle{
+      fill: #bc2a8d;
+      cursor: pointer;
+    }
+    path{
+      fill: #fff;
+      cursor: pointer;
+    }
+    &:hover{
+      cursor: pointer;
+      circle {
+        fill: #b95b9c;
+      }
+      path {
+        cursor: pointer;
+        fill: #fff;
+      }
     }
   }
 }

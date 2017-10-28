@@ -36,5 +36,8 @@ export default {
   icons: [{
     title: 'facebook',
     url: 'https://www.facebook.com/pavlova.hipodromo/',
+  }, {
+    title: 'instagram',
+    url: 'https://www.instagram.com/pavlovahipodromotijuana/?hl=es',
   }],
 };

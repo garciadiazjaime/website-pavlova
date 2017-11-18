@@ -131,7 +131,7 @@ export default {
     title: 'ELEANA FRANCO',
     subtitle: 'ELEANA FRANCO',
     intro: '',
-    image: 'https://www.dropbox.com/s/qoarklxlbpca7dg/Eleana-Franco.png?dl=0',
+    image: 'https://www.dropbox.com/s/7xofldjk7cnl2ds/Eleana-Franco.png?dl=0',
     content: [
       'Bailarina, coreógrafa y maestra de danza nacida en Estados Unidos. Inicio sus estudios a la edad de 2 anos en el “Colegio de Danza Sylvia” donde aprendió ballet, tap, flamenco, jazz y hip hop. Varios años después se convirtió en asistente y próximamente en maestra.',
       'Participo en varias importantes obras como es “el cascanueces” junto con la compañía “Moscow ballet” en el Civic Theatre en San Diego y también junto con la “Compañía de danza de Baja California” con Raul Tadeo. También fue participe de la obra infantil “pedro y el lobo” que fue presentada en el CECUT bajo la dirección de Norma Herrera. Continuo con sus estudios en Estados Unidos en la escuela “Coronado School of the Arts” donde estudio varios cursos de historia de la danza, nutrición, improvisación, critica de la danza, coreografía entre muchos otros.',
@@ -155,7 +155,7 @@ export default {
     title: 'ARIELI ZABICKY',
     subtitle: 'Arieli Zabicky',
     intro: '',
-    image: 'https://www.dropbox.com/s/48fv0vg5kihbxlj/Arieli-Zabicky.JPG?dl=0',
+    image: 'https://www.dropbox.com/s/dt09rnnkk7u4b2u/Arieli-Zabicky.png?dl=0',
     content: [
       'Ari Zabicky – Licenciada en danza, bailarina profesional, artista escénico, instructora.',
       'Actualmente laborando con:',

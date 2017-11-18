@@ -50,7 +50,7 @@ export default class Block4 extends React.Component {
           </div>
           <div className="col-sm-offset-6 col-xs-12">
             <h3 className={style.title}>REGLAMENTO</h3>
-            <a className={style.button} href="https://www.dropbox.com/s/oc01pvfnk7g2of5/REGLAMENTO-PAS-DE-CHAT.docx?dl=0" title="REGLAMENTO-PAS-DE-CHAT" target="_blank">DESCARGAR<SVG network="arrow_down" className={style.svg}/></a>
+            <a className={style.button} href="https://dl.dropboxusercontent.com/s/gtf5rdfcblp500r/REGLAMENTO%20PAS%20DE%20CHAT.pdf?dl=0" title="REGLAMENTO-PAS-DE-CHAT" target="_blank">DESCARGAR<SVG network="arrow_down" className={style.svg}/></a>
           </div>
         </div>
       </div>

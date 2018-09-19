@@ -35,7 +35,7 @@ export default {
     },
     button7: {
       title: 'HORARIOS',
-      href: 'https://www.dropbox.com/s/rvub8mo5lf0hg3a/HORARIO-PAVLOVA-CICLO-2017-2018.xlsx?dl=0',
+      href: 'https://dl.dropboxusercontent.com/s/zcem2ycndodw80u/Pavlova-Horarios-2017-2018.pdf?dl=0',
     },
     button8: {
       title: 'FICHA DE INSCRIPCIÓN',

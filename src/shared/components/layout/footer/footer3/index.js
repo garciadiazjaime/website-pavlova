@@ -39,6 +39,7 @@ export default class FooterAAA extends React.Component {
           <div className="col-sm-3 col-xs-12">
             <h3 className={style.title}>{titles.title2}</h3>
             <p className={style.paragraph}>{paragraphs.paragraph5}</p>
+            <p className={style.paragraph}>664 200.3031</p>
             {this.getIcons(icons)}
             <a className={style.paragraph} href={buttons.button1.href} title={buttons.button1.title} target="_blank">{buttons.button1.title}</a>
           </div>

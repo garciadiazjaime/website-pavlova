@@ -3,28 +3,23 @@ import React from 'react';
 import { Link } from 'react-router';
 import _ from 'lodash';
 import Carousel from '../../../elements/carousel';
-import { normalizeImageUrl } from '../../../../utils/imageUtil';
 import SVG from '../../../svg';
 const style = require('./style.scss');
 
 
 export default class Block4 extends React.Component {
 
-  renderItems(data) {
-    if (_.isArray(data) && data.length) {
-      return data.map((item, index) => {
-        const className = index === 0 ? 'active' : '';
-        const imageUrl = normalizeImageUrl(item.image);
-        return (<div className={'item ' + className + ' ' + (style.item || '')} key={index}>
-          <img className={style.carrouselImg} src={imageUrl} alt={item.title} />
+  renderItems() {
+    return Array.apply(null, Array(7)).map((item, index) => {
+      const className = index === 0 ? 'active' : '';
+      return (<div className={'item ' + className + ' ' + (style.item || '')} key={index}>
+          <img className={style.carrouselImg} src={`/images/home-escuela/img-slider-escuela-0${index + 1}.jpg`} alt="pavlova hipodromo escuela" />
         </div>);
-      });
-    }
-    return null;
+    });
   }
 
   render() {
-    const { titles, slides, paragraphs, buttons } = this.props.data;
+    const { titles, paragraphs, buttons } = this.props.data;
     const carouselClasses = {
       inner: style.inner,
       controls: {
@@ -33,6 +28,7 @@ export default class Block4 extends React.Component {
         next: style.next,
       },
     };
+
     return !_.isEmpty(this.props.data) ? (<div>
       <div className={'container-fluid ' + style.wrapper}>
         <div className="row">
@@ -43,7 +39,7 @@ export default class Block4 extends React.Component {
           </div>
           <div className="col-sm-6 col-xs-12">
             <Carousel id="carousel-home-block-4" interval={8000} indicators={false} classes={carouselClasses}>
-              {this.renderItems(slides)}
+              {this.renderItems()}
             </Carousel>
           </div>
         </div>

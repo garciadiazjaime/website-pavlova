@@ -1,0 +1,15 @@
+@import '../../../../theme/wrappers/wrappers';
+@import '../../../../theme/titles/titles';
+@import '../../../../theme/paragraphs/paragraphs';
+
+.wrapper{
+  padding: 0;
+}
+.title{
+  @extend .title6;
+  margin-bottom: 50px;
+}
+.paragraph{
+  @extend .paragraph1b;
+  margin-bottom: 50px;
+}

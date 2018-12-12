@@ -5,6 +5,7 @@ import Block1 from './block1';
 import Block2 from './block2';
 import Block3 from './block3';
 import Block4 from './block4';
+import Block5 from './block5';
 
 
 export default class HomeSection extends React.Component {
@@ -17,6 +18,7 @@ export default class HomeSection extends React.Component {
       <Block2 data={block2} />
       <Block3 data={block3} />
       <Block4 data={block4} />
+      <Block5 />
     </div>) : null;
   }
 }

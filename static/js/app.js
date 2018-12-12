@@ -24342,11 +24342,11 @@
 
 	var _about2 = _interopRequireDefault(_about);
 
-	var _products = __webpack_require__(301);
+	var _products = __webpack_require__(303);
 
 	var _products2 = _interopRequireDefault(_products);
 
-	var _contact = __webpack_require__(309);
+	var _contact = __webpack_require__(311);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -43554,7 +43554,7 @@
 
 	var _block10 = _interopRequireDefault(_block9);
 
-	var _block11 = __webpack_require__(296);
+	var _block11 = __webpack_require__(292);
 
 	var _block12 = _interopRequireDefault(_block11);
 
@@ -43562,7 +43562,11 @@
 
 	var _block14 = _interopRequireDefault(_block13);
 
-	var _data = __webpack_require__(300);
+	var _block15 = __webpack_require__(300);
+
+	var _block16 = _interopRequireDefault(_block15);
+
+	var _data = __webpack_require__(302);
 
 	var _data2 = _interopRequireDefault(_data);
 
@@ -43601,10 +43605,6 @@
 	          block8 = data.block8;
 	      var showListItem = params.showListItem;
 
-	      var block3Variations = {
-	        variation1: 'mainbannerC',
-	        variation2: 'titleC'
-	      };
 	      var block5Variations = {
 	        variation1: 'mainbannerE',
 	        variation2: 'titleE'
@@ -43615,12 +43615,12 @@
 	        null,
 	        _react2.default.createElement(_block2.default, { data: block1 }),
 	        _react2.default.createElement(_block4.default, { data: block2 }),
-	        _react2.default.createElement(_block6.default, { data: block3, variations: block3Variations }),
+	        _react2.default.createElement(_block6.default, { data: block3 }),
 	        _react2.default.createElement(_block8.default, { data: block4 }),
-	        _react2.default.createElement(_block6.default, { data: block5, variations: block5Variations }),
-	        _react2.default.createElement(_block10.default, { data: _data2.default, showListItem: showListItem }),
-	        _react2.default.createElement(_block12.default, { data: block7 }),
-	        _react2.default.createElement(_block14.default, { data: block8 })
+	        _react2.default.createElement(_block10.default, { data: block5, variations: block5Variations }),
+	        _react2.default.createElement(_block12.default, { data: _data2.default, showListItem: showListItem }),
+	        _react2.default.createElement(_block14.default, { data: block7 }),
+	        _react2.default.createElement(_block16.default, { data: block8 })
 	      ) : null;
 	    }
 	  }]);
@@ -43942,28 +43942,23 @@
 
 	var style = __webpack_require__(287);
 
-	var Block3 = function (_React$Component) {
-	  _inherits(Block3, _React$Component);
+	var Block1 = function (_React$Component) {
+	  _inherits(Block1, _React$Component);
 
-	  function Block3() {
-	    _classCallCheck(this, Block3);
+	  function Block1() {
+	    _classCallCheck(this, Block1);
 
-	    return _possibleConstructorReturn(this, (Block3.__proto__ || Object.getPrototypeOf(Block3)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block1.__proto__ || Object.getPrototypeOf(Block1)).apply(this, arguments));
 	  }
 
-	  _createClass(Block3, [{
+	  _createClass(Block1, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props,
-	          data = _props.data,
-	          variations = _props.variations;
-	      var titles = data.titles,
-	          images = data.images;
-
-	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
+	      var styles = this.props.style;
+	      var divStyle = (0, _imageUtil.getImageBackground)('/images/home/pas-de-chat.jpg');
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
-	        { style: divStyle, className: style[variations.variation1] },
+	        { style: divStyle, className: style.mainbanner + ' ' + (styles ? styles.wrapper : '') },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container-fluid' },
@@ -43972,11 +43967,11 @@
 	            { className: 'row' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-12 col-xs-12' },
+	              { className: 'col-xs-12 col-sm-6 col-sm-offset-3' },
 	              _react2.default.createElement(
 	                'h2',
-	                { className: style[variations.variation2] },
-	                titles.title1
+	                { className: style.title },
+	                'EXCELENCIA'
 	              )
 	            )
 	          )
@@ -43985,15 +43980,15 @@
 	    }
 	  }]);
 
-	  return Block3;
+	  return Block1;
 	}(_react2.default.Component);
 
-	exports.default = Block3;
+	exports.default = Block1;
 
 
-	Block3.propTypes = {
-	  data: _react2.default.PropTypes.object.isRequired,
-	  variations: _react2.default.PropTypes.object.isRequired
+	Block1.propTypes = {
+	  data: _react2.default.PropTypes.object,
+	  style: _react2.default.PropTypes.object
 	};
 
 /***/ }),
@@ -44001,7 +43996,7 @@
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","button1":"style__button1___ysj8P","button2":"style__button2___3T26W","button2b":"style__button2b___2FwWn","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","button3":"style__button3___1B5ky","button3v1":"style__button3v1___1K2ga","button3v2":"style__button3v2___2cSYL","button3v3":"style__button3v3___2QAs0","button3v4":"style__button3v4___1yJWM","sideSwipe":"style__sideSwipe___1wQDY","bottomSwipe":"style__bottomSwipe___3FjOI","title1":"style__title1___36WkF","titleC":"style__titleC___3Juam","titleE":"style__titleE___3vfVE","title2":"style__title2___21MoW","title3":"style__title3___WdO4l","title4":"style__title4___3vPE_","title5":"style__title5___1hZAj","title6":"style__title6___3ZgkO","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph1b":"style__paragraph1b___3yolC","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbannerC":"style__mainbannerC___1dg2G","mainbannerE":"style__mainbannerE___2wqi4"};
+	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","button1":"style__button1___ysj8P","button2":"style__button2___3T26W","button2b":"style__button2b___2FwWn","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","button3":"style__button3___1B5ky","button3v1":"style__button3v1___1K2ga","button3v2":"style__button3v2___2cSYL","button3v3":"style__button3v3___2QAs0","button3v4":"style__button3v4___1yJWM","sideSwipe":"style__sideSwipe___1wQDY","bottomSwipe":"style__bottomSwipe___3FjOI","title1":"style__title1___36WkF","title":"style__title___3Docb","title2":"style__title2___21MoW","title3":"style__title3___WdO4l","title4":"style__title4___3vPE_","title5":"style__title5___1hZAj","title6":"style__title6___3ZgkO","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph1b":"style__paragraph1b___3yolC","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph":"style__paragraph___3nIiw","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbanner":"style__mainbanner___2J7_D","svg":"style__svg___6prOk"};
 
 /***/ }),
 /* 288 */
@@ -44026,10 +44021,6 @@
 	var _sanitize = __webpack_require__(282);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
-
-	var _svg = __webpack_require__(213);
-
-	var _svg2 = _interopRequireDefault(_svg);
 
 	var _carousel = __webpack_require__(270);
 
@@ -44117,21 +44108,6 @@
 	                { id: 'carousel-about-block-4', interval: 8000, controls: false, classes: carouselClasses },
 	                this.renderItems(slides)
 	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-offset-6 col-xs-12' },
-	              _react2.default.createElement(
-	                'h3',
-	                { className: style.title },
-	                'REGLAMENTO'
-	              ),
-	              _react2.default.createElement(
-	                'a',
-	                { className: style.button, href: 'https://dl.dropboxusercontent.com/s/gtf5rdfcblp500r/REGLAMENTO%20PAS%20DE%20CHAT.pdf?dl=0', title: 'REGLAMENTO-PAS-DE-CHAT', target: '_blank' },
-	                'DESCARGAR',
-	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
-	              )
 	            )
 	          )
 	        )
@@ -44177,7 +44153,101 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _listShow = __webpack_require__(291);
+	var _imageUtil = __webpack_require__(269);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(291);
+
+	var Block3 = function (_React$Component) {
+	  _inherits(Block3, _React$Component);
+
+	  function Block3() {
+	    _classCallCheck(this, Block3);
+
+	    return _possibleConstructorReturn(this, (Block3.__proto__ || Object.getPrototypeOf(Block3)).apply(this, arguments));
+	  }
+
+	  _createClass(Block3, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props,
+	          data = _props.data,
+	          variations = _props.variations;
+	      var titles = data.titles,
+	          images = data.images;
+
+	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        { style: divStyle, className: style[variations.variation1] },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-12 col-xs-12' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: style[variations.variation2] },
+	                titles.title1
+	              )
+	            )
+	          )
+	        )
+	      ) : null;
+	    }
+	  }]);
+
+	  return Block3;
+	}(_react2.default.Component);
+
+	exports.default = Block3;
+
+
+	Block3.propTypes = {
+	  data: _react2.default.PropTypes.object.isRequired,
+	  variations: _react2.default.PropTypes.object.isRequired
+	};
+
+/***/ }),
+/* 291 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___2hB4-","vCenter":"style__vCenter___1T9ty","button1":"style__button1___9YZAe","button2":"style__button2___Uj5BF","button2b":"style__button2b___1Cuj7","vCenterRel":"style__vCenterRel___1eTtv","hCenter":"style__hCenter___3rAH4","inheritHeight":"style__inheritHeight___rxPQW","hideOverflow":"style__hideOverflow___3fx1Y","icon-sprites":"style__icon-sprites___2Jx7f","button3":"style__button3___qLj8v","button3v1":"style__button3v1___14IxP","button3v2":"style__button3v2___2unnb","button3v3":"style__button3v3___3mgGd","button3v4":"style__button3v4___2vTiC","sideSwipe":"style__sideSwipe___1HknP","bottomSwipe":"style__bottomSwipe___KNArH","title1":"style__title1___3OYdf","titleC":"style__titleC___2en3d","titleE":"style__titleE___1pluh","title2":"style__title2___1nHD-","title3":"style__title3___1X0re","title4":"style__title4___3xPa_","title5":"style__title5___m4d_4","title6":"style__title6___N7pUo","title7":"style__title7___VqQ4U","title8":"style__title8___2zEnq","paragraph1":"style__paragraph1___3l6DT","paragraph1b":"style__paragraph1b___3CFYb","paragraph2":"style__paragraph2___3UYoL","paragraph3":"style__paragraph3___1Sue1","paragraph4":"style__paragraph4___2L4Fw","paragraph5":"style__paragraph5___2u4nQ","mainbannerC":"style__mainbannerC___3VFdk","mainbannerE":"style__mainbannerE___COBgz"};
+
+/***/ }),
+/* 292 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _lodash = __webpack_require__(210);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _listShow = __webpack_require__(293);
 
 	var _listShow2 = _interopRequireDefault(_listShow);
 
@@ -44190,7 +44260,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(295);
+	var style = __webpack_require__(297);
 
 	var Block6 = function (_React$Component) {
 	  _inherits(Block6, _React$Component);
@@ -44232,7 +44302,7 @@
 	};
 
 /***/ }),
-/* 291 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44251,15 +44321,15 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _list = __webpack_require__(292);
+	var _list = __webpack_require__(294);
 
 	var _list2 = _interopRequireDefault(_list);
 
-	var _show = __webpack_require__(294);
+	var _show = __webpack_require__(296);
 
 	var _show2 = _interopRequireDefault(_show);
 
-	var _slug = __webpack_require__(293);
+	var _slug = __webpack_require__(295);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -44341,7 +44411,7 @@
 	};
 
 /***/ }),
-/* 292 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44366,7 +44436,7 @@
 
 	var _svg2 = _interopRequireDefault(_svg);
 
-	var _slug = __webpack_require__(293);
+	var _slug = __webpack_require__(295);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -44441,7 +44511,7 @@
 	};
 
 /***/ }),
-/* 293 */
+/* 295 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -44472,7 +44542,7 @@
 	};
 
 /***/ }),
-/* 294 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44493,7 +44563,7 @@
 
 	var _imageUtil = __webpack_require__(269);
 
-	var _slug = __webpack_require__(293);
+	var _slug = __webpack_require__(295);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -44604,14 +44674,14 @@
 	};
 
 /***/ }),
-/* 295 */
+/* 297 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___5Hdev","vCenter":"style__vCenter___2R7xI","item":"style__item___19454","svg":"style__svg___3EKSG","vCenterRel":"style__vCenterRel___1n4Yk","hCenter":"style__hCenter___3Hr8B","inheritHeight":"style__inheritHeight___1S0fd","hideOverflow":"style__hideOverflow___ABBe6","icon-sprites":"style__icon-sprites___3FKSV","title1":"style__title1___3gJwS","title2":"style__title2___2UYID","title3":"style__title3___AphF6","subtitle":"style__subtitle___eiDqf","title4":"style__title4___VjkpC","title5":"style__title5___1rO0v","title6":"style__title6___19b6v","title":"style__title___2v8uo","title7":"style__title7___3lYX3","title8":"style__title8___2nnP7","paragraph1":"style__paragraph1___27lCC","paragraph1b":"style__paragraph1b___kWEkR","content":"style__content___2WHKr","paragraph2":"style__paragraph2___1Cp7R","paragraph3":"style__paragraph3___1gcAp","paragraph4":"style__paragraph4___3OSxZ","paragraph5":"style__paragraph5___2ND05","wrapper":"style__wrapper___2dGti","active":"style__active___2EtVR","image":"style__image___2RETE"};
 
 /***/ }),
-/* 296 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44647,7 +44717,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(297);
+	var style = __webpack_require__(299);
 
 	var Block7 = function (_React$Component) {
 	  _inherits(Block7, _React$Component);
@@ -44722,14 +44792,14 @@
 	};
 
 /***/ }),
-/* 297 */
+/* 299 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1YJUo","vCenter":"style__vCenter___1XSDF","vCenterRel":"style__vCenterRel___1J02z","hCenter":"style__hCenter___2Tdv3","inheritHeight":"style__inheritHeight___fdY-6","hideOverflow":"style__hideOverflow___GHITu","icon-sprites":"style__icon-sprites___1TCxk","title1":"style__title1___3raEq","title2":"style__title2___xWuEp","title3":"style__title3___2JND3","title4":"style__title4___3VrXj","title5":"style__title5___14ULg","title6":"style__title6___3Jlc3","title":"style__title___2FxDg","title7":"style__title7___1VsjO","title8":"style__title8___1VtVb","paragraph1":"style__paragraph1___CrxJb","paragraph1b":"style__paragraph1b___f3SZQ","paragraph":"style__paragraph___2hS_M","paragraph2":"style__paragraph2___2Dt1n","author":"style__author___fROZn","paragraph3":"style__paragraph3___NvRs3","paragraph4":"style__paragraph4___1DBvl","paragraph5":"style__paragraph5___3BI-s","arrow":"style__arrow___2yiv-"};
 
 /***/ }),
-/* 298 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44763,7 +44833,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(299);
+	var style = __webpack_require__(301);
 
 	var Block8 = function (_React$Component) {
 	  _inherits(Block8, _React$Component);
@@ -44837,14 +44907,14 @@
 	};
 
 /***/ }),
-/* 299 */
+/* 301 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1G5oi","vCenter":"style__vCenter___3eMr-","button1":"style__button1___3rP8P","button":"style__button___138RC","button2":"style__button2___A09os","button2b":"style__button2b___7okhD","vCenterRel":"style__vCenterRel___2FPbE","hCenter":"style__hCenter___273Vb","inheritHeight":"style__inheritHeight___2w5-4","hideOverflow":"style__hideOverflow___35OAp","icon-sprites":"style__icon-sprites___3gAB_","button3":"style__button3___2H38R","button3v1":"style__button3v1___2UPHY","button3v2":"style__button3v2___21LXu","button3v3":"style__button3v3___3aio2","button3v4":"style__button3v4___1E1O4","title1":"style__title1___2Hrv_","title2":"style__title2___14zdY","title3":"style__title3___wJv6I","title4":"style__title4___bi5rE","title5":"style__title5___1Jrqb","title6":"style__title6___3IfL7","title7":"style__title7___vVSgO","title8":"style__title8___23FzZ","title":"style__title___2GTcd","sideSwipe":"style__sideSwipe___2kJhL","bottomSwipe":"style__bottomSwipe___Iacpj","wrapper":"style__wrapper___3pHW-"};
 
 /***/ }),
-/* 300 */
+/* 302 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -44956,7 +45026,7 @@
 	};
 
 /***/ }),
-/* 301 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44975,7 +45045,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _block = __webpack_require__(302);
+	var _block = __webpack_require__(304);
 
 	var _block2 = _interopRequireDefault(_block);
 
@@ -44983,11 +45053,11 @@
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _block5 = __webpack_require__(304);
+	var _block5 = __webpack_require__(306);
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(298);
+	var _block7 = __webpack_require__(300);
 
 	var _block8 = _interopRequireDefault(_block7);
 
@@ -45000,9 +45070,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var balletData = __webpack_require__(306);
-	var jazzData = __webpack_require__(307);
-	var flamencoData = __webpack_require__(308);
+	var balletData = __webpack_require__(308);
+	var jazzData = __webpack_require__(309);
+	var flamencoData = __webpack_require__(310);
 
 	var ProductsSection = function (_React$Component) {
 	  _inherits(ProductsSection, _React$Component);
@@ -45071,7 +45141,7 @@
 	};
 
 /***/ }),
-/* 302 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45109,7 +45179,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(303);
+	var style = __webpack_require__(305);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -45167,14 +45237,14 @@
 	};
 
 /***/ }),
-/* 303 */
+/* 305 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1j0pv","vCenter":"style__vCenter___2KQFQ","button1":"style__button1___3ZmPV","button2":"style__button2___2shnn","button2b":"style__button2b___9qjJ-","vCenterRel":"style__vCenterRel___34eYy","hCenter":"style__hCenter___1Lkdf","inheritHeight":"style__inheritHeight___1q40G","hideOverflow":"style__hideOverflow___DrxCZ","icon-sprites":"style__icon-sprites___3tV9U","button3":"style__button3___3VbYO","button3v1":"style__button3v1___1AjUN","button3v2":"style__button3v2___3ejfJ","button3v3":"style__button3v3___B8Ol9","button3v4":"style__button3v4___31_JU","sideSwipe":"style__sideSwipe___1FVlo","bottomSwipe":"style__bottomSwipe___2c0uL","title1":"style__title1___1gW4S","title":"style__title___SyWrl","title2":"style__title2___2Tj1e","title3":"style__title3___1HOPW","title4":"style__title4___3J4Je","title5":"style__title5___2Nimp","title6":"style__title6___1J_L3","title7":"style__title7___2tzA4","title8":"style__title8___2p7DZ","paragraph1":"style__paragraph1___3jelK","paragraph1b":"style__paragraph1b___2o55y","paragraph2":"style__paragraph2___3QqbA","paragraph3":"style__paragraph3___2muKz","paragraph":"style__paragraph___2nuu4","paragraph4":"style__paragraph4___1geTk","paragraph5":"style__paragraph5___30-m9","mainbanner":"style__mainbanner___17dAE","svg":"style__svg___1UaPh"};
 
 /***/ }),
-/* 304 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45199,7 +45269,7 @@
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
-	var _slug = __webpack_require__(293);
+	var _slug = __webpack_require__(295);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -45218,7 +45288,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(305);
+	var style = __webpack_require__(307);
 
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
@@ -45358,14 +45428,14 @@
 	};
 
 /***/ }),
-/* 305 */
+/* 307 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___zkvoI","controls":"style__controls___1nXQ8","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","title":"style__title___2mlf9","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraphB":"style__paragraphB___3TQhf","paragraph5":"style__paragraph5___1IKiM","wrapper_":"style__wrapper____1tcC1","wrapper_2":"style__wrapper_2___16tcC","sm":"style__sm___OLDFM","ballet":"style__ballet___2ecR7","jazz":"style__jazz___24bYU","flamenco":"style__flamenco___2coaY","cardioDanza":"style__cardioDanza___2LYVb"};
 
 /***/ }),
-/* 306 */
+/* 308 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -45439,7 +45509,7 @@
 	module.exports = data;
 
 /***/ }),
-/* 307 */
+/* 309 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -45529,7 +45599,7 @@
 	module.exports = data;
 
 /***/ }),
-/* 308 */
+/* 310 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -45601,7 +45671,7 @@
 	module.exports = data;
 
 /***/ }),
-/* 309 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45620,11 +45690,11 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _block = __webpack_require__(310);
+	var _block = __webpack_require__(312);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(312);
+	var _block3 = __webpack_require__(314);
 
 	var _block4 = _interopRequireDefault(_block3);
 
@@ -45672,7 +45742,7 @@
 	};
 
 /***/ }),
-/* 310 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45701,7 +45771,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(311);
+	var style = __webpack_require__(313);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -45733,14 +45803,14 @@
 	};
 
 /***/ }),
-/* 311 */
+/* 313 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___3WsSe","vCenter":"style__vCenter___3G_X_","button1":"style__button1___1iQls","button":"style__button___6iE0P","button2":"style__button2___2nT5Y","button2b":"style__button2b___15vcQ","vCenterRel":"style__vCenterRel___2rlOE","hCenter":"style__hCenter___3ARcP","inheritHeight":"style__inheritHeight___1YsqB","hideOverflow":"style__hideOverflow___ps_Tr","icon-sprites":"style__icon-sprites___2f7vT","button3":"style__button3___1WIju","button3v1":"style__button3v1___32z7Y","button3v2":"style__button3v2___3m_1I","button3v3":"style__button3v3___3STSg","button3v4":"style__button3v4___3GtKt","image1":"style__image1___1oYSl","paragraph1":"style__paragraph1___3JnQd","paragraph1b":"style__paragraph1b___xv990","paragraph2":"style__paragraph2___3M3qm","paragraph3":"style__paragraph3___6lKhK","paragraph4":"style__paragraph4___1Z42s","paragraph5":"style__paragraph5___1v105","sideSwipe":"style__sideSwipe___50l2S","bottomSwipe":"style__bottomSwipe___-6WwV","title1":"style__title1___3f0o0","title2":"style__title2___XQgLg","title3":"style__title3___2f5QU","title4":"style__title4___BpZsL","title5":"style__title5___hKWjC","title6":"style__title6___2GSXY","title7":"style__title7___3_kU1","title8":"style__title8___2cLGW","mainbanner":"style__mainbanner___1YlSK","image":"style__image___mSywh"};
 
 /***/ }),
-/* 312 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45761,7 +45831,7 @@
 
 	var _svg = __webpack_require__(213);
 
-	var _form = __webpack_require__(313);
+	var _form = __webpack_require__(315);
 
 	var _form2 = _interopRequireDefault(_form);
 
@@ -45774,7 +45844,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(315);
+	var style = __webpack_require__(317);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -45875,7 +45945,7 @@
 	};
 
 /***/ }),
-/* 313 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45910,7 +45980,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 600, 4] */
 
-	var style = __webpack_require__(314);
+	var style = __webpack_require__(316);
 
 	var Form1 = function (_React$Component) {
 	  _inherits(Form1, _React$Component);
@@ -46176,14 +46246,14 @@
 	exports.default = Form1;
 
 /***/ }),
-/* 314 */
+/* 316 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___365qk","vCenter":"style__vCenter___9LFiT","button1":"style__button1___QW0Tv","submit":"style__submit___2YBRa","button2":"style__button2___3fzL1","button2b":"style__button2b___2h89H","vCenterRel":"style__vCenterRel___27ebh","hCenter":"style__hCenter___3MSN5","inheritHeight":"style__inheritHeight___20X8j","hideOverflow":"style__hideOverflow___1e_Sa","icon-sprites":"style__icon-sprites___SBb6q","button3":"style__button3___1LtgP","button3v1":"style__button3v1___1Mvm_","button3v2":"style__button3v2___1N7QE","button3v3":"style__button3v3___11aHd","button3v4":"style__button3v4___2B0cK","image1":"style__image1___20ULB","paragraph1":"style__paragraph1___1Iuas","paragraph1b":"style__paragraph1b___14XS7","paragraph2":"style__paragraph2___XLNUn","paragraph3":"style__paragraph3___cQhzG","paragraph4":"style__paragraph4___3o8-x","paragraph5":"style__paragraph5___-5J8a","sideSwipe":"style__sideSwipe___3Jh_M","bottomSwipe":"style__bottomSwipe___2N3qh","title1":"style__title1___2DL5-","title2":"style__title2___3etcM","title3":"style__title3___8tZ0C","title4":"style__title4___33kmt","title5":"style__title5___2k_sU","title6":"style__title6___1dv-o","title7":"style__title7___OUaen","title8":"style__title8___1LvKh","form":"style__form___1nnSk","formGroup":"style__formGroup___1VfYe"};
 
 /***/ }),
-/* 315 */
+/* 317 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

@@ -3,42 +3,32 @@
 @import '../../../../theme/titles/titles';
 @import '../../../../theme/paragraphs/paragraphs';
 
-// ---- Block3
-.mainbannerC{
-	height: 600px;
-	background-size: auto;
-	background-position: center 100px;
-	background-repeat: no-repeat;
-	background-color: $white;
-}
-.titleC{
-	@extend .title1;
-	color: $red;
-	text-align: center;
-	margin-top: 315px;
-	text-transform: uppercase;
-}
-// ---- Block5
-.mainbannerE{
-	height: 550px;
+// ---- main slider
+.mainbanner{
+	height: 750px;
+	padding-top: 340px;
 	background-size: cover;
-	background-position: center top;
+	background-position: center center;
 }
-.titleE{
+.title{
 	@extend .title1;
-	color: $white;
 	text-align: center;
-	margin-top: 280px;
-	text-transform: uppercase;
+	margin-bottom: 50px;
+	letter-spacing: 11px;
+}
+.paragraph{
+	@extend .paragraph3;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.svg{
+	display: block;
+	margin: 0 auto;
 }
 // --- Responsive
 @media #{$isPhone}{
-	.titleC{
+  .title{
 		font-size: 30px;
-		letter-spacing: 6px;
-	}
-	.titleE{
-		font-size: 30px;
-		letter-spacing: 15px;
+		letter-spacing: 10px;
 	}
 }

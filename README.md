@@ -45,6 +45,8 @@ rhc env list -a app
 Code to increase jslint max line length limit
 /* eslint max-len: [2, 500, 4] */
 
+API_URL=http://45.55.12.200:49179/ npm start
+
 docker build -t garciadiazjaime/website-pavlova .
 docker run -e "API_URL=http://45.55.12.200:49179/" -d -p 49172:3072 garciadiazjaime/website-pavlova
 docker push garciadiazjaime/website-pavlova

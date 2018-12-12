@@ -9,7 +9,7 @@
     "build": "npm run build-be && npm run build-fe && npm run assets && npm run minify",
     "build-fe": "./node_modules/.bin/webpack",
     "build-be": "./node_modules/.bin/webpack",
-    "start": "node dist/server.js",
+    "start": "API_URL=http://45.55.12.200:49179/ node dist/server.js",
     "clean": "rm ./static/css/screen.css && rm ./static/js/app.js && rm ./dist/server.js",
     "sprites": "./node_modules/.bin/gulp build:sprites",
     "lint": "./node_modules/.bin/eslint --ignore-pattern **/app-*.js, **/**/sprite.js --ext .js,.jsx src",
@@ -18,7 +18,10 @@
     "assets": "cp -rf ./build/. ./static/ && rm ./static/index.html",
     "minify-css": "./node_modules/.bin/gulp minify-css",
     "minify-js": "./node_modules/.bin/gulp minify-js",
-    "minify": "npm run minify-css && npm run minify-js"
+    "minify": "npm run minify-css && npm run minify-js",
+    "docker:build": "docker build -t garciadiazjaime/website-pavlova .",
+    "docker:push": "docker push garciadiazjaime/website-pavlova",
+    "docker:pull": "docker pull garciadiazjaime/website-pavlova"
   },
   "author": "Mint IT Media",
   "license": "ISC",

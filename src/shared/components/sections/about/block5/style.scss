@@ -1,0 +1,44 @@
+@import '../../../../theme/constants';
+@import '../../../../theme/buttons/buttons';
+@import '../../../../theme/titles/titles';
+@import '../../../../theme/paragraphs/paragraphs';
+
+// ---- Block3
+.mainbannerC{
+	height: 600px;
+	background-size: auto;
+	background-position: center 100px;
+	background-repeat: no-repeat;
+	background-color: $white;
+}
+.titleC{
+	@extend .title1;
+	color: $red;
+	text-align: center;
+	margin-top: 315px;
+	text-transform: uppercase;
+}
+// ---- Block5
+.mainbannerE{
+	height: 550px;
+	background-size: cover;
+	background-position: center top;
+}
+.titleE{
+	@extend .title1;
+	color: $white;
+	text-align: center;
+	margin-top: 280px;
+	text-transform: uppercase;
+}
+// --- Responsive
+@media #{$isPhone}{
+	.titleC{
+		font-size: 30px;
+		letter-spacing: 6px;
+	}
+	.titleE{
+		font-size: 30px;
+		letter-spacing: 15px;
+	}
+}

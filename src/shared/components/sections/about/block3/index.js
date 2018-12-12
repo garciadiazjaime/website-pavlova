@@ -5,17 +5,16 @@ import { getImageBackground } from '../../../../utils/imageUtil';
 const style = require('./style.scss');
 
 
-export default class Block3 extends React.Component {
+export default class Block1 extends React.Component {
 
   render() {
-    const { data, variations } = this.props;
-    const { titles, images } = data;
-    const divStyle = getImageBackground(images.image1);
-    return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style[variations.variation1]}>
+    const styles = this.props.style;
+    const divStyle = getImageBackground('/images/home/pas-de-chat.jpg');
+    return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.mainbanner + ' ' + (styles ? styles.wrapper : '')}>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-sm-12 col-xs-12">
-            <h2 className={style[variations.variation2]}>{titles.title1}</h2>
+          <div className="col-xs-12 col-sm-6 col-sm-offset-3">
+            <h2 className={style.title}>EXCELENCIA</h2>
           </div>
         </div>
       </div>
@@ -23,7 +22,7 @@ export default class Block3 extends React.Component {
   }
 }
 
-Block3.propTypes = {
-  data: React.PropTypes.object.isRequired,
-  variations: React.PropTypes.object.isRequired,
+Block1.propTypes = {
+  data: React.PropTypes.object,
+  style: React.PropTypes.object,
 };

@@ -12,15 +12,11 @@ export default class Block8 extends React.Component {
     return !_.isEmpty(this.props.data) ? (<div className={style.wrapper}>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-sm-4 col-xs-12">
+          <div className="col-sm-6 col-xs-12">
             <h3 className={style.title}>{titles.title1}</h3>
             <a className={style.button} href={normalizeImageUrl('/docs/horarios-pavlova-2018-19.pdf')} title={buttons.button1.title} target="_blank">DESCARGAR<SVG network="arrow_down" className={style.svg}/></a>
           </div>
-          <div className="col-sm-4 col-xs-12">
-            <h3 className={style.title}>{titles.title2}</h3>
-            <a className={style.button} href={normalizeImageUrl(buttons.button2.href)} title={buttons.button2.title} target="_blank">DESCARGAR<SVG network="arrow_down" className={style.svg}/></a>
-          </div>
-          <div className="col-sm-4 col-xs-12">
+          <div className="col-sm-6 col-xs-12">
             <h3 className={style.title}>{titles.title3}</h3>
             <a className={style.button} href={normalizeImageUrl(buttons.button3.href)} title={buttons.button3.title} target="_blank">DESCARGAR<SVG network="arrow_down" className={style.svg}/></a>
           </div>

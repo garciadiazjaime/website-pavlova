@@ -42,7 +42,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -61,18 +61,18 @@
 	/*eslint-enable */
 	(0, _reactDom.render)(_routes2.default, document.getElementById('app')); /*eslint-disable */
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = __webpack_require__(2);
 
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -115,9 +115,9 @@
 
 	module.exports = React;
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -213,9 +213,9 @@
 	module.exports = React;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// shim for using process in browser
 	var process = module.exports = {};
@@ -387,6 +387,10 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+
+	process.listeners = function (name) { return [] }
 
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
@@ -399,9 +403,9 @@
 	process.umask = function() { return 0; };
 
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -434,9 +438,9 @@
 
 	module.exports = ReactCurrentOwner;
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -567,9 +571,9 @@
 	module.exports = ReactDOMTextComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -702,9 +706,9 @@
 	module.exports = DOMChildrenOperations;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -853,9 +857,9 @@
 	module.exports = Danger;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -894,9 +898,9 @@
 
 	module.exports = ExecutionEnvironment;
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -984,9 +988,9 @@
 	module.exports = createNodesFromMarkup;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1074,9 +1078,9 @@
 
 	module.exports = createArrayFromMixed;
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1137,9 +1141,9 @@
 	module.exports = toArray;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1193,9 +1197,9 @@
 	module.exports = invariant;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1294,9 +1298,9 @@
 	module.exports = getMarkupWrap;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 15 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1337,9 +1341,9 @@
 
 	module.exports = emptyFunction;
 
-/***/ },
+/***/ }),
 /* 16 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1374,9 +1378,9 @@
 
 	module.exports = ReactMultiChildUpdateTypes;
 
-/***/ },
+/***/ }),
 /* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1428,9 +1432,9 @@
 	module.exports = keyMirror;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1530,9 +1534,9 @@
 	module.exports = ReactPerf;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 19 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1625,9 +1629,9 @@
 
 	module.exports = setInnerHTML;
 
-/***/ },
+/***/ }),
 /* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1670,9 +1674,9 @@
 
 	module.exports = setTextContent;
 
-/***/ },
+/***/ }),
 /* 21 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1713,9 +1717,9 @@
 
 	module.exports = escapeTextContentForBrowser;
 
-/***/ },
+/***/ }),
 /* 22 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1944,9 +1948,9 @@
 	module.exports = DOMPropertyOperations;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -2184,9 +2188,9 @@
 	module.exports = DOMProperty;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 24 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -2215,9 +2219,9 @@
 
 	module.exports = quoteAttributeValueForBrowser;
 
-/***/ },
+/***/ }),
 /* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -2278,9 +2282,9 @@
 	module.exports = warning;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -2324,9 +2328,9 @@
 
 	module.exports = ReactComponentBrowserEnvironment;
 
-/***/ },
+/***/ }),
 /* 27 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -2424,9 +2428,9 @@
 	module.exports = ReactDOMIDOperations;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 28 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -3280,9 +3284,9 @@
 	module.exports = ReactMount;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 29 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -3609,9 +3613,9 @@
 
 	module.exports = ReactBrowserEventEmitter;
 
-/***/ },
+/***/ }),
 /* 30 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -3706,9 +3710,9 @@
 
 	module.exports = EventConstants;
 
-/***/ },
+/***/ }),
 /* 31 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -3991,9 +3995,9 @@
 	module.exports = EventPluginHub;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 32 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4217,9 +4221,9 @@
 	module.exports = EventPluginRegistry;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 33 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4425,9 +4429,9 @@
 	module.exports = EventPluginUtils;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 34 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4508,9 +4512,9 @@
 	module.exports = ReactErrorUtils;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 35 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -4573,9 +4577,9 @@
 	module.exports = accumulateInto;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 36 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4607,9 +4611,9 @@
 
 	module.exports = forEachAccumulated;
 
-/***/ },
+/***/ }),
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4650,9 +4654,9 @@
 
 	module.exports = ReactEventEmitterMixin;
 
-/***/ },
+/***/ }),
 /* 38 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4682,9 +4686,9 @@
 
 	module.exports = ViewportMetrics;
 
-/***/ },
+/***/ }),
 /* 39 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -4734,9 +4738,9 @@
 
 	module.exports = assign;
 
-/***/ },
+/***/ }),
 /* 40 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4799,9 +4803,9 @@
 
 	module.exports = isEventSupported;
 
-/***/ },
+/***/ }),
 /* 41 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4822,9 +4826,9 @@
 
 	module.exports = ReactDOMFeatureFlags;
 
-/***/ },
+/***/ }),
 /* 42 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -5075,9 +5079,9 @@
 	module.exports = ReactElement;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 43 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5105,9 +5109,9 @@
 	module.exports = canDefineProperty;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 44 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -5158,9 +5162,9 @@
 
 	module.exports = ReactEmptyComponentRegistry;
 
-/***/ },
+/***/ }),
 /* 45 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5466,9 +5470,9 @@
 	module.exports = ReactInstanceHandles;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 46 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5500,9 +5504,9 @@
 
 	module.exports = ReactRootIndex;
 
-/***/ },
+/***/ }),
 /* 47 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5552,9 +5556,9 @@
 
 	module.exports = ReactInstanceMap;
 
-/***/ },
+/***/ }),
 /* 48 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5602,9 +5606,9 @@
 
 	module.exports = ReactMarkupChecksum;
 
-/***/ },
+/***/ }),
 /* 49 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5649,9 +5653,9 @@
 
 	module.exports = adler32;
 
-/***/ },
+/***/ }),
 /* 50 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5761,9 +5765,9 @@
 
 	module.exports = ReactReconciler;
 
-/***/ },
+/***/ }),
 /* 51 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5844,9 +5848,9 @@
 
 	module.exports = ReactRef;
 
-/***/ },
+/***/ }),
 /* 52 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5941,9 +5945,9 @@
 	module.exports = ReactOwner;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 53 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015, Facebook, Inc.
@@ -6204,9 +6208,9 @@
 	module.exports = ReactUpdateQueue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 54 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6433,9 +6437,9 @@
 	module.exports = ReactUpdates;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 55 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6532,9 +6536,9 @@
 	module.exports = CallbackQueue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 56 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6657,9 +6661,9 @@
 	module.exports = PooledClass;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 57 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6894,9 +6898,9 @@
 	module.exports = Transaction;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 58 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6920,9 +6924,9 @@
 	module.exports = emptyObject;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 59 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6980,9 +6984,9 @@
 
 	module.exports = containsNode;
 
-/***/ },
+/***/ }),
 /* 60 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7010,9 +7014,9 @@
 
 	module.exports = isTextNode;
 
-/***/ },
+/***/ }),
 /* 61 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7038,9 +7042,9 @@
 
 	module.exports = isNode;
 
-/***/ },
+/***/ }),
 /* 62 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7156,9 +7160,9 @@
 	module.exports = instantiateReactComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 63 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7537,7 +7541,7 @@
 	          // This is intentionally an invariant that gets caught. It's the same
 	          // behavior as without this statement except with a better message.
 	          !(typeof propTypes[propName] === 'function') ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s: %s type `%s` is invalid; it must be a function, usually ' + 'from React.PropTypes.', componentName || 'React class', ReactPropTypeLocationNames[location], propName) : invariant(false) : undefined;
-	          error = propTypes[propName](props, propName, componentName, location);
+	          error = propTypes[propName](props, propName, componentName, location, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	        } catch (ex) {
 	          error = ex;
 	        }
@@ -7856,9 +7860,9 @@
 	module.exports = ReactCompositeComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 64 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -7913,9 +7917,9 @@
 	module.exports = ReactComponentEnvironment;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 65 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7940,9 +7944,9 @@
 
 	module.exports = ReactPropTypeLocations;
 
-/***/ },
+/***/ }),
 /* 66 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7970,9 +7974,9 @@
 	module.exports = ReactPropTypeLocationNames;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 67 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -8018,9 +8022,9 @@
 
 	module.exports = shouldUpdateReactComponent;
 
-/***/ },
+/***/ }),
 /* 68 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -8078,9 +8082,9 @@
 
 	module.exports = ReactEmptyComponent;
 
-/***/ },
+/***/ }),
 /* 69 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -8178,9 +8182,9 @@
 	module.exports = ReactNativeComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 70 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015, Facebook, Inc.
@@ -8547,9 +8551,9 @@
 	module.exports = validateDOMNesting;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 71 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -8650,9 +8654,9 @@
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 72 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015 Facebook, Inc.
@@ -9060,9 +9064,9 @@
 
 	module.exports = BeforeInputEventPlugin;
 
-/***/ },
+/***/ }),
 /* 73 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9201,9 +9205,9 @@
 	module.exports = EventPropagators;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 74 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9301,9 +9305,9 @@
 
 	module.exports = FallbackCompositionState;
 
-/***/ },
+/***/ }),
 /* 75 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9339,9 +9343,9 @@
 
 	module.exports = getTextContentAccessor;
 
-/***/ },
+/***/ }),
 /* 76 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9381,9 +9385,9 @@
 
 	module.exports = SyntheticCompositionEvent;
 
-/***/ },
+/***/ }),
 /* 77 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9567,9 +9571,9 @@
 	module.exports = SyntheticEvent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 78 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9610,9 +9614,9 @@
 
 	module.exports = SyntheticInputEvent;
 
-/***/ },
+/***/ }),
 /* 79 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9650,9 +9654,9 @@
 
 	module.exports = keyOf;
 
-/***/ },
+/***/ }),
 /* 80 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9976,9 +9980,9 @@
 
 	module.exports = ChangeEventPlugin;
 
-/***/ },
+/***/ }),
 /* 81 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10010,9 +10014,9 @@
 
 	module.exports = getEventTarget;
 
-/***/ },
+/***/ }),
 /* 82 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10055,9 +10059,9 @@
 
 	module.exports = isTextInputElement;
 
-/***/ },
+/***/ }),
 /* 83 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10083,9 +10087,9 @@
 
 	module.exports = ClientReactRootIndex;
 
-/***/ },
+/***/ }),
 /* 84 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10115,9 +10119,9 @@
 
 	module.exports = DefaultEventPluginOrder;
 
-/***/ },
+/***/ }),
 /* 85 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10244,9 +10248,9 @@
 
 	module.exports = EnterLeaveEventPlugin;
 
-/***/ },
+/***/ }),
 /* 86 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10322,9 +10326,9 @@
 
 	module.exports = SyntheticMouseEvent;
 
-/***/ },
+/***/ }),
 /* 87 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10387,9 +10391,9 @@
 
 	module.exports = SyntheticUIEvent;
 
-/***/ },
+/***/ }),
 /* 88 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10436,9 +10440,9 @@
 
 	module.exports = getEventModifierState;
 
-/***/ },
+/***/ }),
 /* 89 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10671,9 +10675,9 @@
 
 	module.exports = HTMLDOMPropertyConfig;
 
-/***/ },
+/***/ }),
 /* 90 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10713,9 +10717,9 @@
 	module.exports = ReactBrowserComponentMixin;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 91 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10768,9 +10772,9 @@
 	module.exports = findDOMNode;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 92 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10840,9 +10844,9 @@
 
 	module.exports = ReactDefaultBatchingStrategy;
 
-/***/ },
+/***/ }),
 /* 93 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11808,9 +11812,9 @@
 	module.exports = ReactDOMComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 94 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11849,9 +11853,9 @@
 
 	module.exports = AutoFocusUtils;
 
-/***/ },
+/***/ }),
 /* 95 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11880,9 +11884,9 @@
 
 	module.exports = focusNode;
 
-/***/ },
+/***/ }),
 /* 96 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12061,9 +12065,9 @@
 	module.exports = CSSPropertyOperations;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 97 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12205,9 +12209,9 @@
 
 	module.exports = CSSProperty;
 
-/***/ },
+/***/ }),
 /* 98 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12250,9 +12254,9 @@
 
 	module.exports = camelizeStyleName;
 
-/***/ },
+/***/ }),
 /* 99 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12287,9 +12291,9 @@
 
 	module.exports = camelize;
 
-/***/ },
+/***/ }),
 /* 100 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12347,9 +12351,9 @@
 
 	module.exports = dangerousStyleValue;
 
-/***/ },
+/***/ }),
 /* 101 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12391,9 +12395,9 @@
 
 	module.exports = hyphenateStyleName;
 
-/***/ },
+/***/ }),
 /* 102 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12429,9 +12433,9 @@
 
 	module.exports = hyphenate;
 
-/***/ },
+/***/ }),
 /* 103 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12465,9 +12469,9 @@
 
 	module.exports = memoizeStringOnly;
 
-/***/ },
+/***/ }),
 /* 104 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12520,9 +12524,9 @@
 
 	module.exports = ReactDOMButton;
 
-/***/ },
+/***/ }),
 /* 105 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12679,9 +12683,9 @@
 	module.exports = ReactDOMInput;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 106 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12761,7 +12765,7 @@
 	  checkPropTypes: function (tagName, props, owner) {
 	    for (var propName in propTypes) {
 	      if (propTypes.hasOwnProperty(propName)) {
-	        var error = propTypes[propName](props, propName, tagName, ReactPropTypeLocations.prop);
+	        var error = propTypes[propName](props, propName, tagName, ReactPropTypeLocations.prop, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	      }
 	      if (error instanceof Error && !(error.message in loggedTypeFailures)) {
 	        // Only monitor this failure once because there tends to be a lot of the
@@ -12819,9 +12823,9 @@
 	module.exports = LinkedValueUtils;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 107 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12962,7 +12966,7 @@
 	      return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
 	    }
 	    for (var i = 0; i < propValue.length; i++) {
-	      var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']');
+	      var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	      if (error instanceof Error) {
 	        return error;
 	      }
@@ -13028,7 +13032,7 @@
 	    }
 	    for (var key in propValue) {
 	      if (propValue.hasOwnProperty(key)) {
-	        var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key);
+	        var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	        if (error instanceof Error) {
 	          return error;
 	        }
@@ -13049,7 +13053,7 @@
 	  function validate(props, propName, componentName, location, propFullName) {
 	    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
 	      var checker = arrayOfTypeCheckers[i];
-	      if (checker(props, propName, componentName, location, propFullName) == null) {
+	      if (checker(props, propName, componentName, location, propFullName, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED') == null) {
 	        return null;
 	      }
 	    }
@@ -13084,7 +13088,7 @@
 	      if (!checker) {
 	        continue;
 	      }
-	      var error = checker(propValue, key, componentName, location, propFullName + '.' + key);
+	      var error = checker(propValue, key, componentName, location, propFullName + '.' + key, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	      if (error) {
 	        return error;
 	      }
@@ -13180,9 +13184,9 @@
 
 	module.exports = ReactPropTypes;
 
-/***/ },
+/***/ }),
 /* 108 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13225,9 +13229,9 @@
 
 	module.exports = getIteratorFn;
 
-/***/ },
+/***/ }),
 /* 109 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13320,9 +13324,9 @@
 	module.exports = ReactDOMOption;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 110 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13507,9 +13511,9 @@
 
 	module.exports = ReactChildren;
 
-/***/ },
+/***/ }),
 /* 111 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13702,9 +13706,9 @@
 	module.exports = traverseAllChildren;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 112 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13896,9 +13900,9 @@
 	module.exports = ReactDOMSelect;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 113 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14015,9 +14019,9 @@
 	module.exports = ReactDOMTextarea;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 114 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14517,9 +14521,9 @@
 	module.exports = ReactMultiChild;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 115 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -14645,9 +14649,9 @@
 	module.exports = ReactChildReconciler;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 116 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14699,9 +14703,9 @@
 	module.exports = flattenChildren;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 117 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14754,9 +14758,9 @@
 
 	module.exports = shallowEqual;
 
-/***/ },
+/***/ }),
 /* 118 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14970,9 +14974,9 @@
 
 	module.exports = ReactEventListener;
 
-/***/ },
+/***/ }),
 /* 119 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -15060,9 +15064,9 @@
 	module.exports = EventListener;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 120 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -15103,9 +15107,9 @@
 
 	module.exports = getUnboundedScrollPosition;
 
-/***/ },
+/***/ }),
 /* 121 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -15146,9 +15150,9 @@
 
 	module.exports = ReactInjection;
 
-/***/ },
+/***/ }),
 /* 122 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -15923,9 +15927,9 @@
 	module.exports = ReactClass;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 123 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -16051,9 +16055,9 @@
 	module.exports = ReactComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 124 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015, Facebook, Inc.
@@ -16175,9 +16179,9 @@
 	module.exports = ReactNoopUpdateQueue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 125 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -16331,9 +16335,9 @@
 
 	module.exports = ReactReconcileTransaction;
 
-/***/ },
+/***/ }),
 /* 126 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -16460,9 +16464,9 @@
 
 	module.exports = ReactInputSelection;
 
-/***/ },
+/***/ }),
 /* 127 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -16677,9 +16681,9 @@
 
 	module.exports = ReactDOMSelection;
 
-/***/ },
+/***/ }),
 /* 128 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -16755,9 +16759,9 @@
 
 	module.exports = getNodeForCharacterOffset;
 
-/***/ },
+/***/ }),
 /* 129 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -16795,9 +16799,9 @@
 
 	module.exports = getActiveElement;
 
-/***/ },
+/***/ }),
 /* 130 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17001,9 +17005,9 @@
 
 	module.exports = SelectEventPlugin;
 
-/***/ },
+/***/ }),
 /* 131 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17035,9 +17039,9 @@
 
 	module.exports = ServerReactRootIndex;
 
-/***/ },
+/***/ }),
 /* 132 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17628,9 +17632,9 @@
 	module.exports = SimpleEventPlugin;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 133 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17672,9 +17676,9 @@
 
 	module.exports = SyntheticClipboardEvent;
 
-/***/ },
+/***/ }),
 /* 134 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17714,9 +17718,9 @@
 
 	module.exports = SyntheticFocusEvent;
 
-/***/ },
+/***/ }),
 /* 135 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17804,9 +17808,9 @@
 
 	module.exports = SyntheticKeyboardEvent;
 
-/***/ },
+/***/ }),
 /* 136 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17859,9 +17863,9 @@
 
 	module.exports = getEventCharCode;
 
-/***/ },
+/***/ }),
 /* 137 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17967,9 +17971,9 @@
 
 	module.exports = getEventKey;
 
-/***/ },
+/***/ }),
 /* 138 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18009,9 +18013,9 @@
 
 	module.exports = SyntheticDragEvent;
 
-/***/ },
+/***/ }),
 /* 139 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18060,9 +18064,9 @@
 
 	module.exports = SyntheticTouchEvent;
 
-/***/ },
+/***/ }),
 /* 140 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18120,9 +18124,9 @@
 
 	module.exports = SyntheticWheelEvent;
 
-/***/ },
+/***/ }),
 /* 141 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18252,9 +18256,9 @@
 
 	module.exports = SVGDOMPropertyConfig;
 
-/***/ },
+/***/ }),
 /* 142 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18494,9 +18498,9 @@
 
 	module.exports = ReactDefaultPerf;
 
-/***/ },
+/***/ }),
 /* 143 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18700,9 +18704,9 @@
 
 	module.exports = ReactDefaultPerfAnalysis;
 
-/***/ },
+/***/ }),
 /* 144 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18739,9 +18743,9 @@
 
 	module.exports = performanceNow;
 
-/***/ },
+/***/ }),
 /* 145 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18767,9 +18771,9 @@
 
 	module.exports = performance || {};
 
-/***/ },
+/***/ }),
 /* 146 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18784,11 +18788,11 @@
 
 	'use strict';
 
-	module.exports = '0.14.8';
+	module.exports = '0.14.9';
 
-/***/ },
+/***/ }),
 /* 147 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18807,9 +18811,9 @@
 
 	module.exports = ReactMount.renderSubtreeIntoContainer;
 
-/***/ },
+/***/ }),
 /* 148 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18838,9 +18842,9 @@
 
 	module.exports = ReactDOMServer;
 
-/***/ },
+/***/ }),
 /* 149 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18927,9 +18931,9 @@
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 150 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -18955,9 +18959,9 @@
 
 	module.exports = ReactServerBatchingStrategy;
 
-/***/ },
+/***/ }),
 /* 151 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -19047,9 +19051,9 @@
 
 	module.exports = ReactServerRenderingTransaction;
 
-/***/ },
+/***/ }),
 /* 152 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19127,9 +19131,9 @@
 	module.exports = React;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 153 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19310,9 +19314,9 @@
 	module.exports = ReactDOMFactories;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 154 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -19491,7 +19495,7 @@
 	        // This is intentionally an invariant that gets caught. It's the same
 	        // behavior as without this statement except with a better message.
 	        !(typeof propTypes[propName] === 'function') ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'React.PropTypes.', componentName || 'React class', ReactPropTypeLocationNames[location], propName) : invariant(false) : undefined;
-	        error = propTypes[propName](props, propName, componentName, location);
+	        error = propTypes[propName](props, propName, componentName, location, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	      } catch (ex) {
 	        error = ex;
 	      }
@@ -19597,9 +19601,9 @@
 	module.exports = ReactElementValidator;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 155 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19653,9 +19657,9 @@
 
 	module.exports = mapObject;
 
-/***/ },
+/***/ }),
 /* 156 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19692,9 +19696,9 @@
 	module.exports = onlyChild;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 157 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19746,18 +19750,18 @@
 	module.exports = deprecated;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 158 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = __webpack_require__(3);
 
 
-/***/ },
+/***/ }),
 /* 159 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -19801,9 +19805,9 @@
 	  )
 	);
 
-/***/ },
+/***/ }),
 /* 160 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* components */
 	'use strict';
@@ -19910,9 +19914,9 @@
 
 	exports['default'] = _Router4['default'];
 
-/***/ },
+/***/ }),
 /* 161 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -20081,9 +20085,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 162 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -20148,9 +20152,9 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 163 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -20402,17 +20406,15 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 164 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 */
 
 	'use strict';
@@ -20460,9 +20462,9 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 165 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Indicates that navigation was caused by a call to history.push.
@@ -20496,9 +20498,9 @@
 	  POP: POP
 	};
 
-/***/ },
+/***/ }),
 /* 166 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -20506,9 +20508,9 @@
 	var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 	exports.canUseDOM = canUseDOM;
 
-/***/ },
+/***/ }),
 /* 167 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -20591,9 +20593,9 @@
 	  return ua.indexOf('Firefox') === -1;
 	}
 
-/***/ },
+/***/ }),
 /* 168 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/*eslint-disable no-empty */
 	'use strict';
@@ -20665,9 +20667,9 @@
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 169 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -20711,9 +20713,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 170 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	//import warning from 'warning'
 	'use strict';
@@ -21007,9 +21009,9 @@
 	exports['default'] = createHistory;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 171 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var pSlice = Array.prototype.slice;
 	var objectKeys = __webpack_require__(172);
@@ -21107,9 +21109,9 @@
 	}
 
 
-/***/ },
+/***/ }),
 /* 172 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	exports = module.exports = typeof Object.keys === 'function'
 	  ? Object.keys : shim;
@@ -21122,9 +21124,9 @@
 	}
 
 
-/***/ },
+/***/ }),
 /* 173 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	var supportsArgumentsClass = (function(){
 	  return Object.prototype.toString.call(arguments)
@@ -21148,9 +21150,9 @@
 	};
 
 
-/***/ },
+/***/ }),
 /* 174 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 
@@ -21179,9 +21181,9 @@
 	  next();
 	}
 
-/***/ },
+/***/ }),
 /* 175 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	//import warning from 'warning'
 	'use strict';
@@ -21238,9 +21240,9 @@
 	exports['default'] = createLocation;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 176 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -21288,9 +21290,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 177 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 
@@ -21306,9 +21308,9 @@
 	exports["default"] = extractPath;
 	module.exports = exports["default"];
 
-/***/ },
+/***/ }),
 /* 178 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -21336,9 +21338,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 179 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	//import warning from 'warning'
 
@@ -21356,9 +21358,9 @@
 	exports["default"] = deprecate;
 	module.exports = exports["default"];
 
-/***/ },
+/***/ }),
 /* 180 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -21476,9 +21478,9 @@
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 181 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -21622,9 +21624,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 182 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -21651,9 +21653,9 @@
 	exports['default'] = getRouteParams;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 183 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -21884,9 +21886,9 @@
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 184 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -22181,9 +22183,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 185 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -22359,9 +22361,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 186 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	var strictUriEncode = __webpack_require__(187);
@@ -22431,9 +22433,9 @@
 	};
 
 
-/***/ },
+/***/ }),
 /* 187 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	module.exports = function (str) {
@@ -22443,9 +22445,9 @@
 	};
 
 
-/***/ },
+/***/ }),
 /* 188 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -22504,9 +22506,9 @@
 	exports['default'] = computeChangedRoutes;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 189 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -22581,9 +22583,9 @@
 	  }
 	}
 
-/***/ },
+/***/ }),
 /* 190 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 
@@ -22644,9 +22646,9 @@
 	  });
 	}
 
-/***/ },
+/***/ }),
 /* 191 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -22772,9 +22774,9 @@
 	exports['default'] = isActive;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 192 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -22810,9 +22812,9 @@
 	exports['default'] = getComponents;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 193 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -23004,9 +23006,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 194 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -23062,9 +23064,9 @@
 	  route: route
 	};
 
-/***/ },
+/***/ }),
 /* 195 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -23230,9 +23232,9 @@
 	exports['default'] = Link;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 196 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -23277,9 +23279,9 @@
 	exports['default'] = IndexLink;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 197 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -23356,9 +23358,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 198 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -23469,9 +23471,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 199 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -23545,9 +23547,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 200 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -23618,9 +23620,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 201 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -23646,9 +23648,9 @@
 	exports['default'] = History;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 202 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -23716,9 +23718,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 203 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -23759,9 +23761,9 @@
 	exports['default'] = RouteContext;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 204 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -23828,9 +23830,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 205 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -23989,9 +23991,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 206 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -24134,9 +24136,9 @@
 	exports['default'] = useBasename;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 207 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -24318,9 +24320,9 @@
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 208 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -24336,15 +24338,15 @@
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _about = __webpack_require__(278);
+	var _about = __webpack_require__(280);
 
 	var _about2 = _interopRequireDefault(_about);
 
-	var _products = __webpack_require__(299);
+	var _products = __webpack_require__(301);
 
 	var _products2 = _interopRequireDefault(_products);
 
-	var _contact = __webpack_require__(302);
+	var _contact = __webpack_require__(309);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -24384,9 +24386,9 @@
 	  }]
 	};
 
-/***/ },
+/***/ }),
 /* 209 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -24645,9 +24647,9 @@
 	  data: _react2.default.PropTypes.object
 	};
 
-/***/ },
+/***/ }),
 /* 210 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
 	 * @license
@@ -37003,9 +37005,9 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(211)(module), (function() { return this; }())))
 
-/***/ },
+/***/ }),
 /* 211 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = function(module) {
 		if(!module.webpackPolyfill) {
@@ -37019,9 +37021,9 @@
 	}
 
 
-/***/ },
+/***/ }),
 /* 212 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -37066,8 +37068,8 @@
 	      var _this2 = this;
 
 	      return data.map(function (item, index) {
-	        var title = item.title;
-	        var url = item.url;
+	        var title = item.title,
+	            url = item.url;
 
 	        var elementID = url.replace('/', '');
 	        var className = style.navbarNavAnchor;
@@ -37167,9 +37169,9 @@
 	  onClick: _react2.default.PropTypes.func.isRequired
 	};
 
-/***/ },
+/***/ }),
 /* 213 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -37309,23 +37311,23 @@
 	  );
 	}
 
-/***/ },
+/***/ }),
 /* 214 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___eofHt","vCenter":"style__vCenter___3ydwB","vCenterRel":"style__vCenterRel___1Xcj8","hCenter":"style__hCenter___2IrLV","inheritHeight":"style__inheritHeight___XdU0Q","hideOverflow":"style__hideOverflow___1wNkm","icon-sprites":"style__icon-sprites___33LTB","paragraph1":"style__paragraph1___105nn","paragraph1b":"style__paragraph1b___2EzhZ","paragraph2":"style__paragraph2___1RbUN","paragraph3":"style__paragraph3___1Vukg","paragraph4":"style__paragraph4___2u3F_","paragraph5":"style__paragraph5___1bu0t","fbIcon":"style__fbIcon___3C8wt","facebook":"style__facebook___5cRlv"};
 
-/***/ },
+/***/ }),
 /* 215 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___cfX-h","vCenter":"style__vCenter___ZA14l","navbarBrand":"style__navbarBrand___2rqc0","toggleButton":"style__toggleButton___3q8M1","navbarNavAnchor":"style__navbarNavAnchor___37QYF","vCenterRel":"style__vCenterRel___1GkYt","navbarIcons":"style__navbarIcons___jZlWo","sm_icon":"style__sm_icon___3hlQn","hCenter":"style__hCenter___2Rj-i","inheritHeight":"style__inheritHeight___2LMcf","hideOverflow":"style__hideOverflow___3olA9","icon-sprites":"style__icon-sprites___1xY5y","navbarWrapper":"style__navbarWrapper___VqN0H","navbarDefault":"style__navbarDefault___aolZK","navbarHeader":"style__navbarHeader___2FrdS","iconBar":"style__iconBar___1hD4n","navbarCollapse":"style__navbarCollapse___3blFh","navbarNav":"style__navbarNav___1r3v1","facebook":"style__facebook___5X5oX"};
 
-/***/ },
+/***/ }),
 /* 216 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -37388,9 +37390,9 @@
 	    key: 'render',
 	    value: function render() {
 	      var icons = this.props.icons;
-	      var titles = _data2.default.titles;
-	      var paragraphs = _data2.default.paragraphs;
-	      var buttons = _data2.default.buttons;
+	      var titles = _data2.default.titles,
+	          paragraphs = _data2.default.paragraphs,
+	          buttons = _data2.default.buttons;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -37453,6 +37455,11 @@
 	                { className: style.paragraph },
 	                paragraphs.paragraph5
 	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { className: style.paragraph },
+	                '664 200.3031'
+	              ),
 	              this.getIcons(icons),
 	              _react2.default.createElement(
 	                'a',
@@ -37506,15 +37513,6 @@
 	                    { href: buttons.button5.href, title: buttons.button5.title },
 	                    buttons.button5.title
 	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: buttons.button6.href, title: buttons.button6.title },
-	                    buttons.button6.title
-	                  )
 	                )
 	              )
 	            ),
@@ -37546,15 +37544,6 @@
 	                    { href: buttons.button8.href, title: buttons.button8.title, target: '_blank' },
 	                    buttons.button8.title
 	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: buttons.button9.href, title: buttons.button9.title, target: '_blank' },
-	                    buttons.button9.title
-	                  )
 	                )
 	              )
 	            )
@@ -37575,9 +37564,9 @@
 	  icons: _react2.default.PropTypes.array
 	};
 
-/***/ },
+/***/ }),
 /* 217 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -37635,18 +37624,18 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'col-xs-12 col-sm-6' },
-	              'Todos los derechos reservados © Pavlova'
+	              'Todos los derechos reservados \xA9 Pavlova'
 	            ),
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'col-xs-12 col-sm-6 ' + style.wrapperBy },
-	              'Un proyecto de: ',
+	              'Un proyecto de:\xA0',
 	              _react2.default.createElement(
 	                'a',
 	                { href: data[0].url, title: data[0].title, target: '_blank' },
 	                data[0].name
 	              ),
-	              '   Código por: ',
+	              '\xA0\xA0 C\xF3digo por:\xA0',
 	              _react2.default.createElement(
 	                'a',
 	                { href: data[1].url, title: data[1].title, target: '_blank' },
@@ -37664,16 +37653,16 @@
 
 	exports.default = Powered;
 
-/***/ },
+/***/ }),
 /* 218 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___3sp06","vCenter":"style__vCenter___2G-_B","vCenterRel":"style__vCenterRel___3pk1i","hCenter":"style__hCenter___uDimH","inheritHeight":"style__inheritHeight___1W6vZ","hideOverflow":"style__hideOverflow___1oOYw","icon-sprites":"style__icon-sprites___3Wvbf","footerWrapper":"style__footerWrapper___LwV_7","footerBrand":"style__footerBrand___1BcOo","title":"style__title___3vTD3","paragraph":"style__paragraph___v5jSt","list":"style__list___2_aVL","container":"style__container___1CyCK","powered":"style__powered___3yTUa","wrapperBy":"style__wrapperBy___2KG7E","serviceTitle":"style__serviceTitle___3QrAo","facebook":"style__facebook___3bmod"};
 
-/***/ },
+/***/ }),
 /* 219 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -37691,7 +37680,7 @@
 	    paragraph1: 'Av. Allende #38',
 	    paragraph2: 'Col. Hipódromo',
 	    paragraph3: 'Tijuana, B.C.',
-	    paragraph4: 'info@pavlovahipodromo.com',
+	    paragraph4: 'pavlovahipodromo@gmail.com',
 	    paragraph5: '664 686.27.87'
 	  },
 	  buttons: {
@@ -37715,28 +37704,24 @@
 	      title: 'CARDIO DANZA',
 	      href: '/clases/kardio-danza'
 	    },
-	    button6: {
-	      title: 'BARRÉ',
-	      href: '/clases/barre'
-	    },
 	    button7: {
 	      title: 'HORARIOS',
-	      href: '/docs/horarios.pdf'
+	      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf'
 	    },
 	    button8: {
 	      title: 'FICHA DE INSCRIPCIÓN',
-	      href: '/docs/ficha-inscripcion.pdf'
+	      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-FichaInscripcion.pdf'
 	    },
 	    button9: {
 	      title: 'REGLAMENTO',
-	      href: '/docs/reglamento.pdf'
+	      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Reglamento.pdf'
 	    }
 	  }
 	};
 
-/***/ },
+/***/ }),
 /* 220 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -37777,9 +37762,9 @@
 	  }
 	};
 
-/***/ },
+/***/ }),
 /* 221 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -37792,9 +37777,9 @@
 	  $('.navbar-nav a#' + elementID).parent().addClass('active');
 	};
 
-/***/ },
+/***/ }),
 /* 222 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -37818,9 +37803,9 @@
 
 	exports.default = _rest2.default.wrap(_mime2.default, { mime: 'application/json' }).wrap(_errorCode2.default, { code: 300 });
 
-/***/ },
+/***/ }),
 /* 223 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2014 the original author or authors
@@ -37849,9 +37834,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 224 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2014 the original author or authors
@@ -37979,9 +37964,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 225 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2014 the original author or authors
@@ -38049,16 +38034,16 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 226 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = function() { throw new Error("define cannot be used indirect"); };
 
 
-/***/ },
+/***/ }),
 /* 227 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012-2014 the original author or authors
@@ -38236,9 +38221,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 228 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 
@@ -38470,9 +38455,9 @@
 	})(__webpack_require__(226));
 
 
-/***/ },
+/***/ }),
 /* 229 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -38554,9 +38539,9 @@
 	}(__webpack_require__(226)));
 
 
-/***/ },
+/***/ }),
 /* 230 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;var require;/* WEBPACK VAR INJECTION */(function(process) {/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -38607,8 +38592,8 @@
 		}
 
 		function hasMutationObserver () {
-			return (typeof MutationObserver === 'function' && MutationObserver) ||
-				(typeof WebKitMutationObserver === 'function' && WebKitMutationObserver);
+		    return (typeof MutationObserver !== 'undefined' && MutationObserver) ||
+				(typeof WebKitMutationObserver !== 'undefined' && WebKitMutationObserver);
 		}
 
 		function initMutationObserver(MutationObserver) {
@@ -38634,15 +38619,15 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 231 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/* (ignored) */
 
-/***/ },
+/***/ }),
 /* 232 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -38672,9 +38657,9 @@
 	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	}(__webpack_require__(226)));
 
-/***/ },
+/***/ }),
 /* 233 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -38917,13 +38902,23 @@
 			}
 
 			function settleOne(p) {
-				var h = Promise._handler(p);
-				if(h.state() === 0) {
+				// Optimize the case where we get an already-resolved when.js promise
+				//  by extracting its state:
+				var handler;
+				if (p instanceof Promise) {
+					// This is our own Promise type and we can reach its handler internals:
+					handler = p._handler.join();
+				}
+				if((handler && handler.state() === 0) || !handler) {
+					// Either still pending, or not a Promise at all:
 					return toPromise(p).then(state.fulfilled, state.rejected);
 				}
 
-				h._unreport();
-				return state.inspect(h);
+				// The promise is our own, but it is already resolved. Take a shortcut.
+				// Since we're not actually handling the resolution, we need to disable
+				// rejection reporting.
+				handler._unreport();
+				return state.inspect(handler);
 			}
 
 			/**
@@ -38967,9 +38962,9 @@
 	}(__webpack_require__(226)));
 
 
-/***/ },
+/***/ }),
 /* 234 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -39008,9 +39003,9 @@
 	}(__webpack_require__(226)));
 
 
-/***/ },
+/***/ }),
 /* 235 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -39069,9 +39064,9 @@
 
 
 
-/***/ },
+/***/ }),
 /* 236 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -39235,9 +39230,9 @@
 	}(__webpack_require__(226)));
 
 
-/***/ },
+/***/ }),
 /* 237 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -39268,9 +39263,9 @@
 	}(__webpack_require__(226)));
 
 
-/***/ },
+/***/ }),
 /* 238 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -39294,9 +39289,9 @@
 	}(__webpack_require__(226)));
 
 
-/***/ },
+/***/ }),
 /* 239 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -39365,9 +39360,9 @@
 	}(__webpack_require__(226)));
 
 
-/***/ },
+/***/ }),
 /* 240 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -39395,9 +39390,9 @@
 	}(__webpack_require__(226)));
 
 
-/***/ },
+/***/ }),
 /* 241 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -39439,9 +39434,9 @@
 
 
 
-/***/ },
+/***/ }),
 /* 242 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -39531,9 +39526,9 @@
 	}(__webpack_require__(226)));
 
 
-/***/ },
+/***/ }),
 /* 243 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -39593,9 +39588,9 @@
 	}(__webpack_require__(226)));
 
 
-/***/ },
+/***/ }),
 /* 244 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -39616,9 +39611,9 @@
 	})(__webpack_require__(226));
 
 
-/***/ },
+/***/ }),
 /* 245 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(process) {/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -40504,6 +40499,28 @@
 
 			function noop() {}
 
+			function hasCustomEvent() {
+				if(typeof CustomEvent === 'function') {
+					try {
+						var ev = new CustomEvent('unhandledRejection');
+						return ev instanceof CustomEvent;
+					} catch (ignoredException) {}
+				}
+				return false;
+			}
+
+			function hasInternetExplorerCustomEvent() {
+				if(typeof document !== 'undefined' && typeof document.createEvent === 'function') {
+					try {
+						// Try to create one event to make sure it's supported
+						var ev = document.createEvent('CustomEvent');
+						ev.initCustomEvent('eventType', false, true, {});
+						return true;
+					} catch (ignoredException) {}
+				}
+				return false;
+			}
+
 			function initEmitRejection() {
 				/*global process, self, CustomEvent*/
 				if(typeof process !== 'undefined' && process !== null
@@ -40517,15 +40534,9 @@
 							? process.emit(type, rejection.value, rejection)
 							: process.emit(type, rejection);
 					};
-				} else if(typeof self !== 'undefined' && typeof CustomEvent === 'function') {
-					return (function(noop, self, CustomEvent) {
-						var hasCustomEvent = false;
-						try {
-							var ev = new CustomEvent('unhandledRejection');
-							hasCustomEvent = ev instanceof CustomEvent;
-						} catch (e) {}
-
-						return !hasCustomEvent ? noop : function(type, rejection) {
+				} else if(typeof self !== 'undefined' && hasCustomEvent()) {
+					return (function (self, CustomEvent) {
+						return function (type, rejection) {
 							var ev = new CustomEvent(type, {
 								detail: {
 									reason: rejection.value,
@@ -40537,7 +40548,19 @@
 
 							return !self.dispatchEvent(ev);
 						};
-					}(noop, self, CustomEvent));
+					}(self, CustomEvent));
+				} else if(typeof self !== 'undefined' && hasInternetExplorerCustomEvent()) {
+					return (function(self, document) {
+						return function(type, rejection) {
+							var ev = document.createEvent('CustomEvent');
+							ev.initCustomEvent(type, false, true, {
+								reason: rejection.value,
+								key: rejection
+							});
+
+							return !self.dispatchEvent(ev);
+						};
+					}(self, document));
 				}
 
 				return noop;
@@ -40550,9 +40573,9 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 246 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-2014 original author or authors */
 	/** @author Brian Cavalier */
@@ -40636,9 +40659,9 @@
 	}(__webpack_require__(226)));
 
 
-/***/ },
+/***/ }),
 /* 247 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012-2013 the original author or authors
@@ -40871,9 +40894,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 248 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012-2013 the original author or authors
@@ -40925,9 +40948,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 249 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012 the original author or authors
@@ -40969,9 +40992,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 250 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2014-2015 the original author or authors
@@ -41115,9 +41138,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 251 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012-2014 the original author or authors
@@ -41231,9 +41254,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 252 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012-2015 the original author or authors
@@ -41402,9 +41425,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 253 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	* Copyright 2014 the original author or authors
@@ -41461,9 +41484,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 254 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012-2014 the original author or authors
@@ -41582,9 +41605,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 255 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2013-2015 the original author or authors
@@ -41727,9 +41750,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 256 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012-2013 the original author or authors
@@ -41792,9 +41815,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 257 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2015 the original author or authors
@@ -41854,9 +41877,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 258 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2015 the original author or authors
@@ -42032,9 +42055,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 259 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2015 the original author or authors
@@ -42218,9 +42241,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 260 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2013 the original author or authors
@@ -42265,9 +42288,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 261 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2013 the original author or authors
@@ -42326,9 +42349,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 262 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012-2015 the original author or authors
@@ -42379,9 +42402,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 263 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012 the original author or authors
@@ -42475,9 +42498,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 264 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2014 the original author or authors
@@ -42554,9 +42577,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 265 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012 the original author or authors
@@ -42589,9 +42612,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 266 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Copyright 2012-2013 the original author or authors
@@ -42642,9 +42665,9 @@
 	));
 
 
-/***/ },
+/***/ }),
 /* 267 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -42678,6 +42701,10 @@
 
 	var _block8 = _interopRequireDefault(_block7);
 
+	var _block9 = __webpack_require__(278);
+
+	var _block10 = _interopRequireDefault(_block9);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42698,11 +42725,11 @@
 	  _createClass(HomeSection, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var block1 = _props$data.block1;
-	      var block2 = _props$data.block2;
-	      var block3 = _props$data.block3;
-	      var block4 = _props$data.block4;
+	      var _props$data = this.props.data,
+	          block1 = _props$data.block1,
+	          block2 = _props$data.block2,
+	          block3 = _props$data.block3,
+	          block4 = _props$data.block4;
 
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
@@ -42711,7 +42738,8 @@
 	        _react2.default.createElement(_block2.default, { data: block1 }),
 	        _react2.default.createElement(_block4.default, { data: block2 }),
 	        _react2.default.createElement(_block6.default, { data: block3 }),
-	        _react2.default.createElement(_block8.default, { data: block4 })
+	        _react2.default.createElement(_block8.default, { data: block4 }),
+	        _react2.default.createElement(_block10.default, null)
 	      ) : null;
 	    }
 	  }]);
@@ -42726,9 +42754,9 @@
 	  data: _react2.default.PropTypes.object
 	};
 
-/***/ },
+/***/ }),
 /* 268 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -42852,9 +42880,9 @@
 	  data: _react2.default.PropTypes.object
 	};
 
-/***/ },
+/***/ }),
 /* 269 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -42885,17 +42913,15 @@
 	  return data.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
 	}
 
-/***/ },
+/***/ }),
 /* 270 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -42934,32 +42960,26 @@
 	    value: function getIndicators(sliderId, isVisible, data, indicatorClass) {
 	      var indicators = [];
 	      if (isVisible !== false && _lodash2.default.isArray(data) && data.length) {
-	        var _ret = function () {
-	          var activeClassName = indicatorClass && indicatorClass.active ? 'active ' + indicatorClass.active : 'active';
-	          indicators = data.map(function (item, index) {
-	            var className = index === 0 ? activeClassName : '';
-	            return _react2.default.createElement('li', { 'data-target': '#' + sliderId, 'data-slide-to': index, className: className, key: index });
-	          });
-	          return {
-	            v: _react2.default.createElement(
-	              'ol',
-	              { className: 'carousel-indicators ' + (indicatorClass.base || '') },
-	              indicators
-	            )
-	          };
-	        }();
-
-	        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+	        var activeClassName = indicatorClass && indicatorClass.active ? 'active ' + indicatorClass.active : 'active';
+	        indicators = data.map(function (item, index) {
+	          var className = index === 0 ? activeClassName : '';
+	          return _react2.default.createElement('li', { 'data-target': '#' + sliderId, 'data-slide-to': index, className: className, key: index });
+	        });
+	        return _react2.default.createElement(
+	          'ol',
+	          { className: 'carousel-indicators ' + (indicatorClass.base || '') },
+	          indicators
+	        );
 	      }
 	      return null;
 	    }
 	  }, {
 	    key: 'getControls',
 	    value: function getControls(sliderId, isVisible, classes) {
-	      var base = classes.base;
-	      var prev = classes.prev;
-	      var next = classes.next;
-	      var arrow = classes.arrow;
+	      var base = classes.base,
+	          prev = classes.prev,
+	          next = classes.next,
+	          arrow = classes.arrow;
 
 	      if (isVisible !== false) {
 	        return _react2.default.createElement(
@@ -42992,13 +43012,13 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var id = _props.id;
-	      var interval = _props.interval;
-	      var children = _props.children;
-	      var indicators = _props.indicators;
-	      var controls = _props.controls;
-	      var classes = _props.classes;
+	      var _props = this.props,
+	          id = _props.id,
+	          interval = _props.interval,
+	          children = _props.children,
+	          indicators = _props.indicators,
+	          controls = _props.controls,
+	          classes = _props.classes;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -43029,16 +43049,16 @@
 	  classes: _react2.default.PropTypes.object
 	};
 
-/***/ },
+/***/ }),
 /* 271 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1IAv0","vCenter":"style__vCenter___3op1c","button1":"style__button1___3teya","button2":"style__button2___3emCl","item":"style__item___1hdp3","darkBG":"style__darkBG___3_r4I","button2b":"style__button2b___1gkLu","vCenterRel":"style__vCenterRel___3rmpk","hCenter":"style__hCenter___bN1_x","inheritHeight":"style__inheritHeight___3EV0T","hideOverflow":"style__hideOverflow___1jYcy","icon-sprites":"style__icon-sprites___113mW","button3":"style__button3___1egvE","button3v1":"style__button3v1___e8Puv","button3v2":"style__button3v2___aYpPW","button3v3":"style__button3v3___18OJd","button3v4":"style__button3v4___347NJ","button3v5":"style__button3v5___6eHiy","wrapper1":"style__wrapper1___3LV9m","wrapper2":"style__wrapper2___3Do_q","title1":"style__title1___1fgRn","title2":"style__title2___3VQJ-","title3":"style__title3___15G1J","title4":"style__title4___GbpGB","title5":"style__title5___21deO","title6":"style__title6___2x7FO","title7":"style__title7___1Pacu","title8":"style__title8___1BoeB","sideSwipe":"style__sideSwipe___1_Jvs","bottomSwipe":"style__bottomSwipe___2qtvt","arrow":"style__arrow___3-Hu9"};
+	module.exports = {"fCenter":"style__fCenter___1IAv0","vCenter":"style__vCenter___3op1c","button1":"style__button1___3teya","button2":"style__button2___3emCl","item":"style__item___1hdp3","darkBG":"style__darkBG___3_r4I","button2b":"style__button2b___1gkLu","vCenterRel":"style__vCenterRel___3rmpk","hCenter":"style__hCenter___bN1_x","inheritHeight":"style__inheritHeight___3EV0T","hideOverflow":"style__hideOverflow___1jYcy","icon-sprites":"style__icon-sprites___113mW","button3":"style__button3___1egvE","button3v1":"style__button3v1___e8Puv","button3v2":"style__button3v2___aYpPW","button3v3":"style__button3v3___18OJd","button3v4":"style__button3v4___347NJ","wrapper1":"style__wrapper1___3LV9m","wrapper2":"style__wrapper2___3Do_q","title1":"style__title1___1fgRn","title2":"style__title2___3VQJ-","title3":"style__title3___15G1J","title4":"style__title4___GbpGB","title5":"style__title5___21deO","title6":"style__title6___2x7FO","title7":"style__title7___1Pacu","title8":"style__title8___1BoeB","sideSwipe":"style__sideSwipe___1_Jvs","bottomSwipe":"style__bottomSwipe___2qtvt","arrow":"style__arrow___3-Hu9"};
 
-/***/ },
+/***/ }),
 /* 272 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -43135,16 +43155,6 @@
 	                buttons.button4.title,
 	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
 	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: style.customCol + ' col-xs-6' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: style.button3v5 + ' row', to: buttons.button5.href },
-	                buttons.button5.title,
-	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
-	              )
 	            )
 	          )
 	        )
@@ -43162,16 +43172,16 @@
 	  data: _react2.default.PropTypes.object
 	};
 
-/***/ },
+/***/ }),
 /* 273 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","button1":"style__button1___3Mc_g","button2":"style__button2___2zikt","button2b":"style__button2b___UKCOY","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","icon-sprites":"style__icon-sprites___1crXd","button3":"style__button3___3KWNZ","button3v1":"style__button3v1___3BT_T","button3v2":"style__button3v2___1cST3","button3v3":"style__button3v3___1O1XL","button3v4":"style__button3v4___1ekHt","button3v5":"style__button3v5___m7eJK","image1":"style__image1___4P84q","paragraph1":"style__paragraph1___2Ov3F","paragraph1b":"style__paragraph1b___3CQIB","paragraph2":"style__paragraph2___10FLO","paragraph3":"style__paragraph3___3kGpq","paragraph4":"style__paragraph4___15kjh","paragraph5":"style__paragraph5___3EMdx","sideSwipe":"style__sideSwipe___2tbA2","bottomSwipe":"style__bottomSwipe___3tj3d","title1":"style__title1___3Lp7y","title2":"style__title2___1Nebh","title3":"style__title3___2cBjs","title4":"style__title4___90ELg","title5":"style__title5___3p9GA","title6":"style__title6___1cWpF","title7":"style__title7___1hdkz","title8":"style__title8___4sMWt","customCol":"style__customCol___3nRYv"};
+	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","button1":"style__button1___3Mc_g","button2":"style__button2___2zikt","button2b":"style__button2b___UKCOY","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","icon-sprites":"style__icon-sprites___1crXd","button3":"style__button3___3KWNZ","button3v1":"style__button3v1___3BT_T","button3v2":"style__button3v2___1cST3","button3v3":"style__button3v3___1O1XL","button3v4":"style__button3v4___1ekHt","image1":"style__image1___4P84q","paragraph1":"style__paragraph1___2Ov3F","paragraph1b":"style__paragraph1b___3CQIB","paragraph2":"style__paragraph2___10FLO","paragraph3":"style__paragraph3___3kGpq","paragraph4":"style__paragraph4___15kjh","paragraph5":"style__paragraph5___3EMdx","sideSwipe":"style__sideSwipe___2tbA2","bottomSwipe":"style__bottomSwipe___3tj3d","title1":"style__title1___3Lp7y","title2":"style__title2___1Nebh","title3":"style__title3___2cBjs","title4":"style__title4___90ELg","title5":"style__title5___3p9GA","title6":"style__title6___1cWpF","title7":"style__title7___1hdkz","title8":"style__title8___4sMWt","button3v5":"style__button3v5___m7eJK","customCol":"style__customCol___3nRYv"};
 
-/***/ },
+/***/ }),
 /* 274 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -43219,13 +43229,12 @@
 	  _createClass(Block3, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var buttons = _props$data.buttons;
-	      var images = _props$data.images;
-	      var paragraphs = _props$data.paragraphs;
+	      var _props$data = this.props.data,
+	          titles = _props$data.titles,
+	          buttons = _props$data.buttons,
+	          paragraphs = _props$data.paragraphs;
 
-	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
+	      var divStyle = (0, _imageUtil.getImageBackground)('/images/home/pas-de-chat.jpg');
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
 	        { style: divStyle, className: style.passeDeChat },
@@ -43271,16 +43280,16 @@
 	  data: _react2.default.PropTypes.object
 	};
 
-/***/ },
+/***/ }),
 /* 275 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1UpIU","vCenter":"style__vCenter___1YV9g","button1":"style__button1___100rH","button2":"style__button2___SbKZT","button":"style__button____i21N","button2b":"style__button2b___1z6B8","vCenterRel":"style__vCenterRel___1D8tj","hCenter":"style__hCenter___2TvfM","inheritHeight":"style__inheritHeight___3jids","hideOverflow":"style__hideOverflow___16pkQ","icon-sprites":"style__icon-sprites___3x6uL","button3":"style__button3___wn-mV","button3v1":"style__button3v1___2JRum","button3v2":"style__button3v2___1HD5h","button3v3":"style__button3v3___X_IwQ","button3v4":"style__button3v4___2gUdl","button3v5":"style__button3v5___brc20","passeDeChat":"style__passeDeChat___3lcIC","wrapper1":"style__wrapper1___11dmn","wrapper2":"style__wrapper2___btSte","title1":"style__title1___3QBup","title2":"style__title2___19ma5","title3":"style__title3___17GG-","title4":"style__title4___1kzHe","title5":"style__title5___w6HV2","title":"style__title___2uzOV","title6":"style__title6___8k-iy","title7":"style__title7___3kWyz","title8":"style__title8___3tkZ-","sideSwipe":"style__sideSwipe___M8sba","bottomSwipe":"style__bottomSwipe____fcIm","paragraph1":"style__paragraph1___mOtQ_","paragraph1b":"style__paragraph1b___1l31N","paragraph2":"style__paragraph2___34cYP","paragraph3":"style__paragraph3___pE0dO","paragraph":"style__paragraph___1CprJ","paragraph4":"style__paragraph4___2Bqj7","paragraph5":"style__paragraph5___8lnUF"};
+	module.exports = {"fCenter":"style__fCenter___1UpIU","vCenter":"style__vCenter___1YV9g","button1":"style__button1___100rH","button2":"style__button2___SbKZT","button":"style__button____i21N","button2b":"style__button2b___1z6B8","vCenterRel":"style__vCenterRel___1D8tj","hCenter":"style__hCenter___2TvfM","inheritHeight":"style__inheritHeight___3jids","hideOverflow":"style__hideOverflow___16pkQ","icon-sprites":"style__icon-sprites___3x6uL","button3":"style__button3___wn-mV","button3v1":"style__button3v1___2JRum","button3v2":"style__button3v2___1HD5h","button3v3":"style__button3v3___X_IwQ","button3v4":"style__button3v4___2gUdl","passeDeChat":"style__passeDeChat___3lcIC","wrapper1":"style__wrapper1___11dmn","wrapper2":"style__wrapper2___btSte","title1":"style__title1___3QBup","title2":"style__title2___19ma5","title3":"style__title3___17GG-","title4":"style__title4___1kzHe","title5":"style__title5___w6HV2","title":"style__title___2uzOV","title6":"style__title6___8k-iy","title7":"style__title7___3kWyz","title8":"style__title8___3tkZ-","sideSwipe":"style__sideSwipe___M8sba","bottomSwipe":"style__bottomSwipe____fcIm","paragraph1":"style__paragraph1___mOtQ_","paragraph1b":"style__paragraph1b___1l31N","paragraph2":"style__paragraph2___34cYP","paragraph3":"style__paragraph3___pE0dO","paragraph":"style__paragraph___1CprJ","paragraph4":"style__paragraph4___2Bqj7","paragraph5":"style__paragraph5___8lnUF"};
 
-/***/ },
+/***/ }),
 /* 276 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -43303,8 +43312,6 @@
 	var _carousel = __webpack_require__(270);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
-
-	var _imageUtil = __webpack_require__(269);
 
 	var _svg = __webpack_require__(213);
 
@@ -43332,28 +43339,23 @@
 
 	  _createClass(Block4, [{
 	    key: 'renderItems',
-	    value: function renderItems(data) {
-	      if (_lodash2.default.isArray(data) && data.length) {
-	        return data.map(function (item, index) {
-	          var className = index === 0 ? 'active' : '';
-	          var imageUrl = (0, _imageUtil.normalizeImageUrl)(item.image);
-	          return _react2.default.createElement(
-	            'div',
-	            { className: 'item ' + className + ' ' + (style.item || ''), key: index },
-	            _react2.default.createElement('img', { className: style.carrouselImg, src: imageUrl, alt: item.title })
-	          );
-	        });
-	      }
-	      return null;
+	    value: function renderItems() {
+	      return Array.apply(null, Array(7)).map(function (item, index) {
+	        var className = index === 0 ? 'active' : '';
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'item ' + className + ' ' + (style.item || ''), key: index },
+	          _react2.default.createElement('img', { className: style.carrouselImg, src: '/images/home-escuela/img-slider-escuela-0' + (index + 1) + '.jpg', alt: 'pavlova hipodromo escuela' })
+	        );
+	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var slides = _props$data.slides;
-	      var paragraphs = _props$data.paragraphs;
-	      var buttons = _props$data.buttons;
+	      var _props$data = this.props.data,
+	          titles = _props$data.titles,
+	          paragraphs = _props$data.paragraphs,
+	          buttons = _props$data.buttons;
 
 	      var carouselClasses = {
 	        inner: style.inner,
@@ -43363,6 +43365,7 @@
 	          next: style.next
 	        }
 	      };
+
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
 	        null,
@@ -43398,7 +43401,7 @@
 	              _react2.default.createElement(
 	                _carousel2.default,
 	                { id: 'carousel-home-block-4', interval: 8000, indicators: false, classes: carouselClasses },
-	                this.renderItems(slides)
+	                this.renderItems()
 	              )
 	            )
 	          )
@@ -43418,16 +43421,103 @@
 	  classes: _react2.default.PropTypes.object
 	};
 
-/***/ },
+/***/ }),
 /* 277 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___2Xb8X","vCenter":"style__vCenter___hmun0","button1":"style__button1___1hNj-","button2":"style__button2___1PxHI","button":"style__button___2WejV","button2b":"style__button2b___3PsG1","controls":"style__controls___20l_V","vCenterRel":"style__vCenterRel___2lPVo","hCenter":"style__hCenter___1JZnn","inheritHeight":"style__inheritHeight___1rILl","hideOverflow":"style__hideOverflow___1Q2PJ","icon-sprites":"style__icon-sprites___38gIr","button3":"style__button3___1BqYh","button3v1":"style__button3v1___rymdE","button3v2":"style__button3v2___3AaDs","button3v3":"style__button3v3___313Qy","button3v4":"style__button3v4___3NRPp","button3v5":"style__button3v5___3Klbx","wrapper1":"style__wrapper1___3ANK2","wrapper2":"style__wrapper2___2RaJ7","sideSwipe":"style__sideSwipe___2Dk6P","bottomSwipe":"style__bottomSwipe___1PfSR","title1":"style__title1___25IAx","title2":"style__title2___wfjef","title3":"style__title3___EBeus","title4":"style__title4____YoIR","title5":"style__title5___T2PV8","title6":"style__title6___G7Bi3","title":"style__title___3PYI0","title7":"style__title7___18HEf","title8":"style__title8___1HuLF","image1":"style__image1___3Iegh","image":"style__image___t1t90","paragraph1":"style__paragraph1___1KYt4","paragraph1b":"style__paragraph1b___3FINH","paragraph":"style__paragraph___2ThL6","paragraph2":"style__paragraph2___2j4Qo","paragraph3":"style__paragraph3___29XST","paragraph4":"style__paragraph4___3QuOc","paragraph5":"style__paragraph5___39V90","wrapper":"style__wrapper___17dlG","carrouselImg":"style__carrouselImg___1peuz"};
+	module.exports = {"fCenter":"style__fCenter___2Xb8X","vCenter":"style__vCenter___hmun0","button1":"style__button1___1hNj-","button2":"style__button2___1PxHI","button":"style__button___2WejV","button2b":"style__button2b___3PsG1","controls":"style__controls___20l_V","vCenterRel":"style__vCenterRel___2lPVo","hCenter":"style__hCenter___1JZnn","inheritHeight":"style__inheritHeight___1rILl","hideOverflow":"style__hideOverflow___1Q2PJ","icon-sprites":"style__icon-sprites___38gIr","button3":"style__button3___1BqYh","button3v1":"style__button3v1___rymdE","button3v2":"style__button3v2___3AaDs","button3v3":"style__button3v3___313Qy","button3v4":"style__button3v4___3NRPp","wrapper1":"style__wrapper1___3ANK2","wrapper2":"style__wrapper2___2RaJ7","sideSwipe":"style__sideSwipe___2Dk6P","bottomSwipe":"style__bottomSwipe___1PfSR","title1":"style__title1___25IAx","title2":"style__title2___wfjef","title3":"style__title3___EBeus","title4":"style__title4____YoIR","title5":"style__title5___T2PV8","title6":"style__title6___G7Bi3","title":"style__title___3PYI0","title7":"style__title7___18HEf","title8":"style__title8___1HuLF","image1":"style__image1___3Iegh","image":"style__image___t1t90","paragraph1":"style__paragraph1___1KYt4","paragraph1b":"style__paragraph1b___3FINH","paragraph":"style__paragraph___2ThL6","paragraph2":"style__paragraph2___2j4Qo","paragraph3":"style__paragraph3___29XST","paragraph4":"style__paragraph4___3QuOc","paragraph5":"style__paragraph5___39V90","wrapper":"style__wrapper___17dlG","carrouselImg":"style__carrouselImg___1peuz"};
 
-/***/ },
+/***/ }),
 /* 278 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(279);
+
+	var Block5 = function (_React$Component) {
+	  _inherits(Block5, _React$Component);
+
+	  function Block5() {
+	    _classCallCheck(this, Block5);
+
+	    return _possibleConstructorReturn(this, (Block5.__proto__ || Object.getPrototypeOf(Block5)).apply(this, arguments));
+	  }
+
+	  _createClass(Block5, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid ' + style.wrapper },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-12 col-xs-12' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: style.title },
+	                'Recorrido Virtual Pavlova Escuela de Danza'
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { className: style.paragraph },
+	                '\xA1Conoce nuestras instalaciones!'
+	              ),
+	              _react2.default.createElement('iframe', { src: 'https://www.google.com/maps/embed?pb=!4v1541182910595!6m8!1m7!1sCAoSLEFGMVFpcE5qXzV5WUk1bnN4OHhtYUdfSDkzVGExa2RDMzRELTZWZXp4aldF!2m2!1d32.504544235447!2d-116.9994770827!3f34.500004!4f0!5f0.7820865974627469', width: '100%', height: '450', frameBorder: '0', allowFullScreen: true })
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Block5;
+	}(_react2.default.Component);
+
+	exports.default = Block5;
+
+
+	Block5.propTypes = {
+	  data: _react2.default.PropTypes.object,
+	  classes: _react2.default.PropTypes.object
+	};
+
+/***/ }),
+/* 279 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter____Xii_","vCenter":"style__vCenter___1y14f","vCenterRel":"style__vCenterRel___24jA4","hCenter":"style__hCenter___Y4AN-","inheritHeight":"style__inheritHeight___21aOY","hideOverflow":"style__hideOverflow___3055I","icon-sprites":"style__icon-sprites___1DmEO","wrapper1":"style__wrapper1___3Sf2J","wrapper2":"style__wrapper2___2cdfa","title1":"style__title1___1xJzR","title2":"style__title2___1zpqe","title3":"style__title3___2P9aT","title4":"style__title4___2H0zb","title5":"style__title5___2k4qe","title6":"style__title6___1OLsu","title":"style__title___2hWLk","title7":"style__title7___AbXjb","title8":"style__title8___YMND7","paragraph1":"style__paragraph1___3S9mq","paragraph1b":"style__paragraph1b___3C0_Q","paragraph":"style__paragraph___hyObP","paragraph2":"style__paragraph2___3o3XQ","paragraph3":"style__paragraph3___2QU4m","paragraph4":"style__paragraph4___oQEgF","paragraph5":"style__paragraph5___1-rXW","wrapper":"style__wrapper___2AmaT"};
+
+/***/ }),
+/* 280 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -43445,35 +43535,35 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _block = __webpack_require__(279);
+	var _block = __webpack_require__(281);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(282);
+	var _block3 = __webpack_require__(284);
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _block5 = __webpack_require__(284);
+	var _block5 = __webpack_require__(286);
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(286);
+	var _block7 = __webpack_require__(288);
 
 	var _block8 = _interopRequireDefault(_block7);
 
-	var _block9 = __webpack_require__(288);
+	var _block9 = __webpack_require__(290);
 
 	var _block10 = _interopRequireDefault(_block9);
 
-	var _block11 = __webpack_require__(294);
+	var _block11 = __webpack_require__(296);
 
 	var _block12 = _interopRequireDefault(_block11);
 
-	var _block13 = __webpack_require__(296);
+	var _block13 = __webpack_require__(298);
 
 	var _block14 = _interopRequireDefault(_block13);
 
-	var _data = __webpack_require__(298);
+	var _data = __webpack_require__(300);
 
 	var _data2 = _interopRequireDefault(_data);
 
@@ -43500,16 +43590,16 @@
 	  _createClass(AboutSection, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var params = _props.params;
-	      var data = _props.data;
-	      var block1 = data.block1;
-	      var block2 = data.block2;
-	      var block3 = data.block3;
-	      var block4 = data.block4;
-	      var block5 = data.block5;
-	      var block7 = data.block7;
-	      var block8 = data.block8;
+	      var _props = this.props,
+	          params = _props.params,
+	          data = _props.data;
+	      var block1 = data.block1,
+	          block2 = data.block2,
+	          block3 = data.block3,
+	          block4 = data.block4,
+	          block5 = data.block5,
+	          block7 = data.block7,
+	          block8 = data.block8;
 	      var showListItem = params.showListItem;
 
 	      var block3Variations = {
@@ -43547,9 +43637,9 @@
 	  params: _react2.default.PropTypes.any
 	};
 
-/***/ },
-/* 279 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 281 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -43573,7 +43663,7 @@
 
 	var _imageUtil = __webpack_require__(269);
 
-	var _sanitize = __webpack_require__(280);
+	var _sanitize = __webpack_require__(282);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -43586,7 +43676,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(281);
+	var style = __webpack_require__(283);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -43601,12 +43691,11 @@
 	    key: 'render',
 	    value: function render() {
 	      var styles = this.props.style;
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var paragraphs = _props$data.paragraphs;
-	      var images = _props$data.images;
+	      var _props$data = this.props.data,
+	          titles = _props$data.titles,
+	          paragraphs = _props$data.paragraphs;
 
-	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
+	      var divStyle = (0, _imageUtil.getImageBackground)('/images/escuela/escuela-header.jpg');
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
 	        { style: divStyle, className: style.mainbanner + ' ' + (styles ? styles.wrapper : '') },
@@ -43644,9 +43733,9 @@
 	  style: _react2.default.PropTypes.object
 	};
 
-/***/ },
-/* 280 */
-/***/ function(module, exports) {
+/***/ }),
+/* 282 */
+/***/ (function(module, exports) {
 
 	"use strict";
 
@@ -43660,16 +43749,16 @@
 	  };
 	};
 
-/***/ },
-/* 281 */
-/***/ function(module, exports) {
+/***/ }),
+/* 283 */
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","button1":"style__button1___knh5C","button2":"style__button2___3rlK3","button2b":"style__button2b___H0Brp","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","button3":"style__button3___2KaTC","button3v1":"style__button3v1___16SWp","button3v2":"style__button3v2___3N8UW","button3v3":"style__button3v3___2h7PD","button3v4":"style__button3v4___3p_tP","button3v5":"style__button3v5___2P4jz","sideSwipe":"style__sideSwipe___3OFJQ","bottomSwipe":"style__bottomSwipe___3ltu-","title1":"style__title1___1LlDm","title":"style__title___JG5hq","title2":"style__title2___3ep2l","title3":"style__title3___1URy1","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph1b":"style__paragraph1b___2_mfn","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph":"style__paragraph___1Wwqc","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","svg":"style__svg___29LI3"};
+	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","button1":"style__button1___knh5C","button2":"style__button2___3rlK3","button2b":"style__button2b___H0Brp","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","button3":"style__button3___2KaTC","button3v1":"style__button3v1___16SWp","button3v2":"style__button3v2___3N8UW","button3v3":"style__button3v3___2h7PD","button3v4":"style__button3v4___3p_tP","sideSwipe":"style__sideSwipe___3OFJQ","bottomSwipe":"style__bottomSwipe___3ltu-","title1":"style__title1___1LlDm","title":"style__title___JG5hq","title2":"style__title2___3ep2l","title3":"style__title3___1URy1","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph1b":"style__paragraph1b___2_mfn","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph":"style__paragraph___1Wwqc","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","svg":"style__svg___29LI3"};
 
-/***/ },
-/* 282 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 284 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -43691,7 +43780,7 @@
 
 	var _imageUtil = __webpack_require__(269);
 
-	var _sanitize = __webpack_require__(280);
+	var _sanitize = __webpack_require__(282);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -43712,7 +43801,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(283);
+	var style = __webpack_require__(285);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -43746,13 +43835,12 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var images = _props$data.images;
-	      var buttons = _props$data.buttons;
-	      var slides = _props$data.slides;
+	      var _props$data = this.props.data,
+	          titles = _props$data.titles,
+	          buttons = _props$data.buttons,
+	          slides = _props$data.slides;
 
-	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
+	      var divStyle = (0, _imageUtil.getImageBackground)('/images/escuela/banner-flamenco.jpg');
 	      var carouselClasses = {
 	        inner: style.inner,
 	        controls: {
@@ -43815,16 +43903,16 @@
 	  style: _react2.default.PropTypes.object
 	};
 
-/***/ },
-/* 283 */
-/***/ function(module, exports) {
+/***/ }),
+/* 285 */
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___xP6Z-","vCenter":"style__vCenter___3EDwH","button1":"style__button1___ma4vA","button2":"style__button2___1Fwzx","button":"style__button___15DCt","button2b":"style__button2b___GtnQK","vCenterRel":"style__vCenterRel___1d1I_","hCenter":"style__hCenter___3LKuT","inheritHeight":"style__inheritHeight___11OVE","hideOverflow":"style__hideOverflow___1koJ0","icon-sprites":"style__icon-sprites___2uiLf","button3":"style__button3___3p2Pg","button3v1":"style__button3v1____mMiu","button3v2":"style__button3v2___7-kje","button3v3":"style__button3v3___2-obj","button3v4":"style__button3v4___ldhG5","button3v5":"style__button3v5___1kCHN","sideSwipe":"style__sideSwipe___19HIU","bottomSwipe":"style__bottomSwipe___3RO2M","title1":"style__title1___2c1PC","title2":"style__title2___U0Za7","title3":"style__title3___qpZuD","title4":"style__title4___c-0OO","title5":"style__title5___XOjHY","title6":"style__title6___2E_cG","title":"style__title___3-jmd","title7":"style__title7___21JO_","title8":"style__title8___36gBQ","paragraph1":"style__paragraph1___1m33N","paragraph1b":"style__paragraph1b___30nAD","paragraph":"style__paragraph___2dz5L","paragraph2":"style__paragraph2___3OtNY","paragraph3":"style__paragraph3___3qs1J","paragraph4":"style__paragraph4___3oqJH","paragraph5":"style__paragraph5___akVWK","tagline":"style__tagline___Dl43p","mainbanner":"style__mainbanner___37cO7","svg":"style__svg___25w61","inner":"style__inner___1SA8W","indicators":"style__indicators___1lG-t"};
+	module.exports = {"fCenter":"style__fCenter___xP6Z-","vCenter":"style__vCenter___3EDwH","button1":"style__button1___ma4vA","button2":"style__button2___1Fwzx","button":"style__button___15DCt","button2b":"style__button2b___GtnQK","vCenterRel":"style__vCenterRel___1d1I_","hCenter":"style__hCenter___3LKuT","inheritHeight":"style__inheritHeight___11OVE","hideOverflow":"style__hideOverflow___1koJ0","icon-sprites":"style__icon-sprites___2uiLf","button3":"style__button3___3p2Pg","button3v1":"style__button3v1____mMiu","button3v2":"style__button3v2___7-kje","button3v3":"style__button3v3___2-obj","button3v4":"style__button3v4___ldhG5","sideSwipe":"style__sideSwipe___19HIU","bottomSwipe":"style__bottomSwipe___3RO2M","title1":"style__title1___2c1PC","title2":"style__title2___U0Za7","title3":"style__title3___qpZuD","title4":"style__title4___c-0OO","title5":"style__title5___XOjHY","title6":"style__title6___2E_cG","title":"style__title___3-jmd","title7":"style__title7___21JO_","title8":"style__title8___36gBQ","paragraph1":"style__paragraph1___1m33N","paragraph1b":"style__paragraph1b___30nAD","paragraph":"style__paragraph___2dz5L","paragraph2":"style__paragraph2___3OtNY","paragraph3":"style__paragraph3___3qs1J","paragraph4":"style__paragraph4___3oqJH","paragraph5":"style__paragraph5___akVWK","tagline":"style__tagline___Dl43p","mainbanner":"style__mainbanner___37cO7","svg":"style__svg___25w61","inner":"style__inner___1SA8W","indicators":"style__indicators___1lG-t"};
 
-/***/ },
-/* 284 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 286 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -43853,7 +43941,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(285);
+	var style = __webpack_require__(287);
 
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
@@ -43867,11 +43955,11 @@
 	  _createClass(Block3, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var data = _props.data;
-	      var variations = _props.variations;
-	      var titles = data.titles;
-	      var images = data.images;
+	      var _props = this.props,
+	          data = _props.data,
+	          variations = _props.variations;
+	      var titles = data.titles,
+	          images = data.images;
 
 	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
@@ -43909,16 +43997,16 @@
 	  variations: _react2.default.PropTypes.object.isRequired
 	};
 
-/***/ },
-/* 285 */
-/***/ function(module, exports) {
+/***/ }),
+/* 287 */
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","button1":"style__button1___ysj8P","button2":"style__button2___3T26W","button2b":"style__button2b___2FwWn","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","button3":"style__button3___1B5ky","button3v1":"style__button3v1___1K2ga","button3v2":"style__button3v2___2cSYL","button3v3":"style__button3v3___2QAs0","button3v4":"style__button3v4___1yJWM","button3v5":"style__button3v5___19FE3","sideSwipe":"style__sideSwipe___1wQDY","bottomSwipe":"style__bottomSwipe___3FjOI","title1":"style__title1___36WkF","titleC":"style__titleC___3Juam","titleE":"style__titleE___3vfVE","title2":"style__title2___21MoW","title3":"style__title3___WdO4l","title4":"style__title4___3vPE_","title5":"style__title5___1hZAj","title6":"style__title6___3ZgkO","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph1b":"style__paragraph1b___3yolC","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbannerC":"style__mainbannerC___1dg2G","mainbannerE":"style__mainbannerE___2wqi4"};
+	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","button1":"style__button1___ysj8P","button2":"style__button2___3T26W","button2b":"style__button2b___2FwWn","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","button3":"style__button3___1B5ky","button3v1":"style__button3v1___1K2ga","button3v2":"style__button3v2___2cSYL","button3v3":"style__button3v3___2QAs0","button3v4":"style__button3v4___1yJWM","sideSwipe":"style__sideSwipe___1wQDY","bottomSwipe":"style__bottomSwipe___3FjOI","title1":"style__title1___36WkF","titleC":"style__titleC___3Juam","titleE":"style__titleE___3vfVE","title2":"style__title2___21MoW","title3":"style__title3___WdO4l","title4":"style__title4___3vPE_","title5":"style__title5___1hZAj","title6":"style__title6___3ZgkO","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph1b":"style__paragraph1b___3yolC","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbannerC":"style__mainbannerC___1dg2G","mainbannerE":"style__mainbannerE___2wqi4"};
 
-/***/ },
-/* 286 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 288 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -43936,7 +44024,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _sanitize = __webpack_require__(280);
+	var _sanitize = __webpack_require__(282);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -43953,7 +44041,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(287);
+	var style = __webpack_require__(289);
 
 	var Block4 = function (_React$Component) {
 	  _inherits(Block4, _React$Component);
@@ -43987,9 +44075,9 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var images = _props$data.images;
-	      var slides = _props$data.slides;
+	      var _props$data = this.props.data,
+	          images = _props$data.images,
+	          slides = _props$data.slides;
 
 	      var carouselClasses = {
 	        inner: style.inner,
@@ -44044,16 +44132,16 @@
 	  style: _react2.default.PropTypes.object
 	};
 
-/***/ },
-/* 287 */
-/***/ function(module, exports) {
+/***/ }),
+/* 289 */
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","button1":"style__button1___1pbIc","button2":"style__button2___1FucC","button2b":"style__button2b___2FsuG","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","button3":"style__button3___1uWcc","button3v1":"style__button3v1___2s-Yj","button3v2":"style__button3v2___2VAH8","button3v3":"style__button3v3___iwEeg","button3v4":"style__button3v4___3wMtL","button3v5":"style__button3v5___2ieFT","sideSwipe":"style__sideSwipe___13jwX","bottomSwipe":"style__bottomSwipe___2_85D","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title3":"style__title3___L0OLC","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title":"style__title___2_j9U","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph1b":"style__paragraph1b___2rvU9","paragraph":"style__paragraph___2RMic","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","wrapper":"style__wrapper___3B2lE","indicators":"style__indicators___3yzgC"};
+	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","button1":"style__button1___1pbIc","button2":"style__button2___1FucC","button2b":"style__button2b___2FsuG","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","button3":"style__button3___1uWcc","button3v1":"style__button3v1___2s-Yj","button3v2":"style__button3v2___2VAH8","button3v3":"style__button3v3___iwEeg","button3v4":"style__button3v4___3wMtL","sideSwipe":"style__sideSwipe___13jwX","bottomSwipe":"style__bottomSwipe___2_85D","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title3":"style__title3___L0OLC","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title":"style__title___2_j9U","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph1b":"style__paragraph1b___2rvU9","paragraph":"style__paragraph___2RMic","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","wrapper":"style__wrapper___3B2lE","indicators":"style__indicators___3yzgC"};
 
-/***/ },
-/* 288 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 290 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -44071,7 +44159,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _listShow = __webpack_require__(289);
+	var _listShow = __webpack_require__(291);
 
 	var _listShow2 = _interopRequireDefault(_listShow);
 
@@ -44084,7 +44172,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(293);
+	var style = __webpack_require__(295);
 
 	var Block6 = function (_React$Component) {
 	  _inherits(Block6, _React$Component);
@@ -44098,9 +44186,9 @@
 	  _createClass(Block6, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var data = _props.data;
-	      var showListItem = _props.showListItem;
+	      var _props = this.props,
+	          data = _props.data,
+	          showListItem = _props.showListItem;
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
@@ -44125,9 +44213,9 @@
 	  showListItem: _react2.default.PropTypes.string
 	};
 
-/***/ },
-/* 289 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 291 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -44145,15 +44233,15 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _list = __webpack_require__(290);
+	var _list = __webpack_require__(292);
 
 	var _list2 = _interopRequireDefault(_list);
 
-	var _show = __webpack_require__(292);
+	var _show = __webpack_require__(294);
 
 	var _show2 = _interopRequireDefault(_show);
 
-	var _slug = __webpack_require__(291);
+	var _slug = __webpack_require__(293);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -44190,10 +44278,10 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var data = _props.data;
-	      var item = _props.item;
-	      var style = _props.style;
+	      var _props = this.props,
+	          data = _props.data,
+	          item = _props.item,
+	          style = _props.style;
 
 	      var itemInfo = this.getItemInfo(data.items, item);
 	      return _react2.default.createElement(
@@ -44234,9 +44322,9 @@
 	  style: _react2.default.PropTypes.object
 	};
 
-/***/ },
-/* 290 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 292 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -44260,7 +44348,7 @@
 
 	var _svg2 = _interopRequireDefault(_svg);
 
-	var _slug = __webpack_require__(291);
+	var _slug = __webpack_require__(293);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -44309,10 +44397,10 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var data = _props.data;
-	      var item = _props.item;
-	      var style = _props.style;
+	      var _props = this.props,
+	          data = _props.data,
+	          item = _props.item,
+	          style = _props.style;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -44334,9 +44422,9 @@
 	  style: _react2.default.PropTypes.object
 	};
 
-/***/ },
-/* 291 */
-/***/ function(module, exports) {
+/***/ }),
+/* 293 */
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -44365,9 +44453,9 @@
 	  return str;
 	};
 
-/***/ },
-/* 292 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 294 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -44387,7 +44475,7 @@
 
 	var _imageUtil = __webpack_require__(269);
 
-	var _slug = __webpack_require__(291);
+	var _slug = __webpack_require__(293);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -44446,10 +44534,10 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var data = _props.data;
-	      var style = _props.style;
-	      var items = _props.items;
+	      var _props = this.props,
+	          data = _props.data,
+	          style = _props.style,
+	          items = _props.items;
 
 	      var imgUrl = (0, _imageUtil.normalizeImageUrl)(data.image);
 	      return _react2.default.createElement(
@@ -44504,16 +44592,16 @@
 	  items: _react2.default.PropTypes.array
 	};
 
-/***/ },
-/* 293 */
-/***/ function(module, exports) {
+/***/ }),
+/* 295 */
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___5Hdev","vCenter":"style__vCenter___2R7xI","item":"style__item___19454","svg":"style__svg___3EKSG","vCenterRel":"style__vCenterRel___1n4Yk","hCenter":"style__hCenter___3Hr8B","inheritHeight":"style__inheritHeight___1S0fd","hideOverflow":"style__hideOverflow___ABBe6","icon-sprites":"style__icon-sprites___3FKSV","title1":"style__title1___3gJwS","title2":"style__title2___2UYID","title3":"style__title3___AphF6","subtitle":"style__subtitle___eiDqf","title4":"style__title4___VjkpC","title5":"style__title5___1rO0v","title6":"style__title6___19b6v","title":"style__title___2v8uo","title7":"style__title7___3lYX3","title8":"style__title8___2nnP7","paragraph1":"style__paragraph1___27lCC","paragraph1b":"style__paragraph1b___kWEkR","content":"style__content___2WHKr","paragraph2":"style__paragraph2___1Cp7R","paragraph3":"style__paragraph3___1gcAp","paragraph4":"style__paragraph4___3OSxZ","paragraph5":"style__paragraph5___2ND05","wrapper":"style__wrapper___2dGti","active":"style__active___2EtVR","image":"style__image___2RETE"};
 
-/***/ },
-/* 294 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 296 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -44535,7 +44623,7 @@
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
-	var _sanitize = __webpack_require__(280);
+	var _sanitize = __webpack_require__(282);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -44548,7 +44636,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(295);
+	var style = __webpack_require__(297);
 
 	var Block7 = function (_React$Component) {
 	  _inherits(Block7, _React$Component);
@@ -44582,9 +44670,9 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var slides = _props$data.slides;
+	      var _props$data = this.props.data,
+	          titles = _props$data.titles,
+	          slides = _props$data.slides;
 
 	      var carouselClasses = {
 	        inner: style.inner,
@@ -44622,16 +44710,16 @@
 	  data: _react2.default.PropTypes.object.isRequired
 	};
 
-/***/ },
-/* 295 */
-/***/ function(module, exports) {
+/***/ }),
+/* 297 */
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1YJUo","vCenter":"style__vCenter___1XSDF","vCenterRel":"style__vCenterRel___1J02z","hCenter":"style__hCenter___2Tdv3","inheritHeight":"style__inheritHeight___fdY-6","hideOverflow":"style__hideOverflow___GHITu","icon-sprites":"style__icon-sprites___1TCxk","title1":"style__title1___3raEq","title2":"style__title2___xWuEp","title3":"style__title3___2JND3","title4":"style__title4___3VrXj","title5":"style__title5___14ULg","title6":"style__title6___3Jlc3","title":"style__title___2FxDg","title7":"style__title7___1VsjO","title8":"style__title8___1VtVb","paragraph1":"style__paragraph1___CrxJb","paragraph1b":"style__paragraph1b___f3SZQ","paragraph":"style__paragraph___2hS_M","paragraph2":"style__paragraph2___2Dt1n","author":"style__author___fROZn","paragraph3":"style__paragraph3___NvRs3","paragraph4":"style__paragraph4___1DBvl","paragraph5":"style__paragraph5___3BI-s","arrow":"style__arrow___2yiv-"};
 
-/***/ },
-/* 296 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 298 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -44664,23 +44752,23 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(297);
+	var style = __webpack_require__(299);
 
-	var Block7 = function (_React$Component) {
-	  _inherits(Block7, _React$Component);
+	var Block8 = function (_React$Component) {
+	  _inherits(Block8, _React$Component);
 
-	  function Block7() {
-	    _classCallCheck(this, Block7);
+	  function Block8() {
+	    _classCallCheck(this, Block8);
 
-	    return _possibleConstructorReturn(this, (Block7.__proto__ || Object.getPrototypeOf(Block7)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Block8.__proto__ || Object.getPrototypeOf(Block8)).apply(this, arguments));
 	  }
 
-	  _createClass(Block7, [{
+	  _createClass(Block8, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var buttons = _props$data.buttons;
+	      var _props$data = this.props.data,
+	          titles = _props$data.titles,
+	          buttons = _props$data.buttons;
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
@@ -44693,7 +44781,7 @@
 	            { className: 'row' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-4 col-xs-12' },
+	              { className: 'col-sm-6 col-xs-12' },
 	              _react2.default.createElement(
 	                'h3',
 	                { className: style.title },
@@ -44701,29 +44789,14 @@
 	              ),
 	              _react2.default.createElement(
 	                'a',
-	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)(buttons.button1.href), title: buttons.button1.title, target: '_blank' },
+	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)('/docs/horarios-pavlova-2018-19.pdf'), title: buttons.button1.title, target: '_blank' },
 	                'DESCARGAR',
 	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-4 col-xs-12' },
-	              _react2.default.createElement(
-	                'h3',
-	                { className: style.title },
-	                titles.title2
-	              ),
-	              _react2.default.createElement(
-	                'a',
-	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)(buttons.button2.href), title: buttons.button2.title, target: '_blank' },
-	                'DESCARGAR',
-	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-sm-4 col-xs-12' },
+	              { className: 'col-sm-6 col-xs-12' },
 	              _react2.default.createElement(
 	                'h3',
 	                { className: style.title },
@@ -44742,26 +44815,26 @@
 	    }
 	  }]);
 
-	  return Block7;
+	  return Block8;
 	}(_react2.default.Component);
 
-	exports.default = Block7;
+	exports.default = Block8;
 
 
-	Block7.propTypes = {
+	Block8.propTypes = {
 	  data: _react2.default.PropTypes.object.isRequired
 	};
 
-/***/ },
-/* 297 */
-/***/ function(module, exports) {
+/***/ }),
+/* 299 */
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1G5oi","vCenter":"style__vCenter___3eMr-","button1":"style__button1___3rP8P","button":"style__button___138RC","button2":"style__button2___A09os","button2b":"style__button2b___7okhD","vCenterRel":"style__vCenterRel___2FPbE","hCenter":"style__hCenter___273Vb","inheritHeight":"style__inheritHeight___2w5-4","hideOverflow":"style__hideOverflow___35OAp","icon-sprites":"style__icon-sprites___3gAB_","button3":"style__button3___2H38R","button3v1":"style__button3v1___2UPHY","button3v2":"style__button3v2___21LXu","button3v3":"style__button3v3___3aio2","button3v4":"style__button3v4___1E1O4","button3v5":"style__button3v5___3OsL3","title1":"style__title1___2Hrv_","title2":"style__title2___14zdY","title3":"style__title3___wJv6I","title4":"style__title4___bi5rE","title5":"style__title5___1Jrqb","title6":"style__title6___3IfL7","title7":"style__title7___vVSgO","title8":"style__title8___23FzZ","title":"style__title___2GTcd","sideSwipe":"style__sideSwipe___2kJhL","bottomSwipe":"style__bottomSwipe___Iacpj","wrapper":"style__wrapper___3pHW-"};
+	module.exports = {"fCenter":"style__fCenter___1G5oi","vCenter":"style__vCenter___3eMr-","button1":"style__button1___3rP8P","button":"style__button___138RC","button2":"style__button2___A09os","button2b":"style__button2b___7okhD","vCenterRel":"style__vCenterRel___2FPbE","hCenter":"style__hCenter___273Vb","inheritHeight":"style__inheritHeight___2w5-4","hideOverflow":"style__hideOverflow___35OAp","icon-sprites":"style__icon-sprites___3gAB_","button3":"style__button3___2H38R","button3v1":"style__button3v1___2UPHY","button3v2":"style__button3v2___21LXu","button3v3":"style__button3v3___3aio2","button3v4":"style__button3v4___1E1O4","title1":"style__title1___2Hrv_","title2":"style__title2___14zdY","title3":"style__title3___wJv6I","title4":"style__title4___bi5rE","title5":"style__title5___1Jrqb","title6":"style__title6___3IfL7","title7":"style__title7___vVSgO","title8":"style__title8___23FzZ","title":"style__title___2GTcd","sideSwipe":"style__sideSwipe___2kJhL","bottomSwipe":"style__bottomSwipe___Iacpj","wrapper":"style__wrapper___3pHW-"};
 
-/***/ },
-/* 298 */
-/***/ function(module, exports) {
+/***/ }),
+/* 300 */
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -44777,13 +44850,13 @@
 	    subtitle: 'GLORIA ZUÑIGA DE WHEBER',
 	    intro: '',
 	    image: 'https://www.dropbox.com/s/s02dsqogkixpk4x/Img-Gloria-Zuniga.png?dl=0',
-	    content: ['Gloria inició sus clases de baile a los 3 años de edad en las disciplinas de ballet y jazz con la maestra Sandra Araiza. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Técnica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certificó como Maestra de Aerobics por ISAT (Institute School of Aerobic Training) y en 1992 se graduó en la Universidad de San Diego State como Licenciada en Danza donde participó durante 4 años en la compañía de esta Universidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet "Cascanueces" en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que a tomado cursos como:', ['GUS (Giordiano Workshop) en Monterrey, N.L. en 2001', 'Curso para maestros en la escuela "Broadway Dance Center" de Nueva York en 2006.', 'The Pulse en los Angeles C.A EN 2009', 'Nuvo workshop en Long Beach en 2014', 'Jump workshop en Monterrey, Nuevo León en 2015', 'Curso de Anatomía aplicado a maestros de Danza en 2016'], 'En el año 2014 funda junto con Alicia Luna el grupo  Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.', 'Gloria continúa tomando clases de ballet y asiste a cursos de jazz en la Academia de Performing Arts  en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.', 'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 29 años.']
+	    content: ['Gloria inició sus clases de baile a los 3 años de edad en las disciplinas de ballet y jazz con la maestra Sandra Araiza. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Técnica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certificó como Maestra de Aerobics por ISAT (Institute School of Aerobic Training) y en 1992 se graduó en la Universidad de San Diego State como Licenciada en Danza donde participó durante 4 años en la compañía de esta Universidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet "Cascanueces" en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que a tomado cursos como:', ['GUS (Giordiano Workshop) en Monterrey, N.L. en 2001', 'Curso para maestros en la escuela "Broadway Dance Center" de Nueva York en 2006.', 'The Pulse en los Angeles C.A EN 2009', 'Nuvo workshop en Long Beach en 2014', 'Jump workshop en Monterrey, Nuevo León en 2015', 'Curso de Anatomía aplicado a maestros de Danza en 2016', 'Dance Teacher Summit en Long Beach, CA. - 2016, 2017 y 2018'], 'En el año 2014 funda junto con Alicia Luna el grupo  Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.', 'Gloria continúa tomando clases de ballet y asiste a cursos de jazz en la Academia de Performing Arts  en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.', 'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 31 años.']
 	  }, {
 	    title: 'ALICIA LUNA',
 	    subtitle: 'ALICIA LUNA',
 	    intro: '',
 	    image: 'https://www.dropbox.com/s/3b1zex2m6csljia/Img_Alicia-Luna.png?dl=0',
-	    content: ['Lichita inició su preparación en la Academia de Sandra Araiza y posteriormente en la Escuela de Danza Gloria Campobello. Fue así que formó su destino en esta disciplina para convertirse en maestra de danza y posteriormente cofundadora y directora de la Escuela de Danza Pavlova fundada en el año de 1987.', 'Mientras estuvo en la escuela Campobello, disfrutaba al máximo sus clases como alumna y asistente, donde después de 3 años logró certificarse como Maestra en Técnica de Danza.', 'En el 2014 fundó, junto con Gloria Zuñiga, el grupo Pas de Chat. Este grupo esta integrado por alumnas destacadas de la escuela de danza Pavlova, quienes representan con orgullo y talento a la escuela en distintas competencias de nivel nacional e internacional.', 'Buscando siempre estar actualizada y comprometida con su carrera ha tomado cursos como:', ['Curso de Metodología de la Danza 2014 – Tijuana B.C.', 'Dance Teachers Summit 2015 – Irvine CA.', 'Dance Makers 2015 – Los Ángeles CA.', 'Iniciación a la Danza 2015 – Tijuana B.C.', 'Curso de Anatomía aplicado a maestros de Danza en 2016 – Tijuana B.C.', 'Actualmente se sigue preparando con clases de Ballet Clásico.'], 'El tiempo y la entrega que Lichita dedica a sus alumnas, representan la oportunidad de edificar y promover orden, disciplina y convivencia, teniendo como propósito el fomentar los valores que las acompañarán toda su vida, no sólo como un bonito recuerdo, sino como parte de su formación como personas.']
+	    content: ['Lichita inició su preparación en la Academia de Sandra Araiza y posteriormente en la Escuela de Danza Gloria Campobello. Fue así que formó su destino en esta disciplina para convertirse en maestra de danza y posteriormente cofundadora y directora de la Escuela de Danza Pavlova fundada en el año de 1987.', 'Mientras estuvo en la escuela Campobello, disfrutaba al máximo sus clases como alumna y asistente, donde después de 3 años logró certificarse como Maestra en Técnica de Danza.', 'En el 2014 fundó, junto con Gloria Zuñiga, el grupo Pas de Chat. Este grupo esta integrado por alumnas destacadas de la escuela de danza Pavlova, quienes representan con orgullo y talento a la escuela en distintas competencias de nivel nacional e internacional.', 'Buscando siempre estar actualizada y comprometida con su carrera ha tomado cursos como:', ['Curso de Metodología de la Danza 2014 – Tijuana B.C.', 'Dance Teachers Summit 2015 – Irvine CA.', 'Dance Makers 2015 – Los Ángeles CA.', 'Iniciación a la Danza 2015 – Tijuana B.C.', 'Curso de Anatomía aplicado a maestros de Danza en 2016 – Tijuana B.C.', 'Curso Dance Teacher Summit en Long Beach, CA. –2016 y 2017', 'Actualmente se sigue preparando con clases de Ballet Clásico.'], 'El tiempo y la entrega que Lichita dedica a sus alumnas, representan la oportunidad de edificar y promover orden, disciplina y convivencia, teniendo como propósito el fomentar los valores que las acompañarán toda su vida, no sólo como un bonito recuerdo, sino como parte de su formación como personas.']
 	  }, {
 	    title: 'MILY WEHBER',
 	    subtitle: 'MILY WEHBER',
@@ -44803,22 +44876,16 @@
 	    image: 'https://www.dropbox.com/s/j8xkmek0y87lfvd/Img_Gaby-Luna.png?dl=0',
 	    content: ['Nació el 6 de Octubre de 1981 en Tijuana, inicio sus estudios de danza en la escuela de Danza Pavlova Hipódromo en 1986 a la edad de 5 años. En el año de 1998 inicio su carrera como maestra de ballet y Jazz en Pavlova. Del 2007 al 2009 fue directora y maestra de ballet y jazz en la escuela de danza Danzart – Tijuana.', 'Del 2009 al 2011 fue directora de y maestro de ballet y jazz en la escuela de danza Danzart Academy of Chula Vista Ca.', 'Cursos de Baile:', ['Gus Giordanos Workshops – Monterrey N.L. | Septiembre 2001', 'Broadway Dance Center – Nueva York  | Agosto 2007', 'Metodología de la Danza – Tijuana | Agosto 2013', 'Diversos cursos en Academy of Perdorming Arts (APA)', 'Diversos cursos en Culture Shock of San Diego Ca.']]
 	  }, {
-	    title: 'TANIA ADAME',
-	    subtitle: 'TANIA ADAME',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/s8rs8vyfju6cmic/Img-Tania-Adame.png?dl=0',
-	    content: ['Inició sus estudios de danza a los 3 años y medio en Tijuana, B. C. Egresó de la carrera de Técnico en Danza en el 2010 de la Escuela de Danza Gloria Campobello.', 'Su formación como bailarina incluye danza clásica, danza española, danza jazz, tap y danza contemporánea. Desde hace 8 años se ha dedicado a la docencia de las distintas danzas en diferentes escuelas.', 'Integrante del Grupo de Danza Minerva Tapia, ha participado en producciones como 16th Annual Noche Cultural de Estudios Chicanos en la Universidad de California Riverside, "Vive la Cultura con Todos los Sentidos" en Sinaloa, México, "Border Dancers" en la ciudad de Nueva York, diferentes ediciones de Entijuanarte, Cuerpos en tránsito y "Celebración anual de la danza" en Rosario, Argentina en el año 2011 por mencionar algunos. Fue becaria del programa Talentos Artísticos, Valores de Baja California en el ciclo 2008 – 2010 dirigido por el Instituto de Cultura de Baja California. Nombrada como una de las "13 promesas artísticas" por el periódico Frontera en el año 2005.', 'Ha asistido a varios cursos como el curso de verano impartido por el Ballet de Monterrey y la Cátedra de danza del Ballet Nacional de Cuba en La Habana.', 'Actualmente continúa su entrenamiento con clases de danza contemporánea y ballet.']
-	  }, {
 	    title: 'RHONAL RUVALCABA',
 	    subtitle: 'RHONAL RUVALCABA',
 	    intro: '',
-	    image: '/images/user_placeholder.png',
+	    image: 'https://www.dropbox.com/s/1qdunfgs9xl72b1/Rhonal-Ruvalcaba.png?dl=0',
 	    content: ['Inicio sus estudios de danza a la edad de 14 años, descubriendo en ella su vocación! Su preparación abarca diversas ramas de esta disciplina, pero son el Jazz y el HipHop su mayor pasión, ganador del 1er lugar en la categoría de Jazz en Danzarte (concurso de Danza realizado anteriormente en Baja California hace ya algunos años).', 'Es Director de su propia Compañía de Danza, con la cual ha llevado su pasión y estilo a diversas partes del mundo desde Taiwan o Puerto Rico, así como a gran parte de México y E.U. como las Vegas, Miami y L.A. entre otros.']
 	  }, {
-	    title: 'DELIA DE LA TORRE',
-	    subtitle: 'DELIA DE LA TORRE',
+	    title: 'DALIA DE LA TORRE',
+	    subtitle: 'DALIA DE LA TORRE',
 	    intro: '',
-	    image: '/images/user_placeholder.png',
+	    image: 'https://www.dropbox.com/s/alncb3qtjcflz5h/Dalia_delatorre.png?dl=0',
 	    content: ['Nació el 25 de Febrero de 1984 en Tijuana, inicio sus estudios en 1988 en la Escuela de Danza Ericka, bajo la dirección de Ericka Moreno, en las disciplinas de ballet, jazz y tap. Teniendo la oportunidad de competir en Estados Unidos y Canadá desde los 9 años, en compañias como Dance America – Dance Olympus, Dance Educators of America, Danza Arte Coreografías entre otras. También a tenido la oportunidad de participar en cursos intensivos, clases magistrales, giras y clases en compañias como Dance Olympus, Tremaine, Malashock Summer Intensive, EDGE Performing Arts Center, Broadway Dance Center, West Coast Salsa Congress, Luz Boreal Summer Intensive.', 'Obtuvo varios reconocimientos y becas, de los cuales destacan "Dance of the year contestan" en Dance America 2001, 2003 y 2005, ganando una beca para asistir a Broadway Dance Center, así como el titulo Best Emotional Execution, Best Technical Execution y Overall High Score en San Diego CA y Nueva York.', '10 años de experiencia como maestra de ballet, jazz y tap, la respaldan. Actualmente es miembro de la organización Dance Educators of America, obteniendo la certificación compelta en la ciudad de de Las Vegas y Nueva York en los años 2007 y 2008, culminando en el 2010 con la certificación para impartir las diciplinas de ballet (escuela Cecchetti), tap, jazz, gimnasia y moderno.']
 	  }, {
 	    title: 'CORINA PERAZA',
@@ -44860,38 +44927,44 @@
 	    title: 'ELEANA FRANCO',
 	    subtitle: 'ELEANA FRANCO',
 	    intro: '',
-	    image: '/images/user_placeholder.png',
+	    image: 'https://www.dropbox.com/s/5eh2c3nmsi7le3g/Eleana-Franco.png?dl=0',
 	    content: ['Bailarina, coreógrafa y maestra de danza nacida en Estados Unidos. Inicio sus estudios a la edad de 2 anos en el “Colegio de Danza Sylvia” donde aprendió ballet, tap, flamenco, jazz y hip hop. Varios años después se convirtió en asistente y próximamente en maestra.', 'Participo en varias importantes obras como es “el cascanueces” junto con la compañía “Moscow ballet” en el Civic Theatre en San Diego y también junto con la “Compañía de danza de Baja California” con Raul Tadeo. También fue participe de la obra infantil “pedro y el lobo” que fue presentada en el CECUT bajo la dirección de Norma Herrera. Continuo con sus estudios en Estados Unidos en la escuela “Coronado School of the Arts” donde estudio varios cursos de historia de la danza, nutrición, improvisación, critica de la danza, coreografía entre muchos otros.', 'Actualmente se encuentra aplicando estos conocimientos como maestra y busca seguir creciendo para compartir este conocimiento con sus alumnos.']
 	  }, {
 	    title: 'ADRIANA CORAL',
 	    subtitle: 'ADRIANA CORAL',
 	    intro: '',
-	    image: 'https://www.dropbox.com/s/bw1xiq136kkzkl0/Img-Veronica-Flores.png?dl=0',
+	    image: 'https://www.dropbox.com/s/q4kedajs4rgdqe1/Adriana-Coral.png?dl=0',
 	    content: ['Bailarina y maestra que se desarrolla profesionalmente  en el norte de México; miembro fundador de Subterráneo Danza Contemporánea desde hace 17 años, donde su misión es exponer su trabajo como intérprete y colaborador creativo en la realización de espectáculos escénicos. Mantiene una constante búsqueda del lenguaje propio a través de la investigación en diferentes técnicas dancísticas  así como la divulgación de sus conocimientos a través de la docencia, asimismo, busca mantener vínculos estrechos con otros artistas escénicos del país para fortalecer su quehacer  dancístico y contribuir a la difusión del arte.']
-	  }, {
-	    title: 'VIANCA SANTACOLOMBA',
-	    subtitle: 'VIANCA SANTACOLOMBA',
-	    intro: '',
-	    image: '/images/user_placeholder.png',
-	    content: ['La experiencia de Vianca en el mundo del baile ha sido muy significativa ya que ha desarrollado su destreza desde 1991 en las áreas de ballet, jazz y flamenco en las escuelas de danza Sylvia y Pavlova.', 'En 1994 recibió un reconocimiento por su participación en “Cascanueces” de Danz-Arte y en 2004 obtuvo un diploma del curso “Iniciación y actualización de danza” del Centro de Ballet y Arte.', 'Actualmente cuenta con un año como asistente de baile Flamenco Infantil y busca transmitir a sus alumnas la emoción tan especial que le evoca el baile, lo cual no se aprende, se lleva por dentro.']
 	  }, {
 	    title: 'VICKY SAENZ',
 	    subtitle: 'VICKY SAENZ',
 	    intro: '',
-	    image: '/images/user_placeholder.png',
+	    image: 'https://www.dropbox.com/s/7ngb2v9j29d1xd2/Vicky-Saenz.png?dl=0',
 	    content: []
 	  }, {
 	    title: 'ROSALINA CAZAREZ',
 	    subtitle: 'ROSALINA CAZAREZ',
 	    intro: '',
-	    image: '/images/user_placeholder.png',
+	    image: 'https://www.dropbox.com/s/le82urikib91xek/Rosalina_Cazarez.png?dl=0',
 	    content: []
+	  }, {
+	    title: 'GIOVANI GONZÁLEZ ALARCÓN',
+	    subtitle: 'GIOVANI GONZÁLEZ ALARCÓN',
+	    intro: '',
+	    image: '/images/escuela/staff/giovani-alarcon.jpg',
+	    content: ['Egresado de la Lic. en Actividad Física y Deporte por la Universidad Autónoma de Baja California, con amplia experiencia en presentaciones profesionales incluyendo participación en shows de la cadena televisiva Telemundo, eventos masivos en Los Ángeles y en Baja California, incluyendo apertura de múltiples conciertos de artistas en la región.', 'Impartió clases de Cardio Dance y Cardio Hip Hop en diversos gimnasios de la Ciudad de Tijuana. Maestro de Hip-Jazz en los principales estudios de Danza en Tijuana.', 'Coreógrafo Profesional, forma parte de la compañía de Hip Hop "Culture Shock" en San Diego.']
+	  }, {
+	    title: 'MÓNICA ZITLALI GARZA MAYORAL',
+	    subtitle: 'MÓNICA ZITLALI GARZA MAYORAL',
+	    intro: '',
+	    image: '/images/escuela/staff/monica-zitlali.png',
+	    content: ['Técnico en Danza y Maestra en Educación egresada de CETYS Universidad, Licenciada en Filosofía y en Ciencias de la Educación, tiene una vasta experiencia en el ámbito docente de danza clásica y ballet, ejerciendo profesionalmente en organizaciones como el CEART, Hospital Infantil de las Californias, CECUTEC, estudios de danza y colegios en la región.']
 	  }]
 	};
 
-/***/ },
-/* 299 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 301 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -44909,7 +44982,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _block = __webpack_require__(279);
+	var _block = __webpack_require__(302);
 
 	var _block2 = _interopRequireDefault(_block);
 
@@ -44917,11 +44990,11 @@
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _block5 = __webpack_require__(300);
+	var _block5 = __webpack_require__(304);
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(296);
+	var _block7 = __webpack_require__(298);
 
 	var _block8 = _interopRequireDefault(_block7);
 
@@ -44934,7 +45007,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	// const style = require('./style.scss');
+	var balletData = __webpack_require__(306);
+	var jazzData = __webpack_require__(307);
+	var flamencoData = __webpack_require__(308);
 
 	var ProductsSection = function (_React$Component) {
 	  _inherits(ProductsSection, _React$Component);
@@ -44962,15 +45037,10 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var block1 = _props$data.block1;
-	      var block2 = _props$data.block2;
-	      var block3 = _props$data.block3;
-	      var block4 = _props$data.block4;
-	      var block5 = _props$data.block5;
-	      var block6 = _props$data.block6;
-	      var block7 = _props$data.block7;
-	      var block8 = _props$data.block8;
+	      var _props$data = this.props.data,
+	          block1 = _props$data.block1,
+	          block2 = _props$data.block2,
+	          block8 = _props$data.block8;
 
 	      var block3Variations = {
 	        variation1: 'ballet'
@@ -44981,12 +45051,6 @@
 	      var block5Variations = {
 	        variation1: 'flamenco'
 	      };
-	      var block6Variations = {
-	        variation1: 'cardioDanza'
-	      };
-	      var block7Variations = {
-	        variation1: 'barre'
-	      };
 	      var types = this.state.types;
 
 
@@ -44995,11 +45059,9 @@
 	        null,
 	        _react2.default.createElement(_block2.default, { data: block1 }),
 	        _react2.default.createElement(_block4.default, { data: block2 }),
-	        _react2.default.createElement(_block6.default, { data: block3, type: types[0], variations: block3Variations }),
-	        _react2.default.createElement(_block6.default, { data: block4, type: types[1], variations: block4Variations }),
-	        _react2.default.createElement(_block6.default, { data: block5, type: types[2], variations: block5Variations }),
-	        _react2.default.createElement(_block6.default, { data: block6, type: types[3], variations: block6Variations, noControls: false }),
-	        _react2.default.createElement(_block6.default, { data: block7, type: types[4], variations: block7Variations, noControls: false }),
+	        _react2.default.createElement(_block6.default, { data: balletData, type: types[0], variations: block3Variations }),
+	        _react2.default.createElement(_block6.default, { data: jazzData, type: types[1], variations: block4Variations }),
+	        _react2.default.createElement(_block6.default, { data: flamencoData, type: types[2], variations: block5Variations }),
 	        _react2.default.createElement(_block8.default, { data: block8 })
 	      ) : null;
 	    }
@@ -45015,9 +45077,112 @@
 	  data: _react2.default.PropTypes.object
 	};
 
-/***/ },
-/* 300 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 302 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _lodash = __webpack_require__(210);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
+	var _imageUtil = __webpack_require__(269);
+
+	var _sanitize = __webpack_require__(282);
+
+	var _sanitize2 = _interopRequireDefault(_sanitize);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(303);
+
+	var Block1 = function (_React$Component) {
+	  _inherits(Block1, _React$Component);
+
+	  function Block1() {
+	    _classCallCheck(this, Block1);
+
+	    return _possibleConstructorReturn(this, (Block1.__proto__ || Object.getPrototypeOf(Block1)).apply(this, arguments));
+	  }
+
+	  _createClass(Block1, [{
+	    key: 'render',
+	    value: function render() {
+	      var styles = this.props.style;
+	      var _props$data = this.props.data,
+	          titles = _props$data.titles,
+	          paragraphs = _props$data.paragraphs;
+
+	      var divStyle = (0, _imageUtil.getImageBackground)('/images/clases/header-clases.jpg');
+	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	        'div',
+	        { style: divStyle, className: style.mainbanner + ' ' + (styles ? styles.wrapper : '') },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-xs-12 col-sm-6 col-sm-offset-3' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: style.title },
+	                titles.title1
+	              ),
+	              _react2.default.createElement('p', { className: style.paragraph, dangerouslySetInnerHTML: (0, _sanitize2.default)(paragraphs.paragraph1) }),
+	              _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
+	            )
+	          )
+	        )
+	      ) : null;
+	    }
+	  }]);
+
+	  return Block1;
+	}(_react2.default.Component);
+
+	exports.default = Block1;
+
+
+	Block1.propTypes = {
+	  data: _react2.default.PropTypes.object,
+	  style: _react2.default.PropTypes.object
+	};
+
+/***/ }),
+/* 303 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___1j0pv","vCenter":"style__vCenter___2KQFQ","button1":"style__button1___3ZmPV","button2":"style__button2___2shnn","button2b":"style__button2b___9qjJ-","vCenterRel":"style__vCenterRel___34eYy","hCenter":"style__hCenter___1Lkdf","inheritHeight":"style__inheritHeight___1q40G","hideOverflow":"style__hideOverflow___DrxCZ","icon-sprites":"style__icon-sprites___3tV9U","button3":"style__button3___3VbYO","button3v1":"style__button3v1___1AjUN","button3v2":"style__button3v2___3ejfJ","button3v3":"style__button3v3___B8Ol9","button3v4":"style__button3v4___31_JU","sideSwipe":"style__sideSwipe___1FVlo","bottomSwipe":"style__bottomSwipe___2c0uL","title1":"style__title1___1gW4S","title":"style__title___SyWrl","title2":"style__title2___2Tj1e","title3":"style__title3___1HOPW","title4":"style__title4___3J4Je","title5":"style__title5___2Nimp","title6":"style__title6___1J_L3","title7":"style__title7___2tzA4","title8":"style__title8___2p7DZ","paragraph1":"style__paragraph1___3jelK","paragraph1b":"style__paragraph1b___2o55y","paragraph2":"style__paragraph2___3QqbA","paragraph3":"style__paragraph3___2muKz","paragraph":"style__paragraph___2nuu4","paragraph4":"style__paragraph4___1geTk","paragraph5":"style__paragraph5___30-m9","mainbanner":"style__mainbanner___17dAE","svg":"style__svg___1UaPh"};
+
+/***/ }),
+/* 304 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -45041,7 +45206,7 @@
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
-	var _slug = __webpack_require__(291);
+	var _slug = __webpack_require__(293);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -45060,7 +45225,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(301);
+	var style = __webpack_require__(305);
 
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
@@ -45153,15 +45318,15 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var data = _props.data;
-	      var type = _props.type;
-	      var variations = _props.variations;
-	      var noControls = _props.noControls;
-	      var titles = data.titles;
-	      var slides = data.slides;
-	      var paragraphs = data.paragraphs;
-	      var buttons = data.buttons;
+	      var _props = this.props,
+	          data = _props.data,
+	          type = _props.type,
+	          variations = _props.variations,
+	          noControls = _props.noControls;
+	      var titles = data.titles,
+	          slides = data.slides,
+	          paragraphs = data.paragraphs,
+	          buttons = data.buttons;
 
 	      var sliderEl = this.getColumnSlider(slides, titles.title1, noControls);
 	      var contentEl = this.getColumnContent(titles, paragraphs, buttons, variations.variation1);
@@ -45199,16 +45364,252 @@
 	  noControls: _react2.default.PropTypes.bool
 	};
 
-/***/ },
-/* 301 */
-/***/ function(module, exports) {
+/***/ }),
+/* 305 */
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___zkvoI","controls":"style__controls___1nXQ8","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","button3v5":"style__button3v5___1gczD","title":"style__title___2mlf9","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraphB":"style__paragraphB___3TQhf","paragraph5":"style__paragraph5___1IKiM","wrapper_":"style__wrapper____1tcC1","wrapper_2":"style__wrapper_2___16tcC","sm":"style__sm___OLDFM","ballet":"style__ballet___2ecR7","jazz":"style__jazz___24bYU","flamenco":"style__flamenco___2coaY","cardioDanza":"style__cardioDanza___2LYVb","barre":"style__barre___2QrzR"};
+	module.exports = {"fCenter":"style__fCenter___zkvoI","controls":"style__controls___1nXQ8","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","title":"style__title___2mlf9","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraphB":"style__paragraphB___3TQhf","paragraph5":"style__paragraph5___1IKiM","wrapper_":"style__wrapper____1tcC1","wrapper_2":"style__wrapper_2___16tcC","sm":"style__sm___OLDFM","ballet":"style__ballet___2ecR7","jazz":"style__jazz___24bYU","flamenco":"style__flamenco___2coaY","cardioDanza":"style__cardioDanza___2LYVb"};
 
-/***/ },
-/* 302 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 306 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint max-len: [2, 500, 4] */
+
+	var data = {
+	  slides: [{
+	    id: 11,
+	    image: '/images/clases/ballet/SLIDE-BALLET-1.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 15
+	  }, {
+	    id: 12,
+	    image: '/images/clases/ballet/SLIDE-BALLET-2.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 15
+	  }, {
+	    id: 28,
+	    image: '/images/clases/ballet/SLIDE-BALLET-3.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 15
+	  }, {
+	    id: 29,
+	    image: '/images/clases/ballet/SLIDE-BALLET-4.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 15
+	  }, {
+	    id: 29,
+	    image: '/images/clases/ballet/SLIDE-BALLET-5.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 15
+	  }],
+	  buttons: {
+	    button1: {
+	      id: 18,
+	      title: 'HORARIOS',
+	      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	      block: 15
+	    },
+	    button2: {
+	      id: 19,
+	      title: 'VER GALERÍAS',
+	      href: 'https://www.facebook.com/pavlova.hipodromo/photos/?tab=albums',
+	      block: 15
+	    }
+	  },
+	  paragraphs: {
+	    paragraph1: 'Los movimientos de Ballet se distinguen especialmente por ser estilizados y transmitir una sensación de amplitud y esplendor. Brindamos un entrenamiento que demanda gran constancia, debido a la concentración requerida para dominar el cuerpo, desarrollando la coordinación, fuerza, flexibilidad y ritmo musical.'
+	  },
+	  titles: {
+	    title1: 'BALLET'
+	  }
+	};
+
+	module.exports = data;
+
+/***/ }),
+/* 307 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint max-len: [2, 500, 4] */
+
+	var data = {
+	  slides: [{
+	    id: 13,
+	    image: '/images/clases/jazz/SLIDE-JAZZ-1.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 16
+	  }, {
+	    id: 14,
+	    image: '/images/clases/jazz/SLIDE-JAZZ-2.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 16
+	  }, {
+	    id: 30,
+	    image: '/images/clases/jazz/SLIDE-JAZZ-3.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 16
+	  }, {
+	    id: 30,
+	    image: '/images/clases/jazz/SLIDE-JAZZ-4.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 16
+	  }, {
+	    id: 30,
+	    image: '/images/clases/jazz/SLIDE-JAZZ-5.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 16
+	  }, {
+	    id: 30,
+	    image: '/images/clases/jazz/SLIDE-JAZZ-6.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 16
+	  }, {
+	    id: 30,
+	    image: '/images/clases/jazz/SLIDE-JAZZ-7.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 16
+	  }],
+	  buttons: {
+	    button1: {
+	      id: 20,
+	      title: 'HORARIOS',
+	      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	      block: 16
+	    },
+	    button2: {
+	      id: 21,
+	      title: 'VER GALERÍAS',
+	      href: 'https://www.facebook.com/pavlova.hipodromo/photos/?tab=albums',
+	      block: 16
+	    }
+	  },
+	  paragraphs: {
+	    paragraph1: 'La danza Jazz combina armoniosamente ritmos y estilos que se fusionan con técnicas exigentes y movimientos que implican autenticidad y estilo individual. La práctica de Jazz permite que las alumnas trabajen todo el cuerpo obteniendo flexibilidad y tonicidad muscular, además de estilizar los movimientos, ejercitar la memoria y agudizar los sentidos.'
+	  },
+	  titles: {
+	    title1: 'JAZZ'
+	  }
+	};
+
+	module.exports = data;
+
+/***/ }),
+/* 308 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint max-len: [2, 500, 4] */
+
+	var data = {
+	  slides: [{
+	    id: 15,
+	    image: '/images/clases/flamenco/SLIDE-FLAMENCO-1.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 17
+	  }, {
+	    id: 16,
+	    image: '/images/clases/flamenco/SLIDE-FLAMENCO-2.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 17
+	  }, {
+	    id: 31,
+	    image: '/images/clases/flamenco/SLIDE-FLAMENCO-3.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 17
+	  }, {
+	    id: 32,
+	    image: '/images/clases/flamenco/SLIDE-FLAMENCO-4.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 17
+	  }, {
+	    id: 32,
+	    image: '/images/clases/flamenco/SLIDE-FLAMENCO-5.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 17
+	  }],
+	  buttons: {
+	    button1: {
+	      id: 22,
+	      title: 'HORARIOS',
+	      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	      block: 17
+	    },
+	    button2: {
+	      id: 23,
+	      title: 'VER GALERÍAS',
+	      href: 'https://www.facebook.com/pavlova.hipodromo/photos/?tab=albums',
+	      block: 17
+	    }
+	  },
+	  paragraphs: {
+	    paragraph1: 'Flamenco es una modalidad de baile en la que los movimientos de pies, manos y brazos son muy precisos y coordinados. Al ejercerlo, las alumnas aprenden a concentrarse y respirar correctamente, desarrollan su sensibilidad y creatividad natural, además de forjar su carácter debido al trabajo interno que se requiere para su interpretación.'
+	  },
+	  titles: { title1: 'FLAMENCO' }
+	};
+
+	module.exports = data;
+
+/***/ }),
+/* 309 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -45226,11 +45627,11 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _block = __webpack_require__(303);
+	var _block = __webpack_require__(310);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(305);
+	var _block3 = __webpack_require__(312);
 
 	var _block4 = _interopRequireDefault(_block3);
 
@@ -45254,9 +45655,9 @@
 	  _createClass(ContactSection, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var block1 = _props$data.block1;
-	      var block2 = _props$data.block2;
+	      var _props$data = this.props.data,
+	          block1 = _props$data.block1,
+	          block2 = _props$data.block2;
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
@@ -45277,9 +45678,9 @@
 	  data: _react2.default.PropTypes.object
 	};
 
-/***/ },
-/* 303 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 310 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -45307,7 +45708,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(304);
+	var style = __webpack_require__(311);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -45338,16 +45739,16 @@
 	  data: _react2.default.PropTypes.object
 	};
 
-/***/ },
-/* 304 */
-/***/ function(module, exports) {
+/***/ }),
+/* 311 */
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3WsSe","vCenter":"style__vCenter___3G_X_","button1":"style__button1___1iQls","button":"style__button___6iE0P","button2":"style__button2___2nT5Y","button2b":"style__button2b___15vcQ","vCenterRel":"style__vCenterRel___2rlOE","hCenter":"style__hCenter___3ARcP","inheritHeight":"style__inheritHeight___1YsqB","hideOverflow":"style__hideOverflow___ps_Tr","icon-sprites":"style__icon-sprites___2f7vT","button3":"style__button3___1WIju","button3v1":"style__button3v1___32z7Y","button3v2":"style__button3v2___3m_1I","button3v3":"style__button3v3___3STSg","button3v4":"style__button3v4___3GtKt","button3v5":"style__button3v5___2M1AI","image1":"style__image1___1oYSl","paragraph1":"style__paragraph1___3JnQd","paragraph1b":"style__paragraph1b___xv990","paragraph2":"style__paragraph2___3M3qm","paragraph3":"style__paragraph3___6lKhK","paragraph4":"style__paragraph4___1Z42s","paragraph5":"style__paragraph5___1v105","sideSwipe":"style__sideSwipe___50l2S","bottomSwipe":"style__bottomSwipe___-6WwV","title1":"style__title1___3f0o0","title2":"style__title2___XQgLg","title3":"style__title3___2f5QU","title4":"style__title4___BpZsL","title5":"style__title5___hKWjC","title6":"style__title6___2GSXY","title7":"style__title7___3_kU1","title8":"style__title8___2cLGW","mainbanner":"style__mainbanner___1YlSK","image":"style__image___mSywh"};
+	module.exports = {"fCenter":"style__fCenter___3WsSe","vCenter":"style__vCenter___3G_X_","button1":"style__button1___1iQls","button":"style__button___6iE0P","button2":"style__button2___2nT5Y","button2b":"style__button2b___15vcQ","vCenterRel":"style__vCenterRel___2rlOE","hCenter":"style__hCenter___3ARcP","inheritHeight":"style__inheritHeight___1YsqB","hideOverflow":"style__hideOverflow___ps_Tr","icon-sprites":"style__icon-sprites___2f7vT","button3":"style__button3___1WIju","button3v1":"style__button3v1___32z7Y","button3v2":"style__button3v2___3m_1I","button3v3":"style__button3v3___3STSg","button3v4":"style__button3v4___3GtKt","image1":"style__image1___1oYSl","paragraph1":"style__paragraph1___3JnQd","paragraph1b":"style__paragraph1b___xv990","paragraph2":"style__paragraph2___3M3qm","paragraph3":"style__paragraph3___6lKhK","paragraph4":"style__paragraph4___1Z42s","paragraph5":"style__paragraph5___1v105","sideSwipe":"style__sideSwipe___50l2S","bottomSwipe":"style__bottomSwipe___-6WwV","title1":"style__title1___3f0o0","title2":"style__title2___XQgLg","title3":"style__title3___2f5QU","title4":"style__title4___BpZsL","title5":"style__title5___hKWjC","title6":"style__title6___2GSXY","title7":"style__title7___3_kU1","title8":"style__title8___2cLGW","mainbanner":"style__mainbanner___1YlSK","image":"style__image___mSywh"};
 
-/***/ },
-/* 305 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 312 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -45367,7 +45768,7 @@
 
 	var _svg = __webpack_require__(213);
 
-	var _form = __webpack_require__(306);
+	var _form = __webpack_require__(313);
 
 	var _form2 = _interopRequireDefault(_form);
 
@@ -45380,7 +45781,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(308);
+	var style = __webpack_require__(315);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -45394,10 +45795,10 @@
 	  _createClass(Block2, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data;
-	      var titles = _props$data.titles;
-	      var paragraphs = _props$data.paragraphs;
-	      var buttons = _props$data.buttons;
+	      var _props$data = this.props.data,
+	          titles = _props$data.titles,
+	          paragraphs = _props$data.paragraphs,
+	          buttons = _props$data.buttons;
 
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
@@ -45454,6 +45855,11 @@
 	                paragraphs.paragraph4
 	              ),
 	              _react2.default.createElement(
+	                'p',
+	                { className: style.paragraph_2 },
+	                '(664) 200-3031'
+	              ),
+	              _react2.default.createElement(
 	                'div',
 	                { className: style.sm },
 	                (0, _svg.getFacebookIcon)(buttons.button2.href, buttons.button2.title, style.paragraph2)
@@ -45475,9 +45881,9 @@
 	  data: _react2.default.PropTypes.object
 	};
 
-/***/ },
-/* 306 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 313 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -45511,7 +45917,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 600, 4] */
 
-	var style = __webpack_require__(307);
+	var style = __webpack_require__(314);
 
 	var Form1 = function (_React$Component) {
 	  _inherits(Form1, _React$Component);
@@ -45536,9 +45942,9 @@
 	    key: 'onChangeHandler',
 	    value: function onChangeHandler(event) {
 	      var formData = this.state.formData;
-	      var _event$target = event.target;
-	      var name = _event$target.name;
-	      var value = _event$target.value;
+	      var _event$target = event.target,
+	          name = _event$target.name,
+	          value = _event$target.value;
 
 	      formData[name].value = value;
 	      this.setState({ formData: formData });
@@ -45613,8 +46019,6 @@
 	  }, {
 	    key: 'submitFormHandler',
 	    value: function submitFormHandler(event) {
-	      var _this3 = this;
-
 	      event.preventDefault();
 	      var formData = this.state.formData;
 	      var isFormValid = this.validateForm(formData, this.state.requiredFields);
@@ -45623,36 +46027,34 @@
 	      msgElement.html('');
 
 	      if (isFormValid) {
-	        (function () {
-	          _this3.setState({
-	            showLoading: true
-	          });
-	          msgElement.html('Enviando...');
-	          var _this = _this3;
-	          var html = _this3.getHTMLMessage(formData);
-	          var data = {
-	            fromname: formData.name.value,
-	            replyto: formData.email.value,
-	            subject: 'Forma de Contacto Website: NOTABLE',
-	            html: html
-	          };
+	        this.setState({
+	          showLoading: true
+	        });
+	        msgElement.html('Enviando...');
+	        var _this = this;
+	        var html = this.getHTMLMessage(formData);
+	        var data = {
+	          fromname: formData.name.value,
+	          replyto: formData.email.value,
+	          subject: 'Forma de Contacto Website: NOTABLE',
+	          html: html
+	        };
 
-	          (0, _restClient2.default)({
-	            path: '/api/send_email',
-	            method: 'POST',
-	            entity: data
-	          }).then(function (response) {
-	            var state = {
-	              showLoading: false
-	            };
-	            if (response.entity.status) {
-	              state.formData = _this.getInitialFormState();
-	            }
-	            _this.setState(state);
-	            msgElement.addClass(response.entity.status ? style.successCSSClass : style.errorCSSClass);
-	            msgElement.html(response.entity.status ? 'Información enviada de manera exitosa, gracias.' : 'Lo sentimos, favor de intentar más tarde.');
-	          });
-	        })();
+	        (0, _restClient2.default)({
+	          path: '/api/send_email',
+	          method: 'POST',
+	          entity: data
+	        }).then(function (response) {
+	          var state = {
+	            showLoading: false
+	          };
+	          if (response.entity.status) {
+	            state.formData = _this.getInitialFormState();
+	          }
+	          _this.setState(state);
+	          msgElement.addClass(response.entity.status ? style.successCSSClass : style.errorCSSClass);
+	          msgElement.html(response.entity.status ? 'Información enviada de manera exitosa, gracias.' : 'Lo sentimos, favor de intentar más tarde.');
+	        });
 	      } else {
 	        msgElement.addClass(style.errorCSSClass);
 	      }
@@ -45661,11 +46063,11 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _state$formData = this.state.formData;
-	      var name = _state$formData.name;
-	      var email = _state$formData.email;
-	      var tel = _state$formData.tel;
-	      var message = _state$formData.message;
+	      var _state$formData = this.state.formData,
+	          name = _state$formData.name,
+	          email = _state$formData.email,
+	          tel = _state$formData.tel,
+	          message = _state$formData.message;
 
 
 	      return _react2.default.createElement(
@@ -45718,7 +46120,7 @@
 	            _react2.default.createElement(
 	              'label',
 	              { id: 'lab_tel', className: 'row control-label' },
-	              'Teléfono:'
+	              'Tele\u0301fono:'
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -45780,19 +46182,19 @@
 
 	exports.default = Form1;
 
-/***/ },
-/* 307 */
-/***/ function(module, exports) {
+/***/ }),
+/* 314 */
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___365qk","vCenter":"style__vCenter___9LFiT","button1":"style__button1___QW0Tv","submit":"style__submit___2YBRa","button2":"style__button2___3fzL1","button2b":"style__button2b___2h89H","vCenterRel":"style__vCenterRel___27ebh","hCenter":"style__hCenter___3MSN5","inheritHeight":"style__inheritHeight___20X8j","hideOverflow":"style__hideOverflow___1e_Sa","icon-sprites":"style__icon-sprites___SBb6q","button3":"style__button3___1LtgP","button3v1":"style__button3v1___1Mvm_","button3v2":"style__button3v2___1N7QE","button3v3":"style__button3v3___11aHd","button3v4":"style__button3v4___2B0cK","button3v5":"style__button3v5___zgSlr","image1":"style__image1___20ULB","paragraph1":"style__paragraph1___1Iuas","paragraph1b":"style__paragraph1b___14XS7","paragraph2":"style__paragraph2___XLNUn","paragraph3":"style__paragraph3___cQhzG","paragraph4":"style__paragraph4___3o8-x","paragraph5":"style__paragraph5___-5J8a","sideSwipe":"style__sideSwipe___3Jh_M","bottomSwipe":"style__bottomSwipe___2N3qh","title1":"style__title1___2DL5-","title2":"style__title2___3etcM","title3":"style__title3___8tZ0C","title4":"style__title4___33kmt","title5":"style__title5___2k_sU","title6":"style__title6___1dv-o","title7":"style__title7___OUaen","title8":"style__title8___1LvKh","form":"style__form___1nnSk","formGroup":"style__formGroup___1VfYe"};
+	module.exports = {"fCenter":"style__fCenter___365qk","vCenter":"style__vCenter___9LFiT","button1":"style__button1___QW0Tv","submit":"style__submit___2YBRa","button2":"style__button2___3fzL1","button2b":"style__button2b___2h89H","vCenterRel":"style__vCenterRel___27ebh","hCenter":"style__hCenter___3MSN5","inheritHeight":"style__inheritHeight___20X8j","hideOverflow":"style__hideOverflow___1e_Sa","icon-sprites":"style__icon-sprites___SBb6q","button3":"style__button3___1LtgP","button3v1":"style__button3v1___1Mvm_","button3v2":"style__button3v2___1N7QE","button3v3":"style__button3v3___11aHd","button3v4":"style__button3v4___2B0cK","image1":"style__image1___20ULB","paragraph1":"style__paragraph1___1Iuas","paragraph1b":"style__paragraph1b___14XS7","paragraph2":"style__paragraph2___XLNUn","paragraph3":"style__paragraph3___cQhzG","paragraph4":"style__paragraph4___3o8-x","paragraph5":"style__paragraph5___-5J8a","sideSwipe":"style__sideSwipe___3Jh_M","bottomSwipe":"style__bottomSwipe___2N3qh","title1":"style__title1___2DL5-","title2":"style__title2___3etcM","title3":"style__title3___8tZ0C","title4":"style__title4___33kmt","title5":"style__title5___2k_sU","title6":"style__title6___1dv-o","title7":"style__title7___OUaen","title8":"style__title8___1LvKh","form":"style__form___1nnSk","formGroup":"style__formGroup___1VfYe"};
 
-/***/ },
-/* 308 */
-/***/ function(module, exports) {
+/***/ }),
+/* 315 */
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","button1":"style__button1___1cwjy","button2":"style__button2___hQ_-V","button2b":"style__button2b___1b2RV","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","button3":"style__button3___3HwaY","button3v1":"style__button3v1___2Wuut","button3v2":"style__button3v2___5XAeE","button3v3":"style__button3v3___bPEC9","button3v4":"style__button3v4___3dETf","button3v5":"style__button3v5___3o_q3","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph1b":"style__paragraph1b___1kRb1","paragraph":"style__paragraph___29758","paragraph2":"style__paragraph2___1ISwm","paragraph_2":"style__paragraph_2___217YF","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","sideSwipe":"style__sideSwipe___1IOUP","bottomSwipe":"style__bottomSwipe___1Id40","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title3":"style__title3___173Gl","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title_2":"style__title_2___3IHOj","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","wrapper":"style__wrapper___2GZMu","sm":"style__sm___1spdw","svg":"style__svg___38pi8"};
+	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","button1":"style__button1___1cwjy","button2":"style__button2___hQ_-V","button2b":"style__button2b___1b2RV","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","button3":"style__button3___3HwaY","button3v1":"style__button3v1___2Wuut","button3v2":"style__button3v2___5XAeE","button3v3":"style__button3v3___bPEC9","button3v4":"style__button3v4___3dETf","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph1b":"style__paragraph1b___1kRb1","paragraph":"style__paragraph___29758","paragraph2":"style__paragraph2___1ISwm","paragraph_2":"style__paragraph_2___217YF","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","sideSwipe":"style__sideSwipe___1IOUP","bottomSwipe":"style__bottomSwipe___1Id40","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title3":"style__title3___173Gl","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title_2":"style__title_2___3IHOj","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","wrapper":"style__wrapper___2GZMu","sm":"style__sm___1spdw","svg":"style__svg___38pi8"};
 
-/***/ }
+/***/ })
 /******/ ]);

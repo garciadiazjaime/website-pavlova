@@ -24383,6 +24383,9 @@
 	  icons: [{
 	    title: 'facebook',
 	    url: 'https://www.facebook.com/pavlova.hipodromo/'
+	  }, {
+	    title: 'instagram',
+	    url: 'https://www.instagram.com/pavlovahipodromotijuana/?hl=es'
 	  }]
 	};
 
@@ -37212,7 +37215,6 @@
 	        _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
 	        _react2.default.createElement('path', { transform: 'scale(.8) translate(4, 4)', d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z' })
 	      );
-	      break;
 	    case 'square_arrow':
 	      return _react2.default.createElement(
 	        'svg',
@@ -37221,35 +37223,30 @@
 	        _react2.default.createElement('path', { d: 'M30.4 1v29.4H1V1H30.4M30.4 0H1c-0.6 0-1 0.4-1 1v29.4c0 0.6 0.4 1 1 1h29.4c0.6 0 1-0.4 1-1V1C31.4 0.4 31 0 30.4 0L30.4 0z', fill: '#FFF' }),
 	        _react2.default.createElement('polyline', { points: ' 13.2 9.1 19.7 15.6 13.1 22.2 ', fill: 'none', stroke: '#fff' })
 	      );
-	      break;
 	    case 'arrow_right':
 	      return _react2.default.createElement(
 	        'svg',
 	        { xmlns: 'http://www.w3.org/2000/svg', width: '8', height: '14', viewBox: '0 0 7.7 13.8', className: className },
 	        _react2.default.createElement('polyline', { points: '0.5 0.4 7 6.9 0.4 13.5 ', fill: 'none', stroke: '#FFF' })
 	      );
-	      break;
 	    case 'arrow_down':
 	      return _react2.default.createElement(
 	        'svg',
 	        { xmlns: 'http://www.w3.org/2000/svg', width: '15', height: '8', viewBox: '0 0 14.6 8', className: className },
 	        _react2.default.createElement('polyline', { points: '13.8 0.8 7.3 7.3 0.7 0.7 ', fill: 'none', stroke: '#FFF' })
 	      );
-	      break;
 	    case 'carousel_right':
 	      return _react2.default.createElement(
 	        'svg',
 	        { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '18', viewBox: '0 0 10.1 18', className: className },
 	        _react2.default.createElement('polyline', { points: ' 1.1 1.1 9 9 1.1 16.9 ', fill: 'none', strokeLinejoin: 'round', strokeWidth: '2', stroke: '#010101' })
 	      );
-	      break;
 	    case 'carousel_left':
 	      return _react2.default.createElement(
 	        'svg',
 	        { xmlns: 'http://www.w3.org/2000/svg', width: '10', height: '18', viewBox: '0 0 10.1 18', className: className },
 	        _react2.default.createElement('polyline', { points: ' 9 16.9 1.1 9 9 1.1 ', fill: 'none', strokeLinejoin: 'round', strokeWidth: '2', stroke: '#010101' })
 	      );
-	      break;
 	    case 'location':
 	      return _react2.default.createElement(
 	        'svg',
@@ -37257,7 +37254,13 @@
 	        _react2.default.createElement('path', { d: 'M8.8 5.4c-1.8 0-3.3 1.5-3.3 3.3 0 1.8 1.5 3.3 3.3 3.3 1.8 0 3.3-1.5 3.3-3.3C12.1 6.9 10.6 5.4 8.8 5.4zM8.8 10.1c-0.8 0-1.4-0.6-1.4-1.4 0-0.8 0.6-1.4 1.4-1.4 0.8 0 1.4 0.6 1.4 1.4C10.1 9.5 9.5 10.1 8.8 10.1z', fill: '#CBA764' }),
 	        _react2.default.createElement('path', { d: 'M8.8 0C3.9 0 0 3.9 0 8.8c0 1.1 0.2 2.1 0.6 3.2L7.9 29.4C8 29.8 8.4 30 8.8 30c0 0 0 0 0 0 0.4 0 0.8-0.2 0.9-0.6l7.3-17.5c0.4-1 0.6-2.1 0.6-3.1C17.5 3.9 13.6 0 8.8 0zM15.1 11.3L8.8 26.5 2.5 11.5l-0.1-0.3C2.1 10.4 2 9.6 2 8.8c0-3.8 3.1-6.8 6.8-6.8 3.8 0 6.8 3.1 6.8 6.8C15.6 9.6 15.4 10.4 15.1 11.3z', fill: '#CBA764' })
 	      );
-	      break;
+	    case 'instagram':
+	      return _react2.default.createElement(
+	        'svg',
+	        { xmlns: 'http://www.w3.org/2000/svg', width: '22', height: '22', viewBox: '0 0 30 30', className: className },
+	        _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
+	        _react2.default.createElement('path', { d: 'M20.6 7H9.4c-1.3 0-2.4 0.9-2.4 2.1v11.8c0 1.2 1.1 2.1 2.4 2.1h11.3c1.3 0 2.4-0.9 2.4-2.1V9.1C23 7.9 22 7 20.6 7zM18.6 9.2c0-0.3 0.2-0.5 0.5-0.5h1.7c0.3 0 0.5 0.2 0.5 0.5v1.7c0 0.3-0.2 0.5-0.5 0.5h-1.7c-0.3 0-0.5-0.2-0.5-0.5V9.2zM17.7 11.7v0c0 0 0 0 0 0H17.7zM14.9 12c2 0 3.5 1.6 3.5 3.5 0 2-1.6 3.5-3.5 3.5 -2 0-3.5-1.6-3.5-3.5C11.4 13.6 13 12 14.9 12zM22 20.7c0 0.8-0.6 1.4-1.4 1.4H9.3c-0.8 0-1.4-0.6-1.4-1.4V13.3h2.9c-0.3 0.7-0.5 1.4-0.5 2.2 0 2.6 2.1 4.7 4.7 4.7 2.6 0 4.7-2.1 4.7-4.7 0-0.7-0.2-1.4-0.5-2h2.8V20.7z' })
+	      );
 	    default:
 	      return _react2.default.createElement(
 	        'svg',
@@ -37316,14 +37319,14 @@
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___eofHt","vCenter":"style__vCenter___3ydwB","vCenterRel":"style__vCenterRel___1Xcj8","hCenter":"style__hCenter___2IrLV","inheritHeight":"style__inheritHeight___XdU0Q","hideOverflow":"style__hideOverflow___1wNkm","icon-sprites":"style__icon-sprites___33LTB","paragraph1":"style__paragraph1___105nn","paragraph1b":"style__paragraph1b___2EzhZ","paragraph2":"style__paragraph2___1RbUN","paragraph3":"style__paragraph3___1Vukg","paragraph4":"style__paragraph4___2u3F_","paragraph5":"style__paragraph5___1bu0t","fbIcon":"style__fbIcon___3C8wt","facebook":"style__facebook___5cRlv"};
+	module.exports = {"fCenter":"style__fCenter___eofHt","vCenter":"style__vCenter___3ydwB","vCenterRel":"style__vCenterRel___1Xcj8","hCenter":"style__hCenter___2IrLV","inheritHeight":"style__inheritHeight___XdU0Q","hideOverflow":"style__hideOverflow___1wNkm","icon-sprites":"style__icon-sprites___33LTB","paragraph1":"style__paragraph1___105nn","paragraph1b":"style__paragraph1b___2EzhZ","paragraph2":"style__paragraph2___1RbUN","paragraph3":"style__paragraph3___1Vukg","paragraph4":"style__paragraph4___2u3F_","paragraph5":"style__paragraph5___1bu0t","fbIcon":"style__fbIcon___3C8wt","facebook":"style__facebook___5cRlv","instagram":"style__instagram___3x2tm"};
 
 /***/ }),
 /* 215 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___cfX-h","vCenter":"style__vCenter___ZA14l","navbarBrand":"style__navbarBrand___2rqc0","toggleButton":"style__toggleButton___3q8M1","navbarNavAnchor":"style__navbarNavAnchor___37QYF","vCenterRel":"style__vCenterRel___1GkYt","navbarIcons":"style__navbarIcons___jZlWo","sm_icon":"style__sm_icon___3hlQn","hCenter":"style__hCenter___2Rj-i","inheritHeight":"style__inheritHeight___2LMcf","hideOverflow":"style__hideOverflow___3olA9","icon-sprites":"style__icon-sprites___1xY5y","navbarWrapper":"style__navbarWrapper___VqN0H","navbarDefault":"style__navbarDefault___aolZK","navbarHeader":"style__navbarHeader___2FrdS","iconBar":"style__iconBar___1hD4n","navbarCollapse":"style__navbarCollapse___3blFh","navbarNav":"style__navbarNav___1r3v1","facebook":"style__facebook___5X5oX"};
+	module.exports = {"fCenter":"style__fCenter___cfX-h","vCenter":"style__vCenter___ZA14l","navbarBrand":"style__navbarBrand___2rqc0","toggleButton":"style__toggleButton___3q8M1","navbarNavAnchor":"style__navbarNavAnchor___37QYF","vCenterRel":"style__vCenterRel___1GkYt","navbarIcons":"style__navbarIcons___jZlWo","sm_icon":"style__sm_icon___3hlQn","hCenter":"style__hCenter___2Rj-i","inheritHeight":"style__inheritHeight___2LMcf","hideOverflow":"style__hideOverflow___3olA9","icon-sprites":"style__icon-sprites___1xY5y","navbarWrapper":"style__navbarWrapper___VqN0H","navbarDefault":"style__navbarDefault___aolZK","navbarHeader":"style__navbarHeader___2FrdS","iconBar":"style__iconBar___1hD4n","navbarCollapse":"style__navbarCollapse___3blFh","navbarNav":"style__navbarNav___1r3v1","facebook":"style__facebook___5X5oX","instagram":"style__instagram___32QmM"};
 
 /***/ }),
 /* 216 */
@@ -37389,6 +37392,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      // Síguenos en Facebook: <a className={style.paragraph} href={buttons.button1.href} title={buttons.button1.title} target="_blank">{buttons.button1.title}</a>
 	      var icons = this.props.icons;
 	      var titles = _data2.default.titles,
 	          paragraphs = _data2.default.paragraphs,
@@ -37460,12 +37464,7 @@
 	                { className: style.paragraph },
 	                '664 200.3031'
 	              ),
-	              this.getIcons(icons),
-	              _react2.default.createElement(
-	                'a',
-	                { className: style.paragraph, href: buttons.button1.href, title: buttons.button1.title, target: '_blank' },
-	                buttons.button1.title
-	              )
+	              this.getIcons(icons)
 	            ),
 	            _react2.default.createElement(
 	              'div',
@@ -37658,7 +37657,7 @@
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3sp06","vCenter":"style__vCenter___2G-_B","vCenterRel":"style__vCenterRel___3pk1i","hCenter":"style__hCenter___uDimH","inheritHeight":"style__inheritHeight___1W6vZ","hideOverflow":"style__hideOverflow___1oOYw","icon-sprites":"style__icon-sprites___3Wvbf","footerWrapper":"style__footerWrapper___LwV_7","footerBrand":"style__footerBrand___1BcOo","title":"style__title___3vTD3","paragraph":"style__paragraph___v5jSt","list":"style__list___2_aVL","container":"style__container___1CyCK","powered":"style__powered___3yTUa","wrapperBy":"style__wrapperBy___2KG7E","serviceTitle":"style__serviceTitle___3QrAo","facebook":"style__facebook___3bmod"};
+	module.exports = {"fCenter":"style__fCenter___3sp06","vCenter":"style__vCenter___2G-_B","vCenterRel":"style__vCenterRel___3pk1i","hCenter":"style__hCenter___uDimH","inheritHeight":"style__inheritHeight___1W6vZ","hideOverflow":"style__hideOverflow___1oOYw","icon-sprites":"style__icon-sprites___3Wvbf","footerWrapper":"style__footerWrapper___LwV_7","footerBrand":"style__footerBrand___1BcOo","title":"style__title___3vTD3","paragraph":"style__paragraph___v5jSt","list":"style__list___2_aVL","container":"style__container___1CyCK","facebook":"style__facebook___3bmod","instagram":"style__instagram___1QAZP","powered":"style__powered___3yTUa","wrapperBy":"style__wrapperBy___2KG7E","serviceTitle":"style__serviceTitle___3QrAo"};
 
 /***/ }),
 /* 219 */
@@ -37706,7 +37705,7 @@
 	    },
 	    button7: {
 	      title: 'HORARIOS',
-	      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf'
+	      href: 'https://dl.dropboxusercontent.com/s/zcem2ycndodw80u/Pavlova-Horarios-2017-2018.pdf?dl=0'
 	    },
 	    button8: {
 	      title: 'FICHA DE INSCRIPCIÓN',
@@ -44028,6 +44027,10 @@
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
+	var _svg = __webpack_require__(213);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
 	var _carousel = __webpack_require__(270);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
@@ -44114,6 +44117,21 @@
 	                { id: 'carousel-about-block-4', interval: 8000, controls: false, classes: carouselClasses },
 	                this.renderItems(slides)
 	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-offset-6 col-xs-12' },
+	              _react2.default.createElement(
+	                'h3',
+	                { className: style.title },
+	                'REGLAMENTO'
+	              ),
+	              _react2.default.createElement(
+	                'a',
+	                { className: style.button, href: 'https://dl.dropboxusercontent.com/s/gtf5rdfcblp500r/REGLAMENTO%20PAS%20DE%20CHAT.pdf?dl=0', title: 'REGLAMENTO-PAS-DE-CHAT', target: '_blank' },
+	                'DESCARGAR',
+	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
+	              )
 	            )
 	          )
 	        )
@@ -44137,7 +44155,7 @@
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","button1":"style__button1___1pbIc","button2":"style__button2___1FucC","button2b":"style__button2b___2FsuG","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","button3":"style__button3___1uWcc","button3v1":"style__button3v1___2s-Yj","button3v2":"style__button3v2___2VAH8","button3v3":"style__button3v3___iwEeg","button3v4":"style__button3v4___3wMtL","sideSwipe":"style__sideSwipe___13jwX","bottomSwipe":"style__bottomSwipe___2_85D","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title3":"style__title3___L0OLC","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title":"style__title___2_j9U","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph1b":"style__paragraph1b___2rvU9","paragraph":"style__paragraph___2RMic","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","wrapper":"style__wrapper___3B2lE","indicators":"style__indicators___3yzgC"};
+	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","button1":"style__button1___1pbIc","button":"style__button___3aCDs","button2":"style__button2___1FucC","button2b":"style__button2b___2FsuG","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","button3":"style__button3___1uWcc","button3v1":"style__button3v1___2s-Yj","button3v2":"style__button3v2___2VAH8","button3v3":"style__button3v3___iwEeg","button3v4":"style__button3v4___3wMtL","sideSwipe":"style__sideSwipe___13jwX","bottomSwipe":"style__bottomSwipe___2_85D","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title3":"style__title3___L0OLC","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title":"style__title___2_j9U","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph1b":"style__paragraph1b___2rvU9","paragraph":"style__paragraph___2RMic","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","wrapper":"style__wrapper___3B2lE","indicators":"style__indicators___3yzgC"};
 
 /***/ }),
 /* 290 */
@@ -44485,7 +44503,8 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
 
 	var Show = function (_React$Component) {
 	  _inherits(Show, _React$Component);
@@ -44503,11 +44522,7 @@
 	        return data.map(function (item, index) {
 	          if (_lodash2.default.isArray(item)) {
 	            var bullets = item.map(function (line, index2) {
-	              return _react2.default.createElement(
-	                'li',
-	                { key: index2 },
-	                line
-	              );
+	              return _react2.default.createElement('li', { key: index2, dangerouslySetInnerHTML: { __html: line } });
 	            });
 	            return _react2.default.createElement(
 	              'ul',
@@ -44515,11 +44530,7 @@
 	              bullets
 	            );
 	          }
-	          return _react2.default.createElement(
-	            'p',
-	            { key: index },
-	            item
-	          );
+	          return _react2.default.createElement('p', { key: index, dangerouslySetInnerHTML: { __html: item } });
 	        });
 	      }
 	    }
@@ -44804,7 +44815,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'a',
-	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)(buttons.button3.href), title: buttons.button3.title, target: '_blank' },
+	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)(buttons.button2.href), title: buttons.button3.title, target: '_blank' },
 	                'DESCARGAR',
 	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
 	              )
@@ -44846,23 +44857,23 @@
 	  title: 'Conoce a nuestro staff',
 	  sectionUrl: 'escuela',
 	  items: [{
-	    title: 'GLORIA ZUÑIGA',
-	    subtitle: 'GLORIA ZUÑIGA DE WHEBER',
+	    title: 'GLORIA ZUÑIGA WHEBER',
+	    subtitle: 'GLORIA ZUÑIGA WHEBER',
 	    intro: '',
 	    image: 'https://www.dropbox.com/s/s02dsqogkixpk4x/Img-Gloria-Zuniga.png?dl=0',
-	    content: ['Gloria inició sus clases de baile a los 3 años de edad en las disciplinas de ballet y jazz con la maestra Sandra Araiza. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Técnica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certificó como Maestra de Aerobics por ISAT (Institute School of Aerobic Training) y en 1992 se graduó en la Universidad de San Diego State como Licenciada en Danza donde participó durante 4 años en la compañía de esta Universidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet "Cascanueces" en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que a tomado cursos como:', ['GUS (Giordiano Workshop) en Monterrey, N.L. en 2001', 'Curso para maestros en la escuela "Broadway Dance Center" de Nueva York en 2006.', 'The Pulse en los Angeles C.A EN 2009', 'Nuvo workshop en Long Beach en 2014', 'Jump workshop en Monterrey, Nuevo León en 2015', 'Curso de Anatomía aplicado a maestros de Danza en 2016', 'Dance Teacher Summit en Long Beach, CA. - 2016, 2017 y 2018'], 'En el año 2014 funda junto con Alicia Luna el grupo  Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.', 'Gloria continúa tomando clases de ballet y asiste a cursos de jazz en la Academia de Performing Arts  en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.', 'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 31 años.']
+	    content: ['Gloria inició sus clases de baile a los 3 años de edad en las disciplinas de ballet y jazz con la maestra Sandra Araiza. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Técnica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certificó como Maestra de Aerobics por ISAT (Institute School of Aerobic Training) y en 1992 se graduó en la Universidad de San Diego State como Licenciada en Danza donde participó durante 4 años en la compañía de esta Universidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet "Cascanueces" en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que a tomado cursos como:', ['GUS (Giordiano Workshop) en Monterrey, N.L. en 2001', 'Curso para maestros en la escuela "Broadway Dance Center" de Nueva York en 2006.', 'The Pulse en los Angeles C.A EN 2009', 'Nuvo workshop en Long Beach en 2014', 'Jump workshop en Monterrey, Nuevo León en 2015', 'Curso de Anatomía aplicado a maestros de Danza en 2016', 'Dance Teacher Summit 2016'], 'En el año 2014 funda junto con Alicia Luna el grupo Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.', 'Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.', 'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 29 años.']
 	  }, {
 	    title: 'ALICIA LUNA',
 	    subtitle: 'ALICIA LUNA',
 	    intro: '',
 	    image: 'https://www.dropbox.com/s/3b1zex2m6csljia/Img_Alicia-Luna.png?dl=0',
-	    content: ['Lichita inició su preparación en la Academia de Sandra Araiza y posteriormente en la Escuela de Danza Gloria Campobello. Fue así que formó su destino en esta disciplina para convertirse en maestra de danza y posteriormente cofundadora y directora de la Escuela de Danza Pavlova fundada en el año de 1987.', 'Mientras estuvo en la escuela Campobello, disfrutaba al máximo sus clases como alumna y asistente, donde después de 3 años logró certificarse como Maestra en Técnica de Danza.', 'En el 2014 fundó, junto con Gloria Zuñiga, el grupo Pas de Chat. Este grupo esta integrado por alumnas destacadas de la escuela de danza Pavlova, quienes representan con orgullo y talento a la escuela en distintas competencias de nivel nacional e internacional.', 'Buscando siempre estar actualizada y comprometida con su carrera ha tomado cursos como:', ['Curso de Metodología de la Danza 2014 – Tijuana B.C.', 'Dance Teachers Summit 2015 – Irvine CA.', 'Dance Makers 2015 – Los Ángeles CA.', 'Iniciación a la Danza 2015 – Tijuana B.C.', 'Curso de Anatomía aplicado a maestros de Danza en 2016 – Tijuana B.C.', 'Curso Dance Teacher Summit en Long Beach, CA. –2016 y 2017', 'Actualmente se sigue preparando con clases de Ballet Clásico.'], 'El tiempo y la entrega que Lichita dedica a sus alumnas, representan la oportunidad de edificar y promover orden, disciplina y convivencia, teniendo como propósito el fomentar los valores que las acompañarán toda su vida, no sólo como un bonito recuerdo, sino como parte de su formación como personas.']
+	    content: ['Lichita inició su preparación en la Academia de Sandra Araiza y posteriormente en la Escuela de Danza Gloria Campobello. Fue así que formó su destino en esta disciplina para convertirse en maestra de danza y posteriormente cofundadora y directora de la Escuela de Danza Pavlova fundada en el año de 1987.', 'Mientras estuvo en la escuela Campobello, disfrutaba al máximo sus clases como alumna y asistente, donde después de 3 años logró certificarse como Maestra en Técnica de Danza.', 'En el 2014 fundó, junto con Gloria Zuñiga, el grupo Pas de Chat. Este grupo esta integrado por alumnas destacadas de la escuela de danza Pavlova, quienes representan con orgullo y talento a la escuela en distintas competencias de nivel nacional e internacional.', 'Buscando siempre estar actualizada y comprometida con su carrera ha tomado cursos como:', ['Curso de Metodología de la Danza 2014 – Tijuana B.C.', 'Dance Teachers Summit 2015 – Irvine CA.', 'Dance Makers 2015 – Los Ángeles CA.', 'Iniciación a la Danza 2015 – Tijuana B.C.', 'Curso de Anatomía aplicado a maestros de Danza en 2016 – Tijuana B.C.', 'Curso Dance Teacher Summit en Long Beach CA. – Julio 2017', 'Actualmente se sigue preparando con clases de Ballet Clásico.'], 'El tiempo y la entrega que Lichita dedica a sus alumnas, representan la oportunidad de edificar y promover orden, disciplina y convivencia, teniendo como propósito el fomentar los valores que las acompañarán toda su vida, no sólo como un bonito recuerdo, sino como parte de su formación como personas.']
 	  }, {
 	    title: 'MILY WEHBER',
 	    subtitle: 'MILY WEHBER',
 	    intro: '',
 	    image: 'https://www.dropbox.com/s/mdw3idb1vbek96z/Img-Mily-Wehber.png?dl=0',
-	    content: ['Ana Emely Wehber Barreiro, inicia sus estudios a los 4 años de edad en la escuela de danza Gloria Campobello, logrando obtener el título de Técnico en Danza. A los 16 años empieza como asistente de maestra y un año mas tarde la escuela de danza "Nandielo", dandole la oportunidad de dar clases como maestra. Participó como alumna y maestra en la escuela de Danza "Betty Gándara" por 4 años, simultáneamente tomó clases de danza en San Diego State University con maestros como Kelly Grant (Jazz) , George Willis (Contemporáneo). Tomó cursos de Stage 7, Threes Compony y  APA, (Academy of Performing Arts). Workshop de Gus Giordano en Monterrey, ademéas de asistir en Los Angeles CA. con Joe Tremaines, Musicwork Shop, The Pulse. Recientemente participo en Palooza y Novu en Long Beach, CA. con el maestro Yannis Marshall y 24/7 Workshop.', 'Ha participado en el Carnaval Antifaz Fundación Luz, como coreógrafa en el 2012 y 2013, obteniendo el premio de la mejor coreografía en el 2012.', 'Empezó a dar clases en la escuela de danza Pavlova, desde que esta abrió sus puertas.', '"Mi gran pasión es ser maestra de danza... Ver a mis alumnas crecer, como bailarinas, como disfrutan sus clases, transmitirles el amor por la danza, la constancia , diciplina, ver como logran sus metas, y saber que tu eres parte de estos logros, es una de mis más grandes satisfacciones en la vida." – Miss Mily']
+	    content: ['Ana Emely Wehber Barreiro, inicia sus estudios a los 4 años de edad en la escuela de danza Gloria Campobello, logrando obtener el título de Técnico en Danza. A los 16 años empieza como asistente de maestra y un año mas tarde la escuela de danza "Nandielo", dandole la oportunidad de dar clases como maestra. Participó como alumna y maestra en la escuela de Danza "Betty Gándara" por 4 años, simultáneamente tomó clases de danza en San Diego State University con maestros como Kelly Grant (Jazz) , George Willis (Contemporáneo). Tomó cursos de Stage 7, Threes Compony y  APA, (Academy of Performing Arts). Workshop de Gus Giordano en Monterrey, ademéas de asistir en Los Angeles CA. con Joe Tremaines, Musicwork Shop, The Pulse. Recientemente participo en Palooza y Novu en Long Beach, CA. con el maestro Yannis Marshall y 24/7 Workshop.', 'Ha participado en el Carnaval Antifaz Fundación Luz, como coreógrafa en el 2012 y 2013, obteniendo el premio de la mejor coreografía en el 2012.', 'Curso Palooza en Long Beach CA. – Julio 2017', 'Empezó a dar clases en la escuela de danza Pavlova, desde que esta abrió sus puertas.', '"Mi gran pasión es ser maestra de danza... Ver a mis alumnas crecer, como bailarinas, como disfrutan sus clases, transmitirles el amor por la danza, la constancia , diciplina, ver como logran sus metas, y saber que tu eres parte de estos logros, es una de mis más grandes satisfacciones en la vida." – Miss Mily']
 	  }, {
 	    title: 'ALEJANDRA GUTIERRÉZ',
 	    subtitle: 'ALEJANDRA GUTIERRÉZ',
@@ -44870,23 +44881,17 @@
 	    image: 'https://www.dropbox.com/s/r81hjmxo9niz3pf/Img-Alejandra-Gutierrez.png?dl=0',
 	    content: ['Inicio sus estudios a la edad de 3 años en el colegio de danza Sylvia bajo la dirección de la maestra Silvia Elena Martínez, estudio ahí por más de 15 años en las disciplinas de Jazz, Ballet y Tap, donde tuvo la oportunidad de asistir a varios cursos como NYCDA, Tremaine y Al Gilbert. Fue asistente en la disciplina de Tap.', 'A la edad de 16 años empezó siendo maestra y asistente en la escuela de danza Ancheyta dando clases de tap y jazz.', 'A los 19 empezó dando clases en la escuela de danza Pavlova Hipódromo en la disciplina de jazz. Se ha preparado en varios cursos como Dancemakers, Nuvo en long beach, Jump Monterrey, 24/7 en San diego, Dance Teacher Summit LB y DancerPalozza en Long beach.', 'Coreógrafa en la escuela de danza Coppelia donde sus alumnas obtuvieron varios primeros lugares en la competencia Dance Makers en la disciplina de lirico así como un premio especial por mejor coreografía.', 'Actualmente forma parte del equipo de trabajo de la escuela Pavlova Hipódromo y es coreógrafa del grupo de competencia Pasdechat by Pavlova con el cual ha viajado a varios concursos nacionales e internacionales, obteniendo varios primeros lugares por sus coreografías y reconocidas becas para sus alumnas, el curso más reconocido que han becado a sus alumnas es Dance Awards.', 'Es una maestra reconocida por sus coreografías tanto en jazz como en lírico en niveles intermedios y avanzados.']
 	  }, {
-	    title: 'GABY LUNA',
-	    subtitle: 'GABY LUNA',
+	    title: 'TANIA ADAME',
+	    subtitle: 'TANIA ADAME',
 	    intro: '',
-	    image: 'https://www.dropbox.com/s/j8xkmek0y87lfvd/Img_Gaby-Luna.png?dl=0',
-	    content: ['Nació el 6 de Octubre de 1981 en Tijuana, inicio sus estudios de danza en la escuela de Danza Pavlova Hipódromo en 1986 a la edad de 5 años. En el año de 1998 inicio su carrera como maestra de ballet y Jazz en Pavlova. Del 2007 al 2009 fue directora y maestra de ballet y jazz en la escuela de danza Danzart – Tijuana.', 'Del 2009 al 2011 fue directora de y maestro de ballet y jazz en la escuela de danza Danzart Academy of Chula Vista Ca.', 'Cursos de Baile:', ['Gus Giordanos Workshops – Monterrey N.L. | Septiembre 2001', 'Broadway Dance Center – Nueva York  | Agosto 2007', 'Metodología de la Danza – Tijuana | Agosto 2013', 'Diversos cursos en Academy of Perdorming Arts (APA)', 'Diversos cursos en Culture Shock of San Diego Ca.']]
+	    image: 'https://www.dropbox.com/s/s8rs8vyfju6cmic/Img-Tania-Adame.png?dl=0',
+	    content: ['Inició sus estudios de danza a los 3 años y medio en Tijuana, B. C. Egresó de la carrera de Técnico en Danza en el 2010 de la Escuela de Danza Gloria Campobello.', 'Su formación como bailarina incluye danza clásica, danza española, danza jazz, tap y danza contemporánea. Desde hace 8 años se ha dedicado a la docencia de las distintas danzas en diferentes escuelas.', 'Integrante del Grupo de Danza Minerva Tapia, ha participado en producciones como 16th Annual Noche Cultural de Estudios Chicanos en la Universidad de California Riverside, "Vive la Cultura con Todos los Sentidos" en Sinaloa, México, "Border Dancers" en la ciudad de Nueva York, diferentes ediciones de Entijuanarte, Cuerpos en tránsito y "Celebración anual de la danza" en Rosario, Argentina en el año 2011 por mencionar algunos. Fue becaria del programa Talentos Artísticos, Valores de Baja California en el ciclo 2008 – 2010 dirigido por el Instituto de Cultura de Baja California. Nombrada como una de las "13 promesas artísticas" por el periódico Frontera en el año 2005.', 'Ha asistido a varios cursos como el curso de verano impartido por el Ballet de Monterrey y la Cátedra de danza del Ballet Nacional de Cuba en La Habana.', 'Actualmente continúa su entrenamiento con clases de danza contemporánea y ballet.']
 	  }, {
 	    title: 'RHONAL RUVALCABA',
 	    subtitle: 'RHONAL RUVALCABA',
 	    intro: '',
-	    image: 'https://www.dropbox.com/s/1qdunfgs9xl72b1/Rhonal-Ruvalcaba.png?dl=0',
+	    image: 'https://www.dropbox.com/s/izw96o5i39cabla/Img_Rhonal-Ruvalcaba-2.png?dl=0',
 	    content: ['Inicio sus estudios de danza a la edad de 14 años, descubriendo en ella su vocación! Su preparación abarca diversas ramas de esta disciplina, pero son el Jazz y el HipHop su mayor pasión, ganador del 1er lugar en la categoría de Jazz en Danzarte (concurso de Danza realizado anteriormente en Baja California hace ya algunos años).', 'Es Director de su propia Compañía de Danza, con la cual ha llevado su pasión y estilo a diversas partes del mundo desde Taiwan o Puerto Rico, así como a gran parte de México y E.U. como las Vegas, Miami y L.A. entre otros.']
-	  }, {
-	    title: 'DALIA DE LA TORRE',
-	    subtitle: 'DALIA DE LA TORRE',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/alncb3qtjcflz5h/Dalia_delatorre.png?dl=0',
-	    content: ['Nació el 25 de Febrero de 1984 en Tijuana, inicio sus estudios en 1988 en la Escuela de Danza Ericka, bajo la dirección de Ericka Moreno, en las disciplinas de ballet, jazz y tap. Teniendo la oportunidad de competir en Estados Unidos y Canadá desde los 9 años, en compañias como Dance America – Dance Olympus, Dance Educators of America, Danza Arte Coreografías entre otras. También a tenido la oportunidad de participar en cursos intensivos, clases magistrales, giras y clases en compañias como Dance Olympus, Tremaine, Malashock Summer Intensive, EDGE Performing Arts Center, Broadway Dance Center, West Coast Salsa Congress, Luz Boreal Summer Intensive.', 'Obtuvo varios reconocimientos y becas, de los cuales destacan "Dance of the year contestan" en Dance America 2001, 2003 y 2005, ganando una beca para asistir a Broadway Dance Center, así como el titulo Best Emotional Execution, Best Technical Execution y Overall High Score en San Diego CA y Nueva York.', '10 años de experiencia como maestra de ballet, jazz y tap, la respaldan. Actualmente es miembro de la organización Dance Educators of America, obteniendo la certificación compelta en la ciudad de de Las Vegas y Nueva York en los años 2007 y 2008, culminando en el 2010 con la certificación para impartir las diciplinas de ballet (escuela Cecchetti), tap, jazz, gimnasia y moderno.']
 	  }, {
 	    title: 'CORINA PERAZA',
 	    subtitle: 'CORINA PERAZA',
@@ -44900,34 +44905,16 @@
 	    image: 'https://www.dropbox.com/s/u0fp0uwjuc220wq/Img_Claudia-Luna.png?dl=0',
 	    content: ['Desde que tenia 4 años inicie en el ambito de la danza, en la Escuela de Danza Gloria Campobello. Obtuve el certificado de maestra en tecnica de danza a los 16 años.', 'La experiencia laboral ha sido en distintas instituciones como:', 'Escuela de danza Gloria  campobello,casino de Mexicali,escuela Felix de Jesus en Mexicali,Escuela Patria,escuela Francis Parker en san Diego;actualmente cuenta con 28 años de pertenecer a la escuela de danza Pavlova como maestra de Ballet.', 'Entre los certificados y cursos que obtenido son: Técnica en Danza, Gus Giordiano (2001), Music Workshop Unlimited de Al Gilbert, Tremaniine Dance convention (2004), Music workshop (2005), Stage 7 San Diego. Comparsa antifaz (2013), Escuela Nicte-Ha, Dance Teacher Summit (2015).', 'He tomado clases con diferentes profesores, como Raul Martinez Tadeo, Maria del Carmen Padron, Tatiana Chevchenko, Carla Mariscal, Alberto Terreros y Gustavo Nava.', '"El ser Maestra le permite transmitir a sus alumnas el amor a la danza por medio de la disciplina y constancia, además de sembrar en ellos la ilusión de ser bailarinas." – Miss Claudia.']
 	  }, {
-	    title: 'JESSICA TAMEZ',
-	    subtitle: 'JESSICA TAMEZ',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/d5mojxozu8lvpgn/Img_Jessica-Temez.png?dl=0',
-	    content: ['En 1988 empecé mis estudios en la Escuela de Danza Pavlova bajo la dirección de Gloria Zúñiga y Alicia Luna.  Durante 9 años. En el 2000 ingresé al Centro de Ballet y Arte, bajo la dirección de la Profesora Verónica Mendoza (Primera Bailarina de la Compañía de danza de Baja California) y Perla Orantes (Primera Solista CDBC)  En los años 2002 y 2003 participé con la Compañía de Danza de Baja California, presentándome con ellos en sus temporadas. Y en este mismo año me dieron la oportunidad de empezar a impartir clases en el Centro de Ballet y Arte a niñas de 4 a 6 años.', 'En  2003 y en el 2005 Participé como solista y en grupo  en una Competencia de Danza llevada a cabo en  la Universidad de San Diego," Spotlight Dance Cup"  calificando  para la final que se llevó a cabo en Las Vegas Nevada en esos mismos años. Del año 2006 al 2014 impartí clases en el Instituto México junto con la profesora Carmen García, combinando danza con gimnasia, a nivel primaria. 2005 al 2007 Clases de ballet en el Auditorio Municipal de Tijuana.', 'En el 2007  empiezo a ser parte del equipo Pavlova.', 'Experiencias y logros', 'Bailar en la Compañia de Baja California bajo la dirección de Raúl Martínez  Tadeo y participar en sus repertorios como: Cascanueces, Giselle, La raza de Bronce, Paquita, Orfeo, asi como El Lago de los Cisnes donde tuve la oportunidad de conocer a los   primeros bailarines de la Compañía Nacional de Danza Irma Morales y Raúl Fernández.', 'Participar en SpotLight Dance Cup, primero como bailarina, y unos años mas tarde  como coreógrafa. Asistir como alumna y maestra a los Cursos de Iniciación y Actualización de la Danza impartidos en las instalaciones del Centro de Ballet y Arte en los veranos.', 'Coordinación y participación como maestra de Ballet y Artes Plásticas del Programa Habitat de la Secretaría de Desarrollo Social Municipal de Tijuana, B.C. Octubre-enero 2006', 'Participé en el curso Internacional de danza Clásica Dance It Tijuana bajo la dirección de la maestra Nicte Ha Escobosa y tomando clases con maestros como Irma Morales y Frank Fisher', 'Asistir como coreógrafa  al festival de Gimnasia  en la Ciudad de Colima y en knott\'s Berry Farm en Dance & Cheer con las alumnas del Instituto México, así como en SpotLight dance Cup.']
-	  }, {
-	    title: 'BÁRBARA MARTÍNEZ',
-	    subtitle: 'BÁRBARA MARTÍNEZ',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/fhuqvmm5vzkg4cd/Img-Barbara-Martinez.png?dl=0',
-	    content: ['A partir de los 7años Barbara inicio sus clases de baile en la escuela Gloria Campobello. Posteriormente fue acreedora a algunos diplomas, obteniendo la Licenciatura en Danza en 1994.', 'Laboralmente cuenta con una amplia experiencia como maestra en las escuelas:  Sylvia,Gloria Campobello, Galina Ulanova,Dance Center, Academia de Ballet Playas, Marycarmen Profesionales en Danza, Mentor Mexicano, UABC, CETYS Universidad así como 14 años en Pavlova.', 'Además  de su participación  en varios cursos como: Dance Olimpus (1991), Cuballet- Mexico, Southwester, Youth Day of Dance, Cinderella (1993) Escuela Petrushka y Compañia de Danza de B.C. (1995) Gran Final DanzarteCoreografia(1996) Escuela Galina Ulanova (1996-2003), Summer Intensive City Ballet (1997), Summer Intensive Master Teachers City Ballet (1999), Gus Giordano Jazz World Congress (2001), Tremaine Dance Convention (2004) Music Works (2005) Especialidad en Pedagogía UNIVER (2005) Taller con Sofia Correa (2012) Palozza(2013)Nuvo(2014) Dance Teacher Summit(2015) Miembro AMA-Prodanza.']
-	  }, {
 	    title: 'MAYRA JIMÉNEZ',
 	    subtitle: 'MAYRA JIMÉNEZ',
 	    intro: '',
 	    image: 'https://www.dropbox.com/s/1ubs0mhib2ca80a/Img_Mayra-Jimenez.png?dl=0',
 	    content: ['Nacio el 4 de Junio del 1988. Mayra desde sus 4 años de edad comenzó a experimentar tomando clases de Jazz, y 2 años después comenzó tomando clases de ballet. Hasta la fecha sigue practicando la danza, habiendo tomado aparte de Ballet y Jazz,  clases de Contemporáneo con Miroslava Wilson y  Hip-Hop con el maestro Omar Silva dentro de la Escuela " Ballet Cámara de la Frontera" del Maestro Rafael Oseguera, habiéndose graduado como Bailarina Clásica y Contemporánea.', 'Tiene 9 años de experiencia como Maestra impartiendo clases de Jazz, Ballet, y Lirico. Habiendo concluido con cursos de Metodología para la Danza y pedagogía.', 'Asistiendo al 5to y 6to Congreso Nacional de Danza Jazz en Morelia Michoacán con maestros como: Guillermo Maldonado (barra al piso y pedagogía), Guillermina Gómez y John Lehrer (Jazz), Joshua Bergasse de Nueva York (jazz), Elvin Venegas de Nicaragua (técnica clásica – Ballet), Jermaine Browne de nueva York (hip-hop), Alexis Zanette de Cuba (danza moderna), entre otros. También a tomando el Curso Internacional de Danza Clásica "DANCE IT 2007 y 2008" con la primera Bailarina Irma Morales y Frank Fischer.', 'Posteriormente obteniendo una beca para formar parte de un grupo de baile de la escuela "Culture Shock Dance Center" en San Diego. Asistio Entre el 2014 y 2015 a un curso de Jazz  y "Hells" con Yanis Marshall (bailarin y maestro Internacional) y una Materclass de ballet con la maestra Elena Tokareva Baltovick; entre otros cursos locales.', 'Ha participado en varias obras musicales Infantiles como son "Cri-cri y la danza", "El mago de Oz", "Peter Pan", "Alicia en el país de las maravillas", como también en "La fille Mal Garde", "Graduados", "Cascanueces" y "Carmen" presentadas en el Teatro del Cecut.', 'Su objetivo es transmitir de la manera más correcta todo lo que ha aprendido de la danza, todo lo bueno que le ha dejado e inculcar en el alumnado una disciplina y amor a la danza, a la cultura, al arte, haciéndolas sentir que es una de las mejores maneras para expresar todo aquello que nuestro cuerpo siente.']
 	  }, {
-	    title: 'LILIAN ARMENTA',
-	    subtitle: 'LILIAN ARMENTA',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/qi97pgj3mlmnaz5/Img_Lilian_Armenta.png?dl=0',
-	    content: ['Coreografa y maestro con más de 23 años bailando, 8 años de experiencia como maestro de ballet, tap, jazz, hip-hop, lyrical, modern jazz, etc.', 'Certificada por el DEA (Dance Educators of America) en la ciudad de Las Vegas, Nevada.', 'Participante y ganadora de diversos premios en competencias internacionales en ciudades como: Las Vegas, Nueva York, Orlando, Los Ángeles, San Diego, San Francisco, etc. por compañias como West Coast Dance Explosion, Dance Olympus, Tremaine, Dance America y DEA.']
-	  }, {
 	    title: 'ELEANA FRANCO',
 	    subtitle: 'ELEANA FRANCO',
 	    intro: '',
-	    image: 'https://www.dropbox.com/s/5eh2c3nmsi7le3g/Eleana-Franco.png?dl=0',
+	    image: 'https://www.dropbox.com/s/7xofldjk7cnl2ds/Eleana-Franco.png?dl=0',
 	    content: ['Bailarina, coreógrafa y maestra de danza nacida en Estados Unidos. Inicio sus estudios a la edad de 2 anos en el “Colegio de Danza Sylvia” donde aprendió ballet, tap, flamenco, jazz y hip hop. Varios años después se convirtió en asistente y próximamente en maestra.', 'Participo en varias importantes obras como es “el cascanueces” junto con la compañía “Moscow ballet” en el Civic Theatre en San Diego y también junto con la “Compañía de danza de Baja California” con Raul Tadeo. También fue participe de la obra infantil “pedro y el lobo” que fue presentada en el CECUT bajo la dirección de Norma Herrera. Continuo con sus estudios en Estados Unidos en la escuela “Coronado School of the Arts” donde estudio varios cursos de historia de la danza, nutrición, improvisación, critica de la danza, coreografía entre muchos otros.', 'Actualmente se encuentra aplicando estos conocimientos como maestra y busca seguir creciendo para compartir este conocimiento con sus alumnos.']
 	  }, {
 	    title: 'ADRIANA CORAL',
@@ -44942,11 +44929,17 @@
 	    image: 'https://www.dropbox.com/s/7ngb2v9j29d1xd2/Vicky-Saenz.png?dl=0',
 	    content: []
 	  }, {
-	    title: 'ROSALINA CAZAREZ',
-	    subtitle: 'ROSALINA CAZAREZ',
+	    title: 'ARIELI ZABICKY',
+	    subtitle: 'Arieli Zabicky',
 	    intro: '',
-	    image: 'https://www.dropbox.com/s/le82urikib91xek/Rosalina_Cazarez.png?dl=0',
-	    content: []
+	    image: 'https://www.dropbox.com/s/dt09rnnkk7u4b2u/Arieli-Zabicky.png?dl=0',
+	    content: ['Ari Zabicky – Licenciada en danza, bailarina profesional, artista escénico, instructora.', 'Actualmente laborando con:', ['Subterráneo Danza Contemporánea como bailarina', 'Maestra de ballet adulto en Plan D', 'Maestra de asignatura en Ateneo Universitario'], 'FORMACIÓN PROFESIONAL', ['Técnico en Danza (2010 – 2012)'], 'Escuela de Danza Gloria Campobello, Tijuana, B.C., México', ['Licenciatura en Danza (2012 – 2016)'], 'Universidad Autónoma De Baja California, Mexicali B.C, México', 'CURSOS MÁS RECIENTES', '2014', ['Seminario de Metodología para la enseñanza de la Danza Clásica CEART Tijuana. Impartió: Mtro. Rafael Ocegueda', 'Taller Intensivo de Ballet. Escuela Americana de danza, Mexicali B.C., Impartio: Aldo Kattón'], '2015', ['Taller intensivo "DANZA JAZZ" UABC, Facultad de Artes, Mexicali. B.C., Impartido por: Pedro Garcia Malvaez', 'Master Class de partnering Facultad de Artes UABC, Licenciatura En danza Impartió Lux Boreal', 'Congreso Nacional de Danza Jazz – CRAM, Zam. Mich.'], '2016', ['Capacitación en "Contrología" o Método Pilates Nivel 1, Fitness Center, Mexicali B.C., Impartió: Lic. Eunice Hidalgo Palacios', 'Taller "El cuerpo vacío" Dance Lab, Tijuana, Impartió: Shantí Vera'], '2017', ['Taller de Metodo Feldenkrais "El Huerto Playas de Tijuana" Impartió: Kata Cots'], 'PARTICIPACIONES', '2015', ['Bailarina invitada en grupo de danza "La Pieza Danza Jazz", Concurso dentro del marco del Congreso Internacional de Danza Jazz Zamora, Michoacán. Participación con la coreografía "CUERPOS", Coreógrafo: Ricardo Zavala, PRIMER LUGAR'], '2016', ['Bailarina en grupo de danza "La Pieza Danza Jazz", Coreografía: Obscuridad Coreógrafo: Ricardo Zavala, Presentación de exhibición en el 8vo concurso del Congreso Internacional de Danza Jazz – Zamora, Michoacán', 'Bailarina en Grupo de danza "La Pieza Danza Jazz".<br />Obra: "Méjico, una chicanada más".<br />- Bailarina.<br />- Gestión.<br />- Asistente de producción.<br />Dirección general: Ricardo Zavala.<br />Presentaciones:<br />- Teatro UABC, Mexicali B.C.<br />- Teatro Obrero, Zamora Michoacán dentro de Congreso Nacional de Danza Jazz.', 'Colaboración como bailarina invitada con compañía de danza Bajo la Lápida.<br />Coreógrafo: Armando Leal.<br />Participación en evento de ARMONIA UABC – 2016', 'OBRA: "Homa´quina".<br />Coreógrafo: Emma G. Davis.<br />Proyecto coreográfico de la Lic. En danza UABC – Mexicali.<br />Estreno: 3 de Junio 2016.<br />- Bailarina.<br />- Gestión.<br />- Montaje coreográfico y de iluminación', 'Montajes de iluminación en Festival Internacional de Danza Entre Fronteras UABC, Mexicali B.C.<br />- "Quasar" compañía de danza<br />- Taller coreográfico de la UABC<br />Antares Danza contemporánea, Responsable: Hildelena Vazquez', 'Participación en el taller "Body mind centering"<br />Lic. En Danza, UABC<br />Impartió: Tamar Kipnis', 'Bailarina en la pieza: "Mis amigos me dicen.."<br />Coreografa: Rosa A. Gomez<br />Actividad dentro de Facultad de Artes UABC', 'Entijuanarte<br />Montaje de iluminación y traspunte en: "Piezas desordenadas"<br />bajo la dirección de Gregorio Coral'], '2017', ['Bailarina invitada en Subterraneo Danza contemporánea', 'Bailarina en la obra: Caleidoscopio<br />Direccion: Gregorio Coral']]
+	  }, {
+	    title: 'MARILU AGUILAR',
+	    subtitle: 'Marilu Aguilar',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/r5idqzlpc7j9iwv/Marilu-Aguilar.png?dl=0',
+	    content: ['<b>Formación Artística</b>', '<b>2017</b> Actual residente de la compañía de danza Lux Boreal, Tijuana. <br />Actual integrante y colaboradora coreografica de Tranze Producciones, Mexicali.<br />Residente de Resonancias laboratorio de creacion en CASA, Oaxaca', '<b>2016</b> Residente de Centro de Danza y Producción Escénica de Baja California. <br />Integrante de Homa Colectivo de Danza, Mexicali', '<b>2015-2016</b> ArcDanz International Dance Program en Puebla; Reves Entrenamiento. <br />Físico en Heredia, Costa Rica; Campin en San Luis Potosi, México', '<b>2014-2015</b> Verano Chilango La Cantera, Ciudad de México; Contemporáneo con Nederlands Dans Theatre, San Diego; Congreso La Ruta, Mexicali ', '<b>2013-2014</b> Barra al Piso; Congreso de jazz, ballet y contemporáneo La Ruta, Mexicali', '<b>2012-2010</b> Integrante del Ballet de Martha Pulido en Tecate; Curso de ballet, jazz, tap y flamenco en San Diego Dance Academy', '<br/><b>Experiencia Escénica</b>', '<b>2017-2016</b> Bailarina de Medium en Sibu International Dance Festival, Malasia y en Tecate, Mexicali y Los Angeles. Primer lugar en "Agite y Sirva Festival de Videodanza"; Homa´quina en Mexicali, Tijuana y Ensenada; Soft Associations en Tijuana; One en Palm Springs; Biografía en Ocho en Ciudad de México y Puebla; Mentes en Los Ángeles, Costa Rica y Corea del Sur', '<b>2015-2013</b> Tercer lugar en Andong Mask Dance Festival and Competition, Corea del Sur; Día Internacional de la danza en Mexicali y Tecate; Encuentro Internacional de Danza Contemporánea Entre Fronteras, Mexicali. ', '<b>2012-2010</b> Ballet: Coppelia, El Cascanueces, Atlantis, Danza Fusión, Bicentenario de la Revolución y Día internacional de la danza, Tecate', '<br /><b>Experiencia Docente</b>', '<b>2017</b> Danza Contemporanea y Fit Ball en Sau de Chat, Jazz Infantil en Escuela de Danza Pavlova; Barre en Studio Barre Fitness, Tijuana', '<b>2016</b> Pilates para Adultos Mayores en CEART, Tecate', '<b>2016-2015</b> Barrecore, Ballet principiante, Ballet infantil y Jazz intermedio en Academia Idanza; Baby ballet, Ballet infantil, Jazz infantil, Jazz intermedio y Jazz avanzado en Academia Minue', '<b>2014-2015</b> Expresión Corporal para niños con capacidades diferentes en CEDI; Jazz en Centro Multidisciplinario Danzxarte; Dance for Fitness en gimnasio Total Fitness; Baby ballet y Jazz infantil en Academia Minue', '<b>2010-2012</b> Impartición de Ballet, Jazz, Tap y Danza Árabe en San Diego Dance Academy; Taller de ballet infantil en Centro Cultural Tecate']
 	  }, {
 	    title: 'GIOVANI GONZÁLEZ ALARCÓN',
 	    subtitle: 'GIOVANI GONZÁLEZ ALARCÓN',

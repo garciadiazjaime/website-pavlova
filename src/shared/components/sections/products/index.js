@@ -8,7 +8,6 @@ import Block3 from './block3';
 import Block4 from './block3';
 import Block5 from './block3';
 import Block6 from './block3';
-import Block7 from './block3';
 import Block8 from '../about/block8';
 // const style = require('./style.scss');
 
@@ -30,7 +29,7 @@ export default class ProductsSection extends React.Component {
   }
 
   render() {
-    const { block1, block2, block3, block4, block5, block6, block7, block8 } = this.props.data;
+    const { block1, block2, block3, block4, block5, block6, block8 } = this.props.data;
     const block3Variations = {
       variation1: 'ballet',
     };
@@ -43,9 +42,6 @@ export default class ProductsSection extends React.Component {
     const block6Variations = {
       variation1: 'cardioDanza',
     };
-    const block7Variations = {
-      variation1: 'barre',
-    };
     const { types } = this.state;
 
     return !_.isEmpty(this.props.data) ? (<div>
@@ -55,7 +51,6 @@ export default class ProductsSection extends React.Component {
       <Block4 data={block4} type={types[1]} variations={block4Variations} />
       <Block5 data={block5} type={types[2]} variations={block5Variations} />
       <Block6 data={block6} type={types[3]} variations={block6Variations} noControls={false} />
-      <Block7 data={block7} type={types[4]} variations={block7Variations} noControls={false} />
       <Block8 data={block8} />
     </div>) : null;
   }

@@ -33,10 +33,6 @@ export default {
       title: 'CARDIO DANZA',
       href: '/clases/kardio-danza',
     },
-    button6: {
-      title: 'BARRÉ',
-      href: '/clases/barre',
-    },
     button7: {
       title: 'HORARIOS',
       href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',

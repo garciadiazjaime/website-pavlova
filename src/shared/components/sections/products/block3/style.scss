@@ -76,12 +76,6 @@
     @include sprite($sprites-Icon-CardioDanza);
   }
 }
-.barre{
-  margin-top: -30px;
-  &::before{
-    @include sprite($sprites-Icon-Barre);
-  }
-}
 .controls{
   background-image: none!important;
   background-color: transparent!important;

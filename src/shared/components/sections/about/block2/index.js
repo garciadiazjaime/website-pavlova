@@ -25,8 +25,8 @@ export default class Block2 extends React.Component {
   }
 
   render() {
-    const { titles, images, buttons, slides } = this.props.data;
-    const divStyle = getImageBackground(images.image1);
+    const { titles, buttons, slides } = this.props.data;
+    const divStyle = getImageBackground('/images/escuela/banner-flamenco.jpg');
     const carouselClasses = {
       inner: style.inner,
       controls: {

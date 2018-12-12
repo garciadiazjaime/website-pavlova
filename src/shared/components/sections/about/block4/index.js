@@ -10,7 +10,6 @@ export default class Block4 extends React.Component {
 
   renderItems(data) {
     if (_.isArray(data) && data.length) {
-      data.pop(); // remove reglamento
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
         return (<div className={'item ' + className} key={index}>

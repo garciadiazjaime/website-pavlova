@@ -2,7 +2,6 @@
 import React from 'react';
 import _ from 'lodash';
 import sanitizeUtil from '../../../../utils/sanitize';
-import SVG from '../../../svg';
 const style = require('./style.scss');
 import Carousel from '../../../elements/carousel';
 
@@ -47,10 +46,6 @@ export default class Block4 extends React.Component {
             <Carousel id="carousel-about-block-4" interval={8000} controls={false} classes={carouselClasses}>
               {this.renderItems(slides)}
             </Carousel>
-          </div>
-          <div className="col-sm-offset-6 col-xs-12">
-            <h3 className={style.title}>REGLAMENTO</h3>
-            <a className={style.button} href="https://dl.dropboxusercontent.com/s/gtf5rdfcblp500r/REGLAMENTO%20PAS%20DE%20CHAT.pdf?dl=0" title="REGLAMENTO-PAS-DE-CHAT" target="_blank">DESCARGAR<SVG network="arrow_down" className={style.svg}/></a>
           </div>
         </div>
       </div>

@@ -11,8 +11,8 @@ const style = require('./style.scss');
 export default class Block3 extends React.Component {
 
   render() {
-    const { titles, buttons, images, paragraphs } = this.props.data;
-    const divStyle = getImageBackground(images.image1);
+    const { titles, buttons, paragraphs } = this.props.data;
+    const divStyle = getImageBackground('/images/home/pas-de-chat.jpg');
     return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.passeDeChat}>
       <div className="container-fluid">
         <div className="row">

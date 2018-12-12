@@ -19,10 +19,11 @@ export default {
         'Nuvo workshop en Long Beach en 2014',
         'Jump workshop en Monterrey, Nuevo León en 2015',
         'Curso de Anatomía aplicado a maestros de Danza en 2016',
+        'Dance Teacher Summit en Long Beach, CA. - 2016, 2017 y 2018',
       ],
       'En el año 2014 funda junto con Alicia Luna el grupo  Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.',
       'Gloria continúa tomando clases de ballet y asiste a cursos de jazz en la Academia de Performing Arts  en San Diego. Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.',
-      'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 29 años.',
+      'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 31 años.',
     ],
   }, {
     title: 'ALICIA LUNA',
@@ -40,6 +41,7 @@ export default {
         'Dance Makers 2015 – Los Ángeles CA.',
         'Iniciación a la Danza 2015 – Tijuana B.C.',
         'Curso de Anatomía aplicado a maestros de Danza en 2016 – Tijuana B.C.',
+        'Curso Dance Teacher Summit en Long Beach, CA. –2016 y 2017',
         'Actualmente se sigue preparando con clases de Ballet Clásico.',
       ],
       'El tiempo y la entrega que Lichita dedica a sus alumnas, representan la oportunidad de edificar y promover orden, disciplina y convivencia, teniendo como propósito el fomentar los valores que las acompañarán toda su vida, no sólo como un bonito recuerdo, sino como parte de su formación como personas.',
@@ -84,18 +86,6 @@ export default {
         'Diversos cursos en Academy of Perdorming Arts (APA)',
         'Diversos cursos en Culture Shock of San Diego Ca.',
       ],
-    ],
-  }, {
-    title: 'TANIA ADAME',
-    subtitle: 'TANIA ADAME',
-    intro: '',
-    image: 'https://www.dropbox.com/s/s8rs8vyfju6cmic/Img-Tania-Adame.png?dl=0',
-    content: [
-      'Inició sus estudios de danza a los 3 años y medio en Tijuana, B. C. Egresó de la carrera de Técnico en Danza en el 2010 de la Escuela de Danza Gloria Campobello.',
-      'Su formación como bailarina incluye danza clásica, danza española, danza jazz, tap y danza contemporánea. Desde hace 8 años se ha dedicado a la docencia de las distintas danzas en diferentes escuelas.',
-      'Integrante del Grupo de Danza Minerva Tapia, ha participado en producciones como 16th Annual Noche Cultural de Estudios Chicanos en la Universidad de California Riverside, "Vive la Cultura con Todos los Sentidos" en Sinaloa, México, "Border Dancers" en la ciudad de Nueva York, diferentes ediciones de Entijuanarte, Cuerpos en tránsito y "Celebración anual de la danza" en Rosario, Argentina en el año 2011 por mencionar algunos. Fue becaria del programa Talentos Artísticos, Valores de Baja California en el ciclo 2008 – 2010 dirigido por el Instituto de Cultura de Baja California. Nombrada como una de las "13 promesas artísticas" por el periódico Frontera en el año 2005.',
-      'Ha asistido a varios cursos como el curso de verano impartido por el Ballet de Monterrey y la Cátedra de danza del Ballet Nacional de Cuba en La Habana.',
-      'Actualmente continúa su entrenamiento con clases de danza contemporánea y ballet.',
     ],
   }, {
     title: 'RHONAL RUVALCABA',
@@ -206,16 +196,6 @@ export default {
       'Bailarina y maestra que se desarrolla profesionalmente  en el norte de México; miembro fundador de Subterráneo Danza Contemporánea desde hace 17 años, donde su misión es exponer su trabajo como intérprete y colaborador creativo en la realización de espectáculos escénicos. Mantiene una constante búsqueda del lenguaje propio a través de la investigación en diferentes técnicas dancísticas  así como la divulgación de sus conocimientos a través de la docencia, asimismo, busca mantener vínculos estrechos con otros artistas escénicos del país para fortalecer su quehacer  dancístico y contribuir a la difusión del arte.',
     ],
   }, {
-    title: 'VIANCA SANTACOLOMBA',
-    subtitle: 'VIANCA SANTACOLOMBA',
-    intro: '',
-    image: 'https://www.dropbox.com/s/c6aa25qntvi7g9h/Vianca-Santacolomba.png?dl=0',
-    content: [
-      'La experiencia de Vianca en el mundo del baile ha sido muy significativa ya que ha desarrollado su destreza desde 1991 en las áreas de ballet, jazz y flamenco en las escuelas de danza Sylvia y Pavlova.',
-      'En 1994 recibió un reconocimiento por su participación en “Cascanueces” de Danz-Arte y en 2004 obtuvo un diploma del curso “Iniciación y actualización de danza” del Centro de Ballet y Arte.',
-      'Actualmente cuenta con un año como asistente de baile Flamenco Infantil y busca transmitir a sus alumnas la emoción tan especial que le evoca el baile, lo cual no se aprende, se lleva por dentro.',
-    ],
-  }, {
     title: 'VICKY SAENZ',
     subtitle: 'VICKY SAENZ',
     intro: '',
@@ -227,5 +207,23 @@ export default {
     intro: '',
     image: 'https://www.dropbox.com/s/le82urikib91xek/Rosalina_Cazarez.png?dl=0',
     content: [],
+  }, {
+    title: 'GIOVANI GONZÁLEZ ALARCÓN',
+    subtitle: 'GIOVANI GONZÁLEZ ALARCÓN',
+    intro: '',
+    image: '/images/escuela/staff/giovani-alarcon.jpg',
+    content: [
+      'Egresado de la Lic. en Actividad Física y Deporte por la Universidad Autónoma de Baja California, con amplia experiencia en presentaciones profesionales incluyendo participación en shows de la cadena televisiva Telemundo, eventos masivos en Los Ángeles y en Baja California, incluyendo apertura de múltiples conciertos de artistas en la región.',
+      'Impartió clases de Cardio Dance y Cardio Hip Hop en diversos gimnasios de la Ciudad de Tijuana. Maestro de Hip-Jazz en los principales estudios de Danza en Tijuana.',
+      'Coreógrafo Profesional, forma parte de la compañía de Hip Hop "Culture Shock" en San Diego.',
+    ],
+  }, {
+    title: 'MÓNICA ZITLALI GARZA MAYORAL',
+    subtitle: 'MÓNICA ZITLALI GARZA MAYORAL',
+    intro: '',
+    image: '/images/escuela/staff/monica-zitlali.png',
+    content: [
+      'Técnico en Danza y Maestra en Educación egresada de CETYS Universidad, Licenciada en Filosofía y en Ciencias de la Educación, tiene una vasta experiencia en el ámbito docente de danza clásica y ballet, ejerciendo profesionalmente en organizaciones como el CEART, Hospital Infantil de las Californias, CECUTEC, estudios de danza y colegios en la región.',
+    ],
   }],
 };

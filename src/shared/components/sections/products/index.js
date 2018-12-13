@@ -1,6 +1,5 @@
 /* eslint max-len: [2, 500, 4] */
 import React from 'react';
-import _ from 'lodash';
 
 import Block1 from './block1';
 import Block2 from '../home/block2';
@@ -12,6 +11,8 @@ import Block8 from '../about/block8';
 const balletData = require('./balletData');
 const jazzData = require('./jazzData');
 const flamencoData = require('./flamencoData');
+
+const data = require('./data');
 
 export default class ProductsSection extends React.Component {
 
@@ -31,7 +32,7 @@ export default class ProductsSection extends React.Component {
   }
 
   render() {
-    const { block1, block2, block8 } = this.props.data;
+    const { block1, block2, block8 } = data;
     const block3Variations = {
       variation1: 'ballet',
     };
@@ -43,17 +44,13 @@ export default class ProductsSection extends React.Component {
     };
     const { types } = this.state;
 
-    return !_.isEmpty(this.props.data) ? (<div>
+    return (<div>
       <Block1 data={block1} />
       <Block2 data={block2} />
       <Block3 data={balletData} type={types[0]} variations={block3Variations} />
       <Block4 data={jazzData} type={types[1]} variations={block4Variations} />
       <Block5 data={flamencoData} type={types[2]} variations={block5Variations} />
       <Block8 data={block8} />
-    </div>) : null;
+    </div>);
   }
 }
-
-ProductsSection.propTypes = {
-  data: React.PropTypes.object,
-};

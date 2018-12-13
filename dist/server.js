@@ -82,7 +82,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _restClient = __webpack_require__(27);
+	var _restClient = __webpack_require__(79);
 
 	var _restClient2 = _interopRequireDefault(_restClient);
 
@@ -148,44 +148,14 @@
 
 	app.use('/api/', _api2.default);
 
-	app.get('/*', function (req, res, next) {
-	  var bits = req.url.split('/');
-	  var url = bits[1] || 'inicio';
-	  var sectionId = getSectionId(_sitemap2.default, url);
-	  if (sectionId) {
-	    var promises = [];
-	    promises.push(new Promise(function (resolve, reject) {
-	      (0, _restClient2.default)({
-	        path: apiUrl + 'api/block/?section_id=' + sectionId
-	      }).then(function (response) {
-	        resolve(response.entity);
-	      }, function (response) {
-	        reject(response);
-	      });
-	    }));
-
-	    if (promises.length) {
-	      Promise.all(promises).then(function (data) {
-	        var blocks = getBlocksData(data[0]);
-	        _data.blocks = blocks;
-	        next();
-	      });
-	    } else {
-	      next();
-	    }
-	  } else {
-	    next();
-	  }
-	}, function (req, res) {
+	app.get('/*', function (req, res) {
 	  (0, _reactRouter.match)({ routes: _routes2.default, location: req.url }, function (error, redirectLocation, renderProps) {
 	    if (error) {
 	      res.status(500).send(error.message);
 	    } else if (redirectLocation) {
 	      res.redirect(302, redirectLocation.pathname + redirectLocation.search);
 	    } else if (renderProps) {
-	      var props = {
-	        blocks: _data.blocks
-	      };
+	      var props = {};
 	      var content = (0, _server.renderToString)(_react2.default.createElement(
 	        _dataWrapper2.default,
 	        { data: props },
@@ -666,19 +636,19 @@
 
 	var _AppHandler2 = _interopRequireDefault(_AppHandler);
 
-	var _home = __webpack_require__(31);
+	var _home = __webpack_require__(27);
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _about = __webpack_require__(44);
+	var _about = __webpack_require__(41);
 
 	var _about2 = _interopRequireDefault(_about);
 
-	var _products = __webpack_require__(67);
+	var _products = __webpack_require__(65);
 
 	var _products2 = _interopRequireDefault(_products);
 
-	var _contact = __webpack_require__(75);
+	var _contact = __webpack_require__(74);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -737,10 +707,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(6);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
 	var _sitemap = __webpack_require__(15);
 
 	var _sitemap2 = _interopRequireDefault(_sitemap);
@@ -761,10 +727,6 @@
 
 	var _menu4 = _interopRequireDefault(_menu3);
 
-	var _restClient = __webpack_require__(27);
-
-	var _restClient2 = _interopRequireDefault(_restClient);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -780,154 +742,25 @@
 	  function AppHandler(props, context) {
 	    _classCallCheck(this, AppHandler);
 
-	    var _this = _possibleConstructorReturn(this, (AppHandler.__proto__ || Object.getPrototypeOf(AppHandler)).call(this, props, context));
-
-	    _this.state = {
-	      data: context.data && context.data.blocks ? context.data.blocks : window._data.blocks,
-	      cache: {}
-	    };
-	    return _this;
+	    return _possibleConstructorReturn(this, (AppHandler.__proto__ || Object.getPrototypeOf(AppHandler)).call(this, props, context));
 	  }
 
 	  _createClass(AppHandler, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.scrollHandler(true);
-	      // window.addEventListener('scroll', this.onScroll, false);
-	      // this.googleAnalytics();
-	      if (_lodash2.default.isEmpty(this.state.data)) {
-	        this.loadData();
-	        var width = window.innerWidth;
-	        if (width < 768) {
-	          $('#menu_wrapper').addClass('navbar-fixed-top');
-	          $('.navbar-brand').css('display', 'block');
-	          $('.navbar-icons').css('display', 'block');
-	        }
-	      }
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps() {
-	      this.setState({
-	        data: {}
-	      });
-	      this.loadData();
-	    }
-	  }, {
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate() {
-	      this.scrollHandler();
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      // window.removeEventListener('scroll', this.onScroll, false);
-	    }
-	  }, {
-	    key: 'onScroll',
-	    value: function onScroll() {
-	      var offset = window.pageYOffset;
+
 	      var width = window.innerWidth;
 	      if (width < 768) {
 	        $('#menu_wrapper').addClass('navbar-fixed-top');
 	        $('.navbar-brand').css('display', 'block');
 	        $('.navbar-icons').css('display', 'block');
-	      } else {
-	        if (offset > 386) {
-	          $('#menu_wrapper').addClass('navbar-fixed-top');
-	          $('.navbar-brand').css('display', 'block');
-	          $('.navbar-icons').css('display', 'block');
-	        } else {
-	          $('#menu_wrapper').removeClass('navbar-fixed-top');
-	          $('.navbar-brand').css('display', 'none');
-	          $('.navbar-icons').css('display', 'none');
-	        }
 	      }
 	    }
 	  }, {
-	    key: 'getBlocksData',
-	    value: function getBlocksData(data) {
-	      var _this2 = this;
-
-	      var properties = ['slides', 'buttons', 'images', 'paragraphs', 'titles'];
-	      var response = {};
-	      if (_lodash2.default.isArray(data) && data.length) {
-	        data.map(function (item, index) {
-	          var key = 'block' + (index + 1);
-	          response[key] = {};
-	          properties.map(function (prop) {
-	            if (_lodash2.default.isArray(item[prop]) && item[prop].length) {
-	              response[key][prop] = prop === 'slides' ? item[prop] : _this2.getDataLevelTwo(prop, item[prop]);
-	            }
-	          });
-	        });
-	      }
-	      return response;
-	    }
-	  }, {
-	    key: 'getDataLevelTwo',
-	    value: function getDataLevelTwo(props, data) {
-	      var response = {};
-	      var prop = props.substring(0, props.length - 1);
-	      if (_lodash2.default.isArray(data) && data.length) {
-	        data.map(function (item, index) {
-	          response[prop + (index + 1)] = item;
-	        });
-	      }
-	      return response;
-	    }
-	  }, {
-	    key: 'getSectionId',
-	    value: function getSectionId(data, url) {
-	      if (_lodash2.default.isObject(data.items) && !_lodash2.default.isEmpty(data.items) && _lodash2.default.isArray(data.items.children) && data.items.children.length) {
-	        for (var i = 0, len = data.items.children.length; i < len; i++) {
-	          if (data.items.children[i].url === '/' + url) {
-	            return data.items.children[i].id;
-	          }
-	        }
-	      }
-	      return 0;
-	    }
-	  }, {
-	    key: 'loadData',
-	    value: function loadData() {
-	      var _this3 = this;
-
-	      var promises = [];
-	      var bits = window.location.pathname.split('/');
-	      var url = bits[1] || 'inicio';
-	      var sectionId = this.getSectionId(_sitemap2.default, url);
-	      if (_lodash2.default.isEmpty(this.state.cache[sectionId])) {
-	        promises.push((0, _restClient2.default)({
-	          path: window._apiUrl + 'api/block/?section_id=' + sectionId
-	        }));
-
-	        if (promises.length) {
-	          Promise.all(promises).then(function (data) {
-	            var blocks = _this3.getBlocksData(data[0].entity);
-	            var state = _this3.state;
-	            state.data = blocks;
-	            state.cache[sectionId] = blocks;
-	            _this3.setState(state);
-	          });
-	        }
-	      } else {
-	        this.setState({
-	          data: this.state.cache[sectionId]
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'googleAnalytics',
-	    value: function googleAnalytics() {
-	      /*eslint-disable */
-	      // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	      // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	      // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	      // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	      // ga('create', 'UA--', 'auto');
-	      // ga('send', 'pageview');
-	      /*eslint-enable */
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      this.scrollHandler();
 	    }
 	  }, {
 	    key: 'scrollHandler',
@@ -950,10 +783,8 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this4 = this;
-
 	      var children = _react2.default.Children.map(this.props.children, function (child) {
-	        return _react2.default.cloneElement(child, { data: _this4.state.data });
+	        return _react2.default.cloneElement(child);
 	      });
 	      return _react2.default.createElement(
 	        'div',
@@ -974,12 +805,7 @@
 	AppHandler.propTypes = {
 	  children: _react2.default.PropTypes.object.isRequired,
 	  location: _react2.default.PropTypes.any,
-	  context: _react2.default.PropTypes.any,
-	  data: _react2.default.PropTypes.any
-	};
-
-	AppHandler.contextTypes = {
-	  data: _react2.default.PropTypes.object
+	  context: _react2.default.PropTypes.any
 	};
 
 /***/ }),
@@ -1744,77 +1570,29 @@
 	  value: true
 	});
 
-	var _rest = __webpack_require__(28);
-
-	var _rest2 = _interopRequireDefault(_rest);
-
-	var _mime = __webpack_require__(29);
-
-	var _mime2 = _interopRequireDefault(_mime);
-
-	var _errorCode = __webpack_require__(30);
-
-	var _errorCode2 = _interopRequireDefault(_errorCode);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _rest2.default.wrap(_mime2.default, { mime: 'application/json' }).wrap(_errorCode2.default, { code: 300 });
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports) {
-
-	module.exports = require("rest");
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports) {
-
-	module.exports = require("rest/interceptor/mime");
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports) {
-
-	module.exports = require("rest/interceptor/errorCode");
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(6);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _block = __webpack_require__(32);
+	var _block = __webpack_require__(28);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(36);
+	var _block3 = __webpack_require__(32);
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _block5 = __webpack_require__(38);
+	var _block5 = __webpack_require__(34);
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(40);
+	var _block7 = __webpack_require__(36);
 
 	var _block8 = _interopRequireDefault(_block7);
 
-	var _block9 = __webpack_require__(42);
+	var _block9 = __webpack_require__(38);
 
 	var _block10 = _interopRequireDefault(_block9);
 
@@ -1825,6 +1603,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var data = __webpack_require__(40);
 
 	var HomeSection = function (_React$Component) {
 	  _inherits(HomeSection, _React$Component);
@@ -1838,14 +1618,13 @@
 	  _createClass(HomeSection, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data,
-	          block1 = _props$data.block1,
-	          block2 = _props$data.block2,
-	          block3 = _props$data.block3,
-	          block4 = _props$data.block4;
+	      var block1 = data.block1,
+	          block2 = data.block2,
+	          block3 = data.block3,
+	          block4 = data.block4;
 
 
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(_block2.default, { data: block1 }),
@@ -1853,7 +1632,7 @@
 	        _react2.default.createElement(_block6.default, { data: block3 }),
 	        _react2.default.createElement(_block8.default, { data: block4 }),
 	        _react2.default.createElement(_block10.default, null)
-	      ) : null;
+	      );
 	    }
 	  }]);
 
@@ -1862,13 +1641,8 @@
 
 	exports.default = HomeSection;
 
-
-	HomeSection.propTypes = {
-	  data: _react2.default.PropTypes.object
-	};
-
 /***/ }),
-/* 32 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1889,9 +1663,9 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _imageUtil = __webpack_require__(33);
+	var _imageUtil = __webpack_require__(29);
 
-	var _carousel = __webpack_require__(34);
+	var _carousel = __webpack_require__(30);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
@@ -1907,7 +1681,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(35);
+	var style = __webpack_require__(31);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -1994,7 +1768,7 @@
 	};
 
 /***/ }),
-/* 33 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2027,7 +1801,7 @@
 	}
 
 /***/ }),
-/* 34 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2163,14 +1937,14 @@
 	};
 
 /***/ }),
-/* 35 */
+/* 31 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1IAv0","vCenter":"style__vCenter___3op1c","button1":"style__button1___3teya","button2":"style__button2___3emCl","item":"style__item___1hdp3","darkBG":"style__darkBG___3_r4I","button2b":"style__button2b___1gkLu","vCenterRel":"style__vCenterRel___3rmpk","hCenter":"style__hCenter___bN1_x","inheritHeight":"style__inheritHeight___3EV0T","hideOverflow":"style__hideOverflow___1jYcy","icon-sprites":"style__icon-sprites___113mW","button3":"style__button3___1egvE","button3v1":"style__button3v1___e8Puv","button3v2":"style__button3v2___aYpPW","button3v3":"style__button3v3___18OJd","button3v4":"style__button3v4___347NJ","wrapper1":"style__wrapper1___3LV9m","wrapper2":"style__wrapper2___3Do_q","title1":"style__title1___1fgRn","title2":"style__title2___3VQJ-","title3":"style__title3___15G1J","title4":"style__title4___GbpGB","title5":"style__title5___21deO","title6":"style__title6___2x7FO","title7":"style__title7___1Pacu","title8":"style__title8___1BoeB","sideSwipe":"style__sideSwipe___1_Jvs","bottomSwipe":"style__bottomSwipe___2qtvt","arrow":"style__arrow___3-Hu9"};
 
 /***/ }),
-/* 36 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2204,7 +1978,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(37);
+	var style = __webpack_require__(33);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -2286,14 +2060,14 @@
 	};
 
 /***/ }),
-/* 37 */
+/* 33 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","button1":"style__button1___3Mc_g","button2":"style__button2___2zikt","button2b":"style__button2b___UKCOY","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","icon-sprites":"style__icon-sprites___1crXd","button3":"style__button3___3KWNZ","button3v1":"style__button3v1___3BT_T","button3v2":"style__button3v2___1cST3","button3v3":"style__button3v3___1O1XL","button3v4":"style__button3v4___1ekHt","image1":"style__image1___4P84q","paragraph1":"style__paragraph1___2Ov3F","paragraph1b":"style__paragraph1b___3CQIB","paragraph2":"style__paragraph2___10FLO","paragraph3":"style__paragraph3___3kGpq","paragraph4":"style__paragraph4___15kjh","paragraph5":"style__paragraph5___3EMdx","sideSwipe":"style__sideSwipe___2tbA2","bottomSwipe":"style__bottomSwipe___3tj3d","title1":"style__title1___3Lp7y","title2":"style__title2___1Nebh","title3":"style__title3___2cBjs","title4":"style__title4___90ELg","title5":"style__title5___3p9GA","title6":"style__title6___1cWpF","title7":"style__title7___1hdkz","title8":"style__title8___4sMWt","button3v5":"style__button3v5___m7eJK","customCol":"style__customCol___3nRYv"};
 
 /***/ }),
-/* 38 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2314,7 +2088,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _imageUtil = __webpack_require__(33);
+	var _imageUtil = __webpack_require__(29);
 
 	var _svg = __webpack_require__(18);
 
@@ -2328,7 +2102,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(39);
+	var style = __webpack_require__(35);
 
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
@@ -2394,14 +2168,14 @@
 	};
 
 /***/ }),
-/* 39 */
+/* 35 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1UpIU","vCenter":"style__vCenter___1YV9g","button1":"style__button1___100rH","button2":"style__button2___SbKZT","button":"style__button____i21N","button2b":"style__button2b___1z6B8","vCenterRel":"style__vCenterRel___1D8tj","hCenter":"style__hCenter___2TvfM","inheritHeight":"style__inheritHeight___3jids","hideOverflow":"style__hideOverflow___16pkQ","icon-sprites":"style__icon-sprites___3x6uL","button3":"style__button3___wn-mV","button3v1":"style__button3v1___2JRum","button3v2":"style__button3v2___1HD5h","button3v3":"style__button3v3___X_IwQ","button3v4":"style__button3v4___2gUdl","passeDeChat":"style__passeDeChat___3lcIC","wrapper1":"style__wrapper1___11dmn","wrapper2":"style__wrapper2___btSte","title1":"style__title1___3QBup","title2":"style__title2___19ma5","title3":"style__title3___17GG-","title4":"style__title4___1kzHe","title5":"style__title5___w6HV2","title":"style__title___2uzOV","title6":"style__title6___8k-iy","title7":"style__title7___3kWyz","title8":"style__title8___3tkZ-","sideSwipe":"style__sideSwipe___M8sba","bottomSwipe":"style__bottomSwipe____fcIm","paragraph1":"style__paragraph1___mOtQ_","paragraph1b":"style__paragraph1b___1l31N","paragraph2":"style__paragraph2___34cYP","paragraph3":"style__paragraph3___pE0dO","paragraph":"style__paragraph___1CprJ","paragraph4":"style__paragraph4___2Bqj7","paragraph5":"style__paragraph5___8lnUF"};
 
 /***/ }),
-/* 40 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2422,7 +2196,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _carousel = __webpack_require__(34);
+	var _carousel = __webpack_require__(30);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
@@ -2439,7 +2213,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(41);
+	var style = __webpack_require__(37);
 
 	var Block4 = function (_React$Component) {
 	  _inherits(Block4, _React$Component);
@@ -2535,14 +2309,14 @@
 	};
 
 /***/ }),
-/* 41 */
+/* 37 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___2Xb8X","vCenter":"style__vCenter___hmun0","button1":"style__button1___1hNj-","button2":"style__button2___1PxHI","button":"style__button___2WejV","button2b":"style__button2b___3PsG1","controls":"style__controls___20l_V","vCenterRel":"style__vCenterRel___2lPVo","hCenter":"style__hCenter___1JZnn","inheritHeight":"style__inheritHeight___1rILl","hideOverflow":"style__hideOverflow___1Q2PJ","icon-sprites":"style__icon-sprites___38gIr","button3":"style__button3___1BqYh","button3v1":"style__button3v1___rymdE","button3v2":"style__button3v2___3AaDs","button3v3":"style__button3v3___313Qy","button3v4":"style__button3v4___3NRPp","wrapper1":"style__wrapper1___3ANK2","wrapper2":"style__wrapper2___2RaJ7","sideSwipe":"style__sideSwipe___2Dk6P","bottomSwipe":"style__bottomSwipe___1PfSR","title1":"style__title1___25IAx","title2":"style__title2___wfjef","title3":"style__title3___EBeus","title4":"style__title4____YoIR","title5":"style__title5___T2PV8","title6":"style__title6___G7Bi3","title":"style__title___3PYI0","title7":"style__title7___18HEf","title8":"style__title8___1HuLF","image1":"style__image1___3Iegh","image":"style__image___t1t90","paragraph1":"style__paragraph1___1KYt4","paragraph1b":"style__paragraph1b___3FINH","paragraph":"style__paragraph___2ThL6","paragraph2":"style__paragraph2___2j4Qo","paragraph3":"style__paragraph3___29XST","paragraph4":"style__paragraph4___3QuOc","paragraph5":"style__paragraph5___39V90","wrapper":"style__wrapper___17dlG","carrouselImg":"style__carrouselImg___1peuz"};
 
 /***/ }),
-/* 42 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2566,7 +2340,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(43);
+	var style = __webpack_require__(39);
 
 	var Block5 = function (_React$Component) {
 	  _inherits(Block5, _React$Component);
@@ -2622,14 +2396,141 @@
 	};
 
 /***/ }),
-/* 43 */
+/* 39 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter____Xii_","vCenter":"style__vCenter___1y14f","vCenterRel":"style__vCenterRel___24jA4","hCenter":"style__hCenter___Y4AN-","inheritHeight":"style__inheritHeight___21aOY","hideOverflow":"style__hideOverflow___3055I","icon-sprites":"style__icon-sprites___1DmEO","wrapper1":"style__wrapper1___3Sf2J","wrapper2":"style__wrapper2___2cdfa","title1":"style__title1___1xJzR","title2":"style__title2___1zpqe","title3":"style__title3___2P9aT","title4":"style__title4___2H0zb","title5":"style__title5___2k4qe","title6":"style__title6___1OLsu","title":"style__title___2hWLk","title7":"style__title7___AbXjb","title8":"style__title8___YMND7","paragraph1":"style__paragraph1___3S9mq","paragraph1b":"style__paragraph1b___3C0_Q","paragraph":"style__paragraph___hyObP","paragraph2":"style__paragraph2___3o3XQ","paragraph3":"style__paragraph3___2QU4m","paragraph4":"style__paragraph4___oQEgF","paragraph5":"style__paragraph5___1-rXW","wrapper":"style__wrapper___2AmaT"};
 
 /***/ }),
-/* 44 */
+/* 40 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint max-len: [2, 500, 4] */
+
+	var data = {
+	  block1: {
+	    slides: [{
+	      id: 23,
+	      image: 'https://www.dropbox.com/s/slj1394r4l2sr9h/Banner_Pavlova_001-2.jpg?dl=0',
+	      title: '',
+	      button_title: 'BAILA JAZZ',
+	      button_url: '/clases/jazz',
+	      content: '',
+	      block: 1
+	    }, {
+	      id: 24,
+	      image: 'https://www.dropbox.com/s/4yi0dopo579m7bl/Banner_Pavlova_003-2.jpg?dl=0',
+	      title: '',
+	      button_title: 'BAILA FLAMENCO',
+	      button_url: '/clases/flamenco',
+	      content: '',
+	      block: 1
+	    }, {
+	      id: 25,
+	      image: 'https://www.dropbox.com/s/3xbh06096giea8u/Banner_Pavlova_005-2.jpg?dl=0',
+	      title: '',
+	      button_title: 'KARDIO DANZA',
+	      button_url: '/clases/kardio-danza',
+	      content: '',
+	      block: 1
+	    }, {
+	      id: 26,
+	      image: 'https://www.dropbox.com/s/ff1zyfoharkqxx4/Banner_Pavlova_004-2.jpg?dl=0',
+	      title: '',
+	      button_title: 'BAILA BALLET',
+	      button_url: '/clases/ballet',
+	      content: '',
+	      block: 1
+	    }, {
+	      id: 27,
+	      image: 'https://www.dropbox.com/s/xcjhztd4g3ri8nj/Banner_Pavlova_002-2.jpg?dl=0',
+	      title: '',
+	      button_title: 'BAILA JAZ',
+	      button_url: '/clases/jazz',
+	      content: '',
+	      block: 1
+	    }]
+	  },
+	  block2: {
+	    buttons: {
+	      button1: { id: 2, title: 'BALLET', href: '/clases/ballet', block: 2 },
+	      button2: { id: 3, title: 'JAZZ', href: '/clases/jazz', block: 2 },
+	      button3: { id: 4, title: 'FLAMENCO', href: '/clases/flamenco', block: 2 },
+	      button4: {
+	        id: 5,
+	        title: 'KARDIO DANZA',
+	        href: '/clases/kardio-danza',
+	        block: 2
+	      },
+	      button5: { id: 6, title: 'BARRÉ', href: '/clases/barre', block: 2 }
+	    }
+	  },
+	  block3: {
+	    buttons: {
+	      button1: { id: 7, title: 'CONOCE MÁS', href: '/escuela', block: 3 }
+	    },
+	    images: {
+	      image1: {
+	        id: 2,
+	        alt: 'pas de chat',
+	        src: 'https://www.dropbox.com/s/9s88xu6ajfwvszv/Img-PasdeChat-bg.jpg?dl=0',
+	        block: 3
+	      }
+	    },
+	    paragraphs: { paragraph1: 'Compromiso de excelencia con la danza' },
+	    titles: { title1: 'Pas de Chat' }
+	  },
+	  block4: {
+	    slides: [{
+	      id: 2,
+	      image: 'https://www.dropbox.com/s/fa3la0rc2fgfmhm/Img-slider-escuela-01.jpg?dl=0',
+	      title: 'nuestra escuela',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 4
+	    }, {
+	      id: 3,
+	      image: 'https://www.dropbox.com/s/jqxmxzl4gmvlpjd/Img-slider-escuela-02.jpg?dl=0',
+	      title: 'nuestra escuela',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 4
+	    }, {
+	      id: 21,
+	      image: 'https://www.dropbox.com/s/76c9zet5p0w3fqf/Img-slider-escuela-03.jpg?dl=0',
+	      title: 'nuestra escuela',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 4
+	    }, {
+	      id: 22,
+	      image: 'https://www.dropbox.com/s/7i92xq2bcfebsul/Img-slider-escuela-04.jpg?dl=0',
+	      title: 'nuestra escuela',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 4
+	    }],
+	    buttons: {
+	      button1: { id: 8, title: 'CONOCE MÁS', href: '/escuela', block: 4 }
+	    },
+	    paragraphs: {
+	      paragraph1: 'Somos una Escuela de gran prestigio en el ámbito de la Danza, altamente especializada en las técnicas de Ballet, Jazz y Flamenco desde 1987. Nuestro principal compromiso es lograr que las alumnas aprovechen el tiempo de forma positiva ejercitando las técnicas de baile con un balance entre disciplina y convivencia.'
+	    },
+	    titles: { title1: 'Nuestra Escuela' }
+	  }
+	};
+
+	module.exports = data;
+
+/***/ }),
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2644,43 +2545,39 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(6);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _block = __webpack_require__(45);
+	var _block = __webpack_require__(42);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(48);
+	var _block3 = __webpack_require__(45);
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _block5 = __webpack_require__(50);
+	var _block5 = __webpack_require__(47);
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(52);
+	var _block7 = __webpack_require__(49);
 
 	var _block8 = _interopRequireDefault(_block7);
 
-	var _block9 = __webpack_require__(54);
+	var _block9 = __webpack_require__(51);
 
 	var _block10 = _interopRequireDefault(_block9);
 
-	var _block11 = __webpack_require__(56);
+	var _block11 = __webpack_require__(53);
 
 	var _block12 = _interopRequireDefault(_block11);
 
-	var _block13 = __webpack_require__(62);
+	var _block13 = __webpack_require__(59);
 
 	var _block14 = _interopRequireDefault(_block13);
 
-	var _block15 = __webpack_require__(64);
+	var _block15 = __webpack_require__(61);
 
 	var _block16 = _interopRequireDefault(_block15);
 
-	var _data = __webpack_require__(66);
+	var _data = __webpack_require__(63);
 
 	var _data2 = _interopRequireDefault(_data);
 
@@ -2692,8 +2589,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	// const style = require('./style.scss');
-
+	var data = __webpack_require__(64);
 
 	var AboutSection = function (_React$Component) {
 	  _inherits(AboutSection, _React$Component);
@@ -2707,9 +2603,7 @@
 	  _createClass(AboutSection, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props,
-	          params = _props.params,
-	          data = _props.data;
+	      var params = this.props.params;
 	      var block1 = data.block1,
 	          block2 = data.block2,
 	          block3 = data.block3,
@@ -2724,7 +2618,7 @@
 	        variation2: 'titleE'
 	      };
 
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(_block2.default, { data: block1 }),
@@ -2735,7 +2629,7 @@
 	        _react2.default.createElement(_block12.default, { data: _data2.default, showListItem: showListItem }),
 	        _react2.default.createElement(_block14.default, { data: block7 }),
 	        _react2.default.createElement(_block16.default, { data: block8 })
-	      ) : null;
+	      );
 	    }
 	  }]);
 
@@ -2746,12 +2640,11 @@
 
 
 	AboutSection.propTypes = {
-	  data: _react2.default.PropTypes.object,
 	  params: _react2.default.PropTypes.any
 	};
 
 /***/ }),
-/* 45 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2774,9 +2667,9 @@
 
 	var _svg2 = _interopRequireDefault(_svg);
 
-	var _imageUtil = __webpack_require__(33);
+	var _imageUtil = __webpack_require__(29);
 
-	var _sanitize = __webpack_require__(46);
+	var _sanitize = __webpack_require__(43);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -2789,7 +2682,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(47);
+	var style = __webpack_require__(44);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -2847,7 +2740,7 @@
 	};
 
 /***/ }),
-/* 46 */
+/* 43 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -2863,14 +2756,14 @@
 	};
 
 /***/ }),
-/* 47 */
+/* 44 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","button1":"style__button1___knh5C","button2":"style__button2___3rlK3","button2b":"style__button2b___H0Brp","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","button3":"style__button3___2KaTC","button3v1":"style__button3v1___16SWp","button3v2":"style__button3v2___3N8UW","button3v3":"style__button3v3___2h7PD","button3v4":"style__button3v4___3p_tP","sideSwipe":"style__sideSwipe___3OFJQ","bottomSwipe":"style__bottomSwipe___3ltu-","title1":"style__title1___1LlDm","title":"style__title___JG5hq","title2":"style__title2___3ep2l","title3":"style__title3___1URy1","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph1b":"style__paragraph1b___2_mfn","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph":"style__paragraph___1Wwqc","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","svg":"style__svg___29LI3"};
 
 /***/ }),
-/* 48 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2891,9 +2784,9 @@
 
 	var _reactRouter = __webpack_require__(4);
 
-	var _imageUtil = __webpack_require__(33);
+	var _imageUtil = __webpack_require__(29);
 
-	var _sanitize = __webpack_require__(46);
+	var _sanitize = __webpack_require__(43);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -2901,7 +2794,7 @@
 
 	var _svg2 = _interopRequireDefault(_svg);
 
-	var _carousel = __webpack_require__(34);
+	var _carousel = __webpack_require__(30);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
@@ -2914,7 +2807,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(49);
+	var style = __webpack_require__(46);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -3017,14 +2910,14 @@
 	};
 
 /***/ }),
-/* 49 */
+/* 46 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___xP6Z-","vCenter":"style__vCenter___3EDwH","button1":"style__button1___ma4vA","button2":"style__button2___1Fwzx","button":"style__button___15DCt","button2b":"style__button2b___GtnQK","vCenterRel":"style__vCenterRel___1d1I_","hCenter":"style__hCenter___3LKuT","inheritHeight":"style__inheritHeight___11OVE","hideOverflow":"style__hideOverflow___1koJ0","icon-sprites":"style__icon-sprites___2uiLf","button3":"style__button3___3p2Pg","button3v1":"style__button3v1____mMiu","button3v2":"style__button3v2___7-kje","button3v3":"style__button3v3___2-obj","button3v4":"style__button3v4___ldhG5","sideSwipe":"style__sideSwipe___19HIU","bottomSwipe":"style__bottomSwipe___3RO2M","title1":"style__title1___2c1PC","title2":"style__title2___U0Za7","title3":"style__title3___qpZuD","title4":"style__title4___c-0OO","title5":"style__title5___XOjHY","title6":"style__title6___2E_cG","title":"style__title___3-jmd","title7":"style__title7___21JO_","title8":"style__title8___36gBQ","paragraph1":"style__paragraph1___1m33N","paragraph1b":"style__paragraph1b___30nAD","paragraph":"style__paragraph___2dz5L","paragraph2":"style__paragraph2___3OtNY","paragraph3":"style__paragraph3___3qs1J","paragraph4":"style__paragraph4___3oqJH","paragraph5":"style__paragraph5___akVWK","tagline":"style__tagline___Dl43p","mainbanner":"style__mainbanner___37cO7","svg":"style__svg___25w61","inner":"style__inner___1SA8W","indicators":"style__indicators___1lG-t"};
 
 /***/ }),
-/* 50 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3043,7 +2936,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _imageUtil = __webpack_require__(33);
+	var _imageUtil = __webpack_require__(29);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3054,7 +2947,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(51);
+	var style = __webpack_require__(48);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -3106,14 +2999,14 @@
 	};
 
 /***/ }),
-/* 51 */
+/* 48 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","button1":"style__button1___ysj8P","button2":"style__button2___3T26W","button2b":"style__button2b___2FwWn","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","button3":"style__button3___1B5ky","button3v1":"style__button3v1___1K2ga","button3v2":"style__button3v2___2cSYL","button3v3":"style__button3v3___2QAs0","button3v4":"style__button3v4___1yJWM","sideSwipe":"style__sideSwipe___1wQDY","bottomSwipe":"style__bottomSwipe___3FjOI","title1":"style__title1___36WkF","title":"style__title___3Docb","title2":"style__title2___21MoW","title3":"style__title3___WdO4l","title4":"style__title4___3vPE_","title5":"style__title5___1hZAj","title6":"style__title6___3ZgkO","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph1b":"style__paragraph1b___3yolC","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph":"style__paragraph___3nIiw","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbanner":"style__mainbanner___2J7_D","svg":"style__svg___6prOk"};
 
 /***/ }),
-/* 52 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3132,11 +3025,11 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _sanitize = __webpack_require__(46);
+	var _sanitize = __webpack_require__(43);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
-	var _carousel = __webpack_require__(34);
+	var _carousel = __webpack_require__(30);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
@@ -3149,7 +3042,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(53);
+	var style = __webpack_require__(50);
 
 	var Block4 = function (_React$Component) {
 	  _inherits(Block4, _React$Component);
@@ -3241,14 +3134,14 @@
 	};
 
 /***/ }),
-/* 53 */
+/* 50 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","button1":"style__button1___1pbIc","button":"style__button___3aCDs","button2":"style__button2___1FucC","button2b":"style__button2b___2FsuG","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","button3":"style__button3___1uWcc","button3v1":"style__button3v1___2s-Yj","button3v2":"style__button3v2___2VAH8","button3v3":"style__button3v3___iwEeg","button3v4":"style__button3v4___3wMtL","sideSwipe":"style__sideSwipe___13jwX","bottomSwipe":"style__bottomSwipe___2_85D","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title3":"style__title3___L0OLC","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title":"style__title___2_j9U","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph1b":"style__paragraph1b___2rvU9","paragraph":"style__paragraph___2RMic","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","wrapper":"style__wrapper___3B2lE","indicators":"style__indicators___3yzgC"};
 
 /***/ }),
-/* 54 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3267,7 +3160,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _imageUtil = __webpack_require__(33);
+	var _imageUtil = __webpack_require__(29);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3278,7 +3171,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(55);
+	var style = __webpack_require__(52);
 
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
@@ -3335,14 +3228,14 @@
 	};
 
 /***/ }),
-/* 55 */
+/* 52 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___2hB4-","vCenter":"style__vCenter___1T9ty","button1":"style__button1___9YZAe","button2":"style__button2___Uj5BF","button2b":"style__button2b___1Cuj7","vCenterRel":"style__vCenterRel___1eTtv","hCenter":"style__hCenter___3rAH4","inheritHeight":"style__inheritHeight___rxPQW","hideOverflow":"style__hideOverflow___3fx1Y","icon-sprites":"style__icon-sprites___2Jx7f","button3":"style__button3___qLj8v","button3v1":"style__button3v1___14IxP","button3v2":"style__button3v2___2unnb","button3v3":"style__button3v3___3mgGd","button3v4":"style__button3v4___2vTiC","sideSwipe":"style__sideSwipe___1HknP","bottomSwipe":"style__bottomSwipe___KNArH","title1":"style__title1___3OYdf","titleC":"style__titleC___2en3d","titleE":"style__titleE___1pluh","title2":"style__title2___1nHD-","title3":"style__title3___1X0re","title4":"style__title4___3xPa_","title5":"style__title5___m4d_4","title6":"style__title6___N7pUo","title7":"style__title7___VqQ4U","title8":"style__title8___2zEnq","paragraph1":"style__paragraph1___3l6DT","paragraph1b":"style__paragraph1b___3CFYb","paragraph2":"style__paragraph2___3UYoL","paragraph3":"style__paragraph3___1Sue1","paragraph4":"style__paragraph4___2L4Fw","paragraph5":"style__paragraph5___2u4nQ","mainbannerC":"style__mainbannerC___3VFdk","mainbannerE":"style__mainbannerE___COBgz"};
 
 /***/ }),
-/* 56 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3361,7 +3254,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _listShow = __webpack_require__(57);
+	var _listShow = __webpack_require__(54);
 
 	var _listShow2 = _interopRequireDefault(_listShow);
 
@@ -3374,7 +3267,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(61);
+	var style = __webpack_require__(58);
 
 	var Block6 = function (_React$Component) {
 	  _inherits(Block6, _React$Component);
@@ -3416,7 +3309,7 @@
 	};
 
 /***/ }),
-/* 57 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3435,15 +3328,15 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _list = __webpack_require__(58);
+	var _list = __webpack_require__(55);
 
 	var _list2 = _interopRequireDefault(_list);
 
-	var _show = __webpack_require__(60);
+	var _show = __webpack_require__(57);
 
 	var _show2 = _interopRequireDefault(_show);
 
-	var _slug = __webpack_require__(59);
+	var _slug = __webpack_require__(56);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -3525,7 +3418,7 @@
 	};
 
 /***/ }),
-/* 58 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3550,7 +3443,7 @@
 
 	var _svg2 = _interopRequireDefault(_svg);
 
-	var _slug = __webpack_require__(59);
+	var _slug = __webpack_require__(56);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -3625,7 +3518,7 @@
 	};
 
 /***/ }),
-/* 59 */
+/* 56 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -3656,7 +3549,7 @@
 	};
 
 /***/ }),
-/* 60 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3675,9 +3568,9 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _imageUtil = __webpack_require__(33);
+	var _imageUtil = __webpack_require__(29);
 
-	var _slug = __webpack_require__(59);
+	var _slug = __webpack_require__(56);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -3788,14 +3681,14 @@
 	};
 
 /***/ }),
-/* 61 */
+/* 58 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___5Hdev","vCenter":"style__vCenter___2R7xI","item":"style__item___19454","svg":"style__svg___3EKSG","vCenterRel":"style__vCenterRel___1n4Yk","hCenter":"style__hCenter___3Hr8B","inheritHeight":"style__inheritHeight___1S0fd","hideOverflow":"style__hideOverflow___ABBe6","icon-sprites":"style__icon-sprites___3FKSV","title1":"style__title1___3gJwS","title2":"style__title2___2UYID","title3":"style__title3___AphF6","subtitle":"style__subtitle___eiDqf","title4":"style__title4___VjkpC","title5":"style__title5___1rO0v","title6":"style__title6___19b6v","title":"style__title___2v8uo","title7":"style__title7___3lYX3","title8":"style__title8___2nnP7","paragraph1":"style__paragraph1___27lCC","paragraph1b":"style__paragraph1b___kWEkR","content":"style__content___2WHKr","paragraph2":"style__paragraph2___1Cp7R","paragraph3":"style__paragraph3___1gcAp","paragraph4":"style__paragraph4___3OSxZ","paragraph5":"style__paragraph5___2ND05","wrapper":"style__wrapper___2dGti","active":"style__active___2EtVR","image":"style__image___2RETE"};
 
 /***/ }),
-/* 62 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3814,11 +3707,11 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _carousel = __webpack_require__(34);
+	var _carousel = __webpack_require__(30);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
-	var _sanitize = __webpack_require__(46);
+	var _sanitize = __webpack_require__(43);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -3831,7 +3724,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(63);
+	var style = __webpack_require__(60);
 
 	var Block7 = function (_React$Component) {
 	  _inherits(Block7, _React$Component);
@@ -3906,14 +3799,14 @@
 	};
 
 /***/ }),
-/* 63 */
+/* 60 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1YJUo","vCenter":"style__vCenter___1XSDF","vCenterRel":"style__vCenterRel___1J02z","hCenter":"style__hCenter___2Tdv3","inheritHeight":"style__inheritHeight___fdY-6","hideOverflow":"style__hideOverflow___GHITu","icon-sprites":"style__icon-sprites___1TCxk","title1":"style__title1___3raEq","title2":"style__title2___xWuEp","title3":"style__title3___2JND3","title4":"style__title4___3VrXj","title5":"style__title5___14ULg","title6":"style__title6___3Jlc3","title":"style__title___2FxDg","title7":"style__title7___1VsjO","title8":"style__title8___1VtVb","paragraph1":"style__paragraph1___CrxJb","paragraph1b":"style__paragraph1b___f3SZQ","paragraph":"style__paragraph___2hS_M","paragraph2":"style__paragraph2___2Dt1n","author":"style__author___fROZn","paragraph3":"style__paragraph3___NvRs3","paragraph4":"style__paragraph4___1DBvl","paragraph5":"style__paragraph5___3BI-s","arrow":"style__arrow___2yiv-"};
 
 /***/ }),
-/* 64 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3932,7 +3825,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _imageUtil = __webpack_require__(33);
+	var _imageUtil = __webpack_require__(29);
 
 	var _svg = __webpack_require__(18);
 
@@ -3947,7 +3840,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(65);
+	var style = __webpack_require__(62);
 
 	var Block8 = function (_React$Component) {
 	  _inherits(Block8, _React$Component);
@@ -4021,14 +3914,14 @@
 	};
 
 /***/ }),
-/* 65 */
+/* 62 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1G5oi","vCenter":"style__vCenter___3eMr-","button1":"style__button1___3rP8P","button":"style__button___138RC","button2":"style__button2___A09os","button2b":"style__button2b___7okhD","vCenterRel":"style__vCenterRel___2FPbE","hCenter":"style__hCenter___273Vb","inheritHeight":"style__inheritHeight___2w5-4","hideOverflow":"style__hideOverflow___35OAp","icon-sprites":"style__icon-sprites___3gAB_","button3":"style__button3___2H38R","button3v1":"style__button3v1___2UPHY","button3v2":"style__button3v2___21LXu","button3v3":"style__button3v3___3aio2","button3v4":"style__button3v4___1E1O4","title1":"style__title1___2Hrv_","title2":"style__title2___14zdY","title3":"style__title3___wJv6I","title4":"style__title4___bi5rE","title5":"style__title5___1Jrqb","title6":"style__title6___3IfL7","title7":"style__title7___vVSgO","title8":"style__title8___23FzZ","title":"style__title___2GTcd","sideSwipe":"style__sideSwipe___2kJhL","bottomSwipe":"style__bottomSwipe___Iacpj","wrapper":"style__wrapper___3pHW-"};
 
 /***/ }),
-/* 66 */
+/* 63 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -4140,7 +4033,240 @@
 	};
 
 /***/ }),
-/* 67 */
+/* 64 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint max-len: [2, 1000, 4] */
+
+	var data = {
+	  block1: {
+	    images: {
+	      image1: {
+	        id: 3,
+	        alt: 'escuela',
+	        src: 'https://www.dropbox.com/s/jttxmpw4gtlttan/Img-banner-nosotros.jpg?dl=0',
+	        block: 5
+	      }
+	    },
+	    paragraphs: { paragraph1: 'Prestigio desde 1987' },
+	    titles: { title1: 'ESCUELA' }
+	  },
+	  block2: {
+	    slides: [{
+	      id: 4,
+	      image: '',
+	      title: 'Nuestra Escuela',
+	      button_title: '',
+	      button_url: '',
+	      content: '<p>Somos una Escuela de gran prestigio en el ámbito de la Danza, altamente especializada en las técnicas de Ballet, Jazz y Flamenco desde 1987. Nuestro principal compromiso es lograr que las alumnas aprovechen el tiempo de forma positiva ejercitando las técnicas de baile con un balance entre disciplina y convivencia.</p>\r\n<p>A través de la expresión corporal y estética de los movimientos, las alumnas adquieren una mejor coordinación, corrigen su postura, siguen un régimen alimenticio y moldean su silueta. La formación en el ámbito de la danza implica aprender a trabajar en equipo además de lograr un mayor desenvolvimiento, adquirir confianza en sí mismas y obtener crecimiento personal.</p>\r\n<p>Nuestra enseñanza es una propuesta de experiencia artística que armoniza mente y cuerpo.</p>',
+	      block: 6
+	    }, {
+	      id: 5,
+	      image: '',
+	      title: 'Nuestra Misón',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Ser una escuela de danza líder a nivel nacional, que ofrezca a su alumnado la oportunidad de desarrollar su pasión por la danza y la apreciación de las bellas artes dejando así una huella positiva en nuestra sociedad.',
+	      block: 6
+	    }, {
+	      id: 6,
+	      image: '',
+	      title: 'Nuestra Visión',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Mantener el liderazgo con festivales binacionales de calidad, reinventándonos constantemente para estar en la vanguardia. Tener una gran variedad de clases y maestros que asistan con alegría, convencidos de que están en la mejor academia de danza. Capacitar constantemente a nuestros maestros. Compartir con orgullo nuestros logros a la sociedad, mediante los medios de comunicación disponibles. Cuidando la salud integral de nuestro alumnado, asesorándolo en su nutrición, además de motivar a las alumnas a participar en cursos y concursos.',
+	      block: 6
+	    }],
+	    buttons: {
+	      button1: { id: 9, title: 'CONTÁCTANOS', href: '/contacto', block: 6 }
+	    },
+	    images: {
+	      image1: {
+	        id: 4,
+	        alt: 'nuestra escuela',
+	        src: 'https://www.dropbox.com/s/d69v5mv7tr0k7f5/Img-escuela-bg.jpg?dl=0https://www.dropbox.com/s/d69v5mv7tr0k7f5/Img-escuela-bg.jpg?dl=0',
+	        block: 6
+	      }
+	    },
+	    titles: { title1: 'Experiencia artística que armoniza mente y cuerpo' }
+	  },
+	  block3: {
+	    images: {
+	      image1: {
+	        id: 5,
+	        alt: 'excelencia',
+	        src: 'https://www.dropbox.com/s/29n0m4ga6rtt937/img-pasdechat-bg.jpg?dl=0',
+	        block: 7
+	      }
+	    },
+	    titles: { title1: 'excelencia' }
+	  },
+	  block4: {
+	    slides: [{
+	      id: 7,
+	      image: '',
+	      title: 'Pas de Chat',
+	      button_title: '',
+	      button_url: '',
+	      content: '<p>Es un grupo de danza constituido por alumnas seleccionadas de la Escuela de danza Pavlova, a partir de su desempeño sobresaliente en las disciplinas de Ballet y Jazz.</p>\r\n<p>Las alumnas que integran este grupo se entrenan entre 8 y 11 horas a la semana en diferentes áreas dancísticas como ballet, jazz, tap y acondicionamiento físico orientado a bailarines con el fin de participar en competencias, presentaciones especiales y prepararse para  alcanzar un nivel profesional.</p>',
+	      block: 8
+	    }, {
+	      id: 8,
+	      image: '',
+	      title: 'Misión',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Identificar, proyectar y destacar el talento existente en las alumnas en la Escuela de Danza Pavlova, promoviendo valores como el respeto y la disciplina, así como la competencia y la mejora continua, con el objetivo de forjar bailarinas profesionales.',
+	      block: 8
+	    }, {
+	      id: 39,
+	      image: '',
+	      title: 'Visión',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Para el 2020, se visualiza a “Pas de Chat” como un grupo de prestigio y renombre, reconocido a nivel nacional, con participación y resultados óptimos en competencias locales, regionales, nacionales e internacionales.',
+	      block: 8
+	    }, {
+	      id: 40,
+	      image: '',
+	      title: 'Valores',
+	      button_title: '',
+	      button_url: '',
+	      content: '<ul>\r\n<li>Compromiso</li>\r\n<li>Disciplina</li>\r\n<li>Honestidad</li>\r\n<li>Justicia</li>\r\n<li>Lealtad</li>\r\n<li>Puntualidad</li>\r\n<li>Respeto</li>\r\n<li>Tolerancia</li>\r\n</ul>',
+	      block: 8
+	    }, {
+	      id: 41,
+	      image: '',
+	      title: 'Requisitos de Ingreso',
+	      button_title: '',
+	      button_url: '',
+	      content: '<ul>\r\n<li>Ser alumna inscrita de Escuela de Danza Pavlova Hipódromo.</li>\r\n<li>Tener de entre 8 a 16 años de edad.</li>\r\n<li>Ser invitada a participar en las actividades del Grupo.</li>\r\n<li>Inscribirse a Ballet como disciplina primaria y/o Jazz y Flamenco como disciplina complementaria.</li>\r\n<li>Disponibilidad para cumplir con los horarios de actividades curriculares (clases) y extracurriculares (ensayos, exhibiciones y competencias)</li>\r\n<li>Cubrir la cuota correspondiente.</li>\r\n</ul>',
+	      block: 8
+	    }],
+	    images: {
+	      image1: {
+	        id: 6,
+	        alt: 'pas de chats',
+	        src: 'https://www.dropbox.com/s/o46jda5zy9f0oj1/Img_logotipo-pasdechat.jpg?dl=0',
+	        block: 8
+	      }
+	    }
+	  },
+	  block5: {
+	    images: {
+	      image1: {
+	        id: 7,
+	        alt: 'STAFF',
+	        src: 'https://www.dropbox.com/s/ve8i6l6jy3gqmxp/Img-staff-bg.jpg?dl=0',
+	        block: 9
+	      }
+	    },
+	    titles: { title1: 'STAFF' }
+	  },
+	  block6: {},
+	  block7: {
+	    slides: [{
+	      id: 9,
+	      image: '',
+	      title: 'Patricia Mercado',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Pavlova, una escuela de danza que te ayuda a despertar tu bailarina interior, no importa la edad que tengas, puedes asistir y disfrutar de esta excelente academia.\r\nMi hija Mónica y yo somos orgullosamente alumnas de Pavlova',
+	      block: 11
+	    }, {
+	      id: 10,
+	      image: '',
+	      title: 'Sra. Angélica Virgen de López de Cárdenas.',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Desde hace muchos años me convencí  de que si llegaba a tener hijas serían alumnas de Pavlova.  Hoy puedo presumir que mis hijas lo son,la mayor desde hace casi  6 años. El profesionalismo, disciplina, calidad y las excelentes maestras me convencieron  y yo misma también estoy feliz de ser hoy una  alumna de Pavlova.”',
+	      block: 11
+	    }, {
+	      id: 33,
+	      image: '',
+	      title: 'Sra, Yenny Jassy Beltrán de Arellano',
+	      button_title: '',
+	      button_url: '',
+	      content: 'A través de sus diferentes disciplinas de baile, Pavlova le ha ofrecido a mis hijas la oportunidad de desarrollarse físicamente en un ambiente saludable, confiable, amigable y muy bien estructurado.  Bailar alimenta el espíritu y se ha convertido en una excelente herramienta para complementar la crianza de mis hijas. Gracias Pavlova!!!',
+	      block: 11
+	    }, {
+	      id: 34,
+	      image: '',
+	      title: 'Sra. Mónica Padilla de Gallego.',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Pavlova, una escuela de danza que te ayuda a despertar tu bailarina interior, no importa la edad que tengas, puedes asistir y disfrutar de esta excelente academia…Mi hija Mónica y yo somos orgullosamente alumnas de Pavlova',
+	      block: 11
+	    }, {
+	      id: 35,
+	      image: '',
+	      title: 'Sra. Patricia de Sánchez',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Recomiendo ampliamente la Escuela de Danza Pavlova (mi hija tiene 10 años en ella), son muy profesionales, tienen muy buena organización y siempre se esmeran para dar lo mejor en sus clases. Las coreografías, escenografías y vestuarios de sus Festivales son espectaculares',
+	      block: 11
+	    }, {
+	      id: 36,
+	      image: '',
+	      title: 'Eduardo y  Mely  Rueda',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Disciplina, gracia, postura, satisfacción y superación personal son el resultado de la experiencia y retos que nuestra hija ha vivido durante 7 años como alumna de Pavlova. Es un gran orgullo para nosotros el gozar y disfrutar el producto de su esfuerzo en el Festival que se realiza al finalizar cada ciclo escolar',
+	      block: 11
+	    }, {
+	      id: 37,
+	      image: '',
+	      title: 'Sra. Elia de Astiazarán',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Me encanta Pavlova por el trato y respeto hacia las niñas, las enseñan no sólo a bailar, sino a convivir, trabajar en equipo, tener confianza en sí mismas y les demuestran que mediante el esfuerzo y dedicación todo se puede',
+	      block: 11
+	    }, {
+	      id: 38,
+	      image: '',
+	      title: 'Ada de Rosiñol',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Mi hija mayor está por empezar su sexto año en Pavlova, tengo una hijita de 10 meses y sueño con verla bailando en un festival de esta Escuela. Nuestra experiencia ha sido muy positiva y todo se lo acredito al profesionalismo y sobre todo al amor con el que las maestras y directoras de Pavlova realizan su trabajo.',
+	      block: 11
+	    }],
+	    titles: { title1: 'Testimoniales' }
+	  },
+	  block8: {
+	    buttons: {
+	      button1: {
+	        id: 10,
+	        title: 'HORARIOS',
+	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        block: 12
+	      },
+	      button2: {
+	        id: 11,
+	        title: 'REGLAMENTO',
+	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-FichaInscripcion.pdf',
+	        block: 12
+	      },
+	      button3: {
+	        id: 12,
+	        title: 'FICHA DE INSCRIPCIÓN',
+	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Reglamento.pdf',
+	        block: 12
+	      }
+	    },
+	    titles: {
+	      title1: 'HORARIOS',
+	      title2: 'REGLAMENTO',
+	      title3: 'FICHA DE INSCRIPCIÓN'
+	    }
+	  }
+	};
+
+	module.exports = data;
+
+/***/ }),
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4155,23 +4281,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(6);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _block = __webpack_require__(68);
+	var _block = __webpack_require__(66);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(36);
+	var _block3 = __webpack_require__(32);
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _block5 = __webpack_require__(70);
+	var _block5 = __webpack_require__(68);
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(64);
+	var _block7 = __webpack_require__(61);
 
 	var _block8 = _interopRequireDefault(_block7);
 
@@ -4184,9 +4306,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var balletData = __webpack_require__(72);
-	var jazzData = __webpack_require__(73);
-	var flamencoData = __webpack_require__(74);
+	var balletData = __webpack_require__(70);
+	var jazzData = __webpack_require__(71);
+	var flamencoData = __webpack_require__(72);
+
+	var data = __webpack_require__(73);
 
 	var ProductsSection = function (_React$Component) {
 	  _inherits(ProductsSection, _React$Component);
@@ -4214,10 +4338,9 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data,
-	          block1 = _props$data.block1,
-	          block2 = _props$data.block2,
-	          block8 = _props$data.block8;
+	      var block1 = data.block1,
+	          block2 = data.block2,
+	          block8 = data.block8;
 
 	      var block3Variations = {
 	        variation1: 'ballet'
@@ -4231,7 +4354,7 @@
 	      var types = this.state.types;
 
 
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(_block2.default, { data: block1 }),
@@ -4240,7 +4363,7 @@
 	        _react2.default.createElement(_block6.default, { data: jazzData, type: types[1], variations: block4Variations }),
 	        _react2.default.createElement(_block6.default, { data: flamencoData, type: types[2], variations: block5Variations }),
 	        _react2.default.createElement(_block8.default, { data: block8 })
-	      ) : null;
+	      );
 	    }
 	  }]);
 
@@ -4249,13 +4372,8 @@
 
 	exports.default = ProductsSection;
 
-
-	ProductsSection.propTypes = {
-	  data: _react2.default.PropTypes.object
-	};
-
 /***/ }),
-/* 68 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4278,9 +4396,9 @@
 
 	var _svg2 = _interopRequireDefault(_svg);
 
-	var _imageUtil = __webpack_require__(33);
+	var _imageUtil = __webpack_require__(29);
 
-	var _sanitize = __webpack_require__(46);
+	var _sanitize = __webpack_require__(43);
 
 	var _sanitize2 = _interopRequireDefault(_sanitize);
 
@@ -4293,7 +4411,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(69);
+	var style = __webpack_require__(67);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -4351,14 +4469,14 @@
 	};
 
 /***/ }),
-/* 69 */
+/* 67 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1j0pv","vCenter":"style__vCenter___2KQFQ","button1":"style__button1___3ZmPV","button2":"style__button2___2shnn","button2b":"style__button2b___9qjJ-","vCenterRel":"style__vCenterRel___34eYy","hCenter":"style__hCenter___1Lkdf","inheritHeight":"style__inheritHeight___1q40G","hideOverflow":"style__hideOverflow___DrxCZ","icon-sprites":"style__icon-sprites___3tV9U","button3":"style__button3___3VbYO","button3v1":"style__button3v1___1AjUN","button3v2":"style__button3v2___3ejfJ","button3v3":"style__button3v3___B8Ol9","button3v4":"style__button3v4___31_JU","sideSwipe":"style__sideSwipe___1FVlo","bottomSwipe":"style__bottomSwipe___2c0uL","title1":"style__title1___1gW4S","title":"style__title___SyWrl","title2":"style__title2___2Tj1e","title3":"style__title3___1HOPW","title4":"style__title4___3J4Je","title5":"style__title5___2Nimp","title6":"style__title6___1J_L3","title7":"style__title7___2tzA4","title8":"style__title8___2p7DZ","paragraph1":"style__paragraph1___3jelK","paragraph1b":"style__paragraph1b___2o55y","paragraph2":"style__paragraph2___3QqbA","paragraph3":"style__paragraph3___2muKz","paragraph":"style__paragraph___2nuu4","paragraph4":"style__paragraph4___1geTk","paragraph5":"style__paragraph5___30-m9","mainbanner":"style__mainbanner___17dAE","svg":"style__svg___1UaPh"};
 
 /***/ }),
-/* 70 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4379,15 +4497,15 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _carousel = __webpack_require__(34);
+	var _carousel = __webpack_require__(30);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
-	var _slug = __webpack_require__(59);
+	var _slug = __webpack_require__(56);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
-	var _imageUtil = __webpack_require__(33);
+	var _imageUtil = __webpack_require__(29);
 
 	var _svg = __webpack_require__(18);
 
@@ -4402,7 +4520,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(71);
+	var style = __webpack_require__(69);
 
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
@@ -4542,14 +4660,14 @@
 	};
 
 /***/ }),
-/* 71 */
+/* 69 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___zkvoI","controls":"style__controls___1nXQ8","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","title":"style__title___2mlf9","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraphB":"style__paragraphB___3TQhf","paragraph5":"style__paragraph5___1IKiM","wrapper_":"style__wrapper____1tcC1","wrapper_2":"style__wrapper_2___16tcC","sm":"style__sm___OLDFM","ballet":"style__ballet___2ecR7","jazz":"style__jazz___24bYU","flamenco":"style__flamenco___2coaY","cardioDanza":"style__cardioDanza___2LYVb"};
 
 /***/ }),
-/* 72 */
+/* 70 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -4623,7 +4741,7 @@
 	module.exports = data;
 
 /***/ }),
-/* 73 */
+/* 71 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -4713,7 +4831,7 @@
 	module.exports = data;
 
 /***/ }),
-/* 74 */
+/* 72 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -4785,6 +4903,337 @@
 	module.exports = data;
 
 /***/ }),
+/* 73 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint max-len: [2, 500, 4] */
+
+	var data = {
+	  block1: {
+	    images: {
+	      image1: {
+	        id: 8,
+	        alt: 'clases',
+	        src: 'https://www.dropbox.com/s/lmg1elde6rn2bga/Img-banner-clases.jpg?dl=0',
+	        block: 13
+	      }
+	    },
+	    paragraphs: { paragraph1: 'Compromiso de excelencia con la danza' },
+	    titles: { title1: 'CLASES' }
+	  },
+	  block2: {
+	    buttons: {
+	      button1: { id: 13, title: 'BALLET', href: '/clases/ballet', block: 14 },
+	      button2: { id: 14, title: 'JAZZ', href: '/clases/jazz', block: 14 },
+	      button3: {
+	        id: 15,
+	        title: 'FLAMENCO',
+	        href: '/clases/flamenco',
+	        block: 14
+	      },
+	      button4: {
+	        id: 16,
+	        title: 'KARDIO DANZA',
+	        href: '/clases/kardio-danza',
+	        block: 14
+	      },
+	      button5: { id: 17, title: 'BARRÉ', href: '/clases/barre', block: 14 }
+	    }
+	  },
+	  block3: {
+	    slides: [{
+	      id: 11,
+	      image: 'https://www.dropbox.com/s/a38fiusupne72s2/img-ballet-01.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 15
+	    }, {
+	      id: 12,
+	      image: 'https://www.dropbox.com/s/ayxjhowk681aegn/img-ballet-02.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 15
+	    }, {
+	      id: 28,
+	      image: 'https://www.dropbox.com/s/mk6eeq5e7d10rg5/img-ballet-03.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 15
+	    }, {
+	      id: 29,
+	      image: 'https://www.dropbox.com/s/10tgtlhl5l02mky/img-ballet-04.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 15
+	    }],
+	    buttons: {
+	      button1: {
+	        id: 18,
+	        title: 'HORARIOS',
+	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        block: 15
+	      },
+	      button2: {
+	        id: 19,
+	        title: 'VER GALERÍAS',
+	        href: 'https://www.facebook.com/pavlova.hipodromo/photos/?tab=albums',
+	        block: 15
+	      }
+	    },
+	    paragraphs: {
+	      paragraph1: 'Los movimientos de Ballet se distinguen especialmente por ser estilizados y transmitir una sensación de amplitud y esplendor. Brindamos un entrenamiento que demanda gran constancia, debido a la concentración requerida para dominar el cuerpo, desarrollando la coordinación, fuerza, flexibilidad y ritmo musical.'
+	    },
+	    titles: { title1: 'BALLET' }
+	  },
+	  block4: {
+	    slides: [{
+	      id: 13,
+	      image: 'https://www.dropbox.com/s/mhrc0rzfk86iup8/img-jazz-01.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 16
+	    }, {
+	      id: 14,
+	      image: 'https://www.dropbox.com/s/ls36xqyizus1t51/img-jazz-02.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 16
+	    }, {
+	      id: 30,
+	      image: 'https://www.dropbox.com/s/pjgsvygzh15uu2f/img-jazz-03.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 16
+	    }],
+	    buttons: {
+	      button1: {
+	        id: 20,
+	        title: 'HORARIOS',
+	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        block: 16
+	      },
+	      button2: {
+	        id: 21,
+	        title: 'VER GALERÍAS',
+	        href: 'https://www.facebook.com/pavlova.hipodromo/photos/?tab=albums',
+	        block: 16
+	      }
+	    },
+	    paragraphs: {
+	      paragraph1: 'La danza Jazz combina armoniosamente ritmos y estilos que se fusionan con técnicas exigentes y movimientos que implican autenticidad y estilo individual. La práctica de Jazz permite que las alumnas trabajen todo el cuerpo obteniendo flexibilidad y tonicidad muscular, además de estilizar los movimientos, ejercitar la memoria y agudizar los sentidos.'
+	    },
+	    titles: { title1: 'JAZZ' }
+	  },
+	  block5: {
+	    slides: [{
+	      id: 15,
+	      image: 'https://www.dropbox.com/s/6jdgs0tnfur91pn/img-flamenco-01.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 17
+	    }, {
+	      id: 16,
+	      image: 'https://www.dropbox.com/s/f8d8hsswl7a5524/img-flamenco-02.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 17
+	    }, {
+	      id: 31,
+	      image: 'https://www.dropbox.com/s/2gytjtmz1d6w8do/img-flamenco-03.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 17
+	    }, {
+	      id: 32,
+	      image: 'https://www.dropbox.com/s/ixhvs0vt77sjpz4/img-flamenco-04.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 17
+	    }],
+	    buttons: {
+	      button1: {
+	        id: 22,
+	        title: 'HORARIOS',
+	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        block: 17
+	      },
+	      button2: {
+	        id: 23,
+	        title: 'VER GALERÍAS',
+	        href: 'https://www.facebook.com/pavlova.hipodromo/photos/?tab=albums',
+	        block: 17
+	      }
+	    },
+	    paragraphs: {
+	      paragraph1: 'Flamenco es una modalidad de baile en la que los movimientos de pies, manos y brazos son muy precisos y coordinados. Al ejercerlo, las alumnas aprenden a concentrarse y respirar correctamente, desarrollan su sensibilidad y creatividad natural, además de forjar su carácter debido al trabajo interno que se requiere para su interpretación.'
+	    },
+	    titles: { title1: 'FLAMENCO' }
+	  },
+	  block6: {
+	    slides: [{
+	      id: 17,
+	      image: 'https://www.dropbox.com/s/xogn7pa0g56wzy6/img-cardiodanza-01.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 18
+	    }],
+	    buttons: {
+	      button1: {
+	        id: 24,
+	        title: 'HORARIOS',
+	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        block: 18
+	      }
+	    },
+	    paragraphs: {
+	      paragraph1: 'Esta disciplina es una forma de hacer ejercicio bailando, ven a disfrutar tu clase los lunes, miércoles y viernes con el maestro Rhonal Ruvalcaba. Además ofrecemos clases especiales como INSANIDANCE, grupo formado por papás y HIP HOP para niños de 7 a 12 años.'
+	    },
+	    titles: { title1: 'KARDIO DANZA' }
+	  },
+	  block7: {
+	    slides: [{
+	      id: 19,
+	      image: 'https://www.dropbox.com/s/40nczwd0c7y9tee/img-barre-01.jpg?dl=0',
+	      title: '',
+	      button_title: '',
+	      button_url: '',
+	      content: '',
+	      block: 19
+	    }],
+	    buttons: {
+	      button1: {
+	        id: 25,
+	        title: 'HORARIOS',
+	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        block: 19
+	      }
+	    },
+	    paragraphs: {
+	      paragraph1: 'Método innovador y efectivo, que mezcla distintas disciplinas como Yoga, Pilates y Ballet. Todas estas integradas en una sola clase con el objetivo de moldear el cuerpo femenino, tonificarlo y fortalecerlo.'
+	    },
+	    titles: { title1: 'BARRÉ' }
+	  },
+	  block8: {
+	    buttons: {
+	      button1: {
+	        id: 26,
+	        title: 'HORARIOS',
+	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        block: 20
+	      },
+	      button2: {
+	        id: 27,
+	        title: 'REGLAMENTO',
+	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Reglamento.pdf',
+	        block: 20
+	      },
+	      button3: {
+	        id: 28,
+	        title: 'FICHA DE INSCRIPCIÓN',
+	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-FichaInscripcion.pdf',
+	        block: 20
+	      }
+	    },
+	    titles: {
+	      title1: 'HORARIOS',
+	      title2: 'REGLAMENTO',
+	      title3: 'FICHA DE INSCRIPCIÓN'
+	    }
+	  }
+	};
+
+	module.exports = data;
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _block = __webpack_require__(75);
+
+	var _block2 = _interopRequireDefault(_block);
+
+	var _block3 = __webpack_require__(77);
+
+	var _block4 = _interopRequireDefault(_block3);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var data = __webpack_require__(85);
+
+	var ContactSection = function (_React$Component) {
+	  _inherits(ContactSection, _React$Component);
+
+	  function ContactSection() {
+	    _classCallCheck(this, ContactSection);
+
+	    return _possibleConstructorReturn(this, (ContactSection.__proto__ || Object.getPrototypeOf(ContactSection)).apply(this, arguments));
+	  }
+
+	  _createClass(ContactSection, [{
+	    key: 'render',
+	    value: function render() {
+	      var block1 = data.block1,
+	          block2 = data.block2;
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_block2.default, { data: block1 }),
+	        _react2.default.createElement(_block4.default, { data: block2 })
+	      );
+	    }
+	  }]);
+
+	  return ContactSection;
+	}(_react2.default.Component);
+
+	exports.default = ContactSection;
+
+/***/ }),
 /* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4804,78 +5253,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _block = __webpack_require__(76);
-
-	var _block2 = _interopRequireDefault(_block);
-
-	var _block3 = __webpack_require__(78);
-
-	var _block4 = _interopRequireDefault(_block3);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ContactSection = function (_React$Component) {
-	  _inherits(ContactSection, _React$Component);
-
-	  function ContactSection() {
-	    _classCallCheck(this, ContactSection);
-
-	    return _possibleConstructorReturn(this, (ContactSection.__proto__ || Object.getPrototypeOf(ContactSection)).apply(this, arguments));
-	  }
-
-	  _createClass(ContactSection, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props$data = this.props.data,
-	          block1 = _props$data.block1,
-	          block2 = _props$data.block2;
-
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(_block2.default, { data: block1 }),
-	        _react2.default.createElement(_block4.default, { data: block2 })
-	      ) : null;
-	    }
-	  }]);
-
-	  return ContactSection;
-	}(_react2.default.Component);
-
-	exports.default = ContactSection;
-
-
-	ContactSection.propTypes = {
-	  data: _react2.default.PropTypes.object
-	};
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _lodash = __webpack_require__(6);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _imageUtil = __webpack_require__(33);
+	var _imageUtil = __webpack_require__(29);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4885,7 +5263,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(77);
+	var style = __webpack_require__(76);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -4917,14 +5295,14 @@
 	};
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___3WsSe","vCenter":"style__vCenter___3G_X_","button1":"style__button1___1iQls","button":"style__button___6iE0P","button2":"style__button2___2nT5Y","button2b":"style__button2b___15vcQ","vCenterRel":"style__vCenterRel___2rlOE","hCenter":"style__hCenter___3ARcP","inheritHeight":"style__inheritHeight___1YsqB","hideOverflow":"style__hideOverflow___ps_Tr","icon-sprites":"style__icon-sprites___2f7vT","button3":"style__button3___1WIju","button3v1":"style__button3v1___32z7Y","button3v2":"style__button3v2___3m_1I","button3v3":"style__button3v3___3STSg","button3v4":"style__button3v4___3GtKt","image1":"style__image1___1oYSl","paragraph1":"style__paragraph1___3JnQd","paragraph1b":"style__paragraph1b___xv990","paragraph2":"style__paragraph2___3M3qm","paragraph3":"style__paragraph3___6lKhK","paragraph4":"style__paragraph4___1Z42s","paragraph5":"style__paragraph5___1v105","sideSwipe":"style__sideSwipe___50l2S","bottomSwipe":"style__bottomSwipe___-6WwV","title1":"style__title1___3f0o0","title2":"style__title2___XQgLg","title3":"style__title3___2f5QU","title4":"style__title4___BpZsL","title5":"style__title5___hKWjC","title6":"style__title6___2GSXY","title7":"style__title7___3_kU1","title8":"style__title8___2cLGW","mainbanner":"style__mainbanner___1YlSK","image":"style__image___mSywh"};
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4945,7 +5323,7 @@
 
 	var _svg = __webpack_require__(18);
 
-	var _form = __webpack_require__(79);
+	var _form = __webpack_require__(78);
 
 	var _form2 = _interopRequireDefault(_form);
 
@@ -4958,7 +5336,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(81);
+	var style = __webpack_require__(84);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -5059,7 +5437,7 @@
 	};
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5078,7 +5456,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _restClient = __webpack_require__(27);
+	var _restClient = __webpack_require__(79);
 
 	var _restClient2 = _interopRequireDefault(_restClient);
 
@@ -5094,7 +5472,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 600, 4] */
 
-	var style = __webpack_require__(80);
+	var style = __webpack_require__(83);
 
 	var Form1 = function (_React$Component) {
 	  _inherits(Form1, _React$Component);
@@ -5360,18 +5738,108 @@
 	exports.default = Form1;
 
 /***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _rest = __webpack_require__(80);
+
+	var _rest2 = _interopRequireDefault(_rest);
+
+	var _mime = __webpack_require__(81);
+
+	var _mime2 = _interopRequireDefault(_mime);
+
+	var _errorCode = __webpack_require__(82);
+
+	var _errorCode2 = _interopRequireDefault(_errorCode);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _rest2.default.wrap(_mime2.default, { mime: 'application/json' }).wrap(_errorCode2.default, { code: 300 });
+
+/***/ }),
 /* 80 */
+/***/ (function(module, exports) {
+
+	module.exports = require("rest");
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports) {
+
+	module.exports = require("rest/interceptor/mime");
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports) {
+
+	module.exports = require("rest/interceptor/errorCode");
+
+/***/ }),
+/* 83 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___365qk","vCenter":"style__vCenter___9LFiT","button1":"style__button1___QW0Tv","submit":"style__submit___2YBRa","button2":"style__button2___3fzL1","button2b":"style__button2b___2h89H","vCenterRel":"style__vCenterRel___27ebh","hCenter":"style__hCenter___3MSN5","inheritHeight":"style__inheritHeight___20X8j","hideOverflow":"style__hideOverflow___1e_Sa","icon-sprites":"style__icon-sprites___SBb6q","button3":"style__button3___1LtgP","button3v1":"style__button3v1___1Mvm_","button3v2":"style__button3v2___1N7QE","button3v3":"style__button3v3___11aHd","button3v4":"style__button3v4___2B0cK","image1":"style__image1___20ULB","paragraph1":"style__paragraph1___1Iuas","paragraph1b":"style__paragraph1b___14XS7","paragraph2":"style__paragraph2___XLNUn","paragraph3":"style__paragraph3___cQhzG","paragraph4":"style__paragraph4___3o8-x","paragraph5":"style__paragraph5___-5J8a","sideSwipe":"style__sideSwipe___3Jh_M","bottomSwipe":"style__bottomSwipe___2N3qh","title1":"style__title1___2DL5-","title2":"style__title2___3etcM","title3":"style__title3___8tZ0C","title4":"style__title4___33kmt","title5":"style__title5___2k_sU","title6":"style__title6___1dv-o","title7":"style__title7___OUaen","title8":"style__title8___1LvKh","form":"style__form___1nnSk","formGroup":"style__formGroup___1VfYe"};
 
 /***/ }),
-/* 81 */
+/* 84 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","button1":"style__button1___1cwjy","button2":"style__button2___hQ_-V","button2b":"style__button2b___1b2RV","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","button3":"style__button3___3HwaY","button3v1":"style__button3v1___2Wuut","button3v2":"style__button3v2___5XAeE","button3v3":"style__button3v3___bPEC9","button3v4":"style__button3v4___3dETf","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph1b":"style__paragraph1b___1kRb1","paragraph":"style__paragraph___29758","paragraph2":"style__paragraph2___1ISwm","paragraph_2":"style__paragraph_2___217YF","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","sideSwipe":"style__sideSwipe___1IOUP","bottomSwipe":"style__bottomSwipe___1Id40","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title3":"style__title3___173Gl","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title_2":"style__title_2___3IHOj","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","wrapper":"style__wrapper___2GZMu","sm":"style__sm___1spdw","svg":"style__svg___38pi8"};
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint max-len: [2, 1000, 4] */
+
+	var data = {
+	  block1: {
+	    images: {
+	      image1: {
+	        id: 9,
+	        alt: 'contacto',
+	        src: 'https://www.dropbox.com/s/nvevruz8jw8x34d/Img-banner-mapa.jpg?dl=0',
+	        block: 21
+	      }
+	    }
+	  },
+	  block2: {
+	    buttons: {
+	      button1: {
+	        id: 29,
+	        title: 'Ver en Google Maps',
+	        href: 'https://www.google.com/maps/d/viewer?mid=1aSbG3ijD_dA1TW7N7BgAhaPSnTk&hl=en_US&usp=sharing',
+	        block: 22
+	      },
+	      button2: {
+	        id: 30,
+	        title: 'Síguenos en Facebook',
+	        href: 'https://www.facebook.com/pavlova.hipodromo/',
+	        block: 22
+	      }
+	    },
+	    paragraphs: {
+	      paragraph1: 'Av. Allende #38 Col. Hipódromo',
+	      paragraph2: 'Tijuana, B.C.',
+	      paragraph3: 'pavlovahipodromo@gmail.com',
+	      paragraph4: '664 686.27.87'
+	    },
+	    titles: { title1: 'Contáctanos', title2: 'Ubicación', title3: 'Llámanos' }
+	  }
+	};
+
+	module.exports = data;
 
 /***/ })
 /******/ ]);

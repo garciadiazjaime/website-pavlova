@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 
 import Block1 from './block1';
 import Block2 from './block2';
@@ -10,13 +9,14 @@ import Block6 from './block6';
 import Block7 from './block7';
 import Block8 from './block8';
 import dataStaff from './data';
-// const style = require('./style.scss');
+
+const data = require('./dataDB');
 
 
 export default class AboutSection extends React.Component {
 
   render() {
-    const { params, data } = this.props;
+    const { params } = this.props;
     const { block1, block2, block3, block4, block5, block7, block8 } = data;
     const { showListItem } = params;
     const block5Variations = {
@@ -24,7 +24,7 @@ export default class AboutSection extends React.Component {
       variation2: 'titleE',
     };
 
-    return !_.isEmpty(this.props.data) ? (<div>
+    return (<div>
       <Block1 data={block1} />
       <Block2 data={block2} />
       <Block3 data={block3} />
@@ -33,11 +33,10 @@ export default class AboutSection extends React.Component {
       <Block6 data={dataStaff} showListItem={showListItem} />
       <Block7 data={block7} />
       <Block8 data={block8} />
-    </div>) : null;
+    </div>);
   }
 }
 
 AboutSection.propTypes = {
-  data: React.PropTypes.object,
   params: React.PropTypes.any,
 };

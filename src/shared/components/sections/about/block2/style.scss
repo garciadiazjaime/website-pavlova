@@ -13,7 +13,8 @@
 .mainbanner{
 	min-height: 750px;
 	padding-top: 100px;
-	background-size: cover;
+  background-size: cover;
+  background-position: center;
 }
 .title{
   @extend .title6;

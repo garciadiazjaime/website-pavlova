@@ -5,9 +5,10 @@
 
 // ---- main slider
 .mainbanner{
-	height: 619px;
+	min-height: 750px;
 	padding-top: 220px;
 	background-size: cover;
+	background-position: center;
 }
 .title{
 	@extend .title1;

@@ -3227,9 +3227,10 @@
   letter-spacing: 2px; }
 
 .style__mainbanner___3hjPv {
-  height: 619px;
+  min-height: 750px;
   padding-top: 220px;
-  background-size: cover; }
+  background-size: cover;
+  background-position: center; }
 
 .style__title___JG5hq {
   text-align: center;
@@ -3691,7 +3692,8 @@
 .style__mainbanner___37cO7 {
   min-height: 750px;
   padding-top: 100px;
-  background-size: cover; }
+  background-size: cover;
+  background-position: center; }
 
 .style__title___3-jmd {
   margin-bottom: 50px;
@@ -4182,7 +4184,7 @@
   height: 750px;
   padding-top: 340px;
   background-size: cover;
-  background-position: center center; }
+  background-position: center; }
 
 .style__title___3Docb {
   text-align: center;
@@ -5325,7 +5327,7 @@
   text-transform: uppercase; }
 
 .style__mainbannerE___COBgz {
-  height: 550px;
+  height: 750px;
   background-size: cover;
   background-position: center top; }
 

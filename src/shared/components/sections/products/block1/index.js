@@ -14,6 +14,7 @@ export default class Block1 extends React.Component {
     const { titles, paragraphs } = this.props.data;
     const divStyle = getImageBackground('/images/clases/header-clases.jpg');
     return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.mainbanner + ' ' + (styles ? styles.wrapper : '')}>
+      <div className={style.transparency}></div>
       <div className="container-fluid">
         <div className="row">
           <div className="col-xs-12 col-sm-6 col-sm-offset-3">

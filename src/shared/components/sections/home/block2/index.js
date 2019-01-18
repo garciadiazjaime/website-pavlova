@@ -32,12 +32,6 @@ export default class Block2 extends React.Component {
               <SVG network="square_arrow" className={style.svg}/>
             </Link>
           </div>
-          <div className={style.customCol + ' col-xs-6'}>
-            <Link className={style.button3v4 + ' row'} to={buttons.button4.href}>
-              {buttons.button4.title}
-              <SVG network="square_arrow" className={style.svg}/>
-            </Link>
-          </div>
         </div>
       </div>
     </div>) : null;

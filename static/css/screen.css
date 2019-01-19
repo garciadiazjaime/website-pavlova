@@ -1460,7 +1460,7 @@
     height: 238px; } }
 
 .style__customCol___3nRYv {
-  width: 25%; }
+  width: 33%; }
 
 @media only screen and (max-width: 767px) {
   .style__customCol___3nRYv {
@@ -3230,7 +3230,23 @@
   min-height: 750px;
   padding-top: 220px;
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  position: relative; }
+
+.style__transparency___29XbM {
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.6) 0%, rgba(153, 153, 153, 0) 30%, rgba(255, 255, 255, 0) 50%, rgba(153, 153, 153, 0) 70%, rgba(0, 0, 0, 0.6) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6) 0%, rgba(153, 153, 153, 0) 30%, rgba(255, 255, 255, 0) 50%, rgba(153, 153, 153, 0) 70%, rgba(0, 0, 0, 0.6) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(153, 153, 153, 0) 30%, rgba(255, 255, 255, 0) 50%, rgba(153, 153, 153, 0) 70%, rgba(0, 0, 0, 0.6) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000', endColorstr='#99000000',GradientType=1 );
+  /* IE6-9 */
+  background-repeat: repeat-x;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0; }
 
 .style__title___JG5hq {
   text-align: center;
@@ -6660,6 +6676,21 @@
   height: 619px;
   padding-top: 220px;
   background-size: cover; }
+
+.style__transparency___2Q8dd {
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.6) 0%, rgba(153, 153, 153, 0) 30%, rgba(255, 255, 255, 0) 50%, rgba(153, 153, 153, 0) 70%, rgba(0, 0, 0, 0.6) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6) 0%, rgba(153, 153, 153, 0) 30%, rgba(255, 255, 255, 0) 50%, rgba(153, 153, 153, 0) 70%, rgba(0, 0, 0, 0.6) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(153, 153, 153, 0) 30%, rgba(255, 255, 255, 0) 50%, rgba(153, 153, 153, 0) 70%, rgba(0, 0, 0, 0.6) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000', endColorstr='#99000000',GradientType=1 );
+  /* IE6-9 */
+  background-repeat: repeat-x;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0; }
 
 .style__title___SyWrl {
   text-align: center;

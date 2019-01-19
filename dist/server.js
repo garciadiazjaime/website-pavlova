@@ -1229,15 +1229,6 @@
 	                    { href: buttons.button4.href, title: buttons.button4.title },
 	                    buttons.button4.title
 	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: buttons.button5.href, title: buttons.button5.title },
-	                    buttons.button5.title
-	                  )
 	                )
 	              )
 	            ),
@@ -1431,7 +1422,7 @@
 	    },
 	    button7: {
 	      title: 'HORARIOS',
-	      href: 'https://dl.dropboxusercontent.com/s/zcem2ycndodw80u/Pavlova-Horarios-2017-2018.pdf?dl=0'
+	      href: '/docs/horarios-pavlova.pdf'
 	    },
 	    button8: {
 	      title: 'FICHA DE INSCRIPCIÓN',
@@ -1978,16 +1969,6 @@
 	                _reactRouter.Link,
 	                { className: style.button3v3 + ' row', to: buttons.button3.href },
 	                buttons.button3.title,
-	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: style.customCol + ' col-xs-6' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: style.button3v4 + ' row', to: buttons.button4.href },
-	                buttons.button4.title,
 	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
 	              )
 	            )
@@ -2653,6 +2634,7 @@
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
 	        { style: divStyle, className: style.mainbanner + ' ' + (styles ? styles.wrapper : '') },
+	        _react2.default.createElement('div', { className: style.transparency }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container-fluid' },
@@ -2708,7 +2690,7 @@
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","button1":"style__button1___knh5C","button2":"style__button2___3rlK3","button2b":"style__button2b___H0Brp","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","button3":"style__button3___2KaTC","button3v1":"style__button3v1___16SWp","button3v2":"style__button3v2___3N8UW","button3v3":"style__button3v3___2h7PD","button3v4":"style__button3v4___3p_tP","sideSwipe":"style__sideSwipe___3OFJQ","bottomSwipe":"style__bottomSwipe___3ltu-","title1":"style__title1___1LlDm","title":"style__title___JG5hq","title2":"style__title2___3ep2l","title3":"style__title3___1URy1","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph1b":"style__paragraph1b___2_mfn","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph":"style__paragraph___1Wwqc","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","svg":"style__svg___29LI3"};
+	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","button1":"style__button1___knh5C","button2":"style__button2___3rlK3","button2b":"style__button2b___H0Brp","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","button3":"style__button3___2KaTC","button3v1":"style__button3v1___16SWp","button3v2":"style__button3v2___3N8UW","button3v3":"style__button3v3___2h7PD","button3v4":"style__button3v4___3p_tP","sideSwipe":"style__sideSwipe___3OFJQ","bottomSwipe":"style__bottomSwipe___3ltu-","title1":"style__title1___1LlDm","title":"style__title___JG5hq","title2":"style__title2___3ep2l","title3":"style__title3___1URy1","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph1b":"style__paragraph1b___2_mfn","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph":"style__paragraph___1Wwqc","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","transparency":"style__transparency___29XbM","svg":"style__svg___29LI3"};
 
 /***/ }),
 /* 45 */
@@ -4107,7 +4089,7 @@
 	      image1: {
 	        id: 7,
 	        alt: 'STAFF',
-	        src: 'https://www.dropbox.com/s/ve8i6l6jy3gqmxp/Img-staff-bg.jpg?dl=0',
+	        src: '/images/escuela/banner-staff.jpg',
 	        block: 9
 	      }
 	    },
@@ -4187,7 +4169,7 @@
 	      button1: {
 	        id: 10,
 	        title: 'HORARIOS',
-	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        href: '/docs/horarios-pavlova.pdf',
 	        block: 12
 	      },
 	      button2: {
@@ -4382,6 +4364,7 @@
 	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
 	        'div',
 	        { style: divStyle, className: style.mainbanner + ' ' + (styles ? styles.wrapper : '') },
+	        _react2.default.createElement('div', { className: style.transparency }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container-fluid' },
@@ -4421,7 +4404,7 @@
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1j0pv","vCenter":"style__vCenter___2KQFQ","button1":"style__button1___3ZmPV","button2":"style__button2___2shnn","button2b":"style__button2b___9qjJ-","vCenterRel":"style__vCenterRel___34eYy","hCenter":"style__hCenter___1Lkdf","inheritHeight":"style__inheritHeight___1q40G","hideOverflow":"style__hideOverflow___DrxCZ","icon-sprites":"style__icon-sprites___3tV9U","button3":"style__button3___3VbYO","button3v1":"style__button3v1___1AjUN","button3v2":"style__button3v2___3ejfJ","button3v3":"style__button3v3___B8Ol9","button3v4":"style__button3v4___31_JU","sideSwipe":"style__sideSwipe___1FVlo","bottomSwipe":"style__bottomSwipe___2c0uL","title1":"style__title1___1gW4S","title":"style__title___SyWrl","title2":"style__title2___2Tj1e","title3":"style__title3___1HOPW","title4":"style__title4___3J4Je","title5":"style__title5___2Nimp","title6":"style__title6___1J_L3","title7":"style__title7___2tzA4","title8":"style__title8___2p7DZ","paragraph1":"style__paragraph1___3jelK","paragraph1b":"style__paragraph1b___2o55y","paragraph2":"style__paragraph2___3QqbA","paragraph3":"style__paragraph3___2muKz","paragraph":"style__paragraph___2nuu4","paragraph4":"style__paragraph4___1geTk","paragraph5":"style__paragraph5___30-m9","mainbanner":"style__mainbanner___17dAE","svg":"style__svg___1UaPh"};
+	module.exports = {"fCenter":"style__fCenter___1j0pv","vCenter":"style__vCenter___2KQFQ","button1":"style__button1___3ZmPV","button2":"style__button2___2shnn","button2b":"style__button2b___9qjJ-","vCenterRel":"style__vCenterRel___34eYy","hCenter":"style__hCenter___1Lkdf","inheritHeight":"style__inheritHeight___1q40G","hideOverflow":"style__hideOverflow___DrxCZ","icon-sprites":"style__icon-sprites___3tV9U","button3":"style__button3___3VbYO","button3v1":"style__button3v1___1AjUN","button3v2":"style__button3v2___3ejfJ","button3v3":"style__button3v3___B8Ol9","button3v4":"style__button3v4___31_JU","sideSwipe":"style__sideSwipe___1FVlo","bottomSwipe":"style__bottomSwipe___2c0uL","title1":"style__title1___1gW4S","title":"style__title___SyWrl","title2":"style__title2___2Tj1e","title3":"style__title3___1HOPW","title4":"style__title4___3J4Je","title5":"style__title5___2Nimp","title6":"style__title6___1J_L3","title7":"style__title7___2tzA4","title8":"style__title8___2p7DZ","paragraph1":"style__paragraph1___3jelK","paragraph1b":"style__paragraph1b___2o55y","paragraph2":"style__paragraph2___3QqbA","paragraph3":"style__paragraph3___2muKz","paragraph":"style__paragraph___2nuu4","paragraph4":"style__paragraph4___1geTk","paragraph5":"style__paragraph5___30-m9","mainbanner":"style__mainbanner___17dAE","transparency":"style__transparency___2Q8dd","svg":"style__svg___1UaPh"};
 
 /***/ }),
 /* 68 */
@@ -4668,7 +4651,7 @@
 	    button1: {
 	      id: 18,
 	      title: 'HORARIOS',
-	      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	      href: '/docs/horarios-pavlova.pdf',
 	      block: 15
 	    },
 	    button2: {
@@ -4758,7 +4741,7 @@
 	    button1: {
 	      id: 20,
 	      title: 'HORARIOS',
-	      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	      href: '/docs/horarios-pavlova.pdf',
 	      block: 16
 	    },
 	    button2: {
@@ -4832,7 +4815,7 @@
 	    button1: {
 	      id: 22,
 	      title: 'HORARIOS',
-	      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	      href: '/docs/horarios-pavlova.pdf',
 	      block: 17
 	    },
 	    button2: {
@@ -4928,7 +4911,7 @@
 	      button1: {
 	        id: 18,
 	        title: 'HORARIOS',
-	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        href: '/docs/horarios-pavlova.pdf',
 	        block: 15
 	      },
 	      button2: {
@@ -4973,7 +4956,7 @@
 	      button1: {
 	        id: 20,
 	        title: 'HORARIOS',
-	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        href: '/docs/horarios-pavlova.pdf',
 	        block: 16
 	      },
 	      button2: {
@@ -5026,7 +5009,7 @@
 	      button1: {
 	        id: 22,
 	        title: 'HORARIOS',
-	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        href: '/docs/horarios-pavlova.pdf',
 	        block: 17
 	      },
 	      button2: {
@@ -5055,7 +5038,7 @@
 	      button1: {
 	        id: 24,
 	        title: 'HORARIOS',
-	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        href: '/docs/horarios-pavlova.pdf',
 	        block: 18
 	      }
 	    },
@@ -5078,7 +5061,7 @@
 	      button1: {
 	        id: 25,
 	        title: 'HORARIOS',
-	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        href: '/docs/horarios-pavlova.pdf',
 	        block: 19
 	      }
 	    },
@@ -5092,7 +5075,7 @@
 	      button1: {
 	        id: 26,
 	        title: 'HORARIOS',
-	        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+	        href: '/docs/horarios-pavlova.pdf',
 	        block: 20
 	      },
 	      button2: {

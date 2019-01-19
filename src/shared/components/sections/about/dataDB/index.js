@@ -141,7 +141,7 @@ const data = {
       image1: {
         id: 7,
         alt: 'STAFF',
-        src: 'https://www.dropbox.com/s/ve8i6l6jy3gqmxp/Img-staff-bg.jpg?dl=0',
+        src: '/images/escuela/banner-staff.jpg',
         block: 9,
       },
     },

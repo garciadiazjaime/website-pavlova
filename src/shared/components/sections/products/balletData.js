@@ -52,7 +52,7 @@ const data = {
     button1: {
       id: 18,
       title: 'HORARIOS',
-      href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+      href: '/docs/horarios-pavlova.pdf',
       block: 15,
     },
     button2: {

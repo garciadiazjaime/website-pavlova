@@ -80,7 +80,7 @@ const data = {
       button1: {
         id: 18,
         title: 'HORARIOS',
-        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+        href: '/docs/horarios-pavlova.pdf',
         block: 15,
       },
       button2: {
@@ -130,7 +130,7 @@ const data = {
       button1: {
         id: 20,
         title: 'HORARIOS',
-        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+        href: '/docs/horarios-pavlova.pdf',
         block: 16,
       },
       button2: {
@@ -193,7 +193,7 @@ const data = {
       button1: {
         id: 22,
         title: 'HORARIOS',
-        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+        href: '/docs/horarios-pavlova.pdf',
         block: 17,
       },
       button2: {
@@ -226,7 +226,7 @@ const data = {
       button1: {
         id: 24,
         title: 'HORARIOS',
-        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+        href: '/docs/horarios-pavlova.pdf',
         block: 18,
       },
     },
@@ -253,7 +253,7 @@ const data = {
       button1: {
         id: 25,
         title: 'HORARIOS',
-        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+        href: '/docs/horarios-pavlova.pdf',
         block: 19,
       },
     },
@@ -268,7 +268,7 @@ const data = {
       button1: {
         id: 26,
         title: 'HORARIOS',
-        href: 'http://www.pavlovahipodromo.com/docs/Pavlova-Horarios-2016.pdf',
+        href: '/docs/horarios-pavlova.pdf',
         block: 20,
       },
       button2: {

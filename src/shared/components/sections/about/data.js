@@ -3,8 +3,8 @@ export default {
   title: 'Conoce a nuestro staff',
   sectionUrl: 'escuela',
   items: [{
-    title: 'GLORIA ZUÑIGA WHEBER',
-    subtitle: 'GLORIA ZUÑIGA WHEBER',
+    title: 'GLORIA ZUÑIGA WEHBER',
+    subtitle: 'GLORIA ZUÑIGA WEHBER',
     intro: '',
     image: 'https://www.dropbox.com/s/s02dsqogkixpk4x/Img-Gloria-Zuniga.png?dl=0',
     content: [
@@ -19,7 +19,7 @@ export default {
         'Nuvo workshop en Long Beach en 2014',
         'Jump workshop en Monterrey, Nuevo León en 2015',
         'Curso de Anatomía aplicado a maestros de Danza en 2016',
-        'Dance Teacher Summit 2016',
+        'Dance Teacher Summit en Long Beach, CA. - 2016, 2017 y 2018',
       ],
       'En el año 2014 funda junto con Alicia Luna el grupo Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.',
       'Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.',
@@ -41,7 +41,7 @@ export default {
         'Dance Makers 2015 – Los Ángeles CA.',
         'Iniciación a la Danza 2015 – Tijuana B.C.',
         'Curso de Anatomía aplicado a maestros de Danza en 2016 – Tijuana B.C.',
-        'Curso Dance Teacher Summit en Long Beach CA. – Julio 2017',
+        'Curso Dance Teacher Summit en Long Beach, CA. –2016 y 2017',
         'Actualmente se sigue preparando con clases de Ballet Clásico.',
       ],
       'El tiempo y la entrega que Lichita dedica a sus alumnas, representan la oportunidad de edificar y promover orden, disciplina y convivencia, teniendo como propósito el fomentar los valores que las acompañarán toda su vida, no sólo como un bonito recuerdo, sino como parte de su formación como personas.',
@@ -70,18 +70,6 @@ export default {
       'Coreógrafa en la escuela de danza Coppelia donde sus alumnas obtuvieron varios primeros lugares en la competencia Dance Makers en la disciplina de lirico así como un premio especial por mejor coreografía.',
       'Actualmente forma parte del equipo de trabajo de la escuela Pavlova Hipódromo y es coreógrafa del grupo de competencia Pasdechat by Pavlova con el cual ha viajado a varios concursos nacionales e internacionales, obteniendo varios primeros lugares por sus coreografías y reconocidas becas para sus alumnas, el curso más reconocido que han becado a sus alumnas es Dance Awards.',
       'Es una maestra reconocida por sus coreografías tanto en jazz como en lírico en niveles intermedios y avanzados.',
-    ],
-  }, {
-    title: 'TANIA ADAME',
-    subtitle: 'TANIA ADAME',
-    intro: '',
-    image: 'https://www.dropbox.com/s/s8rs8vyfju6cmic/Img-Tania-Adame.png?dl=0',
-    content: [
-      'Inició sus estudios de danza a los 3 años y medio en Tijuana, B. C. Egresó de la carrera de Técnico en Danza en el 2010 de la Escuela de Danza Gloria Campobello.',
-      'Su formación como bailarina incluye danza clásica, danza española, danza jazz, tap y danza contemporánea. Desde hace 8 años se ha dedicado a la docencia de las distintas danzas en diferentes escuelas.',
-      'Integrante del Grupo de Danza Minerva Tapia, ha participado en producciones como 16th Annual Noche Cultural de Estudios Chicanos en la Universidad de California Riverside, "Vive la Cultura con Todos los Sentidos" en Sinaloa, México, "Border Dancers" en la ciudad de Nueva York, diferentes ediciones de Entijuanarte, Cuerpos en tránsito y "Celebración anual de la danza" en Rosario, Argentina en el año 2011 por mencionar algunos. Fue becaria del programa Talentos Artísticos, Valores de Baja California en el ciclo 2008 – 2010 dirigido por el Instituto de Cultura de Baja California. Nombrada como una de las "13 promesas artísticas" por el periódico Frontera en el año 2005.',
-      'Ha asistido a varios cursos como el curso de verano impartido por el Ballet de Monterrey y la Cátedra de danza del Ballet Nacional de Cuba en La Habana.',
-      'Actualmente continúa su entrenamiento con clases de danza contemporánea y ballet.',
     ],
   }, {
     title: 'RHONAL RUVALCABA',

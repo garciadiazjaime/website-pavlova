@@ -23,8 +23,7 @@ export default (location) => {
     scropllInProgress = true;
     const scrollTo = getScrollTo(bits[1], elementID);
     const srolltime = 100;
-    const rootTag = typeof document.body.scrollTop !== 'undefined' ? 'body' : 'html, body';
-    $(rootTag).animate({
+    $('html,body').animate({
       scrollTop: scrollTo,
     }, srolltime, 'swing', () => {
       scropllInProgress = false;

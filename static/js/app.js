@@ -25178,7 +25178,7 @@
 	    },
 	    button7: {
 	      title: 'HORARIOS',
-	      href: '/docs/horarios-pavlova.pdf'
+	      href: '/docs/horarios-pavlova-2019.pdf'
 	    },
 	    button8: {
 	      title: 'FICHA DE INSCRIPCIÓN',
@@ -25225,8 +25225,7 @@
 	    scropllInProgress = true;
 	    var scrollTo = getScrollTo(bits[1], elementID);
 	    var srolltime = 100;
-	    var rootTag = typeof document.body.scrollTop !== 'undefined' ? 'body' : 'html, body';
-	    $(rootTag).animate({
+	    $('html,body').animate({
 	      scrollTop: scrollTo
 	    }, srolltime, 'swing', function () {
 	      scropllInProgress = false;
@@ -39931,7 +39930,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'a',
-	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)('/docs/horarios-pavlova-2018-19.pdf'), title: buttons.button1.title, target: '_blank' },
+	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)('/docs/horarios-pavlova-2019.pdf'), title: buttons.button1.title, target: '_blank' },
 	                'DESCARGAR',
 	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
 	              )
@@ -39988,17 +39987,17 @@
 	  title: 'Conoce a nuestro staff',
 	  sectionUrl: 'escuela',
 	  items: [{
-	    title: 'GLORIA ZUÑIGA WHEBER',
-	    subtitle: 'GLORIA ZUÑIGA WHEBER',
+	    title: 'GLORIA ZUÑIGA WEHBER',
+	    subtitle: 'GLORIA ZUÑIGA WEHBER',
 	    intro: '',
 	    image: 'https://www.dropbox.com/s/s02dsqogkixpk4x/Img-Gloria-Zuniga.png?dl=0',
-	    content: ['Gloria inició sus clases de baile a los 3 años de edad en las disciplinas de ballet y jazz con la maestra Sandra Araiza. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Técnica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certificó como Maestra de Aerobics por ISAT (Institute School of Aerobic Training) y en 1992 se graduó en la Universidad de San Diego State como Licenciada en Danza donde participó durante 4 años en la compañía de esta Universidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet "Cascanueces" en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que a tomado cursos como:', ['GUS (Giordiano Workshop) en Monterrey, N.L. en 2001', 'Curso para maestros en la escuela "Broadway Dance Center" de Nueva York en 2006.', 'The Pulse en los Angeles C.A EN 2009', 'Nuvo workshop en Long Beach en 2014', 'Jump workshop en Monterrey, Nuevo León en 2015', 'Curso de Anatomía aplicado a maestros de Danza en 2016', 'Dance Teacher Summit 2016'], 'En el año 2014 funda junto con Alicia Luna el grupo Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.', 'Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.', 'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 29 años.']
+	    content: ['Gloria inició sus clases de baile a los 3 años de edad en las disciplinas de ballet y jazz con la maestra Sandra Araiza. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Técnica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certificó como Maestra de Aerobics por ISAT (Institute School of Aerobic Training) y en 1992 se graduó en la Universidad de San Diego State como Licenciada en Danza donde participó durante 4 años en la compañía de esta Universidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet "Cascanueces" en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que a tomado cursos como:', ['GUS (Giordiano Workshop) en Monterrey, N.L. en 2001', 'Curso para maestros en la escuela "Broadway Dance Center" de Nueva York en 2006.', 'The Pulse en los Angeles C.A EN 2009', 'Nuvo workshop en Long Beach en 2014', 'Jump workshop en Monterrey, Nuevo León en 2015', 'Curso de Anatomía aplicado a maestros de Danza en 2016', 'Dance Teacher Summit en Long Beach, CA. - 2016, 2017 y 2018'], 'En el año 2014 funda junto con Alicia Luna el grupo Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.', 'Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.', 'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 29 años.']
 	  }, {
 	    title: 'ALICIA LUNA',
 	    subtitle: 'ALICIA LUNA',
 	    intro: '',
 	    image: 'https://www.dropbox.com/s/3b1zex2m6csljia/Img_Alicia-Luna.png?dl=0',
-	    content: ['Lichita inició su preparación en la Academia de Sandra Araiza y posteriormente en la Escuela de Danza Gloria Campobello. Fue así que formó su destino en esta disciplina para convertirse en maestra de danza y posteriormente cofundadora y directora de la Escuela de Danza Pavlova fundada en el año de 1987.', 'Mientras estuvo en la escuela Campobello, disfrutaba al máximo sus clases como alumna y asistente, donde después de 3 años logró certificarse como Maestra en Técnica de Danza.', 'En el 2014 fundó, junto con Gloria Zuñiga, el grupo Pas de Chat. Este grupo esta integrado por alumnas destacadas de la escuela de danza Pavlova, quienes representan con orgullo y talento a la escuela en distintas competencias de nivel nacional e internacional.', 'Buscando siempre estar actualizada y comprometida con su carrera ha tomado cursos como:', ['Curso de Metodología de la Danza 2014 – Tijuana B.C.', 'Dance Teachers Summit 2015 – Irvine CA.', 'Dance Makers 2015 – Los Ángeles CA.', 'Iniciación a la Danza 2015 – Tijuana B.C.', 'Curso de Anatomía aplicado a maestros de Danza en 2016 – Tijuana B.C.', 'Curso Dance Teacher Summit en Long Beach CA. – Julio 2017', 'Actualmente se sigue preparando con clases de Ballet Clásico.'], 'El tiempo y la entrega que Lichita dedica a sus alumnas, representan la oportunidad de edificar y promover orden, disciplina y convivencia, teniendo como propósito el fomentar los valores que las acompañarán toda su vida, no sólo como un bonito recuerdo, sino como parte de su formación como personas.']
+	    content: ['Lichita inició su preparación en la Academia de Sandra Araiza y posteriormente en la Escuela de Danza Gloria Campobello. Fue así que formó su destino en esta disciplina para convertirse en maestra de danza y posteriormente cofundadora y directora de la Escuela de Danza Pavlova fundada en el año de 1987.', 'Mientras estuvo en la escuela Campobello, disfrutaba al máximo sus clases como alumna y asistente, donde después de 3 años logró certificarse como Maestra en Técnica de Danza.', 'En el 2014 fundó, junto con Gloria Zuñiga, el grupo Pas de Chat. Este grupo esta integrado por alumnas destacadas de la escuela de danza Pavlova, quienes representan con orgullo y talento a la escuela en distintas competencias de nivel nacional e internacional.', 'Buscando siempre estar actualizada y comprometida con su carrera ha tomado cursos como:', ['Curso de Metodología de la Danza 2014 – Tijuana B.C.', 'Dance Teachers Summit 2015 – Irvine CA.', 'Dance Makers 2015 – Los Ángeles CA.', 'Iniciación a la Danza 2015 – Tijuana B.C.', 'Curso de Anatomía aplicado a maestros de Danza en 2016 – Tijuana B.C.', 'Curso Dance Teacher Summit en Long Beach, CA. –2016 y 2017', 'Actualmente se sigue preparando con clases de Ballet Clásico.'], 'El tiempo y la entrega que Lichita dedica a sus alumnas, representan la oportunidad de edificar y promover orden, disciplina y convivencia, teniendo como propósito el fomentar los valores que las acompañarán toda su vida, no sólo como un bonito recuerdo, sino como parte de su formación como personas.']
 	  }, {
 	    title: 'MILY WEHBER',
 	    subtitle: 'MILY WEHBER',
@@ -40011,12 +40010,6 @@
 	    intro: '',
 	    image: 'https://www.dropbox.com/s/r81hjmxo9niz3pf/Img-Alejandra-Gutierrez.png?dl=0',
 	    content: ['Inicio sus estudios a la edad de 3 años en el colegio de danza Sylvia bajo la dirección de la maestra Silvia Elena Martínez, estudio ahí por más de 15 años en las disciplinas de Jazz, Ballet y Tap, donde tuvo la oportunidad de asistir a varios cursos como NYCDA, Tremaine y Al Gilbert. Fue asistente en la disciplina de Tap.', 'A la edad de 16 años empezó siendo maestra y asistente en la escuela de danza Ancheyta dando clases de tap y jazz.', 'A los 19 empezó dando clases en la escuela de danza Pavlova Hipódromo en la disciplina de jazz. Se ha preparado en varios cursos como Dancemakers, Nuvo en long beach, Jump Monterrey, 24/7 en San diego, Dance Teacher Summit LB y DancerPalozza en Long beach.', 'Coreógrafa en la escuela de danza Coppelia donde sus alumnas obtuvieron varios primeros lugares en la competencia Dance Makers en la disciplina de lirico así como un premio especial por mejor coreografía.', 'Actualmente forma parte del equipo de trabajo de la escuela Pavlova Hipódromo y es coreógrafa del grupo de competencia Pasdechat by Pavlova con el cual ha viajado a varios concursos nacionales e internacionales, obteniendo varios primeros lugares por sus coreografías y reconocidas becas para sus alumnas, el curso más reconocido que han becado a sus alumnas es Dance Awards.', 'Es una maestra reconocida por sus coreografías tanto en jazz como en lírico en niveles intermedios y avanzados.']
-	  }, {
-	    title: 'TANIA ADAME',
-	    subtitle: 'TANIA ADAME',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/s8rs8vyfju6cmic/Img-Tania-Adame.png?dl=0',
-	    content: ['Inició sus estudios de danza a los 3 años y medio en Tijuana, B. C. Egresó de la carrera de Técnico en Danza en el 2010 de la Escuela de Danza Gloria Campobello.', 'Su formación como bailarina incluye danza clásica, danza española, danza jazz, tap y danza contemporánea. Desde hace 8 años se ha dedicado a la docencia de las distintas danzas en diferentes escuelas.', 'Integrante del Grupo de Danza Minerva Tapia, ha participado en producciones como 16th Annual Noche Cultural de Estudios Chicanos en la Universidad de California Riverside, "Vive la Cultura con Todos los Sentidos" en Sinaloa, México, "Border Dancers" en la ciudad de Nueva York, diferentes ediciones de Entijuanarte, Cuerpos en tránsito y "Celebración anual de la danza" en Rosario, Argentina en el año 2011 por mencionar algunos. Fue becaria del programa Talentos Artísticos, Valores de Baja California en el ciclo 2008 – 2010 dirigido por el Instituto de Cultura de Baja California. Nombrada como una de las "13 promesas artísticas" por el periódico Frontera en el año 2005.', 'Ha asistido a varios cursos como el curso de verano impartido por el Ballet de Monterrey y la Cátedra de danza del Ballet Nacional de Cuba en La Habana.', 'Actualmente continúa su entrenamiento con clases de danza contemporánea y ballet.']
 	  }, {
 	    title: 'RHONAL RUVALCABA',
 	    subtitle: 'RHONAL RUVALCABA',
@@ -40293,7 +40286,7 @@
 	      button1: {
 	        id: 10,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova.pdf',
+	        href: '/docs/horarios-pavlova-2019.pdf',
 	        block: 12
 	      },
 	      button2: {
@@ -40775,7 +40768,7 @@
 	    button1: {
 	      id: 18,
 	      title: 'HORARIOS',
-	      href: '/docs/horarios-pavlova.pdf',
+	      href: '/docs/horarios-pavlova-2019.pdf',
 	      block: 15
 	    },
 	    button2: {
@@ -40865,7 +40858,7 @@
 	    button1: {
 	      id: 20,
 	      title: 'HORARIOS',
-	      href: '/docs/horarios-pavlova.pdf',
+	      href: '/docs/horarios-pavlova-2019.pdf',
 	      block: 16
 	    },
 	    button2: {
@@ -40939,7 +40932,7 @@
 	    button1: {
 	      id: 22,
 	      title: 'HORARIOS',
-	      href: '/docs/horarios-pavlova.pdf',
+	      href: '/docs/horarios-pavlova-2019.pdf',
 	      block: 17
 	    },
 	    button2: {
@@ -41035,7 +41028,7 @@
 	      button1: {
 	        id: 18,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova.pdf',
+	        href: '/docs/horarios-pavlova-2019.pdf',
 	        block: 15
 	      },
 	      button2: {
@@ -41080,7 +41073,7 @@
 	      button1: {
 	        id: 20,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova.pdf',
+	        href: '/docs/horarios-pavlova-2019.pdf',
 	        block: 16
 	      },
 	      button2: {
@@ -41133,7 +41126,7 @@
 	      button1: {
 	        id: 22,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova.pdf',
+	        href: '/docs/horarios-pavlova-2019.pdf',
 	        block: 17
 	      },
 	      button2: {
@@ -41162,7 +41155,7 @@
 	      button1: {
 	        id: 24,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova.pdf',
+	        href: '/docs/horarios-pavlova-2019.pdf',
 	        block: 18
 	      }
 	    },
@@ -41185,7 +41178,7 @@
 	      button1: {
 	        id: 25,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova.pdf',
+	        href: '/docs/horarios-pavlova-2019.pdf',
 	        block: 19
 	      }
 	    },
@@ -41199,7 +41192,7 @@
 	      button1: {
 	        id: 26,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova.pdf',
+	        href: '/docs/horarios-pavlova-2019.pdf',
 	        block: 20
 	      },
 	      button2: {

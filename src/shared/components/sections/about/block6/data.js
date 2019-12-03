@@ -1,5 +1,5 @@
 /* eslint max-len: [2, 1000, 4] */
-export default {
+module.exports = {
   title: 'Conoce a nuestro staff',
   sectionUrl: 'escuela',
   items: [{
@@ -72,15 +72,6 @@ export default {
       'Es una maestra reconocida por sus coreografías tanto en jazz como en lírico en niveles intermedios y avanzados.',
     ],
   }, {
-    title: 'RHONAL RUVALCABA',
-    subtitle: 'RHONAL RUVALCABA',
-    intro: '',
-    image: 'https://www.dropbox.com/s/izw96o5i39cabla/Img_Rhonal-Ruvalcaba-2.png?dl=0',
-    content: [
-      'Inicio sus estudios de danza a la edad de 14 años, descubriendo en ella su vocación! Su preparación abarca diversas ramas de esta disciplina, pero son el Jazz y el HipHop su mayor pasión, ganador del 1er lugar en la categoría de Jazz en Danzarte (concurso de Danza realizado anteriormente en Baja California hace ya algunos años).',
-      'Es Director de su propia Compañía de Danza, con la cual ha llevado su pasión y estilo a diversas partes del mundo desde Taiwan o Puerto Rico, así como a gran parte de México y E.U. como las Vegas, Miami y L.A. entre otros.',
-    ],
-  }, {
     title: 'CORINA PERAZA',
     subtitle: 'CORINA PERAZA',
     intro: '',
@@ -88,19 +79,6 @@ export default {
     content: [
       'Corina es originaria de Tijuana y desde muy pequeña empezó a bailar Flamenco. Es hija de la famosa bailarina española Teresa Jaen, miembro del dueto "Teresa y Antonio Jaen". El tener a su madre como instructora, le ha ayudado a desarrollarse cada vez más a través de los años.',
       'Lleva el arte en sus venas, es por ello que Corina comparte con sus estudiantes el mismo sentimiento y pasión por el baile Flamenco. Es sabido que cualquier forma de arte se transforma en comunicación, entonces, qué mejor manera de transmitirlo tan intensamente a sus estudiantes que a través del amor y pasión del baile Flamenco.',
-    ],
-  }, {
-    title: 'CLAUDIA LUNA',
-    subtitle: 'CLAUDIA LUNA',
-    intro: '',
-    image: 'https://www.dropbox.com/s/u0fp0uwjuc220wq/Img_Claudia-Luna.png?dl=0',
-    content: [
-      'Desde que tenia 4 años inicie en el ambito de la danza, en la Escuela de Danza Gloria Campobello. Obtuve el certificado de maestra en tecnica de danza a los 16 años.',
-      'La experiencia laboral ha sido en distintas instituciones como:',
-      'Escuela de danza Gloria  campobello,casino de Mexicali,escuela Felix de Jesus en Mexicali,Escuela Patria,escuela Francis Parker en san Diego;actualmente cuenta con 28 años de pertenecer a la escuela de danza Pavlova como maestra de Ballet.',
-      'Entre los certificados y cursos que obtenido son: Técnica en Danza, Gus Giordiano (2001), Music Workshop Unlimited de Al Gilbert, Tremaniine Dance convention (2004), Music workshop (2005), Stage 7 San Diego. Comparsa antifaz (2013), Escuela Nicte-Ha, Dance Teacher Summit (2015).',
-      'He tomado clases con diferentes profesores, como Raul Martinez Tadeo, Maria del Carmen Padron, Tatiana Chevchenko, Carla Mariscal, Alberto Terreros y Gustavo Nava.',
-      '"El ser Maestra le permite transmitir a sus alumnas el amor a la danza por medio de la disciplina y constancia, además de sembrar en ellos la ilusión de ser bailarinas." – Miss Claudia.',
     ],
   }, {
     title: 'MAYRA JIMÉNEZ',
@@ -235,12 +213,44 @@ export default {
       'Coreógrafo Profesional, forma parte de la compañía de Hip Hop "Culture Shock" en San Diego.',
     ],
   }, {
-    title: 'MÓNICA ZITLALI GARZA MAYORAL',
-    subtitle: 'MÓNICA ZITLALI GARZA MAYORAL',
+    title: 'Adriana Coral Pulido',
+    subtitle: 'Adriana Coral Pulido',
     intro: '',
-    image: '/images/escuela/staff/monica-zitlali.png',
+    image: '/images/escuela/staff/AdrianaCoral-Pavlova.png',
     content: [
-      'Técnico en Danza y Maestra en Educación egresada de CETYS Universidad, Licenciada en Filosofía y en Ciencias de la Educación, tiene una vasta experiencia en el ámbito docente de danza clásica y ballet, ejerciendo profesionalmente en organizaciones como el CEART, Hospital Infantil de las Californias, CECUTEC, estudios de danza y colegios en la región.',
+      'Bailarina y maestra que se desarrolla profesionalmente en el norte de México; miembro fundador de Subterráneo Danza Contemporánea desde hace 17 años, donde su misión es exponer su trabajo como intérprete y colaborador creativo en la realización de espectáculos escénicos. Creadora la revista especializada en danza, Escena Cóncava, editada en la ciudad de Tijuana, Baja California. Ha participado como ejecutante dentro de varios festivales a nivel nacional e internacional y realizó el Festival “Mujeres que sueñan”. Fue becado como grupo artístico por el Fondo Especial para la Cultura y las Artes de B.C. (FOECA), para desarrollar la coreografía “Mitología del nómada: escenas para apresar el alma flotante de los trotamundos.”',
+      'Dentro de su preparación ha tomado clase con los siguientes reconocidos maestros: Ricardo Peralta, Jo Savino, Ugo Ruíz, Jorge Cerecero, Irma Morales, Edgar Robles, Roberto Robles, Guillermo Maldonado, Lucero Camarena, Vicente Silva, Mijael Rojas, Claudia Lavista, Omar Carum, Khosro Adibi y con la ex primera bailarina rusa del ballet de Kiev, Tatiana Tchevchenco.',
+      'Mantiene una constante búsqueda del lenguaje propio a través de la investigación en diferentes técnicas dancísticas así como la divulgación de sus conocimientos a través de la docencia, asimismo, busca mantener vínculos estrechos con otros artistas escénicos del país para fortalecer su quehacer dancístico y contribuir a la difusión del arte.',
     ],
-  }],
+  }, {
+    title: 'Martha Lugo Torres',
+    subtitle: 'Martha Lugo Torres',
+    intro: '',
+    image: '/images/escuela/staff/MarthaLugo-Pavlova.png',
+    content: [
+      'Profesora, bailarina y coreógrafa. Nacida en Tijuana, Baja California. Egresada del técnico en Danza en la Escuela de Danza Gloria Campobello – EDGC (Tijuana, México). Cuenta con formación en ballet clásico, danza española, contemporáneo, flamenco y jazz. Participó en el Ballet del Noroeste de México en El lago de los cisnes, Cascanueces, Don Quijote y Giselle; curso la cátedra de danza impartida por el Ballet Nacional de Cuba. Actualmente funge como maestra y coreógrafa en academias de danza de Tijuana y Rosarito.',
+      'Imparte cátedra de acuerdo a las necesidades de cada persona, dependiendo su edad y su conocimiento en la danza, cuidando, ante todo, la salud física de los alumnos. ',
+    ],
+  }, {
+    title: 'María Del Carmen Hechavarria',
+    subtitle: 'María Del Carmen Hechavarria',
+    intro: '',
+    image: '/images/escuela/staff/MariaDelCarmen-Pavlova.png',
+    content: [
+      'Bailarina solista y maître del Ballet Nacional de Cuba. Inició sus estudios de ballet en la Escuela Nacional de Arte. Sus principales profesores fueron Alicia Alonso, Fernando Alonso, Laura Alonso, Ramona de Sáa, Josefina Méndez, Loipa Araújo, Aurora Bosch, Joaquín Benegas, Rosa Elena Álvarez y Adolfo Roval. Forma parte del Ballet Nacional de Cuba, compañía con la que actúa en las más importantes obras de repertorio de la gran tradición romántico-clásica, así como en creaciones de contemporáneos.',
+      'Obtuvo la licenciatura en Arte Danzario por el Instituto Superior de Arte en La Habana, en la Especialidad de Ballet. Ha participado en numerosas giras por América, Europa y Asia, y ha actuado en famosos teatros.',
+      'Cercana colaboradora de Alicia Alonso, ha sido su asistente en el montaje de varias coreografías. También ha sido repositora de obras de otros coreógrafos, así como del repertorio tradicional. Su experiencia pedagógica abarca una amplia trayectoria que va desde los cursos de psicoballet, hasta cursos de verano organizados por la Cátedra Alicia Alonso de la Universidad Complutense, de Madrid.',
+      'Recibió la Distinción ¨Raúl Gómez García¨ y la Distinción por la cultura Nacional. La primera edición de Alicia Alonso, más allá de la técnica, por la universidad Politécnica de Valencia, y fue presentada en la casa de América en Madrid por Francisco Nieva, miembro de la Real Academia Española.',
+    ],
+  }, {
+    title: 'Andrea Margarita Almaraz González',
+    subtitle: 'Andrea Margarita Almaraz González',
+    intro: '',
+    image: '/images/escuela/staff/Andrea-Pavlova.png',
+    content: [
+      'Inició su formación de danza a los 4 años de edad en “escuela de danza pavlova” donde aprendió ballet, jazz, flamenco y lírico. A los 7 años tomó  clases de gimnasia durante dos años. A sus 17 años entró a una compañía de danza latina y al transcurso ha ido tomando clases de ritmos latinos.',
+      'Empezó siendo asistente de ballet  en escuela de danza pavlova y años después empezó a dar clase de ballet en un academia de artes y un colegio. Ha trabajado de bailarina en conciertos con cantantes locales y de bailarina en un grupo de música versátil como punto clave, maz tekila, la clase y Revelación. Participó en diversos cursos tales como el curso de flamenco con Maria Juncal, curso de flamenco con Cristóbal Reyes, curso de flamenco María Carrasco, curso expression dance, curso salsa fest, entre otros.',
+    ],
+  },
+  ],
 };

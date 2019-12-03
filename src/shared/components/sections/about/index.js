@@ -8,7 +8,6 @@ import Block5 from './block5';
 import Block6 from './block6';
 import Block7 from './block7';
 import Block8 from './block8';
-import dataStaff from './data';
 
 const data = require('./dataDB');
 
@@ -26,7 +25,7 @@ export default class AboutSection extends React.Component {
       <Block3 data={block3} />
       <Block4 data={block4} />
       <Block5 />
-      <Block6 data={dataStaff} showListItem={showListItem} />
+      <Block6 showListItem={showListItem} />
       <Block7 data={block7} />
       <Block8 data={block8} />
     </div>);

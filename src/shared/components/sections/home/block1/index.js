@@ -9,6 +9,53 @@ import SVG from '../../../svg';
 
 const style = require('./style.scss');
 
+function getData() {
+  return {
+    slides: [
+      {
+        id: 23,
+        image:
+          'https://www.dropbox.com/s/slj1394r4l2sr9h/Banner_Pavlova_001-2.jpg?dl=0',
+        title: '',
+        button_title: 'BAILA JAZZ',
+        button_url: '/clases/jazz',
+        content: '',
+        block: 1,
+      },
+      {
+        id: 24,
+        image:
+          'https://www.dropbox.com/s/4yi0dopo579m7bl/Banner_Pavlova_003-2.jpg?dl=0',
+        title: '',
+        button_title: 'BAILA FLAMENCO',
+        button_url: '/clases/flamenco',
+        content: '',
+        block: 1,
+      },
+      {
+        id: 26,
+        image:
+          'https://www.dropbox.com/s/ff1zyfoharkqxx4/Banner_Pavlova_004-2.jpg?dl=0',
+        title: '',
+        button_title: 'BAILA BALLET',
+        button_url: '/clases/ballet',
+        content: '',
+        block: 1,
+      },
+      {
+        id: 27,
+        image:
+          'https://www.dropbox.com/s/xcjhztd4g3ri8nj/Banner_Pavlova_002-2.jpg?dl=0',
+        title: '',
+        button_title: 'BAILA JAZ',
+        button_url: '/clases/jazz',
+        content: '',
+        block: 1,
+      },
+    ],
+  };
+}
+
 
 export default class Block1 extends React.Component {
 
@@ -37,7 +84,7 @@ export default class Block1 extends React.Component {
   }
 
   render() {
-    const { slides } = this.props.data;
+    const { slides } = getData();
     const carouselClasses = {
       inner: style.inner,
       controls: {
@@ -47,14 +94,10 @@ export default class Block1 extends React.Component {
         arrow: style.arrow,
       },
     };
-    return !_.isEmpty(this.props.data) ? (<div>
+    return (<div>
       <Carousel id="carousel-home-block-1" interval={8000} indicators={false} classes={carouselClasses}>
         {this.renderItems(slides)}
       </Carousel>
-    </div>) : null;
+    </div>);
   }
 }
-
-Block1.propTypes = {
-  data: React.PropTypes.object,
-};

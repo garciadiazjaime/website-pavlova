@@ -1,60 +1,6 @@
 /* eslint max-len: [2, 500, 4] */
 
 const data = {
-  block1: {
-    slides: [
-      {
-        id: 23,
-        image:
-          'https://www.dropbox.com/s/slj1394r4l2sr9h/Banner_Pavlova_001-2.jpg?dl=0',
-        title: '',
-        button_title: 'BAILA JAZZ',
-        button_url: '/clases/jazz',
-        content: '',
-        block: 1,
-      },
-      {
-        id: 24,
-        image:
-          'https://www.dropbox.com/s/4yi0dopo579m7bl/Banner_Pavlova_003-2.jpg?dl=0',
-        title: '',
-        button_title: 'BAILA FLAMENCO',
-        button_url: '/clases/flamenco',
-        content: '',
-        block: 1,
-      },
-      {
-        id: 25,
-        image:
-          'https://www.dropbox.com/s/3xbh06096giea8u/Banner_Pavlova_005-2.jpg?dl=0',
-        title: '',
-        button_title: 'KARDIO DANZA',
-        button_url: '/clases/kardio-danza',
-        content: '',
-        block: 1,
-      },
-      {
-        id: 26,
-        image:
-          'https://www.dropbox.com/s/ff1zyfoharkqxx4/Banner_Pavlova_004-2.jpg?dl=0',
-        title: '',
-        button_title: 'BAILA BALLET',
-        button_url: '/clases/ballet',
-        content: '',
-        block: 1,
-      },
-      {
-        id: 27,
-        image:
-          'https://www.dropbox.com/s/xcjhztd4g3ri8nj/Banner_Pavlova_002-2.jpg?dl=0',
-        title: '',
-        button_title: 'BAILA JAZ',
-        button_url: '/clases/jazz',
-        content: '',
-        block: 1,
-      },
-    ],
-  },
   block2: {
     buttons: {
       button1: { id: 2, title: 'BALLET', href: '/clases/ballet', block: 2 },

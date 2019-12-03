@@ -5,9 +5,10 @@
 
 // ---- main slider
 .mainbanner{
-	height: 619px;
+	height: 500px;
 	padding-top: 220px;
 	background-size: cover;
+	background-position: center;
 }
 .transparency {
 	background: -moz-linear-gradient(left, rgba(0,0,0,0.6) 0%, rgba(153,153,153,0) 30%, rgba(255,255,255,0) 50%, rgba(153,153,153,0) 70%, rgba(0,0,0,0.6) 100%); /* FF3.6-15 */
@@ -36,6 +37,11 @@
 	margin: 0 auto;
 }
 // --- Responsive
+@media #{$isBig}{
+	.mainbanner {
+		height: 850px;
+	}
+}
 @media #{$isPhone}{
   .title{
 		font-size: 30px;

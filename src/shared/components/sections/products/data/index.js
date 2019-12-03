@@ -1,19 +1,6 @@
 /* eslint max-len: [2, 500, 4] */
 
 const data = {
-  block1: {
-    images: {
-      image1: {
-        id: 8,
-        alt: 'clases',
-        src:
-          'https://www.dropbox.com/s/lmg1elde6rn2bga/Img-banner-clases.jpg?dl=0',
-        block: 13,
-      },
-    },
-    paragraphs: { paragraph1: 'Compromiso de excelencia con la danza' },
-    titles: { title1: 'CLASES' },
-  },
   block2: {
     buttons: {
       button1: { id: 13, title: 'BALLET', href: '/clases/ballet', block: 14 },

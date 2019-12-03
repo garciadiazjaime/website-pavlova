@@ -32,7 +32,7 @@ export default class ProductsSection extends React.Component {
   }
 
   render() {
-    const { block1, block2, block8 } = data;
+    const { block2, block8 } = data;
     const block3Variations = {
       variation1: 'ballet',
     };
@@ -45,7 +45,7 @@ export default class ProductsSection extends React.Component {
     const { types } = this.state;
 
     return (<div>
-      <Block1 data={block1} />
+      <Block1 />
       <Block2 data={block2} />
       <Block3 data={balletData} type={types[0]} variations={block3Variations} />
       <Block4 data={jazzData} type={types[1]} variations={block4Variations} />

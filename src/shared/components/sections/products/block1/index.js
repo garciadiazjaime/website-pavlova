@@ -1,19 +1,33 @@
 /* eslint max-len: [2, 500, 4] */
+
 import React from 'react';
-import _ from 'lodash';
+
 import SVG from '../../../svg';
 import { getImageBackground } from '../../../../utils/imageUtil';
 import sanitizeUtil from '../../../../utils/sanitize';
 const style = require('./style.scss');
 
+function getData() {
+  return {
+    images: {
+      image1: {
+        src:
+          '/images/clases/header-clases.jpg',
+      },
+    },
+    paragraphs: { paragraph1: 'Compromiso de excelencia con la danza' },
+    titles: { title1: 'CLASES' },
+  };
+}
+
 
 export default class Block1 extends React.Component {
 
   render() {
-    const styles = this.props.style;
-    const { titles, paragraphs } = this.props.data;
-    const divStyle = getImageBackground('/images/clases/header-clases.jpg');
-    return !_.isEmpty(this.props.data) ? (<div style={divStyle} className={style.mainbanner + ' ' + (styles ? styles.wrapper : '')}>
+    const { titles, paragraphs, images } = getData();
+    const divStyle = getImageBackground(images.image1.src);
+
+    return (<div style={divStyle} className={style.mainbanner}>
       <div className={style.transparency}></div>
       <div className="container-fluid">
         <div className="row">
@@ -24,11 +38,6 @@ export default class Block1 extends React.Component {
           </div>
         </div>
       </div>
-    </div>) : null;
+    </div>);
   }
 }
-
-Block1.propTypes = {
-  data: React.PropTypes.object,
-  style: React.PropTypes.object,
-};

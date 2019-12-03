@@ -20,18 +20,27 @@
 }
 // ---- Block5
 .mainbannerE{
-	height: 750px;
+	height: 550px;
 	background-size: cover;
-	background-position: center top;
+	background-position: center;
 }
 .titleE{
 	@extend .title1;
 	color: $white;
 	text-align: center;
-	margin-top: 280px;
+	margin-top: 250px;
 	text-transform: uppercase;
 }
 // --- Responsive
+@media #{$isBig}{
+  .mainbannerE{
+		height: 900px;
+	}
+	.titleE{
+		margin-top: 42%;
+	}
+}
+
 @media #{$isPhone}{
 	.titleC{
 		font-size: 30px;

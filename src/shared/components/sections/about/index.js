@@ -17,19 +17,15 @@ export default class AboutSection extends React.Component {
 
   render() {
     const { params } = this.props;
-    const { block1, block2, block3, block4, block5, block7, block8 } = data;
+    const { block3, block4, block7, block8 } = data;
     const { showListItem } = params;
-    const block5Variations = {
-      variation1: 'mainbannerE',
-      variation2: 'titleE',
-    };
 
     return (<div>
-      <Block1 data={block1} />
-      <Block2 data={block2} />
+      <Block1 />
+      <Block2 />
       <Block3 data={block3} />
       <Block4 data={block4} />
-      <Block5 data={block5} variations={block5Variations} />
+      <Block5 />
       <Block6 data={dataStaff} showListItem={showListItem} />
       <Block7 data={block7} />
       <Block8 data={block8} />

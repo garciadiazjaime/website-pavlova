@@ -11,8 +11,8 @@
 
 // ---- main slider
 .mainbanner{
-	min-height: 750px;
-	padding-top: 100px;
+	height: 550px;
+	margin-top: 100px;
   background-size: cover;
   background-position: center;
 }
@@ -23,11 +23,12 @@
 }
 .paragraph{
   @extend .paragraph1;
-	margin-bottom: 25px;
+  margin-bottom: 25px;
+  height: 310px;
 }
 .tagline{
   @extend .paragraph5;
-  margin-top: 230px;
+  margin-top: 190px;
   font-size: 41px;
   letter-spacing: 3px;
 }
@@ -42,7 +43,7 @@
 	margin: 0 auto;
 }
 .inner{
-  margin-bottom: 100px;
+  margin-bottom: 40px;
 }
 .indicators{
   bottom: -25px;
@@ -59,6 +60,11 @@
   }
 }
 // --- Responsive
+@media #{$isBig}{
+  .mainbanner {
+    height: 900px;
+  }
+}
 @media #{$isPhone}{
   .title{
 		font-size: 25px;

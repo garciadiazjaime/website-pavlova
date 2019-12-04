@@ -48,7 +48,7 @@ const data = {
       button1: {
         id: 18,
         title: 'HORARIOS',
-        href: '/docs/horarios-pavlova-2019.pdf',
+        href: '/docs/horarios-pavlova.jpg',
         block: 15,
       },
       button2: {
@@ -98,7 +98,7 @@ const data = {
       button1: {
         id: 20,
         title: 'HORARIOS',
-        href: '/docs/horarios-pavlova-2019.pdf',
+        href: '/docs/horarios-pavlova.jpg',
         block: 16,
       },
       button2: {
@@ -161,7 +161,7 @@ const data = {
       button1: {
         id: 22,
         title: 'HORARIOS',
-        href: '/docs/horarios-pavlova-2019.pdf',
+        href: '/docs/horarios-pavlova.jpg',
         block: 17,
       },
       button2: {
@@ -194,7 +194,7 @@ const data = {
       button1: {
         id: 24,
         title: 'HORARIOS',
-        href: '/docs/horarios-pavlova-2019.pdf',
+        href: '/docs/horarios-pavlova.jpg',
         block: 18,
       },
     },
@@ -221,7 +221,7 @@ const data = {
       button1: {
         id: 25,
         title: 'HORARIOS',
-        href: '/docs/horarios-pavlova-2019.pdf',
+        href: '/docs/horarios-pavlova.jpg',
         block: 19,
       },
     },
@@ -236,7 +236,7 @@ const data = {
       button1: {
         id: 26,
         title: 'HORARIOS',
-        href: '/docs/horarios-pavlova-2019.pdf',
+        href: '/docs/horarios-pavlova.jpg',
         block: 20,
       },
       button2: {

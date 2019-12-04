@@ -167,7 +167,7 @@ const data = {
       button1: {
         id: 10,
         title: 'HORARIOS',
-        href: '/docs/horarios-pavlova-2019.pdf',
+        href: '/docs/horarios-pavlova.jpg',
         block: 12,
       },
       button2: {

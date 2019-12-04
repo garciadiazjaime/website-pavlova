@@ -35,7 +35,7 @@ export default {
     },
     button7: {
       title: 'HORARIOS',
-      href: '/docs/horarios-pavlova-2019.pdf',
+      href: '/docs/horarios-pavlova.jpg',
     },
     button8: {
       title: 'FICHA DE INSCRIPCIÓN',

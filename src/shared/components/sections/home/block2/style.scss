@@ -4,6 +4,15 @@
 @import '../../../../theme/buttons/buttons';
 @import '../../../../theme/titles/titles';
 
+.button3v5 {
+  @extend .button3v3;
+
+  &:before {
+    background-image: url('/images/clases/HipHop-Icon.png');
+    background-position: inherit;
+  }
+}
+
 @media #{$isPhone}{
  .button3v1,  .button3v2,  .button3v3,  .button3v4,  .button3v5{
    padding-top: 30px;
@@ -12,7 +21,7 @@
 }
 
 .customCol {
-  width: 33%;
+  width: 25%;
 }
 @media #{$isPhone}{
   .customCol{

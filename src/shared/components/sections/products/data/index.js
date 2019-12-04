@@ -1,25 +1,6 @@
 /* eslint max-len: [2, 500, 4] */
 
 const data = {
-  block2: {
-    buttons: {
-      button1: { id: 13, title: 'BALLET', href: '/clases/ballet', block: 14 },
-      button2: { id: 14, title: 'JAZZ', href: '/clases/jazz', block: 14 },
-      button3: {
-        id: 15,
-        title: 'FLAMENCO',
-        href: '/clases/flamenco',
-        block: 14,
-      },
-      button4: {
-        id: 16,
-        title: 'KARDIO DANZA',
-        href: '/clases/kardio-danza',
-        block: 14,
-      },
-      button5: { id: 17, title: 'BARRÉ', href: '/clases/barre', block: 14 },
-    },
-  },
   block3: {
     slides: [
       {

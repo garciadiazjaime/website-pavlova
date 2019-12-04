@@ -12,11 +12,11 @@ const data = require('./data');
 export default class HomeSection extends React.Component {
 
   render() {
-    const { block2, block3, block4 } = data;
+    const { block3, block4 } = data;
 
     return (<div>
       <Block1 />
-      <Block2 data={block2} />
+      <Block2 />
       <Block3 data={block3} />
       <Block4 data={block4} />
       <Block5 />

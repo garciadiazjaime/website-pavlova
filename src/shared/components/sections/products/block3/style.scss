@@ -15,6 +15,7 @@
   margin-bottom: 25px;
   color: $white;
   margin-top: 0;
+  text-transform: uppercase;
   &::before{
     content: " ";
     @extend .icon-sprites;
@@ -76,6 +77,15 @@
     @include sprite($sprites-Icon-CardioDanza);
   }
 }
+
+.hiphop{
+  &::before{
+    @include sprite($sprites-Icon-CardioDanza);
+    background-image: url('/images/clases/HipHop-Icon.png');
+    background-position: inherit;
+  }
+}
+
 .controls{
   background-image: none!important;
   background-color: transparent!important;

@@ -47,24 +47,6 @@ const data = {
       content: '',
       block: 16,
     },
-    {
-      id: 30,
-      image: '/images/clases/jazz/SLIDE-JAZZ-6.jpg',
-      title: '',
-      button_title: '',
-      button_url: '',
-      content: '',
-      block: 16,
-    },
-    {
-      id: 30,
-      image: '/images/clases/jazz/SLIDE-JAZZ-7.jpg',
-      title: '',
-      button_title: '',
-      button_url: '',
-      content: '',
-      block: 16,
-    },
   ],
   buttons: {
     button1: {

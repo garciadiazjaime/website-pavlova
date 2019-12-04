@@ -32,26 +32,6 @@ const data = {
       content: '',
       block: 17,
     },
-    {
-      id: 32,
-      image:
-        '/images/clases/flamenco/SLIDE-FLAMENCO-4.jpg',
-      title: '',
-      button_title: '',
-      button_url: '',
-      content: '',
-      block: 17,
-    },
-    {
-      id: 32,
-      image:
-        '/images/clases/flamenco/SLIDE-FLAMENCO-5.jpg',
-      title: '',
-      button_title: '',
-      button_url: '',
-      content: '',
-      block: 17,
-    },
   ],
   buttons: {
     button1: {

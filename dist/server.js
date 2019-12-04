@@ -590,7 +590,7 @@
 
 	var _products2 = _interopRequireDefault(_products);
 
-	var _contact = __webpack_require__(74);
+	var _contact = __webpack_require__(75);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -1422,7 +1422,7 @@
 	    },
 	    button7: {
 	      title: 'HORARIOS',
-	      href: '/docs/horarios-pavlova-2019.pdf'
+	      href: '/docs/horarios-pavlova.jpg'
 	    },
 	    button8: {
 	      title: 'FICHA DE INSCRIPCIÓN',
@@ -1550,17 +1550,15 @@
 	  _createClass(HomeSection, [{
 	    key: 'render',
 	    value: function render() {
-	      var block1 = data.block1,
-	          block2 = data.block2,
-	          block3 = data.block3,
+	      var block3 = data.block3,
 	          block4 = data.block4;
 
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_block2.default, { data: block1 }),
-	        _react2.default.createElement(_block4.default, { data: block2 }),
+	        _react2.default.createElement(_block2.default, null),
+	        _react2.default.createElement(_block4.default, null),
 	        _react2.default.createElement(_block6.default, { data: block3 }),
 	        _react2.default.createElement(_block8.default, { data: block4 }),
 	        _react2.default.createElement(_block10.default, null)
@@ -1615,6 +1613,44 @@
 
 	var style = __webpack_require__(31);
 
+	function getData() {
+	  return {
+	    slides: [{
+	      id: 23,
+	      image: 'https://www.dropbox.com/s/slj1394r4l2sr9h/Banner_Pavlova_001-2.jpg?dl=0',
+	      title: '',
+	      button_title: 'BAILA JAZZ',
+	      button_url: '/clases/jazz',
+	      content: '',
+	      block: 1
+	    }, {
+	      id: 24,
+	      image: 'https://www.dropbox.com/s/4yi0dopo579m7bl/Banner_Pavlova_003-2.jpg?dl=0',
+	      title: '',
+	      button_title: 'BAILA FLAMENCO',
+	      button_url: '/clases/flamenco',
+	      content: '',
+	      block: 1
+	    }, {
+	      id: 26,
+	      image: 'https://www.dropbox.com/s/ff1zyfoharkqxx4/Banner_Pavlova_004-2.jpg?dl=0',
+	      title: '',
+	      button_title: 'BAILA BALLET',
+	      button_url: '/clases/ballet',
+	      content: '',
+	      block: 1
+	    }, {
+	      id: 27,
+	      image: 'https://www.dropbox.com/s/xcjhztd4g3ri8nj/Banner_Pavlova_002-2.jpg?dl=0',
+	      title: '',
+	      button_title: 'BAILA JAZ',
+	      button_url: '/clases/jazz',
+	      content: '',
+	      block: 1
+	    }]
+	  };
+	}
+
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
 
@@ -1666,7 +1702,8 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var slides = this.props.data.slides;
+	      var _getData = getData(),
+	          slides = _getData.slides;
 
 	      var carouselClasses = {
 	        inner: style.inner,
@@ -1677,7 +1714,7 @@
 	          arrow: style.arrow
 	        }
 	      };
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
@@ -1685,7 +1722,7 @@
 	          { id: 'carousel-home-block-1', interval: 8000, indicators: false, classes: carouselClasses },
 	          this.renderItems(slides)
 	        )
-	      ) : null;
+	      );
 	    }
 	  }]);
 
@@ -1693,11 +1730,6 @@
 	}(_react2.default.Component);
 
 	exports.default = Block1;
-
-
-	Block1.propTypes = {
-	  data: _react2.default.PropTypes.object
-	};
 
 /***/ }),
 /* 28 */
@@ -1899,10 +1931,6 @@
 
 	var _reactRouter = __webpack_require__(4);
 
-	var _lodash = __webpack_require__(28);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
 	var _svg = __webpack_require__(17);
 
 	var _svg2 = _interopRequireDefault(_svg);
@@ -1918,6 +1946,27 @@
 
 	var style = __webpack_require__(33);
 
+	function getData() {
+	  return {
+	    slides: [{ title: 'BALLET', href: '/clases/ballet', className: 'button3v1' }, { title: 'JAZZ', href: '/clases/jazz', className: 'button3v2' }, { title: 'FLAMENCO', href: '/clases/flamenco', className: 'button3v3' }, { title: 'Hip Hop', href: '/clases/hip-hop', className: 'button3v5' }]
+	  };
+	}
+
+	function getSlides(slides) {
+	  return slides.map(function (slide, index) {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'col-xs-6 ' + style.customCol, key: index },
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { className: style[slide.className] + ' row', to: slide.href },
+	        slide.title,
+	        _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
+	      )
+	    );
+	  });
+	}
+
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
 
@@ -1930,9 +1979,10 @@
 	  _createClass(Block2, [{
 	    key: 'render',
 	    value: function render() {
-	      var buttons = this.props.data.buttons;
+	      var _getData = getData(),
+	          slides = _getData.slides;
 
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
@@ -1941,39 +1991,10 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: style.customCol + ' col-xs-6' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: style.button3v1 + ' row', to: buttons.button1.href },
-	                buttons.button1.title,
-	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: style.customCol + ' col-xs-6' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: style.button3v2 + ' row', to: buttons.button2.href },
-	                buttons.button2.title,
-	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: style.customCol + ' col-xs-6' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: style.button3v3 + ' row', to: buttons.button3.href },
-	                buttons.button3.title,
-	                _react2.default.createElement(_svg2.default, { network: 'square_arrow', className: style.svg })
-	              )
-	            )
+	            getSlides(slides)
 	          )
 	        )
-	      ) : null;
+	      );
 	    }
 	  }]);
 
@@ -1982,17 +2003,12 @@
 
 	exports.default = Block2;
 
-
-	Block2.propTypes = {
-	  data: _react2.default.PropTypes.object
-	};
-
 /***/ }),
 /* 33 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","button1":"style__button1___3Mc_g","button2":"style__button2___2zikt","button2b":"style__button2b___UKCOY","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","icon-sprites":"style__icon-sprites___1crXd","button3":"style__button3___3KWNZ","button3v1":"style__button3v1___3BT_T","button3v2":"style__button3v2___1cST3","button3v3":"style__button3v3___1O1XL","button3v4":"style__button3v4___1ekHt","image1":"style__image1___4P84q","paragraph1":"style__paragraph1___2Ov3F","paragraph1b":"style__paragraph1b___3CQIB","paragraph2":"style__paragraph2___10FLO","paragraph3":"style__paragraph3___3kGpq","paragraph4":"style__paragraph4___15kjh","paragraph5":"style__paragraph5___3EMdx","sideSwipe":"style__sideSwipe___2tbA2","bottomSwipe":"style__bottomSwipe___3tj3d","title1":"style__title1___3Lp7y","title2":"style__title2___1Nebh","title3":"style__title3___2cBjs","title4":"style__title4___90ELg","title5":"style__title5___3p9GA","title6":"style__title6___1cWpF","title7":"style__title7___1hdkz","title8":"style__title8___4sMWt","button3v5":"style__button3v5___m7eJK","customCol":"style__customCol___3nRYv"};
+	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","button1":"style__button1___3Mc_g","button2":"style__button2___2zikt","button2b":"style__button2b___UKCOY","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","icon-sprites":"style__icon-sprites___1crXd","button3":"style__button3___3KWNZ","button3v1":"style__button3v1___3BT_T","button3v2":"style__button3v2___1cST3","button3v3":"style__button3v3___1O1XL","button3v5":"style__button3v5___m7eJK","button3v4":"style__button3v4___1ekHt","image1":"style__image1___4P84q","paragraph1":"style__paragraph1___2Ov3F","paragraph1b":"style__paragraph1b___3CQIB","paragraph2":"style__paragraph2___10FLO","paragraph3":"style__paragraph3___3kGpq","paragraph4":"style__paragraph4___15kjh","paragraph5":"style__paragraph5___3EMdx","sideSwipe":"style__sideSwipe___2tbA2","bottomSwipe":"style__bottomSwipe___3tj3d","title1":"style__title1___3Lp7y","title2":"style__title2___1Nebh","title3":"style__title3___2cBjs","title4":"style__title4___90ELg","title5":"style__title5___3p9GA","title6":"style__title6___1cWpF","title7":"style__title7___1hdkz","title8":"style__title8___4sMWt","customCol":"style__customCol___3nRYv"};
 
 /***/ }),
 /* 34 */
@@ -2339,63 +2355,6 @@
 	/* eslint max-len: [2, 500, 4] */
 
 	var data = {
-	  block1: {
-	    slides: [{
-	      id: 23,
-	      image: 'https://www.dropbox.com/s/slj1394r4l2sr9h/Banner_Pavlova_001-2.jpg?dl=0',
-	      title: '',
-	      button_title: 'BAILA JAZZ',
-	      button_url: '/clases/jazz',
-	      content: '',
-	      block: 1
-	    }, {
-	      id: 24,
-	      image: 'https://www.dropbox.com/s/4yi0dopo579m7bl/Banner_Pavlova_003-2.jpg?dl=0',
-	      title: '',
-	      button_title: 'BAILA FLAMENCO',
-	      button_url: '/clases/flamenco',
-	      content: '',
-	      block: 1
-	    }, {
-	      id: 25,
-	      image: 'https://www.dropbox.com/s/3xbh06096giea8u/Banner_Pavlova_005-2.jpg?dl=0',
-	      title: '',
-	      button_title: 'KARDIO DANZA',
-	      button_url: '/clases/kardio-danza',
-	      content: '',
-	      block: 1
-	    }, {
-	      id: 26,
-	      image: 'https://www.dropbox.com/s/ff1zyfoharkqxx4/Banner_Pavlova_004-2.jpg?dl=0',
-	      title: '',
-	      button_title: 'BAILA BALLET',
-	      button_url: '/clases/ballet',
-	      content: '',
-	      block: 1
-	    }, {
-	      id: 27,
-	      image: 'https://www.dropbox.com/s/xcjhztd4g3ri8nj/Banner_Pavlova_002-2.jpg?dl=0',
-	      title: '',
-	      button_title: 'BAILA JAZ',
-	      button_url: '/clases/jazz',
-	      content: '',
-	      block: 1
-	    }]
-	  },
-	  block2: {
-	    buttons: {
-	      button1: { id: 2, title: 'BALLET', href: '/clases/ballet', block: 2 },
-	      button2: { id: 3, title: 'JAZZ', href: '/clases/jazz', block: 2 },
-	      button3: { id: 4, title: 'FLAMENCO', href: '/clases/flamenco', block: 2 },
-	      button4: {
-	        id: 5,
-	        title: 'KARDIO DANZA',
-	        href: '/clases/kardio-danza',
-	        block: 2
-	      },
-	      button5: { id: 6, title: 'BARRÉ', href: '/clases/barre', block: 2 }
-	    }
-	  },
 	  block3: {
 	    buttons: {
 	      button1: { id: 7, title: 'CONOCE MÁS', href: '/escuela', block: 3 }
@@ -2497,17 +2456,13 @@
 
 	var _block12 = _interopRequireDefault(_block11);
 
-	var _block13 = __webpack_require__(59);
+	var _block13 = __webpack_require__(60);
 
 	var _block14 = _interopRequireDefault(_block13);
 
-	var _block15 = __webpack_require__(61);
+	var _block15 = __webpack_require__(62);
 
 	var _block16 = _interopRequireDefault(_block15);
-
-	var _data = __webpack_require__(63);
-
-	var _data2 = _interopRequireDefault(_data);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2532,29 +2487,22 @@
 	    key: 'render',
 	    value: function render() {
 	      var params = this.props.params;
-	      var block1 = data.block1,
-	          block2 = data.block2,
-	          block3 = data.block3,
+	      var block3 = data.block3,
 	          block4 = data.block4,
-	          block5 = data.block5,
 	          block7 = data.block7,
 	          block8 = data.block8;
 	      var showListItem = params.showListItem;
 
-	      var block5Variations = {
-	        variation1: 'mainbannerE',
-	        variation2: 'titleE'
-	      };
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_block2.default, { data: block1 }),
-	        _react2.default.createElement(_block4.default, { data: block2 }),
+	        _react2.default.createElement(_block2.default, null),
+	        _react2.default.createElement(_block4.default, null),
 	        _react2.default.createElement(_block6.default, { data: block3 }),
 	        _react2.default.createElement(_block8.default, { data: block4 }),
-	        _react2.default.createElement(_block10.default, { data: block5, variations: block5Variations }),
-	        _react2.default.createElement(_block12.default, { data: _data2.default, showListItem: showListItem }),
+	        _react2.default.createElement(_block10.default, null),
+	        _react2.default.createElement(_block12.default, { showListItem: showListItem }),
 	        _react2.default.createElement(_block14.default, { data: block7 }),
 	        _react2.default.createElement(_block16.default, { data: block8 })
 	      );
@@ -2587,10 +2535,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(28);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
 	var _svg = __webpack_require__(17);
 
 	var _svg2 = _interopRequireDefault(_svg);
@@ -2612,6 +2556,21 @@
 
 	var style = __webpack_require__(44);
 
+	function getData() {
+	  return {
+	    images: {
+	      image1: {
+	        id: 3,
+	        alt: 'escuela',
+	        src: 'https://www.dropbox.com/s/jttxmpw4gtlttan/Img-banner-nosotros.jpg?dl=0',
+	        block: 5
+	      }
+	    },
+	    paragraphs: { paragraph1: 'Prestigio desde 1987' },
+	    titles: { title1: 'ESCUELA' }
+	  };
+	}
+
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
 
@@ -2624,15 +2583,14 @@
 	  _createClass(Block1, [{
 	    key: 'render',
 	    value: function render() {
-	      var styles = this.props.style;
-	      var _props$data = this.props.data,
-	          titles = _props$data.titles,
-	          paragraphs = _props$data.paragraphs;
+	      var _getData = getData(),
+	          titles = _getData.titles,
+	          paragraphs = _getData.paragraphs;
 
 	      var divStyle = (0, _imageUtil.getImageBackground)('/images/escuela/escuela-header.jpg');
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	      return _react2.default.createElement(
 	        'div',
-	        { style: divStyle, className: style.mainbanner + ' ' + (styles ? styles.wrapper : '') },
+	        { style: divStyle, className: style.mainbanner },
 	        _react2.default.createElement('div', { className: style.transparency }),
 	        _react2.default.createElement(
 	          'div',
@@ -2653,7 +2611,7 @@
 	            )
 	          )
 	        )
-	      ) : null;
+	      );
 	    }
 	  }]);
 
@@ -2661,12 +2619,6 @@
 	}(_react2.default.Component);
 
 	exports.default = Block1;
-
-
-	Block1.propTypes = {
-	  data: _react2.default.PropTypes.object,
-	  style: _react2.default.PropTypes.object
-	};
 
 /***/ }),
 /* 43 */
@@ -2733,10 +2685,51 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
-
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 1000, 4] */
 
 	var style = __webpack_require__(46);
+
+	function getData() {
+	  return {
+	    slides: [{
+	      id: 4,
+	      image: '',
+	      title: 'Nuestra Escuela',
+	      button_title: '',
+	      button_url: '',
+	      content: '<p>Somos una Escuela de gran prestigio en el ámbito de la Danza, altamente especializada en las técnicas de Ballet, Jazz y Flamenco desde 1987. Nuestro principal compromiso es lograr que las alumnas aprovechen el tiempo de forma positiva ejercitando las técnicas de baile con un balance entre disciplina y convivencia.</p>\r\n<p>A través de la expresión corporal y estética de los movimientos, las alumnas adquieren una mejor coordinación, corrigen su postura, siguen un régimen alimenticio y moldean su silueta. La formación en el ámbito de la danza implica aprender a trabajar en equipo además de lograr un mayor desenvolvimiento, adquirir confianza en sí mismas y obtener crecimiento personal.</p>\r\n<p>Nuestra enseñanza es una propuesta de experiencia artística que armoniza mente y cuerpo.</p>',
+	      block: 6
+	    }, {
+	      id: 5,
+	      image: '',
+	      title: 'Nuestra Misón',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Ser una escuela de danza líder a nivel nacional, que ofrezca a su alumnado la oportunidad de desarrollar su pasión por la danza y la apreciación de las bellas artes dejando así una huella positiva en nuestra sociedad.',
+	      block: 6
+	    }, {
+	      id: 6,
+	      image: '',
+	      title: 'Nuestra Visión',
+	      button_title: '',
+	      button_url: '',
+	      content: 'Mantener el liderazgo con festivales binacionales de calidad, reinventándonos constantemente para estar en la vanguardia. Tener una gran variedad de clases y maestros que asistan con alegría, convencidos de que están en la mejor academia de danza. Capacitar constantemente a nuestros maestros. Compartir con orgullo nuestros logros a la sociedad, mediante los medios de comunicación disponibles. Cuidando la salud integral de nuestro alumnado, asesorándolo en su nutrición, además de motivar a las alumnas a participar en cursos y concursos.',
+	      block: 6
+	    }],
+	    buttons: {
+	      button1: { id: 9, title: 'CONTÁCTANOS', href: '/contacto', block: 6 }
+	    },
+	    images: {
+	      image1: {
+	        id: 4,
+	        alt: 'nuestra escuela',
+	        src: 'https://www.dropbox.com/s/d69v5mv7tr0k7f5/Img-escuela-bg.jpg?dl=0https://www.dropbox.com/s/d69v5mv7tr0k7f5/Img-escuela-bg.jpg?dl=0',
+	        block: 6
+	      }
+	    },
+	    titles: { title1: 'Experiencia artística que armoniza mente y cuerpo' }
+	  };
+	}
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -2770,12 +2763,12 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props$data = this.props.data,
-	          titles = _props$data.titles,
-	          buttons = _props$data.buttons,
-	          slides = _props$data.slides;
+	      var _getData = getData(),
+	          titles = _getData.titles,
+	          buttons = _getData.buttons,
+	          slides = _getData.slides;
 
-	      var divStyle = (0, _imageUtil.getImageBackground)('/images/escuela/banner-flamenco.jpg');
+	      var divStyle = (0, _imageUtil.getImageBackground)('/images/escuela/banner-experiencia-artistica.jpg');
 	      var carouselClasses = {
 	        inner: style.inner,
 	        controls: {
@@ -2788,7 +2781,7 @@
 	          active: style.active
 	        }
 	      };
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	      return _react2.default.createElement(
 	        'div',
 	        { style: divStyle, className: style.mainbanner },
 	        _react2.default.createElement(
@@ -2823,7 +2816,7 @@
 	            )
 	          )
 	        )
-	      ) : null;
+	      );
 	    }
 	  }]);
 
@@ -2831,12 +2824,6 @@
 	}(_react2.default.Component);
 
 	exports.default = Block2;
-
-
-	Block2.propTypes = {
-	  data: _react2.default.PropTypes.object,
-	  style: _react2.default.PropTypes.object
-	};
 
 /***/ }),
 /* 46 */
@@ -3085,10 +3072,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(28);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
 	var _imageUtil = __webpack_require__(29);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -3102,6 +3085,20 @@
 
 	var style = __webpack_require__(52);
 
+	function getData() {
+	  return {
+	    images: {
+	      image1: {
+	        id: 7,
+	        alt: 'STAFF',
+	        src: '/images/escuela/banner-staff.jpg',
+	        block: 9
+	      }
+	    },
+	    titles: { title1: 'STAFF' }
+	  };
+	}
+
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
 
@@ -3114,16 +3111,15 @@
 	  _createClass(Block3, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props,
-	          data = _props.data,
-	          variations = _props.variations;
-	      var titles = data.titles,
-	          images = data.images;
+	      var _getData = getData(),
+	          titles = _getData.titles,
+	          images = _getData.images;
 
 	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1);
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+
+	      return _react2.default.createElement(
 	        'div',
-	        { style: divStyle, className: style[variations.variation1] },
+	        { style: divStyle, className: style.mainbannerE },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container-fluid' },
@@ -3135,13 +3131,13 @@
 	              { className: 'col-sm-12 col-xs-12' },
 	              _react2.default.createElement(
 	                'h2',
-	                { className: style[variations.variation2] },
+	                { className: style.titleE },
 	                titles.title1
 	              )
 	            )
 	          )
 	        )
-	      ) : null;
+	      );
 	    }
 	  }]);
 
@@ -3149,12 +3145,6 @@
 	}(_react2.default.Component);
 
 	exports.default = Block3;
-
-
-	Block3.propTypes = {
-	  data: _react2.default.PropTypes.object.isRequired,
-	  variations: _react2.default.PropTypes.object.isRequired
-	};
 
 /***/ }),
 /* 52 */
@@ -3179,10 +3169,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(28);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
 	var _listShow = __webpack_require__(54);
 
 	var _listShow2 = _interopRequireDefault(_listShow);
@@ -3198,6 +3184,8 @@
 
 	var style = __webpack_require__(58);
 
+	var data = __webpack_require__(59);
+
 	var Block6 = function (_React$Component) {
 	  _inherits(Block6, _React$Component);
 
@@ -3210,11 +3198,10 @@
 	  _createClass(Block6, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props,
-	          data = _props.data,
-	          showListItem = _props.showListItem;
+	      var showListItem = this.props.showListItem;
 
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+
+	      return _react2.default.createElement(
 	        'div',
 	        { className: style.wrapper },
 	        _react2.default.createElement(
@@ -3222,7 +3209,7 @@
 	          { className: 'container-fluid' },
 	          _react2.default.createElement(_listShow2.default, { data: data, item: showListItem, style: style })
 	        )
-	      ) : null;
+	      );
 	    }
 	  }]);
 
@@ -3233,7 +3220,6 @@
 
 
 	Block6.propTypes = {
-	  data: _react2.default.PropTypes.object.isRequired,
 	  showListItem: _react2.default.PropTypes.string
 	};
 
@@ -3618,6 +3604,115 @@
 
 /***/ }),
 /* 59 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint max-len: [2, 1000, 4] */
+	module.exports = {
+	  title: 'Conoce a nuestro staff',
+	  sectionUrl: 'escuela',
+	  items: [{
+	    title: 'GLORIA ZUÑIGA WEHBER',
+	    subtitle: 'GLORIA ZUÑIGA WEHBER',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/s02dsqogkixpk4x/Img-Gloria-Zuniga.png?dl=0',
+	    content: ['Gloria inició sus clases de baile a los 3 años de edad en las disciplinas de ballet y jazz con la maestra Sandra Araiza. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Técnica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certificó como Maestra de Aerobics por ISAT (Institute School of Aerobic Training) y en 1992 se graduó en la Universidad de San Diego State como Licenciada en Danza donde participó durante 4 años en la compañía de esta Universidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet "Cascanueces" en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que a tomado cursos como:', ['GUS (Giordiano Workshop) en Monterrey, N.L. en 2001', 'Curso para maestros en la escuela "Broadway Dance Center" de Nueva York en 2006.', 'The Pulse en los Angeles C.A EN 2009', 'Nuvo workshop en Long Beach en 2014', 'Jump workshop en Monterrey, Nuevo León en 2015', 'Curso de Anatomía aplicado a maestros de Danza en 2016', 'Dance Teacher Summit en Long Beach, CA. - 2016, 2017 y 2018'], 'En el año 2014 funda junto con Alicia Luna el grupo Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.', 'Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.', 'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 29 años.']
+	  }, {
+	    title: 'ALICIA LUNA',
+	    subtitle: 'ALICIA LUNA',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/3b1zex2m6csljia/Img_Alicia-Luna.png?dl=0',
+	    content: ['Lichita inició su preparación en la Academia de Sandra Araiza y posteriormente en la Escuela de Danza Gloria Campobello. Fue así que formó su destino en esta disciplina para convertirse en maestra de danza y posteriormente cofundadora y directora de la Escuela de Danza Pavlova fundada en el año de 1987.', 'Mientras estuvo en la escuela Campobello, disfrutaba al máximo sus clases como alumna y asistente, donde después de 3 años logró certificarse como Maestra en Técnica de Danza.', 'En el 2014 fundó, junto con Gloria Zuñiga, el grupo Pas de Chat. Este grupo esta integrado por alumnas destacadas de la escuela de danza Pavlova, quienes representan con orgullo y talento a la escuela en distintas competencias de nivel nacional e internacional.', 'Buscando siempre estar actualizada y comprometida con su carrera ha tomado cursos como:', ['Curso de Metodología de la Danza 2014 – Tijuana B.C.', 'Dance Teachers Summit 2015 – Irvine CA.', 'Dance Makers 2015 – Los Ángeles CA.', 'Iniciación a la Danza 2015 – Tijuana B.C.', 'Curso de Anatomía aplicado a maestros de Danza en 2016 – Tijuana B.C.', 'Curso Dance Teacher Summit en Long Beach, CA. –2016 y 2017', 'Actualmente se sigue preparando con clases de Ballet Clásico.'], 'El tiempo y la entrega que Lichita dedica a sus alumnas, representan la oportunidad de edificar y promover orden, disciplina y convivencia, teniendo como propósito el fomentar los valores que las acompañarán toda su vida, no sólo como un bonito recuerdo, sino como parte de su formación como personas.']
+	  }, {
+	    title: 'MILY WEHBER',
+	    subtitle: 'MILY WEHBER',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/mdw3idb1vbek96z/Img-Mily-Wehber.png?dl=0',
+	    content: ['Ana Emely Wehber Barreiro, inicia sus estudios a los 4 años de edad en la escuela de danza Gloria Campobello, logrando obtener el título de Técnico en Danza. A los 16 años empieza como asistente de maestra y un año mas tarde la escuela de danza "Nandielo", dandole la oportunidad de dar clases como maestra. Participó como alumna y maestra en la escuela de Danza "Betty Gándara" por 4 años, simultáneamente tomó clases de danza en San Diego State University con maestros como Kelly Grant (Jazz) , George Willis (Contemporáneo). Tomó cursos de Stage 7, Threes Compony y  APA, (Academy of Performing Arts). Workshop de Gus Giordano en Monterrey, ademéas de asistir en Los Angeles CA. con Joe Tremaines, Musicwork Shop, The Pulse. Recientemente participo en Palooza y Novu en Long Beach, CA. con el maestro Yannis Marshall y 24/7 Workshop.', 'Ha participado en el Carnaval Antifaz Fundación Luz, como coreógrafa en el 2012 y 2013, obteniendo el premio de la mejor coreografía en el 2012.', 'Curso Palooza en Long Beach CA. – Julio 2017', 'Empezó a dar clases en la escuela de danza Pavlova, desde que esta abrió sus puertas.', '"Mi gran pasión es ser maestra de danza... Ver a mis alumnas crecer, como bailarinas, como disfrutan sus clases, transmitirles el amor por la danza, la constancia , diciplina, ver como logran sus metas, y saber que tu eres parte de estos logros, es una de mis más grandes satisfacciones en la vida." – Miss Mily']
+	  }, {
+	    title: 'ALEJANDRA GUTIERRÉZ',
+	    subtitle: 'ALEJANDRA GUTIERRÉZ',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/r81hjmxo9niz3pf/Img-Alejandra-Gutierrez.png?dl=0',
+	    content: ['Inicio sus estudios a la edad de 3 años en el colegio de danza Sylvia bajo la dirección de la maestra Silvia Elena Martínez, estudio ahí por más de 15 años en las disciplinas de Jazz, Ballet y Tap, donde tuvo la oportunidad de asistir a varios cursos como NYCDA, Tremaine y Al Gilbert. Fue asistente en la disciplina de Tap.', 'A la edad de 16 años empezó siendo maestra y asistente en la escuela de danza Ancheyta dando clases de tap y jazz.', 'A los 19 empezó dando clases en la escuela de danza Pavlova Hipódromo en la disciplina de jazz. Se ha preparado en varios cursos como Dancemakers, Nuvo en long beach, Jump Monterrey, 24/7 en San diego, Dance Teacher Summit LB y DancerPalozza en Long beach.', 'Coreógrafa en la escuela de danza Coppelia donde sus alumnas obtuvieron varios primeros lugares en la competencia Dance Makers en la disciplina de lirico así como un premio especial por mejor coreografía.', 'Actualmente forma parte del equipo de trabajo de la escuela Pavlova Hipódromo y es coreógrafa del grupo de competencia Pasdechat by Pavlova con el cual ha viajado a varios concursos nacionales e internacionales, obteniendo varios primeros lugares por sus coreografías y reconocidas becas para sus alumnas, el curso más reconocido que han becado a sus alumnas es Dance Awards.', 'Es una maestra reconocida por sus coreografías tanto en jazz como en lírico en niveles intermedios y avanzados.']
+	  }, {
+	    title: 'CORINA PERAZA',
+	    subtitle: 'CORINA PERAZA',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/78ttm4iz875wtir/Img-Corina-Peraza.png?dl=0',
+	    content: ['Corina es originaria de Tijuana y desde muy pequeña empezó a bailar Flamenco. Es hija de la famosa bailarina española Teresa Jaen, miembro del dueto "Teresa y Antonio Jaen". El tener a su madre como instructora, le ha ayudado a desarrollarse cada vez más a través de los años.', 'Lleva el arte en sus venas, es por ello que Corina comparte con sus estudiantes el mismo sentimiento y pasión por el baile Flamenco. Es sabido que cualquier forma de arte se transforma en comunicación, entonces, qué mejor manera de transmitirlo tan intensamente a sus estudiantes que a través del amor y pasión del baile Flamenco.']
+	  }, {
+	    title: 'MAYRA JIMÉNEZ',
+	    subtitle: 'MAYRA JIMÉNEZ',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/1ubs0mhib2ca80a/Img_Mayra-Jimenez.png?dl=0',
+	    content: ['Nacio el 4 de Junio del 1988. Mayra desde sus 4 años de edad comenzó a experimentar tomando clases de Jazz, y 2 años después comenzó tomando clases de ballet. Hasta la fecha sigue practicando la danza, habiendo tomado aparte de Ballet y Jazz,  clases de Contemporáneo con Miroslava Wilson y  Hip-Hop con el maestro Omar Silva dentro de la Escuela " Ballet Cámara de la Frontera" del Maestro Rafael Oseguera, habiéndose graduado como Bailarina Clásica y Contemporánea.', 'Tiene 9 años de experiencia como Maestra impartiendo clases de Jazz, Ballet, y Lirico. Habiendo concluido con cursos de Metodología para la Danza y pedagogía.', 'Asistiendo al 5to y 6to Congreso Nacional de Danza Jazz en Morelia Michoacán con maestros como: Guillermo Maldonado (barra al piso y pedagogía), Guillermina Gómez y John Lehrer (Jazz), Joshua Bergasse de Nueva York (jazz), Elvin Venegas de Nicaragua (técnica clásica – Ballet), Jermaine Browne de nueva York (hip-hop), Alexis Zanette de Cuba (danza moderna), entre otros. También a tomando el Curso Internacional de Danza Clásica "DANCE IT 2007 y 2008" con la primera Bailarina Irma Morales y Frank Fischer.', 'Posteriormente obteniendo una beca para formar parte de un grupo de baile de la escuela "Culture Shock Dance Center" en San Diego. Asistio Entre el 2014 y 2015 a un curso de Jazz  y "Hells" con Yanis Marshall (bailarin y maestro Internacional) y una Materclass de ballet con la maestra Elena Tokareva Baltovick; entre otros cursos locales.', 'Ha participado en varias obras musicales Infantiles como son "Cri-cri y la danza", "El mago de Oz", "Peter Pan", "Alicia en el país de las maravillas", como también en "La fille Mal Garde", "Graduados", "Cascanueces" y "Carmen" presentadas en el Teatro del Cecut.', 'Su objetivo es transmitir de la manera más correcta todo lo que ha aprendido de la danza, todo lo bueno que le ha dejado e inculcar en el alumnado una disciplina y amor a la danza, a la cultura, al arte, haciéndolas sentir que es una de las mejores maneras para expresar todo aquello que nuestro cuerpo siente.']
+	  }, {
+	    title: 'ELEANA FRANCO',
+	    subtitle: 'ELEANA FRANCO',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/7xofldjk7cnl2ds/Eleana-Franco.png?dl=0',
+	    content: ['Bailarina, coreógrafa y maestra de danza nacida en Estados Unidos. Inicio sus estudios a la edad de 2 anos en el “Colegio de Danza Sylvia” donde aprendió ballet, tap, flamenco, jazz y hip hop. Varios años después se convirtió en asistente y próximamente en maestra.', 'Participo en varias importantes obras como es “el cascanueces” junto con la compañía “Moscow ballet” en el Civic Theatre en San Diego y también junto con la “Compañía de danza de Baja California” con Raul Tadeo. También fue participe de la obra infantil “pedro y el lobo” que fue presentada en el CECUT bajo la dirección de Norma Herrera. Continuo con sus estudios en Estados Unidos en la escuela “Coronado School of the Arts” donde estudio varios cursos de historia de la danza, nutrición, improvisación, critica de la danza, coreografía entre muchos otros.', 'Actualmente se encuentra aplicando estos conocimientos como maestra y busca seguir creciendo para compartir este conocimiento con sus alumnos.']
+	  }, {
+	    title: 'ADRIANA CORAL',
+	    subtitle: 'ADRIANA CORAL',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/q4kedajs4rgdqe1/Adriana-Coral.png?dl=0',
+	    content: ['Bailarina y maestra que se desarrolla profesionalmente  en el norte de México; miembro fundador de Subterráneo Danza Contemporánea desde hace 17 años, donde su misión es exponer su trabajo como intérprete y colaborador creativo en la realización de espectáculos escénicos. Mantiene una constante búsqueda del lenguaje propio a través de la investigación en diferentes técnicas dancísticas  así como la divulgación de sus conocimientos a través de la docencia, asimismo, busca mantener vínculos estrechos con otros artistas escénicos del país para fortalecer su quehacer  dancístico y contribuir a la difusión del arte.']
+	  }, {
+	    title: 'VICKY SAENZ',
+	    subtitle: 'VICKY SAENZ',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/7ngb2v9j29d1xd2/Vicky-Saenz.png?dl=0',
+	    content: []
+	  }, {
+	    title: 'ARIELI ZABICKY',
+	    subtitle: 'Arieli Zabicky',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/dt09rnnkk7u4b2u/Arieli-Zabicky.png?dl=0',
+	    content: ['Ari Zabicky – Licenciada en danza, bailarina profesional, artista escénico, instructora.', 'Actualmente laborando con:', ['Subterráneo Danza Contemporánea como bailarina', 'Maestra de ballet adulto en Plan D', 'Maestra de asignatura en Ateneo Universitario'], 'FORMACIÓN PROFESIONAL', ['Técnico en Danza (2010 – 2012)'], 'Escuela de Danza Gloria Campobello, Tijuana, B.C., México', ['Licenciatura en Danza (2012 – 2016)'], 'Universidad Autónoma De Baja California, Mexicali B.C, México', 'CURSOS MÁS RECIENTES', '2014', ['Seminario de Metodología para la enseñanza de la Danza Clásica CEART Tijuana. Impartió: Mtro. Rafael Ocegueda', 'Taller Intensivo de Ballet. Escuela Americana de danza, Mexicali B.C., Impartio: Aldo Kattón'], '2015', ['Taller intensivo "DANZA JAZZ" UABC, Facultad de Artes, Mexicali. B.C., Impartido por: Pedro Garcia Malvaez', 'Master Class de partnering Facultad de Artes UABC, Licenciatura En danza Impartió Lux Boreal', 'Congreso Nacional de Danza Jazz – CRAM, Zam. Mich.'], '2016', ['Capacitación en "Contrología" o Método Pilates Nivel 1, Fitness Center, Mexicali B.C., Impartió: Lic. Eunice Hidalgo Palacios', 'Taller "El cuerpo vacío" Dance Lab, Tijuana, Impartió: Shantí Vera'], '2017', ['Taller de Metodo Feldenkrais "El Huerto Playas de Tijuana" Impartió: Kata Cots'], 'PARTICIPACIONES', '2015', ['Bailarina invitada en grupo de danza "La Pieza Danza Jazz", Concurso dentro del marco del Congreso Internacional de Danza Jazz Zamora, Michoacán. Participación con la coreografía "CUERPOS", Coreógrafo: Ricardo Zavala, PRIMER LUGAR'], '2016', ['Bailarina en grupo de danza "La Pieza Danza Jazz", Coreografía: Obscuridad Coreógrafo: Ricardo Zavala, Presentación de exhibición en el 8vo concurso del Congreso Internacional de Danza Jazz – Zamora, Michoacán', 'Bailarina en Grupo de danza "La Pieza Danza Jazz".<br />Obra: "Méjico, una chicanada más".<br />- Bailarina.<br />- Gestión.<br />- Asistente de producción.<br />Dirección general: Ricardo Zavala.<br />Presentaciones:<br />- Teatro UABC, Mexicali B.C.<br />- Teatro Obrero, Zamora Michoacán dentro de Congreso Nacional de Danza Jazz.', 'Colaboración como bailarina invitada con compañía de danza Bajo la Lápida.<br />Coreógrafo: Armando Leal.<br />Participación en evento de ARMONIA UABC – 2016', 'OBRA: "Homa´quina".<br />Coreógrafo: Emma G. Davis.<br />Proyecto coreográfico de la Lic. En danza UABC – Mexicali.<br />Estreno: 3 de Junio 2016.<br />- Bailarina.<br />- Gestión.<br />- Montaje coreográfico y de iluminación', 'Montajes de iluminación en Festival Internacional de Danza Entre Fronteras UABC, Mexicali B.C.<br />- "Quasar" compañía de danza<br />- Taller coreográfico de la UABC<br />Antares Danza contemporánea, Responsable: Hildelena Vazquez', 'Participación en el taller "Body mind centering"<br />Lic. En Danza, UABC<br />Impartió: Tamar Kipnis', 'Bailarina en la pieza: "Mis amigos me dicen.."<br />Coreografa: Rosa A. Gomez<br />Actividad dentro de Facultad de Artes UABC', 'Entijuanarte<br />Montaje de iluminación y traspunte en: "Piezas desordenadas"<br />bajo la dirección de Gregorio Coral'], '2017', ['Bailarina invitada en Subterraneo Danza contemporánea', 'Bailarina en la obra: Caleidoscopio<br />Direccion: Gregorio Coral']]
+	  }, {
+	    title: 'MARILU AGUILAR',
+	    subtitle: 'Marilu Aguilar',
+	    intro: '',
+	    image: 'https://www.dropbox.com/s/r5idqzlpc7j9iwv/Marilu-Aguilar.png?dl=0',
+	    content: ['<b>Formación Artística</b>', '<b>2017</b> Actual residente de la compañía de danza Lux Boreal, Tijuana. <br />Actual integrante y colaboradora coreografica de Tranze Producciones, Mexicali.<br />Residente de Resonancias laboratorio de creacion en CASA, Oaxaca', '<b>2016</b> Residente de Centro de Danza y Producción Escénica de Baja California. <br />Integrante de Homa Colectivo de Danza, Mexicali', '<b>2015-2016</b> ArcDanz International Dance Program en Puebla; Reves Entrenamiento. <br />Físico en Heredia, Costa Rica; Campin en San Luis Potosi, México', '<b>2014-2015</b> Verano Chilango La Cantera, Ciudad de México; Contemporáneo con Nederlands Dans Theatre, San Diego; Congreso La Ruta, Mexicali ', '<b>2013-2014</b> Barra al Piso; Congreso de jazz, ballet y contemporáneo La Ruta, Mexicali', '<b>2012-2010</b> Integrante del Ballet de Martha Pulido en Tecate; Curso de ballet, jazz, tap y flamenco en San Diego Dance Academy', '<br/><b>Experiencia Escénica</b>', '<b>2017-2016</b> Bailarina de Medium en Sibu International Dance Festival, Malasia y en Tecate, Mexicali y Los Angeles. Primer lugar en "Agite y Sirva Festival de Videodanza"; Homa´quina en Mexicali, Tijuana y Ensenada; Soft Associations en Tijuana; One en Palm Springs; Biografía en Ocho en Ciudad de México y Puebla; Mentes en Los Ángeles, Costa Rica y Corea del Sur', '<b>2015-2013</b> Tercer lugar en Andong Mask Dance Festival and Competition, Corea del Sur; Día Internacional de la danza en Mexicali y Tecate; Encuentro Internacional de Danza Contemporánea Entre Fronteras, Mexicali. ', '<b>2012-2010</b> Ballet: Coppelia, El Cascanueces, Atlantis, Danza Fusión, Bicentenario de la Revolución y Día internacional de la danza, Tecate', '<br /><b>Experiencia Docente</b>', '<b>2017</b> Danza Contemporanea y Fit Ball en Sau de Chat, Jazz Infantil en Escuela de Danza Pavlova; Barre en Studio Barre Fitness, Tijuana', '<b>2016</b> Pilates para Adultos Mayores en CEART, Tecate', '<b>2016-2015</b> Barrecore, Ballet principiante, Ballet infantil y Jazz intermedio en Academia Idanza; Baby ballet, Ballet infantil, Jazz infantil, Jazz intermedio y Jazz avanzado en Academia Minue', '<b>2014-2015</b> Expresión Corporal para niños con capacidades diferentes en CEDI; Jazz en Centro Multidisciplinario Danzxarte; Dance for Fitness en gimnasio Total Fitness; Baby ballet y Jazz infantil en Academia Minue', '<b>2010-2012</b> Impartición de Ballet, Jazz, Tap y Danza Árabe en San Diego Dance Academy; Taller de ballet infantil en Centro Cultural Tecate']
+	  }, {
+	    title: 'GIOVANI GONZÁLEZ ALARCÓN',
+	    subtitle: 'GIOVANI GONZÁLEZ ALARCÓN',
+	    intro: '',
+	    image: '/images/escuela/staff/giovani-alarcon.jpg',
+	    content: ['Egresado de la Lic. en Actividad Física y Deporte por la Universidad Autónoma de Baja California, con amplia experiencia en presentaciones profesionales incluyendo participación en shows de la cadena televisiva Telemundo, eventos masivos en Los Ángeles y en Baja California, incluyendo apertura de múltiples conciertos de artistas en la región.', 'Impartió clases de Cardio Dance y Cardio Hip Hop en diversos gimnasios de la Ciudad de Tijuana. Maestro de Hip-Jazz en los principales estudios de Danza en Tijuana.', 'Coreógrafo Profesional, forma parte de la compañía de Hip Hop "Culture Shock" en San Diego.']
+	  }, {
+	    title: 'Adriana Coral Pulido',
+	    subtitle: 'Adriana Coral Pulido',
+	    intro: '',
+	    image: '/images/escuela/staff/AdrianaCoral-Pavlova.png',
+	    content: ['Bailarina y maestra que se desarrolla profesionalmente en el norte de México; miembro fundador de Subterráneo Danza Contemporánea desde hace 17 años, donde su misión es exponer su trabajo como intérprete y colaborador creativo en la realización de espectáculos escénicos. Creadora la revista especializada en danza, Escena Cóncava, editada en la ciudad de Tijuana, Baja California. Ha participado como ejecutante dentro de varios festivales a nivel nacional e internacional y realizó el Festival “Mujeres que sueñan”. Fue becado como grupo artístico por el Fondo Especial para la Cultura y las Artes de B.C. (FOECA), para desarrollar la coreografía “Mitología del nómada: escenas para apresar el alma flotante de los trotamundos.”', 'Dentro de su preparación ha tomado clase con los siguientes reconocidos maestros: Ricardo Peralta, Jo Savino, Ugo Ruíz, Jorge Cerecero, Irma Morales, Edgar Robles, Roberto Robles, Guillermo Maldonado, Lucero Camarena, Vicente Silva, Mijael Rojas, Claudia Lavista, Omar Carum, Khosro Adibi y con la ex primera bailarina rusa del ballet de Kiev, Tatiana Tchevchenco.', 'Mantiene una constante búsqueda del lenguaje propio a través de la investigación en diferentes técnicas dancísticas así como la divulgación de sus conocimientos a través de la docencia, asimismo, busca mantener vínculos estrechos con otros artistas escénicos del país para fortalecer su quehacer dancístico y contribuir a la difusión del arte.']
+	  }, {
+	    title: 'Martha Lugo Torres',
+	    subtitle: 'Martha Lugo Torres',
+	    intro: '',
+	    image: '/images/escuela/staff/MarthaLugo-Pavlova.png',
+	    content: ['Profesora, bailarina y coreógrafa. Nacida en Tijuana, Baja California. Egresada del técnico en Danza en la Escuela de Danza Gloria Campobello – EDGC (Tijuana, México). Cuenta con formación en ballet clásico, danza española, contemporáneo, flamenco y jazz. Participó en el Ballet del Noroeste de México en El lago de los cisnes, Cascanueces, Don Quijote y Giselle; curso la cátedra de danza impartida por el Ballet Nacional de Cuba. Actualmente funge como maestra y coreógrafa en academias de danza de Tijuana y Rosarito.', 'Imparte cátedra de acuerdo a las necesidades de cada persona, dependiendo su edad y su conocimiento en la danza, cuidando, ante todo, la salud física de los alumnos. ']
+	  }, {
+	    title: 'María Del Carmen Hechavarria',
+	    subtitle: 'María Del Carmen Hechavarria',
+	    intro: '',
+	    image: '/images/escuela/staff/MariaDelCarmen-Pavlova.png',
+	    content: ['Bailarina solista y maître del Ballet Nacional de Cuba. Inició sus estudios de ballet en la Escuela Nacional de Arte. Sus principales profesores fueron Alicia Alonso, Fernando Alonso, Laura Alonso, Ramona de Sáa, Josefina Méndez, Loipa Araújo, Aurora Bosch, Joaquín Benegas, Rosa Elena Álvarez y Adolfo Roval. Forma parte del Ballet Nacional de Cuba, compañía con la que actúa en las más importantes obras de repertorio de la gran tradición romántico-clásica, así como en creaciones de contemporáneos.', 'Obtuvo la licenciatura en Arte Danzario por el Instituto Superior de Arte en La Habana, en la Especialidad de Ballet. Ha participado en numerosas giras por América, Europa y Asia, y ha actuado en famosos teatros.', 'Cercana colaboradora de Alicia Alonso, ha sido su asistente en el montaje de varias coreografías. También ha sido repositora de obras de otros coreógrafos, así como del repertorio tradicional. Su experiencia pedagógica abarca una amplia trayectoria que va desde los cursos de psicoballet, hasta cursos de verano organizados por la Cátedra Alicia Alonso de la Universidad Complutense, de Madrid.', 'Recibió la Distinción ¨Raúl Gómez García¨ y la Distinción por la cultura Nacional. La primera edición de Alicia Alonso, más allá de la técnica, por la universidad Politécnica de Valencia, y fue presentada en la casa de América en Madrid por Francisco Nieva, miembro de la Real Academia Española.']
+	  }, {
+	    title: 'Andrea Margarita Almaraz González',
+	    subtitle: 'Andrea Margarita Almaraz González',
+	    intro: '',
+	    image: '/images/escuela/staff/Andrea-Pavlova.png',
+	    content: ['Inició su formación de danza a los 4 años de edad en “escuela de danza pavlova” donde aprendió ballet, jazz, flamenco y lírico. A los 7 años tomó  clases de gimnasia durante dos años. A sus 17 años entró a una compañía de danza latina y al transcurso ha ido tomando clases de ritmos latinos.', 'Empezó siendo asistente de ballet  en escuela de danza pavlova y años después empezó a dar clase de ballet en un academia de artes y un colegio. Ha trabajado de bailarina en conciertos con cantantes locales y de bailarina en un grupo de música versátil como punto clave, maz tekila, la clase y Revelación. Participó en diversos cursos tales como el curso de flamenco con Maria Juncal, curso de flamenco con Cristóbal Reyes, curso de flamenco María Carrasco, curso expression dance, curso salsa fest, entre otros.']
+	  }]
+	};
+
+/***/ }),
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3653,7 +3748,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(60);
+	var style = __webpack_require__(61);
 
 	var Block7 = function (_React$Component) {
 	  _inherits(Block7, _React$Component);
@@ -3728,14 +3823,14 @@
 	};
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1YJUo","vCenter":"style__vCenter___1XSDF","vCenterRel":"style__vCenterRel___1J02z","hCenter":"style__hCenter___2Tdv3","inheritHeight":"style__inheritHeight___fdY-6","hideOverflow":"style__hideOverflow___GHITu","icon-sprites":"style__icon-sprites___1TCxk","title1":"style__title1___3raEq","title2":"style__title2___xWuEp","title3":"style__title3___2JND3","title4":"style__title4___3VrXj","title5":"style__title5___14ULg","title6":"style__title6___3Jlc3","title":"style__title___2FxDg","title7":"style__title7___1VsjO","title8":"style__title8___1VtVb","paragraph1":"style__paragraph1___CrxJb","paragraph1b":"style__paragraph1b___f3SZQ","paragraph":"style__paragraph___2hS_M","paragraph2":"style__paragraph2___2Dt1n","author":"style__author___fROZn","paragraph3":"style__paragraph3___NvRs3","paragraph4":"style__paragraph4___1DBvl","paragraph5":"style__paragraph5___3BI-s","arrow":"style__arrow___2yiv-"};
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3769,7 +3864,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(62);
+	var style = __webpack_require__(63);
 
 	var Block8 = function (_React$Component) {
 	  _inherits(Block8, _React$Component);
@@ -3806,7 +3901,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'a',
-	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)('/docs/horarios-pavlova-2019.pdf'), title: buttons.button1.title, target: '_blank' },
+	                { className: style.button, href: (0, _imageUtil.normalizeImageUrl)('/docs/horarios-pavlova.jpg'), title: buttons.button1.title, target: '_blank' },
 	                'DESCARGAR',
 	                _react2.default.createElement(_svg2.default, { network: 'arrow_down', className: style.svg })
 	              )
@@ -3843,117 +3938,11 @@
 	};
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1G5oi","vCenter":"style__vCenter___3eMr-","button1":"style__button1___3rP8P","button":"style__button___138RC","button2":"style__button2___A09os","button2b":"style__button2b___7okhD","vCenterRel":"style__vCenterRel___2FPbE","hCenter":"style__hCenter___273Vb","inheritHeight":"style__inheritHeight___2w5-4","hideOverflow":"style__hideOverflow___35OAp","icon-sprites":"style__icon-sprites___3gAB_","button3":"style__button3___2H38R","button3v1":"style__button3v1___2UPHY","button3v2":"style__button3v2___21LXu","button3v3":"style__button3v3___3aio2","button3v4":"style__button3v4___1E1O4","title1":"style__title1___2Hrv_","title2":"style__title2___14zdY","title3":"style__title3___wJv6I","title4":"style__title4___bi5rE","title5":"style__title5___1Jrqb","title6":"style__title6___3IfL7","title7":"style__title7___vVSgO","title8":"style__title8___23FzZ","title":"style__title___2GTcd","sideSwipe":"style__sideSwipe___2kJhL","bottomSwipe":"style__bottomSwipe___Iacpj","wrapper":"style__wrapper___3pHW-"};
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	/* eslint max-len: [2, 1000, 4] */
-	exports.default = {
-	  title: 'Conoce a nuestro staff',
-	  sectionUrl: 'escuela',
-	  items: [{
-	    title: 'GLORIA ZUÑIGA WEHBER',
-	    subtitle: 'GLORIA ZUÑIGA WEHBER',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/s02dsqogkixpk4x/Img-Gloria-Zuniga.png?dl=0',
-	    content: ['Gloria inició sus clases de baile a los 3 años de edad en las disciplinas de ballet y jazz con la maestra Sandra Araiza. Un año después continuó sus estudios en la escuela de danza Gloria Campobello obteniendo su certificado como Técnica de Danza a los 17 años. Tres años más tarde se certificó como Maestra de Danza avalada por la Secretaría de Educación Pública (SEP).', 'Siempre con mucha energía y buscando superarse, a los 18 años se certificó como Maestra de Aerobics por ISAT (Institute School of Aerobic Training) y en 1992 se graduó en la Universidad de San Diego State como Licenciada en Danza donde participó durante 4 años en la compañía de esta Universidad, realizando presentaciones en teatros de Los Angeles, San Diego, Tijuana y Ensenada.', 'También formó parte de la compañía de Danza de Baja California durante dos años, lo cual implicó gran disciplina y sacrificio; gracias a este esmero participó como solista en el Ballet "Cascanueces" en Diciembre de 1994.', 'Gloria es una persona muy comprometida con su carrera y busca estar actualizada en las últimas técnicas de danza por lo que a tomado cursos como:', ['GUS (Giordiano Workshop) en Monterrey, N.L. en 2001', 'Curso para maestros en la escuela "Broadway Dance Center" de Nueva York en 2006.', 'The Pulse en los Angeles C.A EN 2009', 'Nuvo workshop en Long Beach en 2014', 'Jump workshop en Monterrey, Nuevo León en 2015', 'Curso de Anatomía aplicado a maestros de Danza en 2016', 'Dance Teacher Summit en Long Beach, CA. - 2016, 2017 y 2018'], 'En el año 2014 funda junto con Alicia Luna el grupo Pas de Chat el cual tiene como objetivo identificar, proyectar y destacar el talento exigente de las alumnas de la Academia de Danza Pavlova para que las representen en competencias locales, regionales, nacionales e internacionales.', 'Su objetivo principal es dar lo mejor de ella misma como persona, amiga y representante de la academia proyectando el amor y disciplina por la danza.', 'Su trayectoria como maestra y directora en Pavlova ha estado marcada por la constancia y motivación que ha transmitido a sus alumnas durante 29 años.']
-	  }, {
-	    title: 'ALICIA LUNA',
-	    subtitle: 'ALICIA LUNA',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/3b1zex2m6csljia/Img_Alicia-Luna.png?dl=0',
-	    content: ['Lichita inició su preparación en la Academia de Sandra Araiza y posteriormente en la Escuela de Danza Gloria Campobello. Fue así que formó su destino en esta disciplina para convertirse en maestra de danza y posteriormente cofundadora y directora de la Escuela de Danza Pavlova fundada en el año de 1987.', 'Mientras estuvo en la escuela Campobello, disfrutaba al máximo sus clases como alumna y asistente, donde después de 3 años logró certificarse como Maestra en Técnica de Danza.', 'En el 2014 fundó, junto con Gloria Zuñiga, el grupo Pas de Chat. Este grupo esta integrado por alumnas destacadas de la escuela de danza Pavlova, quienes representan con orgullo y talento a la escuela en distintas competencias de nivel nacional e internacional.', 'Buscando siempre estar actualizada y comprometida con su carrera ha tomado cursos como:', ['Curso de Metodología de la Danza 2014 – Tijuana B.C.', 'Dance Teachers Summit 2015 – Irvine CA.', 'Dance Makers 2015 – Los Ángeles CA.', 'Iniciación a la Danza 2015 – Tijuana B.C.', 'Curso de Anatomía aplicado a maestros de Danza en 2016 – Tijuana B.C.', 'Curso Dance Teacher Summit en Long Beach, CA. –2016 y 2017', 'Actualmente se sigue preparando con clases de Ballet Clásico.'], 'El tiempo y la entrega que Lichita dedica a sus alumnas, representan la oportunidad de edificar y promover orden, disciplina y convivencia, teniendo como propósito el fomentar los valores que las acompañarán toda su vida, no sólo como un bonito recuerdo, sino como parte de su formación como personas.']
-	  }, {
-	    title: 'MILY WEHBER',
-	    subtitle: 'MILY WEHBER',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/mdw3idb1vbek96z/Img-Mily-Wehber.png?dl=0',
-	    content: ['Ana Emely Wehber Barreiro, inicia sus estudios a los 4 años de edad en la escuela de danza Gloria Campobello, logrando obtener el título de Técnico en Danza. A los 16 años empieza como asistente de maestra y un año mas tarde la escuela de danza "Nandielo", dandole la oportunidad de dar clases como maestra. Participó como alumna y maestra en la escuela de Danza "Betty Gándara" por 4 años, simultáneamente tomó clases de danza en San Diego State University con maestros como Kelly Grant (Jazz) , George Willis (Contemporáneo). Tomó cursos de Stage 7, Threes Compony y  APA, (Academy of Performing Arts). Workshop de Gus Giordano en Monterrey, ademéas de asistir en Los Angeles CA. con Joe Tremaines, Musicwork Shop, The Pulse. Recientemente participo en Palooza y Novu en Long Beach, CA. con el maestro Yannis Marshall y 24/7 Workshop.', 'Ha participado en el Carnaval Antifaz Fundación Luz, como coreógrafa en el 2012 y 2013, obteniendo el premio de la mejor coreografía en el 2012.', 'Curso Palooza en Long Beach CA. – Julio 2017', 'Empezó a dar clases en la escuela de danza Pavlova, desde que esta abrió sus puertas.', '"Mi gran pasión es ser maestra de danza... Ver a mis alumnas crecer, como bailarinas, como disfrutan sus clases, transmitirles el amor por la danza, la constancia , diciplina, ver como logran sus metas, y saber que tu eres parte de estos logros, es una de mis más grandes satisfacciones en la vida." – Miss Mily']
-	  }, {
-	    title: 'ALEJANDRA GUTIERRÉZ',
-	    subtitle: 'ALEJANDRA GUTIERRÉZ',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/r81hjmxo9niz3pf/Img-Alejandra-Gutierrez.png?dl=0',
-	    content: ['Inicio sus estudios a la edad de 3 años en el colegio de danza Sylvia bajo la dirección de la maestra Silvia Elena Martínez, estudio ahí por más de 15 años en las disciplinas de Jazz, Ballet y Tap, donde tuvo la oportunidad de asistir a varios cursos como NYCDA, Tremaine y Al Gilbert. Fue asistente en la disciplina de Tap.', 'A la edad de 16 años empezó siendo maestra y asistente en la escuela de danza Ancheyta dando clases de tap y jazz.', 'A los 19 empezó dando clases en la escuela de danza Pavlova Hipódromo en la disciplina de jazz. Se ha preparado en varios cursos como Dancemakers, Nuvo en long beach, Jump Monterrey, 24/7 en San diego, Dance Teacher Summit LB y DancerPalozza en Long beach.', 'Coreógrafa en la escuela de danza Coppelia donde sus alumnas obtuvieron varios primeros lugares en la competencia Dance Makers en la disciplina de lirico así como un premio especial por mejor coreografía.', 'Actualmente forma parte del equipo de trabajo de la escuela Pavlova Hipódromo y es coreógrafa del grupo de competencia Pasdechat by Pavlova con el cual ha viajado a varios concursos nacionales e internacionales, obteniendo varios primeros lugares por sus coreografías y reconocidas becas para sus alumnas, el curso más reconocido que han becado a sus alumnas es Dance Awards.', 'Es una maestra reconocida por sus coreografías tanto en jazz como en lírico en niveles intermedios y avanzados.']
-	  }, {
-	    title: 'RHONAL RUVALCABA',
-	    subtitle: 'RHONAL RUVALCABA',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/izw96o5i39cabla/Img_Rhonal-Ruvalcaba-2.png?dl=0',
-	    content: ['Inicio sus estudios de danza a la edad de 14 años, descubriendo en ella su vocación! Su preparación abarca diversas ramas de esta disciplina, pero son el Jazz y el HipHop su mayor pasión, ganador del 1er lugar en la categoría de Jazz en Danzarte (concurso de Danza realizado anteriormente en Baja California hace ya algunos años).', 'Es Director de su propia Compañía de Danza, con la cual ha llevado su pasión y estilo a diversas partes del mundo desde Taiwan o Puerto Rico, así como a gran parte de México y E.U. como las Vegas, Miami y L.A. entre otros.']
-	  }, {
-	    title: 'CORINA PERAZA',
-	    subtitle: 'CORINA PERAZA',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/78ttm4iz875wtir/Img-Corina-Peraza.png?dl=0',
-	    content: ['Corina es originaria de Tijuana y desde muy pequeña empezó a bailar Flamenco. Es hija de la famosa bailarina española Teresa Jaen, miembro del dueto "Teresa y Antonio Jaen". El tener a su madre como instructora, le ha ayudado a desarrollarse cada vez más a través de los años.', 'Lleva el arte en sus venas, es por ello que Corina comparte con sus estudiantes el mismo sentimiento y pasión por el baile Flamenco. Es sabido que cualquier forma de arte se transforma en comunicación, entonces, qué mejor manera de transmitirlo tan intensamente a sus estudiantes que a través del amor y pasión del baile Flamenco.']
-	  }, {
-	    title: 'CLAUDIA LUNA',
-	    subtitle: 'CLAUDIA LUNA',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/u0fp0uwjuc220wq/Img_Claudia-Luna.png?dl=0',
-	    content: ['Desde que tenia 4 años inicie en el ambito de la danza, en la Escuela de Danza Gloria Campobello. Obtuve el certificado de maestra en tecnica de danza a los 16 años.', 'La experiencia laboral ha sido en distintas instituciones como:', 'Escuela de danza Gloria  campobello,casino de Mexicali,escuela Felix de Jesus en Mexicali,Escuela Patria,escuela Francis Parker en san Diego;actualmente cuenta con 28 años de pertenecer a la escuela de danza Pavlova como maestra de Ballet.', 'Entre los certificados y cursos que obtenido son: Técnica en Danza, Gus Giordiano (2001), Music Workshop Unlimited de Al Gilbert, Tremaniine Dance convention (2004), Music workshop (2005), Stage 7 San Diego. Comparsa antifaz (2013), Escuela Nicte-Ha, Dance Teacher Summit (2015).', 'He tomado clases con diferentes profesores, como Raul Martinez Tadeo, Maria del Carmen Padron, Tatiana Chevchenko, Carla Mariscal, Alberto Terreros y Gustavo Nava.', '"El ser Maestra le permite transmitir a sus alumnas el amor a la danza por medio de la disciplina y constancia, además de sembrar en ellos la ilusión de ser bailarinas." – Miss Claudia.']
-	  }, {
-	    title: 'MAYRA JIMÉNEZ',
-	    subtitle: 'MAYRA JIMÉNEZ',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/1ubs0mhib2ca80a/Img_Mayra-Jimenez.png?dl=0',
-	    content: ['Nacio el 4 de Junio del 1988. Mayra desde sus 4 años de edad comenzó a experimentar tomando clases de Jazz, y 2 años después comenzó tomando clases de ballet. Hasta la fecha sigue practicando la danza, habiendo tomado aparte de Ballet y Jazz,  clases de Contemporáneo con Miroslava Wilson y  Hip-Hop con el maestro Omar Silva dentro de la Escuela " Ballet Cámara de la Frontera" del Maestro Rafael Oseguera, habiéndose graduado como Bailarina Clásica y Contemporánea.', 'Tiene 9 años de experiencia como Maestra impartiendo clases de Jazz, Ballet, y Lirico. Habiendo concluido con cursos de Metodología para la Danza y pedagogía.', 'Asistiendo al 5to y 6to Congreso Nacional de Danza Jazz en Morelia Michoacán con maestros como: Guillermo Maldonado (barra al piso y pedagogía), Guillermina Gómez y John Lehrer (Jazz), Joshua Bergasse de Nueva York (jazz), Elvin Venegas de Nicaragua (técnica clásica – Ballet), Jermaine Browne de nueva York (hip-hop), Alexis Zanette de Cuba (danza moderna), entre otros. También a tomando el Curso Internacional de Danza Clásica "DANCE IT 2007 y 2008" con la primera Bailarina Irma Morales y Frank Fischer.', 'Posteriormente obteniendo una beca para formar parte de un grupo de baile de la escuela "Culture Shock Dance Center" en San Diego. Asistio Entre el 2014 y 2015 a un curso de Jazz  y "Hells" con Yanis Marshall (bailarin y maestro Internacional) y una Materclass de ballet con la maestra Elena Tokareva Baltovick; entre otros cursos locales.', 'Ha participado en varias obras musicales Infantiles como son "Cri-cri y la danza", "El mago de Oz", "Peter Pan", "Alicia en el país de las maravillas", como también en "La fille Mal Garde", "Graduados", "Cascanueces" y "Carmen" presentadas en el Teatro del Cecut.', 'Su objetivo es transmitir de la manera más correcta todo lo que ha aprendido de la danza, todo lo bueno que le ha dejado e inculcar en el alumnado una disciplina y amor a la danza, a la cultura, al arte, haciéndolas sentir que es una de las mejores maneras para expresar todo aquello que nuestro cuerpo siente.']
-	  }, {
-	    title: 'ELEANA FRANCO',
-	    subtitle: 'ELEANA FRANCO',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/7xofldjk7cnl2ds/Eleana-Franco.png?dl=0',
-	    content: ['Bailarina, coreógrafa y maestra de danza nacida en Estados Unidos. Inicio sus estudios a la edad de 2 anos en el “Colegio de Danza Sylvia” donde aprendió ballet, tap, flamenco, jazz y hip hop. Varios años después se convirtió en asistente y próximamente en maestra.', 'Participo en varias importantes obras como es “el cascanueces” junto con la compañía “Moscow ballet” en el Civic Theatre en San Diego y también junto con la “Compañía de danza de Baja California” con Raul Tadeo. También fue participe de la obra infantil “pedro y el lobo” que fue presentada en el CECUT bajo la dirección de Norma Herrera. Continuo con sus estudios en Estados Unidos en la escuela “Coronado School of the Arts” donde estudio varios cursos de historia de la danza, nutrición, improvisación, critica de la danza, coreografía entre muchos otros.', 'Actualmente se encuentra aplicando estos conocimientos como maestra y busca seguir creciendo para compartir este conocimiento con sus alumnos.']
-	  }, {
-	    title: 'ADRIANA CORAL',
-	    subtitle: 'ADRIANA CORAL',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/q4kedajs4rgdqe1/Adriana-Coral.png?dl=0',
-	    content: ['Bailarina y maestra que se desarrolla profesionalmente  en el norte de México; miembro fundador de Subterráneo Danza Contemporánea desde hace 17 años, donde su misión es exponer su trabajo como intérprete y colaborador creativo en la realización de espectáculos escénicos. Mantiene una constante búsqueda del lenguaje propio a través de la investigación en diferentes técnicas dancísticas  así como la divulgación de sus conocimientos a través de la docencia, asimismo, busca mantener vínculos estrechos con otros artistas escénicos del país para fortalecer su quehacer  dancístico y contribuir a la difusión del arte.']
-	  }, {
-	    title: 'VICKY SAENZ',
-	    subtitle: 'VICKY SAENZ',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/7ngb2v9j29d1xd2/Vicky-Saenz.png?dl=0',
-	    content: []
-	  }, {
-	    title: 'ARIELI ZABICKY',
-	    subtitle: 'Arieli Zabicky',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/dt09rnnkk7u4b2u/Arieli-Zabicky.png?dl=0',
-	    content: ['Ari Zabicky – Licenciada en danza, bailarina profesional, artista escénico, instructora.', 'Actualmente laborando con:', ['Subterráneo Danza Contemporánea como bailarina', 'Maestra de ballet adulto en Plan D', 'Maestra de asignatura en Ateneo Universitario'], 'FORMACIÓN PROFESIONAL', ['Técnico en Danza (2010 – 2012)'], 'Escuela de Danza Gloria Campobello, Tijuana, B.C., México', ['Licenciatura en Danza (2012 – 2016)'], 'Universidad Autónoma De Baja California, Mexicali B.C, México', 'CURSOS MÁS RECIENTES', '2014', ['Seminario de Metodología para la enseñanza de la Danza Clásica CEART Tijuana. Impartió: Mtro. Rafael Ocegueda', 'Taller Intensivo de Ballet. Escuela Americana de danza, Mexicali B.C., Impartio: Aldo Kattón'], '2015', ['Taller intensivo "DANZA JAZZ" UABC, Facultad de Artes, Mexicali. B.C., Impartido por: Pedro Garcia Malvaez', 'Master Class de partnering Facultad de Artes UABC, Licenciatura En danza Impartió Lux Boreal', 'Congreso Nacional de Danza Jazz – CRAM, Zam. Mich.'], '2016', ['Capacitación en "Contrología" o Método Pilates Nivel 1, Fitness Center, Mexicali B.C., Impartió: Lic. Eunice Hidalgo Palacios', 'Taller "El cuerpo vacío" Dance Lab, Tijuana, Impartió: Shantí Vera'], '2017', ['Taller de Metodo Feldenkrais "El Huerto Playas de Tijuana" Impartió: Kata Cots'], 'PARTICIPACIONES', '2015', ['Bailarina invitada en grupo de danza "La Pieza Danza Jazz", Concurso dentro del marco del Congreso Internacional de Danza Jazz Zamora, Michoacán. Participación con la coreografía "CUERPOS", Coreógrafo: Ricardo Zavala, PRIMER LUGAR'], '2016', ['Bailarina en grupo de danza "La Pieza Danza Jazz", Coreografía: Obscuridad Coreógrafo: Ricardo Zavala, Presentación de exhibición en el 8vo concurso del Congreso Internacional de Danza Jazz – Zamora, Michoacán', 'Bailarina en Grupo de danza "La Pieza Danza Jazz".<br />Obra: "Méjico, una chicanada más".<br />- Bailarina.<br />- Gestión.<br />- Asistente de producción.<br />Dirección general: Ricardo Zavala.<br />Presentaciones:<br />- Teatro UABC, Mexicali B.C.<br />- Teatro Obrero, Zamora Michoacán dentro de Congreso Nacional de Danza Jazz.', 'Colaboración como bailarina invitada con compañía de danza Bajo la Lápida.<br />Coreógrafo: Armando Leal.<br />Participación en evento de ARMONIA UABC – 2016', 'OBRA: "Homa´quina".<br />Coreógrafo: Emma G. Davis.<br />Proyecto coreográfico de la Lic. En danza UABC – Mexicali.<br />Estreno: 3 de Junio 2016.<br />- Bailarina.<br />- Gestión.<br />- Montaje coreográfico y de iluminación', 'Montajes de iluminación en Festival Internacional de Danza Entre Fronteras UABC, Mexicali B.C.<br />- "Quasar" compañía de danza<br />- Taller coreográfico de la UABC<br />Antares Danza contemporánea, Responsable: Hildelena Vazquez', 'Participación en el taller "Body mind centering"<br />Lic. En Danza, UABC<br />Impartió: Tamar Kipnis', 'Bailarina en la pieza: "Mis amigos me dicen.."<br />Coreografa: Rosa A. Gomez<br />Actividad dentro de Facultad de Artes UABC', 'Entijuanarte<br />Montaje de iluminación y traspunte en: "Piezas desordenadas"<br />bajo la dirección de Gregorio Coral'], '2017', ['Bailarina invitada en Subterraneo Danza contemporánea', 'Bailarina en la obra: Caleidoscopio<br />Direccion: Gregorio Coral']]
-	  }, {
-	    title: 'MARILU AGUILAR',
-	    subtitle: 'Marilu Aguilar',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/r5idqzlpc7j9iwv/Marilu-Aguilar.png?dl=0',
-	    content: ['<b>Formación Artística</b>', '<b>2017</b> Actual residente de la compañía de danza Lux Boreal, Tijuana. <br />Actual integrante y colaboradora coreografica de Tranze Producciones, Mexicali.<br />Residente de Resonancias laboratorio de creacion en CASA, Oaxaca', '<b>2016</b> Residente de Centro de Danza y Producción Escénica de Baja California. <br />Integrante de Homa Colectivo de Danza, Mexicali', '<b>2015-2016</b> ArcDanz International Dance Program en Puebla; Reves Entrenamiento. <br />Físico en Heredia, Costa Rica; Campin en San Luis Potosi, México', '<b>2014-2015</b> Verano Chilango La Cantera, Ciudad de México; Contemporáneo con Nederlands Dans Theatre, San Diego; Congreso La Ruta, Mexicali ', '<b>2013-2014</b> Barra al Piso; Congreso de jazz, ballet y contemporáneo La Ruta, Mexicali', '<b>2012-2010</b> Integrante del Ballet de Martha Pulido en Tecate; Curso de ballet, jazz, tap y flamenco en San Diego Dance Academy', '<br/><b>Experiencia Escénica</b>', '<b>2017-2016</b> Bailarina de Medium en Sibu International Dance Festival, Malasia y en Tecate, Mexicali y Los Angeles. Primer lugar en "Agite y Sirva Festival de Videodanza"; Homa´quina en Mexicali, Tijuana y Ensenada; Soft Associations en Tijuana; One en Palm Springs; Biografía en Ocho en Ciudad de México y Puebla; Mentes en Los Ángeles, Costa Rica y Corea del Sur', '<b>2015-2013</b> Tercer lugar en Andong Mask Dance Festival and Competition, Corea del Sur; Día Internacional de la danza en Mexicali y Tecate; Encuentro Internacional de Danza Contemporánea Entre Fronteras, Mexicali. ', '<b>2012-2010</b> Ballet: Coppelia, El Cascanueces, Atlantis, Danza Fusión, Bicentenario de la Revolución y Día internacional de la danza, Tecate', '<br /><b>Experiencia Docente</b>', '<b>2017</b> Danza Contemporanea y Fit Ball en Sau de Chat, Jazz Infantil en Escuela de Danza Pavlova; Barre en Studio Barre Fitness, Tijuana', '<b>2016</b> Pilates para Adultos Mayores en CEART, Tecate', '<b>2016-2015</b> Barrecore, Ballet principiante, Ballet infantil y Jazz intermedio en Academia Idanza; Baby ballet, Ballet infantil, Jazz infantil, Jazz intermedio y Jazz avanzado en Academia Minue', '<b>2014-2015</b> Expresión Corporal para niños con capacidades diferentes en CEDI; Jazz en Centro Multidisciplinario Danzxarte; Dance for Fitness en gimnasio Total Fitness; Baby ballet y Jazz infantil en Academia Minue', '<b>2010-2012</b> Impartición de Ballet, Jazz, Tap y Danza Árabe en San Diego Dance Academy; Taller de ballet infantil en Centro Cultural Tecate']
-	  }, {
-	    title: 'GIOVANI GONZÁLEZ ALARCÓN',
-	    subtitle: 'GIOVANI GONZÁLEZ ALARCÓN',
-	    intro: '',
-	    image: '/images/escuela/staff/giovani-alarcon.jpg',
-	    content: ['Egresado de la Lic. en Actividad Física y Deporte por la Universidad Autónoma de Baja California, con amplia experiencia en presentaciones profesionales incluyendo participación en shows de la cadena televisiva Telemundo, eventos masivos en Los Ángeles y en Baja California, incluyendo apertura de múltiples conciertos de artistas en la región.', 'Impartió clases de Cardio Dance y Cardio Hip Hop en diversos gimnasios de la Ciudad de Tijuana. Maestro de Hip-Jazz en los principales estudios de Danza en Tijuana.', 'Coreógrafo Profesional, forma parte de la compañía de Hip Hop "Culture Shock" en San Diego.']
-	  }, {
-	    title: 'MÓNICA ZITLALI GARZA MAYORAL',
-	    subtitle: 'MÓNICA ZITLALI GARZA MAYORAL',
-	    intro: '',
-	    image: '/images/escuela/staff/monica-zitlali.png',
-	    content: ['Técnico en Danza y Maestra en Educación egresada de CETYS Universidad, Licenciada en Filosofía y en Ciencias de la Educación, tiene una vasta experiencia en el ámbito docente de danza clásica y ballet, ejerciendo profesionalmente en organizaciones como el CEART, Hospital Infantil de las Californias, CECUTEC, estudios de danza y colegios en la región.']
-	  }]
-	};
 
 /***/ }),
 /* 64 */
@@ -3964,57 +3953,6 @@
 	/* eslint max-len: [2, 1000, 4] */
 
 	var data = {
-	  block1: {
-	    images: {
-	      image1: {
-	        id: 3,
-	        alt: 'escuela',
-	        src: 'https://www.dropbox.com/s/jttxmpw4gtlttan/Img-banner-nosotros.jpg?dl=0',
-	        block: 5
-	      }
-	    },
-	    paragraphs: { paragraph1: 'Prestigio desde 1987' },
-	    titles: { title1: 'ESCUELA' }
-	  },
-	  block2: {
-	    slides: [{
-	      id: 4,
-	      image: '',
-	      title: 'Nuestra Escuela',
-	      button_title: '',
-	      button_url: '',
-	      content: '<p>Somos una Escuela de gran prestigio en el ámbito de la Danza, altamente especializada en las técnicas de Ballet, Jazz y Flamenco desde 1987. Nuestro principal compromiso es lograr que las alumnas aprovechen el tiempo de forma positiva ejercitando las técnicas de baile con un balance entre disciplina y convivencia.</p>\r\n<p>A través de la expresión corporal y estética de los movimientos, las alumnas adquieren una mejor coordinación, corrigen su postura, siguen un régimen alimenticio y moldean su silueta. La formación en el ámbito de la danza implica aprender a trabajar en equipo además de lograr un mayor desenvolvimiento, adquirir confianza en sí mismas y obtener crecimiento personal.</p>\r\n<p>Nuestra enseñanza es una propuesta de experiencia artística que armoniza mente y cuerpo.</p>',
-	      block: 6
-	    }, {
-	      id: 5,
-	      image: '',
-	      title: 'Nuestra Misón',
-	      button_title: '',
-	      button_url: '',
-	      content: 'Ser una escuela de danza líder a nivel nacional, que ofrezca a su alumnado la oportunidad de desarrollar su pasión por la danza y la apreciación de las bellas artes dejando así una huella positiva en nuestra sociedad.',
-	      block: 6
-	    }, {
-	      id: 6,
-	      image: '',
-	      title: 'Nuestra Visión',
-	      button_title: '',
-	      button_url: '',
-	      content: 'Mantener el liderazgo con festivales binacionales de calidad, reinventándonos constantemente para estar en la vanguardia. Tener una gran variedad de clases y maestros que asistan con alegría, convencidos de que están en la mejor academia de danza. Capacitar constantemente a nuestros maestros. Compartir con orgullo nuestros logros a la sociedad, mediante los medios de comunicación disponibles. Cuidando la salud integral de nuestro alumnado, asesorándolo en su nutrición, además de motivar a las alumnas a participar en cursos y concursos.',
-	      block: 6
-	    }],
-	    buttons: {
-	      button1: { id: 9, title: 'CONTÁCTANOS', href: '/contacto', block: 6 }
-	    },
-	    images: {
-	      image1: {
-	        id: 4,
-	        alt: 'nuestra escuela',
-	        src: 'https://www.dropbox.com/s/d69v5mv7tr0k7f5/Img-escuela-bg.jpg?dl=0https://www.dropbox.com/s/d69v5mv7tr0k7f5/Img-escuela-bg.jpg?dl=0',
-	        block: 6
-	      }
-	    },
-	    titles: { title1: 'Experiencia artística que armoniza mente y cuerpo' }
-	  },
 	  block3: {
 	    images: {
 	      image1: {
@@ -4076,17 +4014,6 @@
 	        block: 8
 	      }
 	    }
-	  },
-	  block5: {
-	    images: {
-	      image1: {
-	        id: 7,
-	        alt: 'STAFF',
-	        src: '/images/escuela/banner-staff.jpg',
-	        block: 9
-	      }
-	    },
-	    titles: { title1: 'STAFF' }
 	  },
 	  block6: {},
 	  block7: {
@@ -4162,7 +4089,7 @@
 	      button1: {
 	        id: 10,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova-2019.pdf',
+	        href: '/docs/horarios-pavlova.jpg',
 	        block: 12
 	      },
 	      button2: {
@@ -4216,7 +4143,7 @@
 
 	var _block6 = _interopRequireDefault(_block5);
 
-	var _block7 = __webpack_require__(61);
+	var _block7 = __webpack_require__(62);
 
 	var _block8 = _interopRequireDefault(_block7);
 
@@ -4232,8 +4159,9 @@
 	var balletData = __webpack_require__(70);
 	var jazzData = __webpack_require__(71);
 	var flamencoData = __webpack_require__(72);
+	var hipHopData = __webpack_require__(73);
 
-	var data = __webpack_require__(73);
+	var data = __webpack_require__(74);
 
 	var ProductsSection = function (_React$Component) {
 	  _inherits(ProductsSection, _React$Component);
@@ -4261,9 +4189,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var block1 = data.block1,
-	          block2 = data.block2,
-	          block8 = data.block8;
+	      var block8 = data.block8;
 
 	      var block3Variations = {
 	        variation1: 'ballet'
@@ -4274,17 +4200,21 @@
 	      var block5Variations = {
 	        variation1: 'flamenco'
 	      };
+	      var block6Variations = {
+	        variation1: 'hiphop'
+	      };
 	      var types = this.state.types;
 
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_block2.default, { data: block1 }),
-	        _react2.default.createElement(_block4.default, { data: block2 }),
+	        _react2.default.createElement(_block2.default, null),
+	        _react2.default.createElement(_block4.default, null),
 	        _react2.default.createElement(_block6.default, { data: balletData, type: types[0], variations: block3Variations }),
 	        _react2.default.createElement(_block6.default, { data: jazzData, type: types[1], variations: block4Variations }),
 	        _react2.default.createElement(_block6.default, { data: flamencoData, type: types[2], variations: block5Variations }),
+	        _react2.default.createElement(_block6.default, { data: hipHopData, type: types[2], variations: block6Variations }),
 	        _react2.default.createElement(_block8.default, { data: block8 })
 	      );
 	    }
@@ -4311,10 +4241,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(28);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
 	var _svg = __webpack_require__(17);
 
 	var _svg2 = _interopRequireDefault(_svg);
@@ -4333,8 +4259,19 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-
 	var style = __webpack_require__(67);
+
+	function getData() {
+	  return {
+	    images: {
+	      image1: {
+	        src: '/images/clases/header-clases.jpg'
+	      }
+	    },
+	    paragraphs: { paragraph1: 'Compromiso de excelencia con la danza' },
+	    titles: { title1: 'CLASES' }
+	  };
+	}
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -4348,15 +4285,16 @@
 	  _createClass(Block1, [{
 	    key: 'render',
 	    value: function render() {
-	      var styles = this.props.style;
-	      var _props$data = this.props.data,
-	          titles = _props$data.titles,
-	          paragraphs = _props$data.paragraphs;
+	      var _getData = getData(),
+	          titles = _getData.titles,
+	          paragraphs = _getData.paragraphs,
+	          images = _getData.images;
 
-	      var divStyle = (0, _imageUtil.getImageBackground)('/images/clases/header-clases.jpg');
-	      return !_lodash2.default.isEmpty(this.props.data) ? _react2.default.createElement(
+	      var divStyle = (0, _imageUtil.getImageBackground)(images.image1.src);
+
+	      return _react2.default.createElement(
 	        'div',
-	        { style: divStyle, className: style.mainbanner + ' ' + (styles ? styles.wrapper : '') },
+	        { style: divStyle, className: style.mainbanner },
 	        _react2.default.createElement('div', { className: style.transparency }),
 	        _react2.default.createElement(
 	          'div',
@@ -4377,7 +4315,7 @@
 	            )
 	          )
 	        )
-	      ) : null;
+	      );
 	    }
 	  }]);
 
@@ -4385,12 +4323,6 @@
 	}(_react2.default.Component);
 
 	exports.default = Block1;
-
-
-	Block1.propTypes = {
-	  data: _react2.default.PropTypes.object,
-	  style: _react2.default.PropTypes.object
-	};
 
 /***/ }),
 /* 67 */
@@ -4588,7 +4520,7 @@
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___zkvoI","controls":"style__controls___1nXQ8","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","title":"style__title___2mlf9","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraphB":"style__paragraphB___3TQhf","paragraph5":"style__paragraph5___1IKiM","wrapper_":"style__wrapper____1tcC1","wrapper_2":"style__wrapper_2___16tcC","sm":"style__sm___OLDFM","ballet":"style__ballet___2ecR7","jazz":"style__jazz___24bYU","flamenco":"style__flamenco___2coaY","cardioDanza":"style__cardioDanza___2LYVb"};
+	module.exports = {"fCenter":"style__fCenter___zkvoI","controls":"style__controls___1nXQ8","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","button3v4":"style__button3v4___3Cz_c","title":"style__title___2mlf9","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraphB":"style__paragraphB___3TQhf","paragraph5":"style__paragraph5___1IKiM","wrapper_":"style__wrapper____1tcC1","wrapper_2":"style__wrapper_2___16tcC","sm":"style__sm___OLDFM","ballet":"style__ballet___2ecR7","jazz":"style__jazz___24bYU","flamenco":"style__flamenco___2coaY","cardioDanza":"style__cardioDanza___2LYVb","hiphop":"style__hiphop___27t4G"};
 
 /***/ }),
 /* 70 */
@@ -4644,7 +4576,7 @@
 	    button1: {
 	      id: 18,
 	      title: 'HORARIOS',
-	      href: '/docs/horarios-pavlova-2019.pdf',
+	      href: '/docs/horarios-pavlova.jpg',
 	      block: 15
 	    },
 	    button2: {
@@ -4713,28 +4645,12 @@
 	    button_url: '',
 	    content: '',
 	    block: 16
-	  }, {
-	    id: 30,
-	    image: '/images/clases/jazz/SLIDE-JAZZ-6.jpg',
-	    title: '',
-	    button_title: '',
-	    button_url: '',
-	    content: '',
-	    block: 16
-	  }, {
-	    id: 30,
-	    image: '/images/clases/jazz/SLIDE-JAZZ-7.jpg',
-	    title: '',
-	    button_title: '',
-	    button_url: '',
-	    content: '',
-	    block: 16
 	  }],
 	  buttons: {
 	    button1: {
 	      id: 20,
 	      title: 'HORARIOS',
-	      href: '/docs/horarios-pavlova-2019.pdf',
+	      href: '/docs/horarios-pavlova.jpg',
 	      block: 16
 	    },
 	    button2: {
@@ -4787,28 +4703,12 @@
 	    button_url: '',
 	    content: '',
 	    block: 17
-	  }, {
-	    id: 32,
-	    image: '/images/clases/flamenco/SLIDE-FLAMENCO-4.jpg',
-	    title: '',
-	    button_title: '',
-	    button_url: '',
-	    content: '',
-	    block: 17
-	  }, {
-	    id: 32,
-	    image: '/images/clases/flamenco/SLIDE-FLAMENCO-5.jpg',
-	    title: '',
-	    button_title: '',
-	    button_url: '',
-	    content: '',
-	    block: 17
 	  }],
 	  buttons: {
 	    button1: {
 	      id: 22,
 	      title: 'HORARIOS',
-	      href: '/docs/horarios-pavlova-2019.pdf',
+	      href: '/docs/horarios-pavlova.jpg',
 	      block: 17
 	    },
 	    button2: {
@@ -4835,37 +4735,46 @@
 	/* eslint max-len: [2, 500, 4] */
 
 	var data = {
-	  block1: {
-	    images: {
-	      image1: {
-	        id: 8,
-	        alt: 'clases',
-	        src: 'https://www.dropbox.com/s/lmg1elde6rn2bga/Img-banner-clases.jpg?dl=0',
-	        block: 13
-	      }
+	  slides: [{
+	    id: 15,
+	    image: '/images/clases/flamenco/SLIDE-FLAMENCO-1.jpg',
+	    title: '',
+	    button_title: '',
+	    button_url: '',
+	    content: '',
+	    block: 17
+	  }],
+	  buttons: {
+	    button1: {
+	      id: 22,
+	      title: 'HORARIOS',
+	      href: '/docs/horarios-pavlova.jpg',
+	      block: 17
 	    },
-	    paragraphs: { paragraph1: 'Compromiso de excelencia con la danza' },
-	    titles: { title1: 'CLASES' }
-	  },
-	  block2: {
-	    buttons: {
-	      button1: { id: 13, title: 'BALLET', href: '/clases/ballet', block: 14 },
-	      button2: { id: 14, title: 'JAZZ', href: '/clases/jazz', block: 14 },
-	      button3: {
-	        id: 15,
-	        title: 'FLAMENCO',
-	        href: '/clases/flamenco',
-	        block: 14
-	      },
-	      button4: {
-	        id: 16,
-	        title: 'KARDIO DANZA',
-	        href: '/clases/kardio-danza',
-	        block: 14
-	      },
-	      button5: { id: 17, title: 'BARRÉ', href: '/clases/barre', block: 14 }
+	    button2: {
+	      id: 23,
+	      title: 'VER GALERÍAS',
+	      href: 'https://www.facebook.com/pavlova.hipodromo/photos/?tab=albums',
+	      block: 17
 	    }
 	  },
+	  paragraphs: {
+	    paragraph1: 'Hip Hop..'
+	  },
+	  titles: { title1: 'Hip Hop' }
+	};
+
+	module.exports = data;
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint max-len: [2, 500, 4] */
+
+	var data = {
 	  block3: {
 	    slides: [{
 	      id: 11,
@@ -4904,7 +4813,7 @@
 	      button1: {
 	        id: 18,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova-2019.pdf',
+	        href: '/docs/horarios-pavlova.jpg',
 	        block: 15
 	      },
 	      button2: {
@@ -4949,7 +4858,7 @@
 	      button1: {
 	        id: 20,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova-2019.pdf',
+	        href: '/docs/horarios-pavlova.jpg',
 	        block: 16
 	      },
 	      button2: {
@@ -5002,7 +4911,7 @@
 	      button1: {
 	        id: 22,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova-2019.pdf',
+	        href: '/docs/horarios-pavlova.jpg',
 	        block: 17
 	      },
 	      button2: {
@@ -5031,7 +4940,7 @@
 	      button1: {
 	        id: 24,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova-2019.pdf',
+	        href: '/docs/horarios-pavlova.jpg',
 	        block: 18
 	      }
 	    },
@@ -5054,7 +4963,7 @@
 	      button1: {
 	        id: 25,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova-2019.pdf',
+	        href: '/docs/horarios-pavlova.jpg',
 	        block: 19
 	      }
 	    },
@@ -5068,7 +4977,7 @@
 	      button1: {
 	        id: 26,
 	        title: 'HORARIOS',
-	        href: '/docs/horarios-pavlova-2019.pdf',
+	        href: '/docs/horarios-pavlova.jpg',
 	        block: 20
 	      },
 	      button2: {
@@ -5095,7 +5004,7 @@
 	module.exports = data;
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5110,11 +5019,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _block = __webpack_require__(75);
+	var _block = __webpack_require__(76);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(77);
+	var _block3 = __webpack_require__(78);
 
 	var _block4 = _interopRequireDefault(_block3);
 
@@ -5126,7 +5035,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var data = __webpack_require__(85);
+	var data = __webpack_require__(86);
 
 	var ContactSection = function (_React$Component) {
 	  _inherits(ContactSection, _React$Component);
@@ -5158,7 +5067,7 @@
 	exports.default = ContactSection;
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5187,7 +5096,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(76);
+	var style = __webpack_require__(77);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -5219,14 +5128,14 @@
 	};
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___3WsSe","vCenter":"style__vCenter___3G_X_","button1":"style__button1___1iQls","button":"style__button___6iE0P","button2":"style__button2___2nT5Y","button2b":"style__button2b___15vcQ","vCenterRel":"style__vCenterRel___2rlOE","hCenter":"style__hCenter___3ARcP","inheritHeight":"style__inheritHeight___1YsqB","hideOverflow":"style__hideOverflow___ps_Tr","icon-sprites":"style__icon-sprites___2f7vT","button3":"style__button3___1WIju","button3v1":"style__button3v1___32z7Y","button3v2":"style__button3v2___3m_1I","button3v3":"style__button3v3___3STSg","button3v4":"style__button3v4___3GtKt","image1":"style__image1___1oYSl","paragraph1":"style__paragraph1___3JnQd","paragraph1b":"style__paragraph1b___xv990","paragraph2":"style__paragraph2___3M3qm","paragraph3":"style__paragraph3___6lKhK","paragraph4":"style__paragraph4___1Z42s","paragraph5":"style__paragraph5___1v105","sideSwipe":"style__sideSwipe___50l2S","bottomSwipe":"style__bottomSwipe___-6WwV","title1":"style__title1___3f0o0","title2":"style__title2___XQgLg","title3":"style__title3___2f5QU","title4":"style__title4___BpZsL","title5":"style__title5___hKWjC","title6":"style__title6___2GSXY","title7":"style__title7___3_kU1","title8":"style__title8___2cLGW","mainbanner":"style__mainbanner___1YlSK","image":"style__image___mSywh"};
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5247,7 +5156,7 @@
 
 	var _svg = __webpack_require__(17);
 
-	var _form = __webpack_require__(78);
+	var _form = __webpack_require__(79);
 
 	var _form2 = _interopRequireDefault(_form);
 
@@ -5260,7 +5169,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(84);
+	var style = __webpack_require__(85);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -5361,7 +5270,7 @@
 	};
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5380,7 +5289,7 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _restClient = __webpack_require__(79);
+	var _restClient = __webpack_require__(80);
 
 	var _restClient2 = _interopRequireDefault(_restClient);
 
@@ -5396,7 +5305,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 600, 4] */
 
-	var style = __webpack_require__(83);
+	var style = __webpack_require__(84);
 
 	var Form1 = function (_React$Component) {
 	  _inherits(Form1, _React$Component);
@@ -5662,7 +5571,7 @@
 	exports.default = Form1;
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5671,15 +5580,15 @@
 	  value: true
 	});
 
-	var _rest = __webpack_require__(80);
+	var _rest = __webpack_require__(81);
 
 	var _rest2 = _interopRequireDefault(_rest);
 
-	var _mime = __webpack_require__(81);
+	var _mime = __webpack_require__(82);
 
 	var _mime2 = _interopRequireDefault(_mime);
 
-	var _errorCode = __webpack_require__(82);
+	var _errorCode = __webpack_require__(83);
 
 	var _errorCode2 = _interopRequireDefault(_errorCode);
 
@@ -5688,39 +5597,39 @@
 	exports.default = _rest2.default.wrap(_mime2.default, { mime: 'application/json' }).wrap(_errorCode2.default, { code: 300 });
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports) {
 
 	module.exports = require("rest");
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports) {
 
 	module.exports = require("rest/interceptor/mime");
 
 /***/ }),
-/* 82 */
-/***/ (function(module, exports) {
-
-	module.exports = require("rest/interceptor/errorCode");
-
-/***/ }),
 /* 83 */
 /***/ (function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___365qk","vCenter":"style__vCenter___9LFiT","button1":"style__button1___QW0Tv","submit":"style__submit___2YBRa","button2":"style__button2___3fzL1","button2b":"style__button2b___2h89H","vCenterRel":"style__vCenterRel___27ebh","hCenter":"style__hCenter___3MSN5","inheritHeight":"style__inheritHeight___20X8j","hideOverflow":"style__hideOverflow___1e_Sa","icon-sprites":"style__icon-sprites___SBb6q","button3":"style__button3___1LtgP","button3v1":"style__button3v1___1Mvm_","button3v2":"style__button3v2___1N7QE","button3v3":"style__button3v3___11aHd","button3v4":"style__button3v4___2B0cK","image1":"style__image1___20ULB","paragraph1":"style__paragraph1___1Iuas","paragraph1b":"style__paragraph1b___14XS7","paragraph2":"style__paragraph2___XLNUn","paragraph3":"style__paragraph3___cQhzG","paragraph4":"style__paragraph4___3o8-x","paragraph5":"style__paragraph5___-5J8a","sideSwipe":"style__sideSwipe___3Jh_M","bottomSwipe":"style__bottomSwipe___2N3qh","title1":"style__title1___2DL5-","title2":"style__title2___3etcM","title3":"style__title3___8tZ0C","title4":"style__title4___33kmt","title5":"style__title5___2k_sU","title6":"style__title6___1dv-o","title7":"style__title7___OUaen","title8":"style__title8___1LvKh","form":"style__form___1nnSk","formGroup":"style__formGroup___1VfYe"};
+	module.exports = require("rest/interceptor/errorCode");
 
 /***/ }),
 /* 84 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","button1":"style__button1___1cwjy","button2":"style__button2___hQ_-V","button2b":"style__button2b___1b2RV","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","button3":"style__button3___3HwaY","button3v1":"style__button3v1___2Wuut","button3v2":"style__button3v2___5XAeE","button3v3":"style__button3v3___bPEC9","button3v4":"style__button3v4___3dETf","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph1b":"style__paragraph1b___1kRb1","paragraph":"style__paragraph___29758","paragraph2":"style__paragraph2___1ISwm","paragraph_2":"style__paragraph_2___217YF","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","sideSwipe":"style__sideSwipe___1IOUP","bottomSwipe":"style__bottomSwipe___1Id40","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title3":"style__title3___173Gl","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title_2":"style__title_2___3IHOj","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","wrapper":"style__wrapper___2GZMu","sm":"style__sm___1spdw","svg":"style__svg___38pi8"};
+	module.exports = {"fCenter":"style__fCenter___365qk","vCenter":"style__vCenter___9LFiT","button1":"style__button1___QW0Tv","submit":"style__submit___2YBRa","button2":"style__button2___3fzL1","button2b":"style__button2b___2h89H","vCenterRel":"style__vCenterRel___27ebh","hCenter":"style__hCenter___3MSN5","inheritHeight":"style__inheritHeight___20X8j","hideOverflow":"style__hideOverflow___1e_Sa","icon-sprites":"style__icon-sprites___SBb6q","button3":"style__button3___1LtgP","button3v1":"style__button3v1___1Mvm_","button3v2":"style__button3v2___1N7QE","button3v3":"style__button3v3___11aHd","button3v4":"style__button3v4___2B0cK","image1":"style__image1___20ULB","paragraph1":"style__paragraph1___1Iuas","paragraph1b":"style__paragraph1b___14XS7","paragraph2":"style__paragraph2___XLNUn","paragraph3":"style__paragraph3___cQhzG","paragraph4":"style__paragraph4___3o8-x","paragraph5":"style__paragraph5___-5J8a","sideSwipe":"style__sideSwipe___3Jh_M","bottomSwipe":"style__bottomSwipe___2N3qh","title1":"style__title1___2DL5-","title2":"style__title2___3etcM","title3":"style__title3___8tZ0C","title4":"style__title4___33kmt","title5":"style__title5___2k_sU","title6":"style__title6___1dv-o","title7":"style__title7___OUaen","title8":"style__title8___1LvKh","form":"style__form___1nnSk","formGroup":"style__formGroup___1VfYe"};
 
 /***/ }),
 /* 85 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","button1":"style__button1___1cwjy","button2":"style__button2___hQ_-V","button2b":"style__button2b___1b2RV","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","button3":"style__button3___3HwaY","button3v1":"style__button3v1___2Wuut","button3v2":"style__button3v2___5XAeE","button3v3":"style__button3v3___bPEC9","button3v4":"style__button3v4___3dETf","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph1b":"style__paragraph1b___1kRb1","paragraph":"style__paragraph___29758","paragraph2":"style__paragraph2___1ISwm","paragraph_2":"style__paragraph_2___217YF","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","sideSwipe":"style__sideSwipe___1IOUP","bottomSwipe":"style__bottomSwipe___1Id40","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title3":"style__title3___173Gl","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title_2":"style__title_2___3IHOj","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","wrapper":"style__wrapper___2GZMu","sm":"style__sm___1spdw","svg":"style__svg___38pi8"};
+
+/***/ }),
+/* 86 */
 /***/ (function(module, exports) {
 
 	'use strict';

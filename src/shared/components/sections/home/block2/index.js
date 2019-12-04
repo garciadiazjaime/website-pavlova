@@ -17,7 +17,7 @@ function getData() {
 }
 
 function getSlides(slides) {
-  return slides.map((slide, index) => (<div className={style.customCol + ' col-xs-6'} key={index}>
+  return slides.map((slide, index) => (<div className={'col-xs-6 ' + style.customCol} key={index}>
   <Link className={style[slide.className] + ' row'} to={slide.href}>
     {slide.title}
     <SVG network="square_arrow" className={style.svg}/>

@@ -196,9 +196,3 @@
     @include sprite($sprites-Icon-Flamenco);
   }
 }
-.button3v4{
-  @extend .button3;
-  &::before{
-    @include sprite($sprites-Icon-CardioDanza);
-  }
-}

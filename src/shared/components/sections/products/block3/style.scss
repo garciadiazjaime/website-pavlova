@@ -72,16 +72,11 @@
     @include sprite($sprites-Icon-Flamenco);
   }
 }
-.cardioDanza{
-  &::before{
-    @include sprite($sprites-Icon-CardioDanza);
-  }
-}
 
 .hiphop{
   &::before{
     @include sprite($sprites-Icon-CardioDanza);
-    background-image: url('/images/clases/HipHop-Icon.png');
+    background-image: url('/images/clases/HipHop-Icon.png')!important;
     background-position: inherit;
   }
 }

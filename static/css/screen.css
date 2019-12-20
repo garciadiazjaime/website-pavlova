@@ -564,7 +564,7 @@
 .style__hideOverflow___1jYcy {
   overflow: hidden; }
 
-.style__icon-sprites___113mW, .style__button3___1egvE::before, .style__button3v1___e8Puv::before, .style__button3v2___aYpPW::before, .style__button3v3___18OJd::before, .style__button3v4___347NJ::before {
+.style__icon-sprites___113mW, .style__button3___1egvE::before, .style__button3v1___e8Puv::before, .style__button3v2___aYpPW::before, .style__button3v3___18OJd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__wrapper1___3LV9m {
@@ -618,7 +618,7 @@
 .style__hideOverflow___1jYcy {
   overflow: hidden; }
 
-.style__icon-sprites___113mW, .style__button3___1egvE::before, .style__button3v1___e8Puv::before, .style__button3v2___aYpPW::before, .style__button3v3___18OJd::before, .style__button3v4___347NJ::before {
+.style__icon-sprites___113mW, .style__button3___1egvE::before, .style__button3v1___e8Puv::before, .style__button3v2___aYpPW::before, .style__button3v3___18OJd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___1fgRn {
@@ -719,7 +719,7 @@
 .style__hideOverflow___1jYcy {
   overflow: hidden; }
 
-.style__icon-sprites___113mW, .style__button3___1egvE::before, .style__button3v1___e8Puv::before, .style__button3v2___aYpPW::before, .style__button3v3___18OJd::before, .style__button3v4___347NJ::before {
+.style__icon-sprites___113mW, .style__button3___1egvE::before, .style__button3v1___e8Puv::before, .style__button3v2___aYpPW::before, .style__button3v3___18OJd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___1_Jvs {
@@ -833,7 +833,7 @@
     .style__button2b___1gkLu svg polyline, .style__item___1hdp3 a svg polyline {
       stroke: #000; }
 
-.style__button3___1egvE, .style__button3v1___e8Puv, .style__button3v2___aYpPW, .style__button3v3___18OJd, .style__button3v4___347NJ {
+.style__button3___1egvE, .style__button3v1___e8Puv, .style__button3v2___aYpPW, .style__button3v3___18OJd {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -844,15 +844,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___1egvE:hover, .style__button3v1___e8Puv:hover, .style__button3v2___aYpPW:hover, .style__button3v3___18OJd:hover, .style__button3v4___347NJ:hover {
+  .style__button3___1egvE:hover, .style__button3v1___e8Puv:hover, .style__button3v2___aYpPW:hover, .style__button3v3___18OJd:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___1egvE:visited, .style__button3v1___e8Puv:visited, .style__button3v2___aYpPW:visited, .style__button3v3___18OJd:visited, .style__button3v4___347NJ:visited {
+  .style__button3___1egvE:visited, .style__button3v1___e8Puv:visited, .style__button3v2___aYpPW:visited, .style__button3v3___18OJd:visited {
     color: #fff; }
-  .style__button3___1egvE svg, .style__button3v1___e8Puv svg, .style__button3v2___aYpPW svg, .style__button3v3___18OJd svg, .style__button3v4___347NJ svg {
+  .style__button3___1egvE svg, .style__button3v1___e8Puv svg, .style__button3v2___aYpPW svg, .style__button3v3___18OJd svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___1egvE::before, .style__button3v1___e8Puv::before, .style__button3v2___aYpPW::before, .style__button3v3___18OJd::before, .style__button3v4___347NJ::before {
+  .style__button3___1egvE::before, .style__button3v1___e8Puv::before, .style__button3v2___aYpPW::before, .style__button3v3___18OJd::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -874,14 +874,6 @@
 
 .style__button3v3___18OJd::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___347NJ::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -931,7 +923,7 @@
 .style__hideOverflow___1jYcy {
   overflow: hidden; }
 
-.style__icon-sprites___113mW, .style__button3___1egvE::before, .style__button3v1___e8Puv::before, .style__button3v2___aYpPW::before, .style__button3v3___18OJd::before, .style__button3v4___347NJ::before {
+.style__icon-sprites___113mW, .style__button3___1egvE::before, .style__button3v1___e8Puv::before, .style__button3v2___aYpPW::before, .style__button3v3___18OJd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__item___1hdp3 {
@@ -1010,7 +1002,7 @@
 .style__hideOverflow___30PJL {
   overflow: hidden; }
 
-.style__icon-sprites___1crXd, .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before, .style__button3v4___1ekHt::before {
+.style__icon-sprites___1crXd, .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___ByilZ {
@@ -1056,7 +1048,7 @@
 .style__hideOverflow___30PJL {
   overflow: hidden; }
 
-.style__icon-sprites___1crXd, .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before, .style__button3v4___1ekHt::before {
+.style__icon-sprites___1crXd, .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__image1___4P84q {
@@ -1106,7 +1098,7 @@
 .style__hideOverflow___30PJL {
   overflow: hidden; }
 
-.style__icon-sprites___1crXd, .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before, .style__button3v4___1ekHt::before {
+.style__icon-sprites___1crXd, .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___2Ov3F, .style__paragraph1b___3CQIB {
@@ -1184,7 +1176,7 @@
 .style__hideOverflow___30PJL {
   overflow: hidden; }
 
-.style__icon-sprites___1crXd, .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before, .style__button3v4___1ekHt::before {
+.style__icon-sprites___1crXd, .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___2tbA2 {
@@ -1298,7 +1290,7 @@
     .style__button2b___UKCOY svg polyline {
       stroke: #000; }
 
-.style__button3___3KWNZ, .style__button3v1___3BT_T, .style__button3v2___1cST3, .style__button3v3___1O1XL, .style__button3v5___m7eJK, .style__button3v4___1ekHt {
+.style__button3___3KWNZ, .style__button3v1___3BT_T, .style__button3v2___1cST3, .style__button3v3___1O1XL, .style__button3v5___m7eJK {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -1309,15 +1301,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___3KWNZ:hover, .style__button3v1___3BT_T:hover, .style__button3v2___1cST3:hover, .style__button3v3___1O1XL:hover, .style__button3v5___m7eJK:hover, .style__button3v4___1ekHt:hover {
+  .style__button3___3KWNZ:hover, .style__button3v1___3BT_T:hover, .style__button3v2___1cST3:hover, .style__button3v3___1O1XL:hover, .style__button3v5___m7eJK:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___3KWNZ:visited, .style__button3v1___3BT_T:visited, .style__button3v2___1cST3:visited, .style__button3v3___1O1XL:visited, .style__button3v5___m7eJK:visited, .style__button3v4___1ekHt:visited {
+  .style__button3___3KWNZ:visited, .style__button3v1___3BT_T:visited, .style__button3v2___1cST3:visited, .style__button3v3___1O1XL:visited, .style__button3v5___m7eJK:visited {
     color: #fff; }
-  .style__button3___3KWNZ svg, .style__button3v1___3BT_T svg, .style__button3v2___1cST3 svg, .style__button3v3___1O1XL svg, .style__button3v5___m7eJK svg, .style__button3v4___1ekHt svg {
+  .style__button3___3KWNZ svg, .style__button3v1___3BT_T svg, .style__button3v2___1cST3 svg, .style__button3v3___1O1XL svg, .style__button3v5___m7eJK svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before, .style__button3v4___1ekHt::before {
+  .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -1339,14 +1331,6 @@
 
 .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___1ekHt::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -1396,7 +1380,7 @@
 .style__hideOverflow___30PJL {
   overflow: hidden; }
 
-.style__icon-sprites___1crXd, .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before, .style__button3v4___1ekHt::before {
+.style__icon-sprites___1crXd, .style__button3___3KWNZ::before, .style__button3v1___3BT_T::before, .style__button3v2___1cST3::before, .style__button3v3___1O1XL::before, .style__button3v5___m7eJK::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___3Lp7y {
@@ -1459,7 +1443,7 @@
   background-position: inherit; }
 
 @media only screen and (max-width: 767px) {
-  .style__button3v1___3BT_T, .style__button3v2___1cST3, .style__button3v3___1O1XL, .style__button3v5___m7eJK, .style__button3v4___1ekHt, .style__button3v5___m7eJK {
+  .style__button3v1___3BT_T, .style__button3v2___1cST3, .style__button3v3___1O1XL, .style__button3v5___m7eJK, .style__button3v5___m7eJK {
     padding-top: 30px;
     height: 238px; } }
 
@@ -1512,7 +1496,7 @@
 .style__hideOverflow___16pkQ {
   overflow: hidden; }
 
-.style__icon-sprites___3x6uL, .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before, .style__button3v4___2gUdl::before, .style__passeDeChat___3lcIC::before {
+.style__icon-sprites___3x6uL, .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before, .style__passeDeChat___3lcIC::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__wrapper1___11dmn {
@@ -1566,7 +1550,7 @@
 .style__hideOverflow___16pkQ {
   overflow: hidden; }
 
-.style__icon-sprites___3x6uL, .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before, .style__button3v4___2gUdl::before, .style__passeDeChat___3lcIC::before {
+.style__icon-sprites___3x6uL, .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before, .style__passeDeChat___3lcIC::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___3QBup {
@@ -1667,7 +1651,7 @@
 .style__hideOverflow___16pkQ {
   overflow: hidden; }
 
-.style__icon-sprites___3x6uL, .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before, .style__button3v4___2gUdl::before, .style__passeDeChat___3lcIC::before {
+.style__icon-sprites___3x6uL, .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before, .style__passeDeChat___3lcIC::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___M8sba {
@@ -1781,7 +1765,7 @@
     .style__button2b___1z6B8 svg polyline {
       stroke: #000; }
 
-.style__button3___wn-mV, .style__button3v1___2JRum, .style__button3v2___1HD5h, .style__button3v3___X_IwQ, .style__button3v4___2gUdl {
+.style__button3___wn-mV, .style__button3v1___2JRum, .style__button3v2___1HD5h, .style__button3v3___X_IwQ {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -1792,15 +1776,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___wn-mV:hover, .style__button3v1___2JRum:hover, .style__button3v2___1HD5h:hover, .style__button3v3___X_IwQ:hover, .style__button3v4___2gUdl:hover {
+  .style__button3___wn-mV:hover, .style__button3v1___2JRum:hover, .style__button3v2___1HD5h:hover, .style__button3v3___X_IwQ:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___wn-mV:visited, .style__button3v1___2JRum:visited, .style__button3v2___1HD5h:visited, .style__button3v3___X_IwQ:visited, .style__button3v4___2gUdl:visited {
+  .style__button3___wn-mV:visited, .style__button3v1___2JRum:visited, .style__button3v2___1HD5h:visited, .style__button3v3___X_IwQ:visited {
     color: #fff; }
-  .style__button3___wn-mV svg, .style__button3v1___2JRum svg, .style__button3v2___1HD5h svg, .style__button3v3___X_IwQ svg, .style__button3v4___2gUdl svg {
+  .style__button3___wn-mV svg, .style__button3v1___2JRum svg, .style__button3v2___1HD5h svg, .style__button3v3___X_IwQ svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before, .style__button3v4___2gUdl::before {
+  .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -1822,14 +1806,6 @@
 
 .style__button3v3___X_IwQ::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___2gUdl::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -1879,7 +1855,7 @@
 .style__hideOverflow___16pkQ {
   overflow: hidden; }
 
-.style__icon-sprites___3x6uL, .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before, .style__button3v4___2gUdl::before, .style__passeDeChat___3lcIC::before {
+.style__icon-sprites___3x6uL, .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before, .style__passeDeChat___3lcIC::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___mOtQ_, .style__paragraph1b___1l31N {
@@ -1957,7 +1933,7 @@
 .style__hideOverflow___16pkQ {
   overflow: hidden; }
 
-.style__icon-sprites___3x6uL, .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before, .style__button3v4___2gUdl::before, .style__passeDeChat___3lcIC::before {
+.style__icon-sprites___3x6uL, .style__button3___wn-mV::before, .style__button3v1___2JRum::before, .style__button3v2___1HD5h::before, .style__button3v3___X_IwQ::before, .style__passeDeChat___3lcIC::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__passeDeChat___3lcIC {
@@ -2034,7 +2010,7 @@
 .style__hideOverflow___1Q2PJ {
   overflow: hidden; }
 
-.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before, .style__button3v4___3NRPp::before {
+.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___2Xb8X {
@@ -2080,7 +2056,7 @@
 .style__hideOverflow___1Q2PJ {
   overflow: hidden; }
 
-.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before, .style__button3v4___3NRPp::before {
+.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__wrapper1___3ANK2 {
@@ -2134,7 +2110,7 @@
 .style__hideOverflow___1Q2PJ {
   overflow: hidden; }
 
-.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before, .style__button3v4___3NRPp::before {
+.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___2Dk6P {
@@ -2248,7 +2224,7 @@
     .style__button2b___3PsG1 svg polyline {
       stroke: #000; }
 
-.style__button3___1BqYh, .style__button3v1___rymdE, .style__button3v2___3AaDs, .style__button3v3___313Qy, .style__button3v4___3NRPp {
+.style__button3___1BqYh, .style__button3v1___rymdE, .style__button3v2___3AaDs, .style__button3v3___313Qy {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -2259,15 +2235,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___1BqYh:hover, .style__button3v1___rymdE:hover, .style__button3v2___3AaDs:hover, .style__button3v3___313Qy:hover, .style__button3v4___3NRPp:hover {
+  .style__button3___1BqYh:hover, .style__button3v1___rymdE:hover, .style__button3v2___3AaDs:hover, .style__button3v3___313Qy:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___1BqYh:visited, .style__button3v1___rymdE:visited, .style__button3v2___3AaDs:visited, .style__button3v3___313Qy:visited, .style__button3v4___3NRPp:visited {
+  .style__button3___1BqYh:visited, .style__button3v1___rymdE:visited, .style__button3v2___3AaDs:visited, .style__button3v3___313Qy:visited {
     color: #fff; }
-  .style__button3___1BqYh svg, .style__button3v1___rymdE svg, .style__button3v2___3AaDs svg, .style__button3v3___313Qy svg, .style__button3v4___3NRPp svg {
+  .style__button3___1BqYh svg, .style__button3v1___rymdE svg, .style__button3v2___3AaDs svg, .style__button3v3___313Qy svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before, .style__button3v4___3NRPp::before {
+  .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -2289,14 +2265,6 @@
 
 .style__button3v3___313Qy::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___3NRPp::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -2346,7 +2314,7 @@
 .style__hideOverflow___1Q2PJ {
   overflow: hidden; }
 
-.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before, .style__button3v4___3NRPp::before {
+.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___25IAx {
@@ -2447,7 +2415,7 @@
 .style__hideOverflow___1Q2PJ {
   overflow: hidden; }
 
-.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before, .style__button3v4___3NRPp::before {
+.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__image1___3Iegh, .style__image___t1t90 {
@@ -2497,7 +2465,7 @@
 .style__hideOverflow___1Q2PJ {
   overflow: hidden; }
 
-.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before, .style__button3v4___3NRPp::before {
+.style__icon-sprites___38gIr, .style__button3___1BqYh::before, .style__button3v1___rymdE::before, .style__button3v2___3AaDs::before, .style__button3v3___313Qy::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___1KYt4, .style__paragraph1b___3FINH, .style__paragraph___2ThL6 {
@@ -2836,7 +2804,7 @@
 .style__hideOverflow___3Yokh {
   overflow: hidden; }
 
-.style__icon-sprites___1i1iv, .style__button3___2KaTC::before, .style__button3v1___16SWp::before, .style__button3v2___3N8UW::before, .style__button3v3___2h7PD::before, .style__button3v4___3p_tP::before {
+.style__icon-sprites___1i1iv, .style__button3___2KaTC::before, .style__button3v1___16SWp::before, .style__button3v2___3N8UW::before, .style__button3v3___2h7PD::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___31Hcb {
@@ -2882,7 +2850,7 @@
 .style__hideOverflow___3Yokh {
   overflow: hidden; }
 
-.style__icon-sprites___1i1iv, .style__button3___2KaTC::before, .style__button3v1___16SWp::before, .style__button3v2___3N8UW::before, .style__button3v3___2h7PD::before, .style__button3v4___3p_tP::before {
+.style__icon-sprites___1i1iv, .style__button3___2KaTC::before, .style__button3v1___16SWp::before, .style__button3v2___3N8UW::before, .style__button3v3___2h7PD::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___3OFJQ {
@@ -2996,7 +2964,7 @@
     .style__button2b___H0Brp svg polyline {
       stroke: #000; }
 
-.style__button3___2KaTC, .style__button3v1___16SWp, .style__button3v2___3N8UW, .style__button3v3___2h7PD, .style__button3v4___3p_tP {
+.style__button3___2KaTC, .style__button3v1___16SWp, .style__button3v2___3N8UW, .style__button3v3___2h7PD {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -3007,15 +2975,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___2KaTC:hover, .style__button3v1___16SWp:hover, .style__button3v2___3N8UW:hover, .style__button3v3___2h7PD:hover, .style__button3v4___3p_tP:hover {
+  .style__button3___2KaTC:hover, .style__button3v1___16SWp:hover, .style__button3v2___3N8UW:hover, .style__button3v3___2h7PD:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___2KaTC:visited, .style__button3v1___16SWp:visited, .style__button3v2___3N8UW:visited, .style__button3v3___2h7PD:visited, .style__button3v4___3p_tP:visited {
+  .style__button3___2KaTC:visited, .style__button3v1___16SWp:visited, .style__button3v2___3N8UW:visited, .style__button3v3___2h7PD:visited {
     color: #fff; }
-  .style__button3___2KaTC svg, .style__button3v1___16SWp svg, .style__button3v2___3N8UW svg, .style__button3v3___2h7PD svg, .style__button3v4___3p_tP svg {
+  .style__button3___2KaTC svg, .style__button3v1___16SWp svg, .style__button3v2___3N8UW svg, .style__button3v3___2h7PD svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___2KaTC::before, .style__button3v1___16SWp::before, .style__button3v2___3N8UW::before, .style__button3v3___2h7PD::before, .style__button3v4___3p_tP::before {
+  .style__button3___2KaTC::before, .style__button3v1___16SWp::before, .style__button3v2___3N8UW::before, .style__button3v3___2h7PD::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -3037,14 +3005,6 @@
 
 .style__button3v3___2h7PD::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___3p_tP::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -3094,7 +3054,7 @@
 .style__hideOverflow___3Yokh {
   overflow: hidden; }
 
-.style__icon-sprites___1i1iv, .style__button3___2KaTC::before, .style__button3v1___16SWp::before, .style__button3v2___3N8UW::before, .style__button3v3___2h7PD::before, .style__button3v4___3p_tP::before {
+.style__icon-sprites___1i1iv, .style__button3___2KaTC::before, .style__button3v1___16SWp::before, .style__button3v2___3N8UW::before, .style__button3v3___2h7PD::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___1LlDm, .style__title___JG5hq {
@@ -3195,7 +3155,7 @@
 .style__hideOverflow___3Yokh {
   overflow: hidden; }
 
-.style__icon-sprites___1i1iv, .style__button3___2KaTC::before, .style__button3v1___16SWp::before, .style__button3v2___3N8UW::before, .style__button3v3___2h7PD::before, .style__button3v4___3p_tP::before {
+.style__icon-sprites___1i1iv, .style__button3___2KaTC::before, .style__button3v1___16SWp::before, .style__button3v2___3N8UW::before, .style__button3v3___2h7PD::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___8Df9P, .style__paragraph1b___2_mfn {
@@ -3317,7 +3277,7 @@
 .style__hideOverflow___1koJ0 {
   overflow: hidden; }
 
-.style__icon-sprites___2uiLf, .style__button3___3p2Pg::before, .style__button3v1____mMiu::before, .style__button3v2___7-kje::before, .style__button3v3___2-obj::before, .style__button3v4___ldhG5::before {
+.style__icon-sprites___2uiLf, .style__button3___3p2Pg::before, .style__button3v1____mMiu::before, .style__button3v2___7-kje::before, .style__button3v3___2-obj::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___xP6Z- {
@@ -3363,7 +3323,7 @@
 .style__hideOverflow___1koJ0 {
   overflow: hidden; }
 
-.style__icon-sprites___2uiLf, .style__button3___3p2Pg::before, .style__button3v1____mMiu::before, .style__button3v2___7-kje::before, .style__button3v3___2-obj::before, .style__button3v4___ldhG5::before {
+.style__icon-sprites___2uiLf, .style__button3___3p2Pg::before, .style__button3v1____mMiu::before, .style__button3v2___7-kje::before, .style__button3v3___2-obj::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___19HIU {
@@ -3477,7 +3437,7 @@
     .style__button2b___GtnQK svg polyline {
       stroke: #000; }
 
-.style__button3___3p2Pg, .style__button3v1____mMiu, .style__button3v2___7-kje, .style__button3v3___2-obj, .style__button3v4___ldhG5 {
+.style__button3___3p2Pg, .style__button3v1____mMiu, .style__button3v2___7-kje, .style__button3v3___2-obj {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -3488,15 +3448,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___3p2Pg:hover, .style__button3v1____mMiu:hover, .style__button3v2___7-kje:hover, .style__button3v3___2-obj:hover, .style__button3v4___ldhG5:hover {
+  .style__button3___3p2Pg:hover, .style__button3v1____mMiu:hover, .style__button3v2___7-kje:hover, .style__button3v3___2-obj:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___3p2Pg:visited, .style__button3v1____mMiu:visited, .style__button3v2___7-kje:visited, .style__button3v3___2-obj:visited, .style__button3v4___ldhG5:visited {
+  .style__button3___3p2Pg:visited, .style__button3v1____mMiu:visited, .style__button3v2___7-kje:visited, .style__button3v3___2-obj:visited {
     color: #fff; }
-  .style__button3___3p2Pg svg, .style__button3v1____mMiu svg, .style__button3v2___7-kje svg, .style__button3v3___2-obj svg, .style__button3v4___ldhG5 svg {
+  .style__button3___3p2Pg svg, .style__button3v1____mMiu svg, .style__button3v2___7-kje svg, .style__button3v3___2-obj svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___3p2Pg::before, .style__button3v1____mMiu::before, .style__button3v2___7-kje::before, .style__button3v3___2-obj::before, .style__button3v4___ldhG5::before {
+  .style__button3___3p2Pg::before, .style__button3v1____mMiu::before, .style__button3v2___7-kje::before, .style__button3v3___2-obj::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -3518,14 +3478,6 @@
 
 .style__button3v3___2-obj::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___ldhG5::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -3575,7 +3527,7 @@
 .style__hideOverflow___1koJ0 {
   overflow: hidden; }
 
-.style__icon-sprites___2uiLf, .style__button3___3p2Pg::before, .style__button3v1____mMiu::before, .style__button3v2___7-kje::before, .style__button3v3___2-obj::before, .style__button3v4___ldhG5::before {
+.style__icon-sprites___2uiLf, .style__button3___3p2Pg::before, .style__button3v1____mMiu::before, .style__button3v2___7-kje::before, .style__button3v3___2-obj::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___2c1PC {
@@ -3676,7 +3628,7 @@
 .style__hideOverflow___1koJ0 {
   overflow: hidden; }
 
-.style__icon-sprites___2uiLf, .style__button3___3p2Pg::before, .style__button3v1____mMiu::before, .style__button3v2___7-kje::before, .style__button3v3___2-obj::before, .style__button3v4___ldhG5::before {
+.style__icon-sprites___2uiLf, .style__button3___3p2Pg::before, .style__button3v1____mMiu::before, .style__button3v2___7-kje::before, .style__button3v3___2-obj::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___1m33N, .style__paragraph1b___30nAD, .style__paragraph___2dz5L {
@@ -3816,7 +3768,7 @@
 .style__hideOverflow___R7Nky {
   overflow: hidden; }
 
-.style__icon-sprites___1R2yV, .style__button3___1B5ky::before, .style__button3v1___1K2ga::before, .style__button3v2___2cSYL::before, .style__button3v3___2QAs0::before, .style__button3v4___1yJWM::before {
+.style__icon-sprites___1R2yV, .style__button3___1B5ky::before, .style__button3v1___1K2ga::before, .style__button3v2___2cSYL::before, .style__button3v3___2QAs0::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___1cV0K {
@@ -3862,7 +3814,7 @@
 .style__hideOverflow___R7Nky {
   overflow: hidden; }
 
-.style__icon-sprites___1R2yV, .style__button3___1B5ky::before, .style__button3v1___1K2ga::before, .style__button3v2___2cSYL::before, .style__button3v3___2QAs0::before, .style__button3v4___1yJWM::before {
+.style__icon-sprites___1R2yV, .style__button3___1B5ky::before, .style__button3v1___1K2ga::before, .style__button3v2___2cSYL::before, .style__button3v3___2QAs0::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___1wQDY {
@@ -3976,7 +3928,7 @@
     .style__button2b___2FwWn svg polyline {
       stroke: #000; }
 
-.style__button3___1B5ky, .style__button3v1___1K2ga, .style__button3v2___2cSYL, .style__button3v3___2QAs0, .style__button3v4___1yJWM {
+.style__button3___1B5ky, .style__button3v1___1K2ga, .style__button3v2___2cSYL, .style__button3v3___2QAs0 {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -3987,15 +3939,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___1B5ky:hover, .style__button3v1___1K2ga:hover, .style__button3v2___2cSYL:hover, .style__button3v3___2QAs0:hover, .style__button3v4___1yJWM:hover {
+  .style__button3___1B5ky:hover, .style__button3v1___1K2ga:hover, .style__button3v2___2cSYL:hover, .style__button3v3___2QAs0:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___1B5ky:visited, .style__button3v1___1K2ga:visited, .style__button3v2___2cSYL:visited, .style__button3v3___2QAs0:visited, .style__button3v4___1yJWM:visited {
+  .style__button3___1B5ky:visited, .style__button3v1___1K2ga:visited, .style__button3v2___2cSYL:visited, .style__button3v3___2QAs0:visited {
     color: #fff; }
-  .style__button3___1B5ky svg, .style__button3v1___1K2ga svg, .style__button3v2___2cSYL svg, .style__button3v3___2QAs0 svg, .style__button3v4___1yJWM svg {
+  .style__button3___1B5ky svg, .style__button3v1___1K2ga svg, .style__button3v2___2cSYL svg, .style__button3v3___2QAs0 svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___1B5ky::before, .style__button3v1___1K2ga::before, .style__button3v2___2cSYL::before, .style__button3v3___2QAs0::before, .style__button3v4___1yJWM::before {
+  .style__button3___1B5ky::before, .style__button3v1___1K2ga::before, .style__button3v2___2cSYL::before, .style__button3v3___2QAs0::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -4017,14 +3969,6 @@
 
 .style__button3v3___2QAs0::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___1yJWM::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -4074,7 +4018,7 @@
 .style__hideOverflow___R7Nky {
   overflow: hidden; }
 
-.style__icon-sprites___1R2yV, .style__button3___1B5ky::before, .style__button3v1___1K2ga::before, .style__button3v2___2cSYL::before, .style__button3v3___2QAs0::before, .style__button3v4___1yJWM::before {
+.style__icon-sprites___1R2yV, .style__button3___1B5ky::before, .style__button3v1___1K2ga::before, .style__button3v2___2cSYL::before, .style__button3v3___2QAs0::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___36WkF, .style__title___3Docb {
@@ -4175,7 +4119,7 @@
 .style__hideOverflow___R7Nky {
   overflow: hidden; }
 
-.style__icon-sprites___1R2yV, .style__button3___1B5ky::before, .style__button3v1___1K2ga::before, .style__button3v2___2cSYL::before, .style__button3v3___2QAs0::before, .style__button3v4___1yJWM::before {
+.style__icon-sprites___1R2yV, .style__button3___1B5ky::before, .style__button3v1___1K2ga::before, .style__button3v2___2cSYL::before, .style__button3v3___2QAs0::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___227GM, .style__paragraph1b___3yolC {
@@ -4276,7 +4220,7 @@
 .style__hideOverflow___3ZV71 {
   overflow: hidden; }
 
-.style__icon-sprites___8RQVq, .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before, .style__button3v4___3wMtL::before {
+.style__icon-sprites___8RQVq, .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___3P8Pp {
@@ -4322,7 +4266,7 @@
 .style__hideOverflow___3ZV71 {
   overflow: hidden; }
 
-.style__icon-sprites___8RQVq, .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before, .style__button3v4___3wMtL::before {
+.style__icon-sprites___8RQVq, .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___13jwX {
@@ -4436,7 +4380,7 @@
     .style__button2b___2FsuG svg polyline {
       stroke: #000; }
 
-.style__button3___1uWcc, .style__button3v1___2s-Yj, .style__button3v2___2VAH8, .style__button3v3___iwEeg, .style__button3v4___3wMtL {
+.style__button3___1uWcc, .style__button3v1___2s-Yj, .style__button3v2___2VAH8, .style__button3v3___iwEeg {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -4447,15 +4391,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___1uWcc:hover, .style__button3v1___2s-Yj:hover, .style__button3v2___2VAH8:hover, .style__button3v3___iwEeg:hover, .style__button3v4___3wMtL:hover {
+  .style__button3___1uWcc:hover, .style__button3v1___2s-Yj:hover, .style__button3v2___2VAH8:hover, .style__button3v3___iwEeg:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___1uWcc:visited, .style__button3v1___2s-Yj:visited, .style__button3v2___2VAH8:visited, .style__button3v3___iwEeg:visited, .style__button3v4___3wMtL:visited {
+  .style__button3___1uWcc:visited, .style__button3v1___2s-Yj:visited, .style__button3v2___2VAH8:visited, .style__button3v3___iwEeg:visited {
     color: #fff; }
-  .style__button3___1uWcc svg, .style__button3v1___2s-Yj svg, .style__button3v2___2VAH8 svg, .style__button3v3___iwEeg svg, .style__button3v4___3wMtL svg {
+  .style__button3___1uWcc svg, .style__button3v1___2s-Yj svg, .style__button3v2___2VAH8 svg, .style__button3v3___iwEeg svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before, .style__button3v4___3wMtL::before {
+  .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -4477,14 +4421,6 @@
 
 .style__button3v3___iwEeg::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___3wMtL::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -4534,7 +4470,7 @@
 .style__hideOverflow___3ZV71 {
   overflow: hidden; }
 
-.style__icon-sprites___8RQVq, .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before, .style__button3v4___3wMtL::before {
+.style__icon-sprites___8RQVq, .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___1w9oV {
@@ -4635,7 +4571,7 @@
 .style__hideOverflow___3ZV71 {
   overflow: hidden; }
 
-.style__icon-sprites___8RQVq, .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before, .style__button3v4___3wMtL::before {
+.style__icon-sprites___8RQVq, .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___3QbsS, .style__paragraph1b___2rvU9, .style__paragraph___2RMic {
@@ -4713,7 +4649,7 @@
 .style__hideOverflow___3ZV71 {
   overflow: hidden; }
 
-.style__icon-sprites___8RQVq, .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before, .style__button3v4___3wMtL::before {
+.style__icon-sprites___8RQVq, .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___13jwX {
@@ -4827,7 +4763,7 @@
     .style__button2b___2FsuG svg polyline {
       stroke: #000; }
 
-.style__button3___1uWcc, .style__button3v1___2s-Yj, .style__button3v2___2VAH8, .style__button3v3___iwEeg, .style__button3v4___3wMtL {
+.style__button3___1uWcc, .style__button3v1___2s-Yj, .style__button3v2___2VAH8, .style__button3v3___iwEeg {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -4838,15 +4774,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___1uWcc:hover, .style__button3v1___2s-Yj:hover, .style__button3v2___2VAH8:hover, .style__button3v3___iwEeg:hover, .style__button3v4___3wMtL:hover {
+  .style__button3___1uWcc:hover, .style__button3v1___2s-Yj:hover, .style__button3v2___2VAH8:hover, .style__button3v3___iwEeg:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___1uWcc:visited, .style__button3v1___2s-Yj:visited, .style__button3v2___2VAH8:visited, .style__button3v3___iwEeg:visited, .style__button3v4___3wMtL:visited {
+  .style__button3___1uWcc:visited, .style__button3v1___2s-Yj:visited, .style__button3v2___2VAH8:visited, .style__button3v3___iwEeg:visited {
     color: #fff; }
-  .style__button3___1uWcc svg, .style__button3v1___2s-Yj svg, .style__button3v2___2VAH8 svg, .style__button3v3___iwEeg svg, .style__button3v4___3wMtL svg {
+  .style__button3___1uWcc svg, .style__button3v1___2s-Yj svg, .style__button3v2___2VAH8 svg, .style__button3v3___iwEeg svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before, .style__button3v4___3wMtL::before {
+  .style__button3___1uWcc::before, .style__button3v1___2s-Yj::before, .style__button3v2___2VAH8::before, .style__button3v3___iwEeg::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -4868,14 +4804,6 @@
 
 .style__button3v3___iwEeg::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___3wMtL::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -4949,7 +4877,7 @@
 .style__hideOverflow___3fx1Y {
   overflow: hidden; }
 
-.style__icon-sprites___2Jx7f, .style__button3___qLj8v::before, .style__button3v1___14IxP::before, .style__button3v2___2unnb::before, .style__button3v3___3mgGd::before, .style__button3v4___2vTiC::before {
+.style__icon-sprites___2Jx7f, .style__button3___qLj8v::before, .style__button3v1___14IxP::before, .style__button3v2___2unnb::before, .style__button3v3___3mgGd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___2hB4- {
@@ -4995,7 +4923,7 @@
 .style__hideOverflow___3fx1Y {
   overflow: hidden; }
 
-.style__icon-sprites___2Jx7f, .style__button3___qLj8v::before, .style__button3v1___14IxP::before, .style__button3v2___2unnb::before, .style__button3v3___3mgGd::before, .style__button3v4___2vTiC::before {
+.style__icon-sprites___2Jx7f, .style__button3___qLj8v::before, .style__button3v1___14IxP::before, .style__button3v2___2unnb::before, .style__button3v3___3mgGd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___1HknP {
@@ -5109,7 +5037,7 @@
     .style__button2b___1Cuj7 svg polyline {
       stroke: #000; }
 
-.style__button3___qLj8v, .style__button3v1___14IxP, .style__button3v2___2unnb, .style__button3v3___3mgGd, .style__button3v4___2vTiC {
+.style__button3___qLj8v, .style__button3v1___14IxP, .style__button3v2___2unnb, .style__button3v3___3mgGd {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -5120,15 +5048,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___qLj8v:hover, .style__button3v1___14IxP:hover, .style__button3v2___2unnb:hover, .style__button3v3___3mgGd:hover, .style__button3v4___2vTiC:hover {
+  .style__button3___qLj8v:hover, .style__button3v1___14IxP:hover, .style__button3v2___2unnb:hover, .style__button3v3___3mgGd:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___qLj8v:visited, .style__button3v1___14IxP:visited, .style__button3v2___2unnb:visited, .style__button3v3___3mgGd:visited, .style__button3v4___2vTiC:visited {
+  .style__button3___qLj8v:visited, .style__button3v1___14IxP:visited, .style__button3v2___2unnb:visited, .style__button3v3___3mgGd:visited {
     color: #fff; }
-  .style__button3___qLj8v svg, .style__button3v1___14IxP svg, .style__button3v2___2unnb svg, .style__button3v3___3mgGd svg, .style__button3v4___2vTiC svg {
+  .style__button3___qLj8v svg, .style__button3v1___14IxP svg, .style__button3v2___2unnb svg, .style__button3v3___3mgGd svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___qLj8v::before, .style__button3v1___14IxP::before, .style__button3v2___2unnb::before, .style__button3v3___3mgGd::before, .style__button3v4___2vTiC::before {
+  .style__button3___qLj8v::before, .style__button3v1___14IxP::before, .style__button3v2___2unnb::before, .style__button3v3___3mgGd::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -5150,14 +5078,6 @@
 
 .style__button3v3___3mgGd::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___2vTiC::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -5207,7 +5127,7 @@
 .style__hideOverflow___3fx1Y {
   overflow: hidden; }
 
-.style__icon-sprites___2Jx7f, .style__button3___qLj8v::before, .style__button3v1___14IxP::before, .style__button3v2___2unnb::before, .style__button3v3___3mgGd::before, .style__button3v4___2vTiC::before {
+.style__icon-sprites___2Jx7f, .style__button3___qLj8v::before, .style__button3v1___14IxP::before, .style__button3v2___2unnb::before, .style__button3v3___3mgGd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___3OYdf, .style__titleC___2en3d, .style__titleE___1pluh {
@@ -5308,7 +5228,7 @@
 .style__hideOverflow___3fx1Y {
   overflow: hidden; }
 
-.style__icon-sprites___2Jx7f, .style__button3___qLj8v::before, .style__button3v1___14IxP::before, .style__button3v2___2unnb::before, .style__button3v3___3mgGd::before, .style__button3v4___2vTiC::before {
+.style__icon-sprites___2Jx7f, .style__button3___qLj8v::before, .style__button3v1___14IxP::before, .style__button3v2___2unnb::before, .style__button3v3___3mgGd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___3l6DT, .style__paragraph1b___3CFYb {
@@ -5929,7 +5849,7 @@
 .style__hideOverflow___35OAp {
   overflow: hidden; }
 
-.style__icon-sprites___3gAB_, .style__button3___2H38R::before, .style__button3v1___2UPHY::before, .style__button3v2___21LXu::before, .style__button3v3___3aio2::before, .style__button3v4___1E1O4::before {
+.style__icon-sprites___3gAB_, .style__button3___2H38R::before, .style__button3v1___2UPHY::before, .style__button3v2___21LXu::before, .style__button3v3___3aio2::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___1G5oi {
@@ -5975,7 +5895,7 @@
 .style__hideOverflow___35OAp {
   overflow: hidden; }
 
-.style__icon-sprites___3gAB_, .style__button3___2H38R::before, .style__button3v1___2UPHY::before, .style__button3v2___21LXu::before, .style__button3v3___3aio2::before, .style__button3v4___1E1O4::before {
+.style__icon-sprites___3gAB_, .style__button3___2H38R::before, .style__button3v1___2UPHY::before, .style__button3v2___21LXu::before, .style__button3v3___3aio2::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___2Hrv_ {
@@ -6076,7 +5996,7 @@
 .style__hideOverflow___35OAp {
   overflow: hidden; }
 
-.style__icon-sprites___3gAB_, .style__button3___2H38R::before, .style__button3v1___2UPHY::before, .style__button3v2___21LXu::before, .style__button3v3___3aio2::before, .style__button3v4___1E1O4::before {
+.style__icon-sprites___3gAB_, .style__button3___2H38R::before, .style__button3v1___2UPHY::before, .style__button3v2___21LXu::before, .style__button3v3___3aio2::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___2kJhL {
@@ -6190,7 +6110,7 @@
     .style__button2b___7okhD svg polyline {
       stroke: #000; }
 
-.style__button3___2H38R, .style__button3v1___2UPHY, .style__button3v2___21LXu, .style__button3v3___3aio2, .style__button3v4___1E1O4 {
+.style__button3___2H38R, .style__button3v1___2UPHY, .style__button3v2___21LXu, .style__button3v3___3aio2 {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -6201,15 +6121,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___2H38R:hover, .style__button3v1___2UPHY:hover, .style__button3v2___21LXu:hover, .style__button3v3___3aio2:hover, .style__button3v4___1E1O4:hover {
+  .style__button3___2H38R:hover, .style__button3v1___2UPHY:hover, .style__button3v2___21LXu:hover, .style__button3v3___3aio2:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___2H38R:visited, .style__button3v1___2UPHY:visited, .style__button3v2___21LXu:visited, .style__button3v3___3aio2:visited, .style__button3v4___1E1O4:visited {
+  .style__button3___2H38R:visited, .style__button3v1___2UPHY:visited, .style__button3v2___21LXu:visited, .style__button3v3___3aio2:visited {
     color: #fff; }
-  .style__button3___2H38R svg, .style__button3v1___2UPHY svg, .style__button3v2___21LXu svg, .style__button3v3___3aio2 svg, .style__button3v4___1E1O4 svg {
+  .style__button3___2H38R svg, .style__button3v1___2UPHY svg, .style__button3v2___21LXu svg, .style__button3v3___3aio2 svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___2H38R::before, .style__button3v1___2UPHY::before, .style__button3v2___21LXu::before, .style__button3v3___3aio2::before, .style__button3v4___1E1O4::before {
+  .style__button3___2H38R::before, .style__button3v1___2UPHY::before, .style__button3v2___21LXu::before, .style__button3v3___3aio2::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -6231,14 +6151,6 @@
 
 .style__button3v3___3aio2::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___1E1O4::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -6300,7 +6212,7 @@
 .style__hideOverflow___DrxCZ {
   overflow: hidden; }
 
-.style__icon-sprites___3tV9U, .style__button3___3VbYO::before, .style__button3v1___1AjUN::before, .style__button3v2___3ejfJ::before, .style__button3v3___B8Ol9::before, .style__button3v4___31_JU::before {
+.style__icon-sprites___3tV9U, .style__button3___3VbYO::before, .style__button3v1___1AjUN::before, .style__button3v2___3ejfJ::before, .style__button3v3___B8Ol9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___1j0pv {
@@ -6346,7 +6258,7 @@
 .style__hideOverflow___DrxCZ {
   overflow: hidden; }
 
-.style__icon-sprites___3tV9U, .style__button3___3VbYO::before, .style__button3v1___1AjUN::before, .style__button3v2___3ejfJ::before, .style__button3v3___B8Ol9::before, .style__button3v4___31_JU::before {
+.style__icon-sprites___3tV9U, .style__button3___3VbYO::before, .style__button3v1___1AjUN::before, .style__button3v2___3ejfJ::before, .style__button3v3___B8Ol9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___1FVlo {
@@ -6460,7 +6372,7 @@
     .style__button2b___9qjJ- svg polyline {
       stroke: #000; }
 
-.style__button3___3VbYO, .style__button3v1___1AjUN, .style__button3v2___3ejfJ, .style__button3v3___B8Ol9, .style__button3v4___31_JU {
+.style__button3___3VbYO, .style__button3v1___1AjUN, .style__button3v2___3ejfJ, .style__button3v3___B8Ol9 {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -6471,15 +6383,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___3VbYO:hover, .style__button3v1___1AjUN:hover, .style__button3v2___3ejfJ:hover, .style__button3v3___B8Ol9:hover, .style__button3v4___31_JU:hover {
+  .style__button3___3VbYO:hover, .style__button3v1___1AjUN:hover, .style__button3v2___3ejfJ:hover, .style__button3v3___B8Ol9:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___3VbYO:visited, .style__button3v1___1AjUN:visited, .style__button3v2___3ejfJ:visited, .style__button3v3___B8Ol9:visited, .style__button3v4___31_JU:visited {
+  .style__button3___3VbYO:visited, .style__button3v1___1AjUN:visited, .style__button3v2___3ejfJ:visited, .style__button3v3___B8Ol9:visited {
     color: #fff; }
-  .style__button3___3VbYO svg, .style__button3v1___1AjUN svg, .style__button3v2___3ejfJ svg, .style__button3v3___B8Ol9 svg, .style__button3v4___31_JU svg {
+  .style__button3___3VbYO svg, .style__button3v1___1AjUN svg, .style__button3v2___3ejfJ svg, .style__button3v3___B8Ol9 svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___3VbYO::before, .style__button3v1___1AjUN::before, .style__button3v2___3ejfJ::before, .style__button3v3___B8Ol9::before, .style__button3v4___31_JU::before {
+  .style__button3___3VbYO::before, .style__button3v1___1AjUN::before, .style__button3v2___3ejfJ::before, .style__button3v3___B8Ol9::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -6501,14 +6413,6 @@
 
 .style__button3v3___B8Ol9::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___31_JU::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -6558,7 +6462,7 @@
 .style__hideOverflow___DrxCZ {
   overflow: hidden; }
 
-.style__icon-sprites___3tV9U, .style__button3___3VbYO::before, .style__button3v1___1AjUN::before, .style__button3v2___3ejfJ::before, .style__button3v3___B8Ol9::before, .style__button3v4___31_JU::before {
+.style__icon-sprites___3tV9U, .style__button3___3VbYO::before, .style__button3v1___1AjUN::before, .style__button3v2___3ejfJ::before, .style__button3v3___B8Ol9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___1gW4S, .style__title___SyWrl {
@@ -6659,7 +6563,7 @@
 .style__hideOverflow___DrxCZ {
   overflow: hidden; }
 
-.style__icon-sprites___3tV9U, .style__button3___3VbYO::before, .style__button3v1___1AjUN::before, .style__button3v2___3ejfJ::before, .style__button3v3___B8Ol9::before, .style__button3v4___31_JU::before {
+.style__icon-sprites___3tV9U, .style__button3___3VbYO::before, .style__button3v1___1AjUN::before, .style__button3v2___3ejfJ::before, .style__button3v3___B8Ol9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___3jelK, .style__paragraph1b___2o55y {
@@ -6779,7 +6683,7 @@
 .style__hideOverflow___1PqV_ {
   overflow: hidden; }
 
-.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__button3v4___3Cz_c::before, .style__title___2mlf9::before {
+.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__title___2mlf9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___zkvoI, .style__controls___1nXQ8 svg {
@@ -6825,7 +6729,7 @@
 .style__hideOverflow___1PqV_ {
   overflow: hidden; }
 
-.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__button3v4___3Cz_c::before, .style__title___2mlf9::before {
+.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__title___2mlf9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__wrapper1___3o2Nd {
@@ -6879,7 +6783,7 @@
 .style__hideOverflow___1PqV_ {
   overflow: hidden; }
 
-.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__button3v4___3Cz_c::before, .style__title___2mlf9::before {
+.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__title___2mlf9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___10nak {
@@ -6993,7 +6897,7 @@
     .style__button2b___24y9A svg polyline {
       stroke: #000; }
 
-.style__button3___90xKI, .style__button3v1___25MJb, .style__button3v2___T-yHl, .style__button3v3___2wv4v, .style__button3v4___3Cz_c {
+.style__button3___90xKI, .style__button3v1___25MJb, .style__button3v2___T-yHl, .style__button3v3___2wv4v {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -7004,15 +6908,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___90xKI:hover, .style__button3v1___25MJb:hover, .style__button3v2___T-yHl:hover, .style__button3v3___2wv4v:hover, .style__button3v4___3Cz_c:hover {
+  .style__button3___90xKI:hover, .style__button3v1___25MJb:hover, .style__button3v2___T-yHl:hover, .style__button3v3___2wv4v:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___90xKI:visited, .style__button3v1___25MJb:visited, .style__button3v2___T-yHl:visited, .style__button3v3___2wv4v:visited, .style__button3v4___3Cz_c:visited {
+  .style__button3___90xKI:visited, .style__button3v1___25MJb:visited, .style__button3v2___T-yHl:visited, .style__button3v3___2wv4v:visited {
     color: #fff; }
-  .style__button3___90xKI svg, .style__button3v1___25MJb svg, .style__button3v2___T-yHl svg, .style__button3v3___2wv4v svg, .style__button3v4___3Cz_c svg {
+  .style__button3___90xKI svg, .style__button3v1___25MJb svg, .style__button3v2___T-yHl svg, .style__button3v3___2wv4v svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__button3v4___3Cz_c::before {
+  .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -7034,14 +6938,6 @@
 
 .style__button3v3___2wv4v::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___3Cz_c::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -7091,7 +6987,7 @@
 .style__hideOverflow___1PqV_ {
   overflow: hidden; }
 
-.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__button3v4___3Cz_c::before, .style__title___2mlf9::before {
+.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__title___2mlf9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___1ALfY {
@@ -7192,7 +7088,7 @@
 .style__hideOverflow___1PqV_ {
   overflow: hidden; }
 
-.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__button3v4___3Cz_c::before, .style__title___2mlf9::before {
+.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__title___2mlf9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__image1___1XYmO, .style__image___3La5m {
@@ -7242,7 +7138,7 @@
 .style__hideOverflow___1PqV_ {
   overflow: hidden; }
 
-.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__button3v4___3Cz_c::before, .style__title___2mlf9::before {
+.style__icon-sprites___1wvNu, .style__button3___90xKI::before, .style__button3v1___25MJb::before, .style__button3v2___T-yHl::before, .style__button3v3___2wv4v::before, .style__title___2mlf9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___GDSgG, .style__paragraph1b___1ErZp, .style__paragraph___altZf {
@@ -7338,14 +7234,6 @@
   width: 100px;
   height: 100px; }
 
-.style__cardioDanza___2LYVb::before {
-  background-position: -200px -160px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
 .style__hiphop___27t4G::before {
   background-position: -200px -160px;
   background-repeat: no-repeat;
@@ -7353,7 +7241,7 @@
   display: block;
   width: 100px;
   height: 100px;
-  background-image: url("/images/clases/HipHop-Icon.png");
+  background-image: url("/images/clases/HipHop-Icon.png") !important;
   background-position: inherit; }
 
 .style__controls___1nXQ8 {
@@ -7408,7 +7296,7 @@
 .style__hideOverflow___ps_Tr {
   overflow: hidden; }
 
-.style__icon-sprites___2f7vT, .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before, .style__button3v4___3GtKt::before {
+.style__icon-sprites___2f7vT, .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___3WsSe {
@@ -7454,7 +7342,7 @@
 .style__hideOverflow___ps_Tr {
   overflow: hidden; }
 
-.style__icon-sprites___2f7vT, .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before, .style__button3v4___3GtKt::before {
+.style__icon-sprites___2f7vT, .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__image1___1oYSl {
@@ -7504,7 +7392,7 @@
 .style__hideOverflow___ps_Tr {
   overflow: hidden; }
 
-.style__icon-sprites___2f7vT, .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before, .style__button3v4___3GtKt::before {
+.style__icon-sprites___2f7vT, .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___3JnQd, .style__paragraph1b___xv990 {
@@ -7582,7 +7470,7 @@
 .style__hideOverflow___ps_Tr {
   overflow: hidden; }
 
-.style__icon-sprites___2f7vT, .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before, .style__button3v4___3GtKt::before {
+.style__icon-sprites___2f7vT, .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___50l2S {
@@ -7696,7 +7584,7 @@
     .style__button2b___15vcQ svg polyline {
       stroke: #000; }
 
-.style__button3___1WIju, .style__button3v1___32z7Y, .style__button3v2___3m_1I, .style__button3v3___3STSg, .style__button3v4___3GtKt {
+.style__button3___1WIju, .style__button3v1___32z7Y, .style__button3v2___3m_1I, .style__button3v3___3STSg {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -7707,15 +7595,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___1WIju:hover, .style__button3v1___32z7Y:hover, .style__button3v2___3m_1I:hover, .style__button3v3___3STSg:hover, .style__button3v4___3GtKt:hover {
+  .style__button3___1WIju:hover, .style__button3v1___32z7Y:hover, .style__button3v2___3m_1I:hover, .style__button3v3___3STSg:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___1WIju:visited, .style__button3v1___32z7Y:visited, .style__button3v2___3m_1I:visited, .style__button3v3___3STSg:visited, .style__button3v4___3GtKt:visited {
+  .style__button3___1WIju:visited, .style__button3v1___32z7Y:visited, .style__button3v2___3m_1I:visited, .style__button3v3___3STSg:visited {
     color: #fff; }
-  .style__button3___1WIju svg, .style__button3v1___32z7Y svg, .style__button3v2___3m_1I svg, .style__button3v3___3STSg svg, .style__button3v4___3GtKt svg {
+  .style__button3___1WIju svg, .style__button3v1___32z7Y svg, .style__button3v2___3m_1I svg, .style__button3v3___3STSg svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before, .style__button3v4___3GtKt::before {
+  .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -7737,14 +7625,6 @@
 
 .style__button3v3___3STSg::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___3GtKt::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -7794,7 +7674,7 @@
 .style__hideOverflow___ps_Tr {
   overflow: hidden; }
 
-.style__icon-sprites___2f7vT, .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before, .style__button3v4___3GtKt::before {
+.style__icon-sprites___2f7vT, .style__button3___1WIju::before, .style__button3v1___32z7Y::before, .style__button3v2___3m_1I::before, .style__button3v3___3STSg::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___3f0o0 {
@@ -7911,7 +7791,7 @@
 .style__hideOverflow___1e_Sa {
   overflow: hidden; }
 
-.style__icon-sprites___SBb6q, .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before, .style__button3v4___2B0cK::before {
+.style__icon-sprites___SBb6q, .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___365qk {
@@ -7957,7 +7837,7 @@
 .style__hideOverflow___1e_Sa {
   overflow: hidden; }
 
-.style__icon-sprites___SBb6q, .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before, .style__button3v4___2B0cK::before {
+.style__icon-sprites___SBb6q, .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__image1___20ULB {
@@ -8007,7 +7887,7 @@
 .style__hideOverflow___1e_Sa {
   overflow: hidden; }
 
-.style__icon-sprites___SBb6q, .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before, .style__button3v4___2B0cK::before {
+.style__icon-sprites___SBb6q, .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___1Iuas, .style__paragraph1b___14XS7 {
@@ -8085,7 +7965,7 @@
 .style__hideOverflow___1e_Sa {
   overflow: hidden; }
 
-.style__icon-sprites___SBb6q, .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before, .style__button3v4___2B0cK::before {
+.style__icon-sprites___SBb6q, .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___3Jh_M {
@@ -8199,7 +8079,7 @@
     .style__button2b___2h89H svg polyline {
       stroke: #000; }
 
-.style__button3___1LtgP, .style__button3v1___1Mvm_, .style__button3v2___1N7QE, .style__button3v3___11aHd, .style__button3v4___2B0cK {
+.style__button3___1LtgP, .style__button3v1___1Mvm_, .style__button3v2___1N7QE, .style__button3v3___11aHd {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -8210,15 +8090,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___1LtgP:hover, .style__button3v1___1Mvm_:hover, .style__button3v2___1N7QE:hover, .style__button3v3___11aHd:hover, .style__button3v4___2B0cK:hover {
+  .style__button3___1LtgP:hover, .style__button3v1___1Mvm_:hover, .style__button3v2___1N7QE:hover, .style__button3v3___11aHd:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___1LtgP:visited, .style__button3v1___1Mvm_:visited, .style__button3v2___1N7QE:visited, .style__button3v3___11aHd:visited, .style__button3v4___2B0cK:visited {
+  .style__button3___1LtgP:visited, .style__button3v1___1Mvm_:visited, .style__button3v2___1N7QE:visited, .style__button3v3___11aHd:visited {
     color: #fff; }
-  .style__button3___1LtgP svg, .style__button3v1___1Mvm_ svg, .style__button3v2___1N7QE svg, .style__button3v3___11aHd svg, .style__button3v4___2B0cK svg {
+  .style__button3___1LtgP svg, .style__button3v1___1Mvm_ svg, .style__button3v2___1N7QE svg, .style__button3v3___11aHd svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before, .style__button3v4___2B0cK::before {
+  .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -8240,14 +8120,6 @@
 
 .style__button3v3___11aHd::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___2B0cK::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -8297,7 +8169,7 @@
 .style__hideOverflow___1e_Sa {
   overflow: hidden; }
 
-.style__icon-sprites___SBb6q, .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before, .style__button3v4___2B0cK::before {
+.style__icon-sprites___SBb6q, .style__button3___1LtgP::before, .style__button3v1___1Mvm_::before, .style__button3v2___1N7QE::before, .style__button3v3___11aHd::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___2DL5- {
@@ -8422,7 +8294,7 @@
 .style__hideOverflow___2GeSp {
   overflow: hidden; }
 
-.style__icon-sprites___3vhaB, .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before, .style__button3v4___3dETf::before {
+.style__icon-sprites___3vhaB, .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__fCenter___YPy8K {
@@ -8468,7 +8340,7 @@
 .style__hideOverflow___2GeSp {
   overflow: hidden; }
 
-.style__icon-sprites___3vhaB, .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before, .style__button3v4___3dETf::before {
+.style__icon-sprites___3vhaB, .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__image1___2KQtF {
@@ -8518,7 +8390,7 @@
 .style__hideOverflow___2GeSp {
   overflow: hidden; }
 
-.style__icon-sprites___3vhaB, .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before, .style__button3v4___3dETf::before {
+.style__icon-sprites___3vhaB, .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__paragraph1___21zOk, .style__paragraph1b___1kRb1, .style__paragraph___29758 {
@@ -8596,7 +8468,7 @@
 .style__hideOverflow___2GeSp {
   overflow: hidden; }
 
-.style__icon-sprites___3vhaB, .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before, .style__button3v4___3dETf::before {
+.style__icon-sprites___3vhaB, .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__sideSwipe___1IOUP {
@@ -8710,7 +8582,7 @@
     .style__button2b___1b2RV svg polyline {
       stroke: #000; }
 
-.style__button3___3HwaY, .style__button3v1___2Wuut, .style__button3v2___5XAeE, .style__button3v3___bPEC9, .style__button3v4___3dETf {
+.style__button3___3HwaY, .style__button3v1___2Wuut, .style__button3v2___5XAeE, .style__button3v3___bPEC9 {
   height: 290px;
   padding-top: 60px;
   display: block;
@@ -8721,15 +8593,15 @@
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .style__button3___3HwaY:hover, .style__button3v1___2Wuut:hover, .style__button3v2___5XAeE:hover, .style__button3v3___bPEC9:hover, .style__button3v4___3dETf:hover {
+  .style__button3___3HwaY:hover, .style__button3v1___2Wuut:hover, .style__button3v2___5XAeE:hover, .style__button3v3___bPEC9:hover {
     background: #fff;
     color: #000 !important; }
-  .style__button3___3HwaY:visited, .style__button3v1___2Wuut:visited, .style__button3v2___5XAeE:visited, .style__button3v3___bPEC9:visited, .style__button3v4___3dETf:visited {
+  .style__button3___3HwaY:visited, .style__button3v1___2Wuut:visited, .style__button3v2___5XAeE:visited, .style__button3v3___bPEC9:visited {
     color: #fff; }
-  .style__button3___3HwaY svg, .style__button3v1___2Wuut svg, .style__button3v2___5XAeE svg, .style__button3v3___bPEC9 svg, .style__button3v4___3dETf svg {
+  .style__button3___3HwaY svg, .style__button3v1___2Wuut svg, .style__button3v2___5XAeE svg, .style__button3v3___bPEC9 svg {
     display: block;
     margin: 25px auto; }
-  .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before, .style__button3v4___3dETf::before {
+  .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before {
     content: " ";
     margin: 0 auto 25px; }
 
@@ -8751,14 +8623,6 @@
 
 .style__button3v3___bPEC9::before {
   background-position: 0px -260px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: block;
-  width: 100px;
-  height: 100px; }
-
-.style__button3v4___3dETf::before {
-  background-position: -200px -160px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -8808,7 +8672,7 @@
 .style__hideOverflow___2GeSp {
   overflow: hidden; }
 
-.style__icon-sprites___3vhaB, .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before, .style__button3v4___3dETf::before {
+.style__icon-sprites___3vhaB, .style__button3___3HwaY::before, .style__button3v1___2Wuut::before, .style__button3v2___5XAeE::before, .style__button3v3___bPEC9::before {
   background-image: url("/images/sprites/sprite-sprites.png"); }
 
 .style__title1___OAVsV {

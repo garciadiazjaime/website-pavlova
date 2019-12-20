@@ -28,7 +28,7 @@ const data = {
     },
   },
   paragraphs: {
-    paragraph1: 'Hip Hop..',
+    paragraph1: 'Nuestras clases de Hip Hop infantil es una excelente actividad extraescolar que además de divertidad y dinámica, es una actividad que promueve su salud física mientras disfrutan del ritmo, desarrollan su coordinación y comunicación corporal.',
   },
   titles: { title1: 'Hip Hop' },
 };

@@ -780,7 +780,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var style = __webpack_require__(19);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var MainMenu = function (_React$Component) {
 	  _inherits(MainMenu, _React$Component);
@@ -918,7 +918,7 @@
 
 	var _reactRouter = __webpack_require__(4);
 
-	var _style = __webpack_require__(18);
+	var _style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _style2 = _interopRequireDefault(_style);
 
@@ -1041,20 +1041,8 @@
 	}
 
 /***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___eofHt","vCenter":"style__vCenter___3ydwB","vCenterRel":"style__vCenterRel___1Xcj8","hCenter":"style__hCenter___2IrLV","inheritHeight":"style__inheritHeight___XdU0Q","hideOverflow":"style__hideOverflow___1wNkm","icon-sprites":"style__icon-sprites___33LTB","paragraph1":"style__paragraph1___105nn","paragraph1b":"style__paragraph1b___2EzhZ","paragraph2":"style__paragraph2___1RbUN","paragraph3":"style__paragraph3___1Vukg","paragraph4":"style__paragraph4___2u3F_","paragraph5":"style__paragraph5___1bu0t","fbIcon":"style__fbIcon___3C8wt","facebook":"style__facebook___5cRlv","instagram":"style__instagram___3x2tm"};
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___cfX-h","vCenter":"style__vCenter___ZA14l","navbarBrand":"style__navbarBrand___2rqc0","toggleButton":"style__toggleButton___3q8M1","navbarNavAnchor":"style__navbarNavAnchor___37QYF","vCenterRel":"style__vCenterRel___1GkYt","navbarIcons":"style__navbarIcons___jZlWo","sm_icon":"style__sm_icon___3hlQn","hCenter":"style__hCenter___2Rj-i","inheritHeight":"style__inheritHeight___2LMcf","hideOverflow":"style__hideOverflow___3olA9","icon-sprites":"style__icon-sprites___1xY5y","navbarWrapper":"style__navbarWrapper___VqN0H","navbarDefault":"style__navbarDefault___aolZK","navbarHeader":"style__navbarHeader___2FrdS","iconBar":"style__iconBar___1hD4n","navbarCollapse":"style__navbarCollapse___3blFh","navbarNav":"style__navbarNav___1r3v1","facebook":"style__facebook___5X5oX","instagram":"style__instagram___32QmM"};
-
-/***/ }),
+/* 18 */,
+/* 19 */,
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1093,7 +1081,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(22);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var FooterAAA = function (_React$Component) {
 	  _inherits(FooterAAA, _React$Component);
@@ -1304,7 +1292,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var style = __webpack_require__(22);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Powered = function (_React$Component) {
 	  _inherits(Powered, _React$Component);
@@ -1370,13 +1358,7 @@
 	exports.default = Powered;
 
 /***/ }),
-/* 22 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3sp06","vCenter":"style__vCenter___2G-_B","vCenterRel":"style__vCenterRel___3pk1i","hCenter":"style__hCenter___uDimH","inheritHeight":"style__inheritHeight___1W6vZ","hideOverflow":"style__hideOverflow___1oOYw","icon-sprites":"style__icon-sprites___3Wvbf","footerWrapper":"style__footerWrapper___LwV_7","footerBrand":"style__footerBrand___1BcOo","title":"style__title___3vTD3","paragraph":"style__paragraph___v5jSt","list":"style__list___2_aVL","container":"style__container___1CyCK","facebook":"style__facebook___3bmod","instagram":"style__instagram___1QAZP","powered":"style__powered___3yTUa","wrapperBy":"style__wrapperBy___2KG7E","serviceTitle":"style__serviceTitle___3QrAo"};
-
-/***/ }),
+/* 22 */,
 /* 23 */
 /***/ (function(module, exports) {
 
@@ -1611,7 +1593,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(31);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	function getData() {
 	  return {
@@ -1907,13 +1889,7 @@
 	};
 
 /***/ }),
-/* 31 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1IAv0","vCenter":"style__vCenter___3op1c","button1":"style__button1___3teya","button2":"style__button2___3emCl","item":"style__item___1hdp3","darkBG":"style__darkBG___3_r4I","button2b":"style__button2b___1gkLu","vCenterRel":"style__vCenterRel___3rmpk","hCenter":"style__hCenter___bN1_x","inheritHeight":"style__inheritHeight___3EV0T","hideOverflow":"style__hideOverflow___1jYcy","icon-sprites":"style__icon-sprites___113mW","button3":"style__button3___1egvE","button3v1":"style__button3v1___e8Puv","button3v2":"style__button3v2___aYpPW","button3v3":"style__button3v3___18OJd","wrapper1":"style__wrapper1___3LV9m","wrapper2":"style__wrapper2___3Do_q","title1":"style__title1___1fgRn","title2":"style__title2___3VQJ-","title3":"style__title3___15G1J","title4":"style__title4___GbpGB","title5":"style__title5___21deO","title6":"style__title6___2x7FO","title7":"style__title7___1Pacu","title8":"style__title8___1BoeB","sideSwipe":"style__sideSwipe___1_Jvs","bottomSwipe":"style__bottomSwipe___2qtvt","arrow":"style__arrow___3-Hu9"};
-
-/***/ }),
+/* 31 */,
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1944,7 +1920,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(33);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	function getData() {
 	  return {
@@ -2004,13 +1980,7 @@
 	exports.default = Block2;
 
 /***/ }),
-/* 33 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","button1":"style__button1___3Mc_g","button2":"style__button2___2zikt","button2b":"style__button2b___UKCOY","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","icon-sprites":"style__icon-sprites___1crXd","button3":"style__button3___3KWNZ","button3v1":"style__button3v1___3BT_T","button3v2":"style__button3v2___1cST3","button3v3":"style__button3v3___1O1XL","button3v5":"style__button3v5___m7eJK","image1":"style__image1___4P84q","paragraph1":"style__paragraph1___2Ov3F","paragraph1b":"style__paragraph1b___3CQIB","paragraph2":"style__paragraph2___10FLO","paragraph3":"style__paragraph3___3kGpq","paragraph4":"style__paragraph4___15kjh","paragraph5":"style__paragraph5___3EMdx","sideSwipe":"style__sideSwipe___2tbA2","bottomSwipe":"style__bottomSwipe___3tj3d","title1":"style__title1___3Lp7y","title2":"style__title2___1Nebh","title3":"style__title3___2cBjs","title4":"style__title4___90ELg","title5":"style__title5___3p9GA","title6":"style__title6___1cWpF","title7":"style__title7___1hdkz","title8":"style__title8___4sMWt","customCol":"style__customCol___3nRYv"};
-
-/***/ }),
+/* 33 */,
 /* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2046,7 +2016,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(35);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
@@ -2112,13 +2082,7 @@
 	};
 
 /***/ }),
-/* 35 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1UpIU","vCenter":"style__vCenter___1YV9g","button1":"style__button1___100rH","button2":"style__button2___SbKZT","button":"style__button____i21N","button2b":"style__button2b___1z6B8","vCenterRel":"style__vCenterRel___1D8tj","hCenter":"style__hCenter___2TvfM","inheritHeight":"style__inheritHeight___3jids","hideOverflow":"style__hideOverflow___16pkQ","icon-sprites":"style__icon-sprites___3x6uL","button3":"style__button3___wn-mV","button3v1":"style__button3v1___2JRum","button3v2":"style__button3v2___1HD5h","button3v3":"style__button3v3___X_IwQ","passeDeChat":"style__passeDeChat___3lcIC","wrapper1":"style__wrapper1___11dmn","wrapper2":"style__wrapper2___btSte","title1":"style__title1___3QBup","title2":"style__title2___19ma5","title3":"style__title3___17GG-","title4":"style__title4___1kzHe","title5":"style__title5___w6HV2","title":"style__title___2uzOV","title6":"style__title6___8k-iy","title7":"style__title7___3kWyz","title8":"style__title8___3tkZ-","sideSwipe":"style__sideSwipe___M8sba","bottomSwipe":"style__bottomSwipe____fcIm","paragraph1":"style__paragraph1___mOtQ_","paragraph1b":"style__paragraph1b___1l31N","paragraph2":"style__paragraph2___34cYP","paragraph3":"style__paragraph3___pE0dO","paragraph":"style__paragraph___1CprJ","paragraph4":"style__paragraph4___2Bqj7","paragraph5":"style__paragraph5___8lnUF"};
-
-/***/ }),
+/* 35 */,
 /* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2157,7 +2121,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(37);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Block4 = function (_React$Component) {
 	  _inherits(Block4, _React$Component);
@@ -2253,13 +2217,7 @@
 	};
 
 /***/ }),
-/* 37 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___2Xb8X","vCenter":"style__vCenter___hmun0","button1":"style__button1___1hNj-","button2":"style__button2___1PxHI","button":"style__button___2WejV","button2b":"style__button2b___3PsG1","controls":"style__controls___20l_V","vCenterRel":"style__vCenterRel___2lPVo","hCenter":"style__hCenter___1JZnn","inheritHeight":"style__inheritHeight___1rILl","hideOverflow":"style__hideOverflow___1Q2PJ","icon-sprites":"style__icon-sprites___38gIr","button3":"style__button3___1BqYh","button3v1":"style__button3v1___rymdE","button3v2":"style__button3v2___3AaDs","button3v3":"style__button3v3___313Qy","wrapper1":"style__wrapper1___3ANK2","wrapper2":"style__wrapper2___2RaJ7","sideSwipe":"style__sideSwipe___2Dk6P","bottomSwipe":"style__bottomSwipe___1PfSR","title1":"style__title1___25IAx","title2":"style__title2___wfjef","title3":"style__title3___EBeus","title4":"style__title4____YoIR","title5":"style__title5___T2PV8","title6":"style__title6___G7Bi3","title":"style__title___3PYI0","title7":"style__title7___18HEf","title8":"style__title8___1HuLF","image1":"style__image1___3Iegh","image":"style__image___t1t90","paragraph1":"style__paragraph1___1KYt4","paragraph1b":"style__paragraph1b___3FINH","paragraph":"style__paragraph___2ThL6","paragraph2":"style__paragraph2___2j4Qo","paragraph3":"style__paragraph3___29XST","paragraph4":"style__paragraph4___3QuOc","paragraph5":"style__paragraph5___39V90","wrapper":"style__wrapper___17dlG","carrouselImg":"style__carrouselImg___1peuz"};
-
-/***/ }),
+/* 37 */,
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2284,7 +2242,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(39);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Block5 = function (_React$Component) {
 	  _inherits(Block5, _React$Component);
@@ -2340,13 +2298,7 @@
 	};
 
 /***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter____Xii_","vCenter":"style__vCenter___1y14f","vCenterRel":"style__vCenterRel___24jA4","hCenter":"style__hCenter___Y4AN-","inheritHeight":"style__inheritHeight___21aOY","hideOverflow":"style__hideOverflow___3055I","icon-sprites":"style__icon-sprites___1DmEO","wrapper1":"style__wrapper1___3Sf2J","wrapper2":"style__wrapper2___2cdfa","title1":"style__title1___1xJzR","title2":"style__title2___1zpqe","title3":"style__title3___2P9aT","title4":"style__title4___2H0zb","title5":"style__title5___2k4qe","title6":"style__title6___1OLsu","title":"style__title___2hWLk","title7":"style__title7___AbXjb","title8":"style__title8___YMND7","paragraph1":"style__paragraph1___3S9mq","paragraph1b":"style__paragraph1b___3C0_Q","paragraph":"style__paragraph___hyObP","paragraph2":"style__paragraph2___3o3XQ","paragraph3":"style__paragraph3___2QU4m","paragraph4":"style__paragraph4___oQEgF","paragraph5":"style__paragraph5___1-rXW","wrapper":"style__wrapper___2AmaT"};
-
-/***/ }),
+/* 39 */,
 /* 40 */
 /***/ (function(module, exports) {
 
@@ -2554,7 +2506,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(44);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	function getData() {
 	  return {
@@ -2637,13 +2589,7 @@
 	};
 
 /***/ }),
-/* 44 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___31Hcb","vCenter":"style__vCenter___1vIHp","button1":"style__button1___knh5C","button2":"style__button2___3rlK3","button2b":"style__button2b___H0Brp","vCenterRel":"style__vCenterRel___370S2","hCenter":"style__hCenter___35qeO","inheritHeight":"style__inheritHeight___1sRB4","hideOverflow":"style__hideOverflow___3Yokh","icon-sprites":"style__icon-sprites___1i1iv","button3":"style__button3___2KaTC","button3v1":"style__button3v1___16SWp","button3v2":"style__button3v2___3N8UW","button3v3":"style__button3v3___2h7PD","sideSwipe":"style__sideSwipe___3OFJQ","bottomSwipe":"style__bottomSwipe___3ltu-","title1":"style__title1___1LlDm","title":"style__title___JG5hq","title2":"style__title2___3ep2l","title3":"style__title3___1URy1","title4":"style__title4___1U9Z2","title5":"style__title5___1Vr2v","title6":"style__title6___2K-qx","title7":"style__title7___3y_yN","title8":"style__title8___1urYo","paragraph1":"style__paragraph1___8Df9P","paragraph1b":"style__paragraph1b___2_mfn","paragraph2":"style__paragraph2___KQkCk","paragraph3":"style__paragraph3___2Y3uZ","paragraph":"style__paragraph___1Wwqc","paragraph4":"style__paragraph4___2iSO1","paragraph5":"style__paragraph5___iOq2N","mainbanner":"style__mainbanner___3hjPv","transparency":"style__transparency___29XbM","svg":"style__svg___29LI3"};
-
-/***/ }),
+/* 44 */,
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2687,7 +2633,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 1000, 4] */
 
-	var style = __webpack_require__(46);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	function getData() {
 	  return {
@@ -2826,13 +2772,7 @@
 	exports.default = Block2;
 
 /***/ }),
-/* 46 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___xP6Z-","vCenter":"style__vCenter___3EDwH","button1":"style__button1___ma4vA","button2":"style__button2___1Fwzx","button":"style__button___15DCt","button2b":"style__button2b___GtnQK","vCenterRel":"style__vCenterRel___1d1I_","hCenter":"style__hCenter___3LKuT","inheritHeight":"style__inheritHeight___11OVE","hideOverflow":"style__hideOverflow___1koJ0","icon-sprites":"style__icon-sprites___2uiLf","button3":"style__button3___3p2Pg","button3v1":"style__button3v1____mMiu","button3v2":"style__button3v2___7-kje","button3v3":"style__button3v3___2-obj","sideSwipe":"style__sideSwipe___19HIU","bottomSwipe":"style__bottomSwipe___3RO2M","title1":"style__title1___2c1PC","title2":"style__title2___U0Za7","title3":"style__title3___qpZuD","title4":"style__title4___c-0OO","title5":"style__title5___XOjHY","title6":"style__title6___2E_cG","title":"style__title___3-jmd","title7":"style__title7___21JO_","title8":"style__title8___36gBQ","paragraph1":"style__paragraph1___1m33N","paragraph1b":"style__paragraph1b___30nAD","paragraph":"style__paragraph___2dz5L","paragraph2":"style__paragraph2___3OtNY","paragraph3":"style__paragraph3___3qs1J","paragraph4":"style__paragraph4___3oqJH","paragraph5":"style__paragraph5___akVWK","tagline":"style__tagline___Dl43p","mainbanner":"style__mainbanner___37cO7","svg":"style__svg___25w61","inner":"style__inner___1SA8W","indicators":"style__indicators___1lG-t"};
-
-/***/ }),
+/* 46 */,
 /* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2863,7 +2803,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(48);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -2915,13 +2855,7 @@
 	};
 
 /***/ }),
-/* 48 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1cV0K","vCenter":"style__vCenter___36W6o","button1":"style__button1___ysj8P","button2":"style__button2___3T26W","button2b":"style__button2b___2FwWn","vCenterRel":"style__vCenterRel___1YqGI","hCenter":"style__hCenter___3Rsy5","inheritHeight":"style__inheritHeight___2L2YW","hideOverflow":"style__hideOverflow___R7Nky","icon-sprites":"style__icon-sprites___1R2yV","button3":"style__button3___1B5ky","button3v1":"style__button3v1___1K2ga","button3v2":"style__button3v2___2cSYL","button3v3":"style__button3v3___2QAs0","sideSwipe":"style__sideSwipe___1wQDY","bottomSwipe":"style__bottomSwipe___3FjOI","title1":"style__title1___36WkF","title":"style__title___3Docb","title2":"style__title2___21MoW","title3":"style__title3___WdO4l","title4":"style__title4___3vPE_","title5":"style__title5___1hZAj","title6":"style__title6___3ZgkO","title7":"style__title7___3fXSj","title8":"style__title8___zKD-A","paragraph1":"style__paragraph1___227GM","paragraph1b":"style__paragraph1b___3yolC","paragraph2":"style__paragraph2___1thX2","paragraph3":"style__paragraph3___2HqvV","paragraph":"style__paragraph___3nIiw","paragraph4":"style__paragraph4___N1_Zr","paragraph5":"style__paragraph5___c7_OI","mainbanner":"style__mainbanner___2J7_D","svg":"style__svg___6prOk"};
-
-/***/ }),
+/* 48 */,
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2958,7 +2892,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(50);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Block4 = function (_React$Component) {
 	  _inherits(Block4, _React$Component);
@@ -3050,13 +2984,7 @@
 	};
 
 /***/ }),
-/* 50 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3P8Pp","vCenter":"style__vCenter___2Et1N","button1":"style__button1___1pbIc","button":"style__button___3aCDs","button2":"style__button2___1FucC","button2b":"style__button2b___2FsuG","vCenterRel":"style__vCenterRel___3DCRz","hCenter":"style__hCenter___wKyoU","inheritHeight":"style__inheritHeight___1zL8U","hideOverflow":"style__hideOverflow___3ZV71","icon-sprites":"style__icon-sprites___8RQVq","button3":"style__button3___1uWcc","button3v1":"style__button3v1___2s-Yj","button3v2":"style__button3v2___2VAH8","button3v3":"style__button3v3___iwEeg","sideSwipe":"style__sideSwipe___13jwX","bottomSwipe":"style__bottomSwipe___2_85D","title1":"style__title1___1w9oV","title2":"style__title2___2-ry2","title3":"style__title3___L0OLC","title4":"style__title4___2yc3s","title5":"style__title5___TtpHn","title6":"style__title6___eDkzQ","title":"style__title___2_j9U","title7":"style__title7___1eGbP","title8":"style__title8___3UdhB","paragraph1":"style__paragraph1___3QbsS","paragraph1b":"style__paragraph1b___2rvU9","paragraph":"style__paragraph___2RMic","paragraph2":"style__paragraph2___26NJ4","paragraph3":"style__paragraph3___3Uj57","paragraph4":"style__paragraph4___3ImpF","paragraph5":"style__paragraph5___3cZ7N","wrapper":"style__wrapper___3B2lE","indicators":"style__indicators___3yzgC"};
-
-/***/ }),
+/* 50 */,
 /* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3083,7 +3011,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(52);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	function getData() {
 	  return {
@@ -3147,13 +3075,7 @@
 	exports.default = Block3;
 
 /***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___2hB4-","vCenter":"style__vCenter___1T9ty","button1":"style__button1___9YZAe","button2":"style__button2___Uj5BF","button2b":"style__button2b___1Cuj7","vCenterRel":"style__vCenterRel___1eTtv","hCenter":"style__hCenter___3rAH4","inheritHeight":"style__inheritHeight___rxPQW","hideOverflow":"style__hideOverflow___3fx1Y","icon-sprites":"style__icon-sprites___2Jx7f","button3":"style__button3___qLj8v","button3v1":"style__button3v1___14IxP","button3v2":"style__button3v2___2unnb","button3v3":"style__button3v3___3mgGd","sideSwipe":"style__sideSwipe___1HknP","bottomSwipe":"style__bottomSwipe___KNArH","title1":"style__title1___3OYdf","titleC":"style__titleC___2en3d","titleE":"style__titleE___1pluh","title2":"style__title2___1nHD-","title3":"style__title3___1X0re","title4":"style__title4___3xPa_","title5":"style__title5___m4d_4","title6":"style__title6___N7pUo","title7":"style__title7___VqQ4U","title8":"style__title8___2zEnq","paragraph1":"style__paragraph1___3l6DT","paragraph1b":"style__paragraph1b___3CFYb","paragraph2":"style__paragraph2___3UYoL","paragraph3":"style__paragraph3___1Sue1","paragraph4":"style__paragraph4___2L4Fw","paragraph5":"style__paragraph5___2u4nQ","mainbannerC":"style__mainbannerC___3VFdk","mainbannerE":"style__mainbannerE___COBgz"};
-
-/***/ }),
+/* 52 */,
 /* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3182,7 +3104,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(58);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var data = __webpack_require__(59);
 
@@ -3596,13 +3518,7 @@
 	};
 
 /***/ }),
-/* 58 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___5Hdev","vCenter":"style__vCenter___2R7xI","item":"style__item___19454","svg":"style__svg___3EKSG","vCenterRel":"style__vCenterRel___1n4Yk","hCenter":"style__hCenter___3Hr8B","inheritHeight":"style__inheritHeight___1S0fd","hideOverflow":"style__hideOverflow___ABBe6","icon-sprites":"style__icon-sprites___3FKSV","title1":"style__title1___3gJwS","title2":"style__title2___2UYID","title3":"style__title3___AphF6","subtitle":"style__subtitle___eiDqf","title4":"style__title4___VjkpC","title5":"style__title5___1rO0v","title6":"style__title6___19b6v","title":"style__title___2v8uo","title7":"style__title7___3lYX3","title8":"style__title8___2nnP7","paragraph1":"style__paragraph1___27lCC","paragraph1b":"style__paragraph1b___kWEkR","content":"style__content___2WHKr","paragraph2":"style__paragraph2___1Cp7R","paragraph3":"style__paragraph3___1gcAp","paragraph4":"style__paragraph4___3OSxZ","paragraph5":"style__paragraph5___2ND05","wrapper":"style__wrapper___2dGti","active":"style__active___2EtVR","image":"style__image___2RETE"};
-
-/***/ }),
+/* 58 */,
 /* 59 */
 /***/ (function(module, exports) {
 
@@ -3643,23 +3559,11 @@
 	    image: 'https://www.dropbox.com/s/78ttm4iz875wtir/Img-Corina-Peraza.png?dl=0',
 	    content: ['Corina es originaria de Tijuana y desde muy pequeña empezó a bailar Flamenco. Es hija de la famosa bailarina española Teresa Jaen, miembro del dueto "Teresa y Antonio Jaen". El tener a su madre como instructora, le ha ayudado a desarrollarse cada vez más a través de los años.', 'Lleva el arte en sus venas, es por ello que Corina comparte con sus estudiantes el mismo sentimiento y pasión por el baile Flamenco. Es sabido que cualquier forma de arte se transforma en comunicación, entonces, qué mejor manera de transmitirlo tan intensamente a sus estudiantes que a través del amor y pasión del baile Flamenco.']
 	  }, {
-	    title: 'MAYRA JIMÉNEZ',
-	    subtitle: 'MAYRA JIMÉNEZ',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/1ubs0mhib2ca80a/Img_Mayra-Jimenez.png?dl=0',
-	    content: ['Nacio el 4 de Junio del 1988. Mayra desde sus 4 años de edad comenzó a experimentar tomando clases de Jazz, y 2 años después comenzó tomando clases de ballet. Hasta la fecha sigue practicando la danza, habiendo tomado aparte de Ballet y Jazz,  clases de Contemporáneo con Miroslava Wilson y  Hip-Hop con el maestro Omar Silva dentro de la Escuela " Ballet Cámara de la Frontera" del Maestro Rafael Oseguera, habiéndose graduado como Bailarina Clásica y Contemporánea.', 'Tiene 9 años de experiencia como Maestra impartiendo clases de Jazz, Ballet, y Lirico. Habiendo concluido con cursos de Metodología para la Danza y pedagogía.', 'Asistiendo al 5to y 6to Congreso Nacional de Danza Jazz en Morelia Michoacán con maestros como: Guillermo Maldonado (barra al piso y pedagogía), Guillermina Gómez y John Lehrer (Jazz), Joshua Bergasse de Nueva York (jazz), Elvin Venegas de Nicaragua (técnica clásica – Ballet), Jermaine Browne de nueva York (hip-hop), Alexis Zanette de Cuba (danza moderna), entre otros. También a tomando el Curso Internacional de Danza Clásica "DANCE IT 2007 y 2008" con la primera Bailarina Irma Morales y Frank Fischer.', 'Posteriormente obteniendo una beca para formar parte de un grupo de baile de la escuela "Culture Shock Dance Center" en San Diego. Asistio Entre el 2014 y 2015 a un curso de Jazz  y "Hells" con Yanis Marshall (bailarin y maestro Internacional) y una Materclass de ballet con la maestra Elena Tokareva Baltovick; entre otros cursos locales.', 'Ha participado en varias obras musicales Infantiles como son "Cri-cri y la danza", "El mago de Oz", "Peter Pan", "Alicia en el país de las maravillas", como también en "La fille Mal Garde", "Graduados", "Cascanueces" y "Carmen" presentadas en el Teatro del Cecut.', 'Su objetivo es transmitir de la manera más correcta todo lo que ha aprendido de la danza, todo lo bueno que le ha dejado e inculcar en el alumnado una disciplina y amor a la danza, a la cultura, al arte, haciéndolas sentir que es una de las mejores maneras para expresar todo aquello que nuestro cuerpo siente.']
-	  }, {
 	    title: 'ELEANA FRANCO',
 	    subtitle: 'ELEANA FRANCO',
 	    intro: '',
 	    image: 'https://www.dropbox.com/s/7xofldjk7cnl2ds/Eleana-Franco.png?dl=0',
 	    content: ['Bailarina, coreógrafa y maestra de danza nacida en Estados Unidos. Inicio sus estudios a la edad de 2 anos en el “Colegio de Danza Sylvia” donde aprendió ballet, tap, flamenco, jazz y hip hop. Varios años después se convirtió en asistente y próximamente en maestra.', 'Participo en varias importantes obras como es “el cascanueces” junto con la compañía “Moscow ballet” en el Civic Theatre en San Diego y también junto con la “Compañía de danza de Baja California” con Raul Tadeo. También fue participe de la obra infantil “pedro y el lobo” que fue presentada en el CECUT bajo la dirección de Norma Herrera. Continuo con sus estudios en Estados Unidos en la escuela “Coronado School of the Arts” donde estudio varios cursos de historia de la danza, nutrición, improvisación, critica de la danza, coreografía entre muchos otros.', 'Actualmente se encuentra aplicando estos conocimientos como maestra y busca seguir creciendo para compartir este conocimiento con sus alumnos.']
-	  }, {
-	    title: 'ADRIANA CORAL',
-	    subtitle: 'ADRIANA CORAL',
-	    intro: '',
-	    image: 'https://www.dropbox.com/s/q4kedajs4rgdqe1/Adriana-Coral.png?dl=0',
-	    content: ['Bailarina y maestra que se desarrolla profesionalmente  en el norte de México; miembro fundador de Subterráneo Danza Contemporánea desde hace 17 años, donde su misión es exponer su trabajo como intérprete y colaborador creativo en la realización de espectáculos escénicos. Mantiene una constante búsqueda del lenguaje propio a través de la investigación en diferentes técnicas dancísticas  así como la divulgación de sus conocimientos a través de la docencia, asimismo, busca mantener vínculos estrechos con otros artistas escénicos del país para fortalecer su quehacer  dancístico y contribuir a la difusión del arte.']
 	  }, {
 	    title: 'VICKY SAENZ',
 	    subtitle: 'VICKY SAENZ',
@@ -3708,6 +3612,12 @@
 	    intro: '',
 	    image: '/images/escuela/staff/Andrea-Pavlova.png',
 	    content: ['Inició su formación de danza a los 4 años de edad en “escuela de danza pavlova” donde aprendió ballet, jazz, flamenco y lírico. A los 7 años tomó  clases de gimnasia durante dos años. A sus 17 años entró a una compañía de danza latina y al transcurso ha ido tomando clases de ritmos latinos.', 'Empezó siendo asistente de ballet  en escuela de danza pavlova y años después empezó a dar clase de ballet en un academia de artes y un colegio. Ha trabajado de bailarina en conciertos con cantantes locales y de bailarina en un grupo de música versátil como punto clave, maz tekila, la clase y Revelación. Participó en diversos cursos tales como el curso de flamenco con Maria Juncal, curso de flamenco con Cristóbal Reyes, curso de flamenco María Carrasco, curso expression dance, curso salsa fest, entre otros.']
+	  }, {
+	    title: 'Giselle Mafud',
+	    subtitle: 'Giselle Mafud',
+	    intro: '',
+	    image: '/images/escuela/staff/Giselle-Pavlova.png',
+	    content: ['Originaria de la ciudad de Tijuana Baja California, 26 años.', 'Entrenamiento profesional en San Diego Ballet, Colegio de Danza Sylvia, Edge Performing Arts Center, Black Studio, etc.', 'Entrenamiento en: ballet, tap, jazz, flamenco, hip-hop,  jazz funk, contemporáneo y heels. Dentro de sus trabajos profesionales: Catarsis Tour con Belinda, Comerciales en televisión, promoción de CD en TV, Videos Musicales, World of Dance, Hip Hop International, entre otros. Conocimiento en el ámbito con alrededor de 10 años como crítico en danza, coreógrafa y bailarina.']
 	  }]
 	};
 
@@ -3748,7 +3658,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(61);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Block7 = function (_React$Component) {
 	  _inherits(Block7, _React$Component);
@@ -3823,13 +3733,7 @@
 	};
 
 /***/ }),
-/* 61 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1YJUo","vCenter":"style__vCenter___1XSDF","vCenterRel":"style__vCenterRel___1J02z","hCenter":"style__hCenter___2Tdv3","inheritHeight":"style__inheritHeight___fdY-6","hideOverflow":"style__hideOverflow___GHITu","icon-sprites":"style__icon-sprites___1TCxk","title1":"style__title1___3raEq","title2":"style__title2___xWuEp","title3":"style__title3___2JND3","title4":"style__title4___3VrXj","title5":"style__title5___14ULg","title6":"style__title6___3Jlc3","title":"style__title___2FxDg","title7":"style__title7___1VsjO","title8":"style__title8___1VtVb","paragraph1":"style__paragraph1___CrxJb","paragraph1b":"style__paragraph1b___f3SZQ","paragraph":"style__paragraph___2hS_M","paragraph2":"style__paragraph2___2Dt1n","author":"style__author___fROZn","paragraph3":"style__paragraph3___NvRs3","paragraph4":"style__paragraph4___1DBvl","paragraph5":"style__paragraph5___3BI-s","arrow":"style__arrow___2yiv-"};
-
-/***/ }),
+/* 61 */,
 /* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3864,7 +3768,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(63);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Block8 = function (_React$Component) {
 	  _inherits(Block8, _React$Component);
@@ -3938,13 +3842,7 @@
 	};
 
 /***/ }),
-/* 63 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1G5oi","vCenter":"style__vCenter___3eMr-","button1":"style__button1___3rP8P","button":"style__button___138RC","button2":"style__button2___A09os","button2b":"style__button2b___7okhD","vCenterRel":"style__vCenterRel___2FPbE","hCenter":"style__hCenter___273Vb","inheritHeight":"style__inheritHeight___2w5-4","hideOverflow":"style__hideOverflow___35OAp","icon-sprites":"style__icon-sprites___3gAB_","button3":"style__button3___2H38R","button3v1":"style__button3v1___2UPHY","button3v2":"style__button3v2___21LXu","button3v3":"style__button3v3___3aio2","title1":"style__title1___2Hrv_","title2":"style__title2___14zdY","title3":"style__title3___wJv6I","title4":"style__title4___bi5rE","title5":"style__title5___1Jrqb","title6":"style__title6___3IfL7","title7":"style__title7___vVSgO","title8":"style__title8___23FzZ","title":"style__title___2GTcd","sideSwipe":"style__sideSwipe___2kJhL","bottomSwipe":"style__bottomSwipe___Iacpj","wrapper":"style__wrapper___3pHW-"};
-
-/***/ }),
+/* 63 */,
 /* 64 */
 /***/ (function(module, exports) {
 
@@ -4259,7 +4157,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(67);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	function getData() {
 	  return {
@@ -4325,13 +4223,7 @@
 	exports.default = Block1;
 
 /***/ }),
-/* 67 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1j0pv","vCenter":"style__vCenter___2KQFQ","button1":"style__button1___3ZmPV","button2":"style__button2___2shnn","button2b":"style__button2b___9qjJ-","vCenterRel":"style__vCenterRel___34eYy","hCenter":"style__hCenter___1Lkdf","inheritHeight":"style__inheritHeight___1q40G","hideOverflow":"style__hideOverflow___DrxCZ","icon-sprites":"style__icon-sprites___3tV9U","button3":"style__button3___3VbYO","button3v1":"style__button3v1___1AjUN","button3v2":"style__button3v2___3ejfJ","button3v3":"style__button3v3___B8Ol9","sideSwipe":"style__sideSwipe___1FVlo","bottomSwipe":"style__bottomSwipe___2c0uL","title1":"style__title1___1gW4S","title":"style__title___SyWrl","title2":"style__title2___2Tj1e","title3":"style__title3___1HOPW","title4":"style__title4___3J4Je","title5":"style__title5___2Nimp","title6":"style__title6___1J_L3","title7":"style__title7___2tzA4","title8":"style__title8___2p7DZ","paragraph1":"style__paragraph1___3jelK","paragraph1b":"style__paragraph1b___2o55y","paragraph2":"style__paragraph2___3QqbA","paragraph3":"style__paragraph3___2muKz","paragraph":"style__paragraph___2nuu4","paragraph4":"style__paragraph4___1geTk","paragraph5":"style__paragraph5___30-m9","mainbanner":"style__mainbanner___17dAE","transparency":"style__transparency___2Q8dd","svg":"style__svg___1UaPh"};
-
-/***/ }),
+/* 67 */,
 /* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4376,7 +4268,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(69);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Block3 = function (_React$Component) {
 	  _inherits(Block3, _React$Component);
@@ -4516,13 +4408,7 @@
 	};
 
 /***/ }),
-/* 69 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___zkvoI","controls":"style__controls___1nXQ8","vCenter":"style__vCenter___1amrF","button1":"style__button1___1wRom","button2":"style__button2___2IfG_","button":"style__button___f4bc2","button2b":"style__button2b___24y9A","vCenterRel":"style__vCenterRel___dRIh_","hCenter":"style__hCenter___3ATdP","inheritHeight":"style__inheritHeight___35WI7","hideOverflow":"style__hideOverflow___1PqV_","icon-sprites":"style__icon-sprites___1wvNu","button3":"style__button3___90xKI","button3v1":"style__button3v1___25MJb","button3v2":"style__button3v2___T-yHl","button3v3":"style__button3v3___2wv4v","title":"style__title___2mlf9","wrapper1":"style__wrapper1___3o2Nd","wrapper2":"style__wrapper2___25OyJ","sideSwipe":"style__sideSwipe___10nak","bottomSwipe":"style__bottomSwipe___3ZhaF","title1":"style__title1___1ALfY","title2":"style__title2___1rAMk","title3":"style__title3___3_np7","title4":"style__title4___2PoEp","title5":"style__title5___3oOGE","title6":"style__title6___3AN-Q","title7":"style__title7___JQtWA","title8":"style__title8___1nNSa","image1":"style__image1___1XYmO","image":"style__image___3La5m","paragraph1":"style__paragraph1___GDSgG","paragraph1b":"style__paragraph1b___1ErZp","paragraph":"style__paragraph___altZf","paragraph2":"style__paragraph2___YHIz0","paragraph3":"style__paragraph3___3TUGd","paragraph4":"style__paragraph4___36NX-","paragraphB":"style__paragraphB___3TQhf","paragraph5":"style__paragraph5___1IKiM","wrapper_":"style__wrapper____1tcC1","wrapper_2":"style__wrapper_2___16tcC","sm":"style__sm___OLDFM","ballet":"style__ballet___2ecR7","jazz":"style__jazz___24bYU","flamenco":"style__flamenco___2coaY","hiphop":"style__hiphop___27t4G"};
-
-/***/ }),
+/* 69 */,
 /* 70 */
 /***/ (function(module, exports) {
 
@@ -5096,7 +4982,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(77);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -5128,13 +5014,7 @@
 	};
 
 /***/ }),
-/* 77 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___3WsSe","vCenter":"style__vCenter___3G_X_","button1":"style__button1___1iQls","button":"style__button___6iE0P","button2":"style__button2___2nT5Y","button2b":"style__button2b___15vcQ","vCenterRel":"style__vCenterRel___2rlOE","hCenter":"style__hCenter___3ARcP","inheritHeight":"style__inheritHeight___1YsqB","hideOverflow":"style__hideOverflow___ps_Tr","icon-sprites":"style__icon-sprites___2f7vT","button3":"style__button3___1WIju","button3v1":"style__button3v1___32z7Y","button3v2":"style__button3v2___3m_1I","button3v3":"style__button3v3___3STSg","image1":"style__image1___1oYSl","paragraph1":"style__paragraph1___3JnQd","paragraph1b":"style__paragraph1b___xv990","paragraph2":"style__paragraph2___3M3qm","paragraph3":"style__paragraph3___6lKhK","paragraph4":"style__paragraph4___1Z42s","paragraph5":"style__paragraph5___1v105","sideSwipe":"style__sideSwipe___50l2S","bottomSwipe":"style__bottomSwipe___-6WwV","title1":"style__title1___3f0o0","title2":"style__title2___XQgLg","title3":"style__title3___2f5QU","title4":"style__title4___BpZsL","title5":"style__title5___hKWjC","title6":"style__title6___2GSXY","title7":"style__title7___3_kU1","title8":"style__title8___2cLGW","mainbanner":"style__mainbanner___1YlSK","image":"style__image___mSywh"};
-
-/***/ }),
+/* 77 */,
 /* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5169,7 +5049,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(85);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -5305,7 +5185,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 600, 4] */
 
-	var style = __webpack_require__(84);
+	var style = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Form1 = function (_React$Component) {
 	  _inherits(Form1, _React$Component);
@@ -5615,20 +5495,8 @@
 	module.exports = require("rest/interceptor/errorCode");
 
 /***/ }),
-/* 84 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___365qk","vCenter":"style__vCenter___9LFiT","button1":"style__button1___QW0Tv","submit":"style__submit___2YBRa","button2":"style__button2___3fzL1","button2b":"style__button2b___2h89H","vCenterRel":"style__vCenterRel___27ebh","hCenter":"style__hCenter___3MSN5","inheritHeight":"style__inheritHeight___20X8j","hideOverflow":"style__hideOverflow___1e_Sa","icon-sprites":"style__icon-sprites___SBb6q","button3":"style__button3___1LtgP","button3v1":"style__button3v1___1Mvm_","button3v2":"style__button3v2___1N7QE","button3v3":"style__button3v3___11aHd","image1":"style__image1___20ULB","paragraph1":"style__paragraph1___1Iuas","paragraph1b":"style__paragraph1b___14XS7","paragraph2":"style__paragraph2___XLNUn","paragraph3":"style__paragraph3___cQhzG","paragraph4":"style__paragraph4___3o8-x","paragraph5":"style__paragraph5___-5J8a","sideSwipe":"style__sideSwipe___3Jh_M","bottomSwipe":"style__bottomSwipe___2N3qh","title1":"style__title1___2DL5-","title2":"style__title2___3etcM","title3":"style__title3___8tZ0C","title4":"style__title4___33kmt","title5":"style__title5___2k_sU","title6":"style__title6___1dv-o","title7":"style__title7___OUaen","title8":"style__title8___1LvKh","form":"style__form___1nnSk","formGroup":"style__formGroup___1VfYe"};
-
-/***/ }),
-/* 85 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___YPy8K","vCenter":"style__vCenter___32xVO","button1":"style__button1___1cwjy","button2":"style__button2___hQ_-V","button2b":"style__button2b___1b2RV","vCenterRel":"style__vCenterRel___29zgs","hCenter":"style__hCenter___2lorl","inheritHeight":"style__inheritHeight___VvRBI","hideOverflow":"style__hideOverflow___2GeSp","icon-sprites":"style__icon-sprites___3vhaB","button3":"style__button3___3HwaY","button3v1":"style__button3v1___2Wuut","button3v2":"style__button3v2___5XAeE","button3v3":"style__button3v3___bPEC9","image1":"style__image1___2KQtF","paragraph1":"style__paragraph1___21zOk","paragraph1b":"style__paragraph1b___1kRb1","paragraph":"style__paragraph___29758","paragraph2":"style__paragraph2___1ISwm","paragraph_2":"style__paragraph_2___217YF","paragraph3":"style__paragraph3___34fOz","paragraph4":"style__paragraph4___1tgYT","paragraph5":"style__paragraph5___BDRxV","sideSwipe":"style__sideSwipe___1IOUP","bottomSwipe":"style__bottomSwipe___1Id40","title1":"style__title1___OAVsV","title2":"style__title2___3iVlU","title3":"style__title3___173Gl","title4":"style__title4___JohwZ","title5":"style__title5___3Apbg","title6":"style__title6___8Y1Ek","title":"style__title___31zi9","title_2":"style__title_2___3IHOj","title7":"style__title7___5Kp7I","title8":"style__title8___3uCuH","wrapper":"style__wrapper___2GZMu","sm":"style__sm___1spdw","svg":"style__svg___38pi8"};
-
-/***/ }),
+/* 84 */,
+/* 85 */,
 /* 86 */
 /***/ (function(module, exports) {
 

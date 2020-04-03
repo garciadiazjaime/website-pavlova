@@ -81,19 +81,6 @@ module.exports = {
       'Lleva el arte en sus venas, es por ello que Corina comparte con sus estudiantes el mismo sentimiento y pasión por el baile Flamenco. Es sabido que cualquier forma de arte se transforma en comunicación, entonces, qué mejor manera de transmitirlo tan intensamente a sus estudiantes que a través del amor y pasión del baile Flamenco.',
     ],
   }, {
-    title: 'MAYRA JIMÉNEZ',
-    subtitle: 'MAYRA JIMÉNEZ',
-    intro: '',
-    image: 'https://www.dropbox.com/s/1ubs0mhib2ca80a/Img_Mayra-Jimenez.png?dl=0',
-    content: [
-      'Nacio el 4 de Junio del 1988. Mayra desde sus 4 años de edad comenzó a experimentar tomando clases de Jazz, y 2 años después comenzó tomando clases de ballet. Hasta la fecha sigue practicando la danza, habiendo tomado aparte de Ballet y Jazz,  clases de Contemporáneo con Miroslava Wilson y  Hip-Hop con el maestro Omar Silva dentro de la Escuela " Ballet Cámara de la Frontera" del Maestro Rafael Oseguera, habiéndose graduado como Bailarina Clásica y Contemporánea.',
-      'Tiene 9 años de experiencia como Maestra impartiendo clases de Jazz, Ballet, y Lirico. Habiendo concluido con cursos de Metodología para la Danza y pedagogía.',
-      'Asistiendo al 5to y 6to Congreso Nacional de Danza Jazz en Morelia Michoacán con maestros como: Guillermo Maldonado (barra al piso y pedagogía), Guillermina Gómez y John Lehrer (Jazz), Joshua Bergasse de Nueva York (jazz), Elvin Venegas de Nicaragua (técnica clásica – Ballet), Jermaine Browne de nueva York (hip-hop), Alexis Zanette de Cuba (danza moderna), entre otros. También a tomando el Curso Internacional de Danza Clásica "DANCE IT 2007 y 2008" con la primera Bailarina Irma Morales y Frank Fischer.',
-      'Posteriormente obteniendo una beca para formar parte de un grupo de baile de la escuela "Culture Shock Dance Center" en San Diego. Asistio Entre el 2014 y 2015 a un curso de Jazz  y "Hells" con Yanis Marshall (bailarin y maestro Internacional) y una Materclass de ballet con la maestra Elena Tokareva Baltovick; entre otros cursos locales.',
-      'Ha participado en varias obras musicales Infantiles como son "Cri-cri y la danza", "El mago de Oz", "Peter Pan", "Alicia en el país de las maravillas", como también en "La fille Mal Garde", "Graduados", "Cascanueces" y "Carmen" presentadas en el Teatro del Cecut.',
-      'Su objetivo es transmitir de la manera más correcta todo lo que ha aprendido de la danza, todo lo bueno que le ha dejado e inculcar en el alumnado una disciplina y amor a la danza, a la cultura, al arte, haciéndolas sentir que es una de las mejores maneras para expresar todo aquello que nuestro cuerpo siente.',
-    ],
-  }, {
     title: 'ELEANA FRANCO',
     subtitle: 'ELEANA FRANCO',
     intro: '',
@@ -104,19 +91,13 @@ module.exports = {
       'Actualmente se encuentra aplicando estos conocimientos como maestra y busca seguir creciendo para compartir este conocimiento con sus alumnos.',
     ],
   }, {
-    title: 'ADRIANA CORAL',
-    subtitle: 'ADRIANA CORAL',
-    intro: '',
-    image: 'https://www.dropbox.com/s/q4kedajs4rgdqe1/Adriana-Coral.png?dl=0',
-    content: [
-      'Bailarina y maestra que se desarrolla profesionalmente  en el norte de México; miembro fundador de Subterráneo Danza Contemporánea desde hace 17 años, donde su misión es exponer su trabajo como intérprete y colaborador creativo en la realización de espectáculos escénicos. Mantiene una constante búsqueda del lenguaje propio a través de la investigación en diferentes técnicas dancísticas  así como la divulgación de sus conocimientos a través de la docencia, asimismo, busca mantener vínculos estrechos con otros artistas escénicos del país para fortalecer su quehacer  dancístico y contribuir a la difusión del arte.',
-    ],
-  }, {
     title: 'VICKY SAENZ',
     subtitle: 'VICKY SAENZ',
     intro: '',
     image: 'https://www.dropbox.com/s/7ngb2v9j29d1xd2/Vicky-Saenz.png?dl=0',
-    content: [],
+    content: [
+      'Auxiliar administrativo en Pavlova Hipódromo Escuela de Danza.',
+    ],
   }, {
     title: 'ARIELI ZABICKY',
     subtitle: 'Arieli Zabicky',
@@ -250,6 +231,24 @@ module.exports = {
     content: [
       'Inició su formación de danza a los 4 años de edad en “escuela de danza pavlova” donde aprendió ballet, jazz, flamenco y lírico. A los 7 años tomó  clases de gimnasia durante dos años. A sus 17 años entró a una compañía de danza latina y al transcurso ha ido tomando clases de ritmos latinos.',
       'Empezó siendo asistente de ballet  en escuela de danza pavlova y años después empezó a dar clase de ballet en un academia de artes y un colegio. Ha trabajado de bailarina en conciertos con cantantes locales y de bailarina en un grupo de música versátil como punto clave, maz tekila, la clase y Revelación. Participó en diversos cursos tales como el curso de flamenco con Maria Juncal, curso de flamenco con Cristóbal Reyes, curso de flamenco María Carrasco, curso expression dance, curso salsa fest, entre otros.',
+    ],
+  }, {
+    title: 'Giselle Mafud',
+    subtitle: 'Giselle Mafud',
+    intro: '',
+    image: '/images/escuela/staff/Giselle-Pavlova.png',
+    content: [
+      'Originaria de la ciudad de Tijuana Baja California, 26 años.',
+      'Entrenamiento profesional en San Diego Ballet, Colegio de Danza Sylvia, Edge Performing Arts Center, Black Studio, etc.',
+      'Entrenamiento en: ballet, tap, jazz, flamenco, hip-hop,  jazz funk, contemporáneo y heels. Dentro de sus trabajos profesionales: Catarsis Tour con Belinda, Comerciales en televisión, promoción de CD en TV, Videos Musicales, World of Dance, Hip Hop International, entre otros. Conocimiento en el ámbito con alrededor de 10 años como crítico en danza, coreógrafa y bailarina.',
+    ],
+  }, {
+    title: 'Dianne Espinoza',
+    subtitle: 'Dianne Espinoza',
+    intro: '',
+    image: '/images/escuela/staff/Dianne-Pavlova-Web.png',
+    content: [
+      'Auxiliar administrativo en Pavlova Hipódromo Escuela de Danza.',
     ],
   },
   ],

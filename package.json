@@ -80,7 +80,7 @@
     "gulp-replace": "^0.5.4",
     "gulp-uglify": "^1.5.3",
     "install": "^0.6.1",
-    "node-sass": "^3.4.2",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.8.1",
     "npm": "^3.8.3",
     "prettydiff": "^1.16.37",
